@@ -1,0 +1,54 @@
+// These are at the end to stop the overuse of !important
+%u-pull-left,
+.u-pull-left {
+  float: left;
+}
+
+%u-pull-right,
+.u-pull-right {
+  float: right;
+}
+
+.u-flush {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.u-hard {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.u-no-line-height {
+  line-height: 1;
+}
+
+%u-margin-bottom,
+.u-margin-bottom {
+  margin-bottom: 1rem;
+}
+
+%u-margin-bottom-lg,
+.u-margin-bottom-lg {
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: breakpoint(md)) {
+    margin-bottom: 2rem;
+  }
+}
+
+%u-margin-bottom-sm,
+.u-margin-bottom-sm {
+  margin-bottom: 0.5rem;
+}
+
+%u-no-margin-bottom,
+.u-no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.u-img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+}

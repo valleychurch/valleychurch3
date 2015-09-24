@@ -1,0 +1,39 @@
+/*!
+  Theme Name: Valley Church
+  Theme URI: http://valleychurch.eu
+  Version: 3.0.0a
+  Author: Valley Church Comms Team
+  Author URI: http://valleychurch.eu
+*/
+
+//Tools
+@import 'tools/bootstrap-grid';
+@import 'tools/bootstrap-grid-framework';
+@import 'tools/functions';
+@import 'tools/mixins';
+
+//Settings
+@import 'settings/vars';
+
+//Generic
+@import 'generic/normalize';
+@import 'generic/layout';
+
+//Base
+@import 'base/shared';
+@import 'base/forms';
+@import 'base/typography';
+
+//Objects
+@import 'objects/buttons';
+@import 'objects/flag';
+@import 'objects/grid';
+
+//Components
+@import 'components/header';
+
+//Trumps
+//@import 'trumps/helpers';
+//@import 'trumps/ie';
+@import 'trumps/typography';
+@import 'trumps/utilities';

@@ -1,0 +1,15 @@
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1rem;
+  font-weight: 700;
+  font-family: $font-stack-alt;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}

@@ -41,3 +41,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Grunt / NPM specific
+node_modules/
+.sass-cache/

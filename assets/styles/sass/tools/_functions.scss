@@ -1,0 +1,45 @@
+//Get font size
+@function font-size($key) {
+  @if map-has-key($font-sizes, $key) {
+    @return map-get($font-sizes, $key);
+  }
+  @warn "Unknown font-size '#{$key}'";
+  @return null;
+}
+
+//Get breakpoint
+@function breakpoint($key) {
+  @return map-get($breakpoints, $key);
+}
+
+//Square number
+@function power($x, $n) {
+  $ret: 1;
+
+  @if $n >= 0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  } @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+
+  @return $ret;
+}
+
+//Make a number unitless
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+//Add percentage of white to a color
+@function tint($color, $percent){
+  @return mix(white, $color, $percent);
+}
+
+//Add percentage of black to a color
+@function shade($color, $percent){
+  @return mix(black, $color, $percent);
+}

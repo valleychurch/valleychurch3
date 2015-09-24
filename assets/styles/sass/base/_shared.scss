@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin-bottom: $base-size;
+}
+
+ul, ol,
+dd {
+  margin-left: $base-size * 1.25;
+  padding-left: 0;
+
+  & & {
+    margin-bottom: 0;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
