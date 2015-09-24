@@ -40,7 +40,7 @@ module.exports = function(grunt) {
       },
       development: {
         files: {
-          'assets/scripts/dist/site.min.js': ['assets/scripts/lib/jquery.js', 'assets/scripts/lib/modernizr.js', 'assets/scripts/lib/fastclick.js', 'assets/scripts/src/site.js']
+          'assets/scripts/dist/site.min.js': ['assets/scripts/lib/jquery.js', 'assets/scripts/lib/fastclick.js', 'assets/scripts/lib/html5shiv.js', 'assets/scripts/src/site.js']
         }
       },
     },
