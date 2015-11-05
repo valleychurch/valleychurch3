@@ -1,0 +1,18 @@
+html {
+  font-size: $ms-base-px;
+
+  @include breakpoint(md) {
+    font-size: $ms-base-px + 2;
+  }
+}
+
+body {
+  font-family: $font-stack;
+  font-size: $ms-base;
+  line-height: 1.5;
+
+  &.fontvariant.wf-active {
+    font-feature-settings: "ss01", "ss02", "ss03";
+    font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
+  }
+}

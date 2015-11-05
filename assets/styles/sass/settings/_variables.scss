@@ -8,11 +8,13 @@ $ms-ratio:          1.125;
 $grid-gutter-width: $ms-base * 2;
 $grid-columns:      12;
 
-$bp-xs:             30rem;
-$bp-sm:             40rem;
-$bp-md:             50rem;
-$bp-lg:             60rem;
-$bp-xl:             70rem;
+$breakpoints: (
+  xs:               30rem,
+  sm:               40rem,
+  md:               50rem,
+  lg:               60rem,
+  xl:               70rem
+);
 
 $white:             tint(black, 80%);
 $grey-light:        tint(black, 35%);

@@ -158,7 +158,7 @@ function theme_files() {
   add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 
 
-  wp_enqueue_style( 'style', get_stylesheet_uri() );
+  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/styles/css/style.css' );
   wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/scripts/dist/scripts.min.js' );
 };
 add_action( 'wp_enqueue_scripts', 'theme_files' );

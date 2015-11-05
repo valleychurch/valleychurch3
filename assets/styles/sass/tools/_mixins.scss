@@ -1,3 +1,10 @@
+// Get a breakpoint
+@mixin breakpoint($bp, $rule: min-width) {
+  @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
 // Return a fontsize
 @mixin font-size($ms) {
   font-size: ms($ms) * $ms-base-px;

@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-stack-alt;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+
+
+  body.fontvariant.wf-active & {
+    font-feature-settings: "ss01", "ss02", "ss03";
+    font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
+  }
+}
