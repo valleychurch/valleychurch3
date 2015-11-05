@@ -1,5 +1,5 @@
 $(document).ready(function() {
   Modernizr.addTest('fontvariant', function() {
-    return !!('fontVariantLigatures' in document.body.style)
+    return !!('fontVariantLigatures' in document.body.style);
   })
 });
