@@ -5,8 +5,8 @@ h1, h2, h3, h4, h5, h6,
   text-rendering: optimizeLegibility;
 
 
-  body.fontvariant.wf-active & {
-    font-feature-settings: "ss01", "ss02", "ss03";
-    font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
+  .fontvariant.wf-active & {
+    font-feature-settings: "ss01";
+    font-variant-alternates: styleset("ss01");
   }
 }

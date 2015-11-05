@@ -285,7 +285,7 @@ body {
   line-height: 1.5;
 }
 
-body.fontvariant.wf-active {
+.fontvariant.wf-active body {
   -webkit-font-feature-settings: "ss01", "ss02", "ss03";
   -moz-font-feature-settings: "ss01", "ss02", "ss03";
   font-feature-settings: "ss01", "ss02", "ss03";
@@ -309,22 +309,22 @@ h6,
   text-rendering: optimizeLegibility;
 }
 
-body.fontvariant.wf-active h1,
-body.fontvariant.wf-active h2,
-body.fontvariant.wf-active h3,
-body.fontvariant.wf-active h4,
-body.fontvariant.wf-active h5,
-body.fontvariant.wf-active h6,
-body.fontvariant.wf-active .h1,
-body.fontvariant.wf-active .h2,
-body.fontvariant.wf-active .h3,
-body.fontvariant.wf-active .h4,
-body.fontvariant.wf-active .h5,
-body.fontvariant.wf-active .h6 {
-  -webkit-font-feature-settings: "ss01", "ss02", "ss03";
-  -moz-font-feature-settings: "ss01", "ss02", "ss03";
-  font-feature-settings: "ss01", "ss02", "ss03";
-  font-variant-alternates: styleset("ss01"),styleset("ss02"),styleset("ss03");
+.fontvariant.wf-active h1,
+.fontvariant.wf-active h2,
+.fontvariant.wf-active h3,
+.fontvariant.wf-active h4,
+.fontvariant.wf-active h5,
+.fontvariant.wf-active h6,
+.fontvariant.wf-active .h1,
+.fontvariant.wf-active .h2,
+.fontvariant.wf-active .h3,
+.fontvariant.wf-active .h4,
+.fontvariant.wf-active .h5,
+.fontvariant.wf-active .h6 {
+  -webkit-font-feature-settings: "ss01";
+  -moz-font-feature-settings: "ss01";
+  font-feature-settings: "ss01";
+  font-variant-alternates: styleset("ss01");
 }
 
 /*# sourceMappingURL=style.css.map */
