@@ -1,0 +1,1 @@
+sass --watch -t nested assets/styles/sass/style.scss:assets/styles/css/style.css

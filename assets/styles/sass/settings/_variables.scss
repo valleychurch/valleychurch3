@@ -1,0 +1,20 @@
+$font-stack:        "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+$font-stack-alt:    "usual", $font-stack;
+
+$ms-base:           1rem;
+$ms-base-px:        16px;
+$ms-ratio:          1.125;
+
+$grid-gutter-width: $ms-base * 2;
+$grid-columns:      12;
+
+$bp-xs:             30rem;
+$bp-sm:             40rem;
+$bp-md:             50rem;
+$bp-lg:             60rem;
+$bp-xl:             70rem;
+
+$white:             tint(black, 80%);
+$grey-light:        tint(black, 35%);
+$grey-dark:         tint(black, 60%);
+$black:             shade(white, 80%);

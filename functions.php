@@ -1,7 +1,9 @@
 <?php
 
 /*
+============================================================
   Reusable functions
+============================================================
 */
 
 //Check if things are plural
@@ -14,7 +16,7 @@ function create_singular($name, $label = null) {
 }
 
 function create_plural($name, $label = null, $nameplural, $labelplural) {
-  return ( ( $label != null ) ? ( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
+  return ( ( $label != null ) ?( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
 }
 
 //Function for default arguments when creating a custom post type
@@ -84,7 +86,9 @@ function create_custom_taxonomy($name, $label = null) {
 
 
 /*
+============================================================
   Add things to WordPress
+============================================================
 */
 
 //Add featured image support and sizes
@@ -117,6 +121,7 @@ add_action( 'init', 'create_custom_post_types' );
 //Create custom taxonomies
 function create_custom_taxonomies() {
   register_taxonomy('series', 'podcast', create_custom_taxonomy('series', 'Series') );
+  register_taxonomy('location_type', 'location', create_custom_taxonomy('type', 'Location Type') );
 };
 add_action( 'init', 'create_custom_taxonomies' );
 

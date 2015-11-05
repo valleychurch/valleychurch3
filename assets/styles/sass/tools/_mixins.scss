@@ -1,0 +1,23 @@
+// Return a fontsize
+@mixin font-size($ms) {
+  font-size: ms($ms) * $ms-base-px;
+  font-size: ms($ms);
+}
+
+// Return a lineheight
+@mixin line-height($ms) {
+  //line-height: strip-units(ms($ms) * $ms-ratio);
+  line-height: (ms($ms) * $ms-ratio);
+}
+
+// Clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
