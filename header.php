@@ -26,6 +26,36 @@
 
   <body <?php body_class(); ?>>
 
+    <?php
+      $args =
+        array(
+          'post_type' => 'notification',
+          'showposts' => 1,
+          'post_status' => 'publish'
+        );
+
+      $notification = new WP_Query( $args );
+
+      if ( $notification->have_posts() ) :
+        while ( $notification->have_posts() ) :
+          $notification->the_post();
+    ?>
+
+    <div class="c-notification" id="notification-<?php the_date('dmY'); ?>" style="display: none;">
+      <div class="o-container">
+        <?php the_content(); ?>
+        <a class="c-notification__dismiss js-notification-dismiss" href="#0">
+          &times;
+        </a>
+      </div>
+    </div>
+
+    <?php
+        endwhile;
+      endif;
+      wp_reset_query();
+    ?>
+
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container">
         <a class="logo u-center-block--xs u-pull-left--sm" href="#0">

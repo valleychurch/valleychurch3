@@ -413,6 +413,10 @@ html {
   box-sizing: inherit;
 }
 
+figure {
+  margin: 0;
+}
+
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
 input, select, textarea,
@@ -449,9 +453,9 @@ body {
   line-height: 1.618;
 }
 .fontvariant.wf-active body {
+  font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
   -webkit-font-feature-settings: "ss01", "ss02", "ss03";
           font-feature-settings: "ss01", "ss02", "ss03";
-  font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -463,9 +467,9 @@ h1, h2, h3, h4, h5, h6,
 }
 .fontvariant.wf-active h1, .fontvariant.wf-active h2, .fontvariant.wf-active h3, .fontvariant.wf-active h4, .fontvariant.wf-active h5, .fontvariant.wf-active h6, .fontvariant.wf-active
 .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6 {
+  font-variant-alternates: styleset("ss01"), styleset("ss03");
   -webkit-font-feature-settings: "ss01", "ss03";
           font-feature-settings: "ss01", "ss03";
-  font-variant-alternates: styleset("ss01"), styleset("ss03");
 }
 
 .tera {
@@ -524,9 +528,9 @@ blockquote {
   font-style: italic;
 }
 .fontvariant.wf-active blockquote {
+  font-variant-alternates: styleset("ss01"), styleset("ss03");
   -webkit-font-feature-settings: "ss01", "ss03";
           font-feature-settings: "ss01", "ss03";
-  font-variant-alternates: styleset("ss01"), styleset("ss03");
 }
 
 label {
@@ -2061,9 +2065,9 @@ input.is-disabled:hover {
   font-weight: 700;
 }
 .fontvariant.wf-active .menu-item a {
+  font-variant-alternates: styleset("ss01"), styleset("ss03");
   -webkit-font-feature-settings: "ss01", "ss03";
           font-feature-settings: "ss01", "ss03";
-  font-variant-alternates: styleset("ss01"), styleset("ss03");
 }
 
 .sub-menu {
@@ -2074,9 +2078,9 @@ input.is-disabled:hover {
   font-weight: 400;
 }
 .fontvariant.wf-active .sub-menu .menu-item a {
+  font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
   -webkit-font-feature-settings: "ss01", "ss02", "ss03";
           font-feature-settings: "ss01", "ss02", "ss03";
-  font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
 }
 
 .u-clearfix::after,

@@ -38,8 +38,8 @@
 
   @if ($alternates) {
     .fontvariant.wf-active & {
-      font-feature-settings: "ss01", "ss02", "ss03";
       font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
+      font-feature-settings: "ss01", "ss02", "ss03";
     }
   }
 }
@@ -51,8 +51,8 @@
 
   @if ($alternates) {
     .fontvariant.wf-active & {
-      font-feature-settings: "ss01", "ss03";
       font-variant-alternates: styleset("ss01"), styleset("ss03");
+      font-feature-settings: "ss01", "ss03";
     }
   }
 }

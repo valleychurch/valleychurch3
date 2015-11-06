@@ -23,6 +23,9 @@ module.exports = function(grunt) {
       }
     },
     uglify: {
+      options: {
+        mangle: false
+      },
       dist: {
         files: {
           'assets/scripts/dist/script.min.js':
@@ -38,7 +41,11 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: 'assets/styles/sass/**/*.scss',
-        tasks: ['sass', 'postcss', 'uglify']
+        tasks: ['sass', 'postcss']
+      },
+      scripts: {
+        files: 'assets/scripts/**/*.js',
+        tasks: ['uglify']
       }
     }
   });

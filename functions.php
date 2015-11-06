@@ -166,4 +166,53 @@ function theme_files() {
 
 // add_action( 'wp_enqueue_scripts', 'theme_files' );
 
+
+function featured_image_class($classes) {
+  if ( has_post_thumbnail() ) {
+    array_push( $classes, 'featured-image' );
+  }
+  else {
+    array_push( $classes, 'no-featured-image' );
+  }
+  return $classes;
+};
+add_action( 'body_class', 'featured_image_class' );
+
+
+//Add social media links to profile
+function add_contact_methods( $contactmethods ) {
+  // Add Twitter
+  if ( !isset( $contactmethods['twitter'] ) ) {
+    $contactmethods['twitter'] = 'Twitter';
+  }
+
+  // Add Facebook
+  if ( !isset( $contactmethods['facebook'] ) ) {
+    $contactmethods['facebook'] = 'Facebook';
+  }
+
+  // Add Instagram
+  if ( !isset( $contactmethods['instagram'] ) ) {
+    $contactmethods['instagram'] = 'Instagram';
+  }
+
+  // Remove Yahoo IM
+  if ( isset( $contactmethods['yim'] ) ) {
+    unset( $contactmethods['yim'] );
+  }
+
+  // Remove AIM
+  if ( isset( $contactmethods['aim'] ) ) {
+    unset( $contactmethods['aim'] );
+  }
+
+  // Remove Jabber
+  if ( isset( $contactmethods['jabber'] ) ) {
+    unset( $contactmethods['jabber'] );
+  }
+
+  return $contactmethods;
+}
+add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
+
 ?>
