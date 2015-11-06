@@ -1,0 +1,36 @@
+label {
+  display: block;
+  margin-bottom: quarter($VCbase);
+}
+
+input,
+button,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  appearance: none;
+  border: 1px solid $grey-light;
+  border-radius: 2px;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: half($VCbase) three-quarters($VCbase);
+}
+
+input:disabled,
+input.is-disabled {
+  color: $grey-dark;
+  background-color: $white;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}

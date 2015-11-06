@@ -12,11 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/styles/css/style.css'; ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <script src="<?php echo get_template_directory_uri() . '/assets/scripts/src/script.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri() . '/assets/scripts/dist/script.min.js'; ?>"></script>
 
     <script src="https://use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -26,3 +25,21 @@
   </head>
 
   <body <?php body_class(); ?>>
+
+    <header role="banner" class="c-header u-clearfix">
+      <div class="o-container">
+        <a class="logo u-center-block--xs u-pull-left--sm" href="#0">
+          <img src="holder.js/253x88">
+        </a>
+        <nav role="navigation" class="c-navigation u-pull-right--sm">
+          <?php wp_nav_menu( array(
+            'theme_location' => 'Main Menu',
+            'menu' => 'Main Menu',
+            'container' => false,
+            'menu_class' => 'c-menu'
+          ) ); ?>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main">

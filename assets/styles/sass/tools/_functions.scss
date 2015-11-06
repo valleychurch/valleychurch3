@@ -1,3 +1,8 @@
+// Get a colour from the palette
+@function colour($colour, $tone: 'base') {
+  @return map-get(map-get($VCcolours, $colour), $tone);
+}
+
 // Add percentage of white to a color
 @function tint($color, $percent){
   @return mix(white, $color, $percent);
@@ -14,18 +19,22 @@
 }
 
 // Mathematical functions
-@function half($n) {
-  @return round($n / 2);
+@function quarter($n) {
+  @return ($n / 4);
 }
 
-@function quarter($n) {
-  @return round($n / 4);
+@function half($n) {
+  @return ($n / 2);
+}
+
+@function three-quarters($n) {
+  @return ($n / (1/0.75));
 }
 
 @function double($n) {
-  @return round($n * 2);
+  @return ($n * 2);
 }
 
 @function quadruple($n) {
-  @return round($n * 4);
+  @return ($n * 4);
 }

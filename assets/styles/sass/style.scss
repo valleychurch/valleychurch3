@@ -2,17 +2,23 @@
   Theme Name: Valley Church
   Theme Uri: http://valleychurch.eu
   Author: Valley Church Communcations Team
-  Version: 3.0
+  Version: 3.0.0a
 */
 
-// Settings
-// Global variables, config switches
-@import "settings/variables";
+// Changelog
+@import "changelog";
 
 // Tools
 // Default mixins and functions
 @import "tools/functions";
 @import "tools/mixins";
+@import "tools/grid";
+@import "tools/grid-framework";
+@import "tools/modular-scale";
+
+// Settings
+// Global variables, config switches
+@import "settings/variables";
 
 // Generic
 // Ground zero styles
@@ -24,21 +30,24 @@
 // Unclassed HTML elements
 @import "base/base";
 @import "base/typography";
+@import "base/tables";
+@import "base/forms";
 
 // Objects
 // Cosmetic-free design patterns
-// @import "objects/grid";
-// @import "objects/media";
-// @import "objects/flag";
+@import "objects/grid";
+@import "objects/media";
+@import "objects/flag";
 // @import "objects/buttons";
 
 // Components
-// Designed components, chunks of UI
+// Designed chunks of UI
 // @import "components/header";
-// @import "components/navigation";
+@import "components/navigation";
 // @import "components/footer";
 
 // Trumps
 // Helpers and overrides
 // @import "trumps/helpers";
+@import "trumps/utilities";
 // @import "trumps/ie";

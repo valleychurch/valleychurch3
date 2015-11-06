@@ -1,0 +1,26 @@
+.c-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .menu-item {
+    display: inline-block;
+    @include pull-left;
+
+    a {
+      @include font-stack-alt;
+      font-weight: 700;
+    }
+  }
+
+    .sub-menu {
+      display: none;
+
+      .menu-item {
+        a {
+          @include font-stack;
+          font-weight: 400;
+        }
+      }
+    }

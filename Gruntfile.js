@@ -3,31 +3,49 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       dist: {
-        options:{
-          style: 'compressed'
+        options: {
+          style: 'expanded'
         },
         files: {
-          'assets/styles/css/style.css': 'assets/styles/sass/style.scss'
+          'assets/styles/css/style.min.css': 'assets/styles/sass/style.scss'
         }
       }
     },
-    autoprefixer:{
-      dist:{
-        files:{
-          'assets/styles/css/style.css': 'assets/styles/css/style.css'
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+        ]
+      },
+      dist: {
+        src: 'assets/styles/css/style.min.css'
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          'assets/scripts/dist/script.min.js':
+            [
+              'assets/scripts/lib/jquery.js',
+              'assets/scripts/lib/modernizr.js',
+              'assets/scripts/lib/holder.js',
+              'assets/scripts/src/script.js',
+            ]
         }
       }
     },
     watch: {
       css: {
         files: 'assets/styles/sass/**/*.scss',
-        tasks: ['sass', 'autoprefixer']
+        tasks: ['sass', 'postcss', 'uglify']
       }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'watch']);
+  grunt.registerTask('default', ['sass', 'postcss', 'uglify', 'watch']);
 }

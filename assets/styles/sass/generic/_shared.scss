@@ -1,16 +1,17 @@
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
+input, select, textarea,
 blockquote, p, address,
 hr,
 table,
 fieldset, figure,
 pre {
-  margin-bottom: $ms-base;
+  margin-bottom: $VCbase;
 }
 
 ul, ol,
 dd {
-  margin-left: $ms-base;
+  margin-left: $VCbase;
 }
 
 img {

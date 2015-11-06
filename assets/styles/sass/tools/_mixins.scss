@@ -1,30 +1,85 @@
 // Get a breakpoint
 @mixin breakpoint($bp, $rule: min-width) {
-  @media screen and (#{$rule}: map-get($breakpoints, $bp)) {
+  @if (map-get($VCbreakpoints, $bp) != 0) {
+    @if ($rule == min-width) {
+      @media screen and (#{$rule}: map-get($VCbreakpoints, $bp)) {
+        @content;
+      }
+    }
+    @else {
+      @media screen and (#{$rule}: (map-get($VCbreakpoints, $bp) - 1)) {
+        @content;
+      }
+    }
+  }
+  @else {
     @content;
   }
 }
 
+
 // Return a fontsize
 @mixin font-size($ms) {
-  font-size: ms($ms) * $ms-base-px;
+  font-size: ms($ms) * $VCfont-size;
   font-size: ms($ms);
 }
+
 
 // Return a lineheight
 @mixin line-height($ms) {
   //line-height: strip-units(ms($ms) * $ms-ratio);
-  line-height: (ms($ms) * $ms-ratio);
+  line-height: (ms($ms) * $VCratio);
 }
+
+
+// "Source Sans Pro" typeface with correct stylistic sets enabled
+@mixin font-stack($alternates: true) {
+  font-family: $VCfont-stack;
+
+  @if ($alternates) {
+    .fontvariant.wf-active & {
+      font-feature-settings: "ss01", "ss02", "ss03";
+      font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
+    }
+  }
+}
+
+
+// "Usual" typeface with correct stylistic sets enabled
+@mixin font-stack-alt($alternates: true) {
+  font-family: $VCfont-stack-alt;
+
+  @if ($alternates) {
+    .fontvariant.wf-active & {
+      font-feature-settings: "ss01", "ss03";
+      font-variant-alternates: styleset("ss01"), styleset("ss03");
+    }
+  }
+}
+
 
 // Clearfix
 @mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
+  &::after {
+    content: "";
+    display: table;
     clear: both;
   }
+}
+
+
+// Center block
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Floats
+@mixin pull-left() {
+  float: left !important;
+}
+@mixin pull-right() {
+  float: right !important;
 }

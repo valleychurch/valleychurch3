@@ -1,12 +1,64 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: $font-stack-alt;
+  @include font-stack-alt;
   font-weight: 600;
+  line-height: 1.25;
   text-rendering: optimizeLegibility;
 
+}
 
-  .fontvariant.wf-active & {
-    font-feature-settings: "ss01";
-    font-variant-alternates: styleset("ss01");
-  }
+.tera {
+  font-size: ms(8);
+}
+
+.giga {
+  font-size: ms(7);
+}
+
+.mega {
+  font-size: ms(6);
+}
+
+.kilo {
+  font-size: ms(5);
+}
+
+h1, .h1 {
+  font-size: ms(4);
+}
+
+h2, .h2 {
+  font-size: ms(3);
+}
+
+h3, .h3 {
+  font-size: ms(2);
+}
+
+h4, .h4 {
+  font-size: ms(1);
+}
+
+h5, .h5 {
+  font-size: ms(0);
+}
+
+h6, .h6 {
+  font-size: ms(-1);
+}
+
+hr {
+  margin-bottom: $VCbase;
+  border: none;
+  border-top: 1px solid $grey-light;
+}
+
+small,
+.small {
+  font-size: ms(-1);
+}
+
+blockquote {
+  @include font-stack-alt;
+  font-style: italic;
 }

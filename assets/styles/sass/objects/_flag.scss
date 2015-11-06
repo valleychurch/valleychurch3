@@ -1,0 +1,46 @@
+.o-flag {
+  display: table;
+  width: 100%;
+
+  &__fix,
+  &__flex {
+    display: table-cell;
+    vertical-align: middle;
+
+    // Use the --top modifier to align top edges of the elements
+    .o-flag--top & {
+      vertical-align: top;
+    }
+
+    // Use --bottom to align bottom edges of the elements
+    .o-flag--bottom & {
+      vertical-align: bottom;
+    }
+
+  }
+
+  // The fixed-width element
+  &__fix {
+    padding-right: 10px;
+
+    > * {
+      display: block;
+      max-width: none;
+      // Force the "pinned" element to not wrap lines
+      white-space: nowrap;
+    }
+
+    // Use the --rev modifier when the order is reversed (fixed-width element on
+    // the right of the fluid width element)
+    .o-flag--rev & {
+      padding-right: 0;
+      padding-left: 10px;
+    }
+
+  }
+
+  // This element grows to fill the remainder of its container
+  &__flex {
+    width: 100%;
+  }
+}

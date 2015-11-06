@@ -1,0 +1,56 @@
+// Clearfix
+.u-clearfix,
+.u-cf {
+  @include clearfix();
+}
+
+
+// Floats
+.u-pull-right {
+  @include pull-left;
+}
+
+.u-pull-left {
+  @include pull-right;
+}
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-pull-left--#{$breakpoint}   { @include pull-left; }
+    .u-pull-right--#{$breakpoint}  { @include pull-right; }
+  }
+}
+
+.u-center-block {
+  @include center-block;
+}
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-center-block--#{$breakpoint}   { @include center-block; }
+  }
+}
+
+
+// Text alignment
+.u-text-left            { text-align: left !important; }
+.u-text-right           { text-align: right !important; }
+.u-text-center          { text-align: center !important; }
+.u-text-justify         { text-align: justify !important; }
+.u-text-nowrap          { white-space: nowrap !important; }
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-text-left--#{$breakpoint}    { text-align: left; }
+    .u-text-right--#{$breakpoint}   { text-align: right; }
+    .u-text-center--#{$breakpoint}  { text-align: center; }
+    .u-text-justify--#{$breakpoint} { text-align: justify !important; }
+    .u-text-nowrap--#{$breakpoint}  { white-space: nowrap !important; }
+  }
+}
+
+.u-text-lowercase       { text-transform: lowercase; }
+.u-text-uppercase       { text-transform: uppercase; }
+.u-text-capitalize      { text-transform: capitalize; }
+
+.u-text-muted           { color: $grey-dark; }

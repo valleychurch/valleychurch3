@@ -6,7 +6,7 @@
 ============================================================
 */
 
-//Check if things are plural
+// Check if things are plural
 function check_plural($string) {
   return ( substr( $string, -1 ) == 's' );
 }
@@ -19,7 +19,7 @@ function create_plural($name, $label = null, $nameplural, $labelplural) {
   return ( ( $label != null ) ?( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
 }
 
-//Function for default arguments when creating a custom post type
+// Function for default arguments when creating a custom post type
 function create_custom_post_type_args($name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
@@ -50,7 +50,7 @@ function create_custom_post_type_args($name, $label = null, $icon = null, $exclu
   return $args;
 }
 
-//Function for default arguments when creating a custom taxonomy
+// Function for default arguments when creating a custom taxonomy
 function create_custom_taxonomy($name, $label = null) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
@@ -91,14 +91,20 @@ function create_custom_taxonomy($name, $label = null) {
 ============================================================
 */
 
-//Add featured image support and sizes
+// Add featured image support and sizes
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'slide', 2000, 9999 ); //Slide width
 
-//Add menu support
+// Add menu support
 add_theme_support( 'menus' );
 
-//Add WP 4.4 new title tag functionality
+// Add custom menu
+function register_custom_menu() {
+  register_nav_menu( 'primary', 'Main Menu' );
+}
+add_action( 'after_setup_theme', 'register_custom_menu' );
+
+// Add WP 4.4 new title tag functionality
 add_theme_support( 'title-tag' );
 
 //Editor stylesheet
@@ -126,14 +132,14 @@ function create_custom_taxonomies() {
 add_action( 'init', 'create_custom_taxonomies' );
 
 
-//Add locations as CPT-onomy
-function create_cptonomies() {
-  global $cpt_onomies_manager;
-  if ( $cpt_onomies_manager ) {
-    $cpt_onomies_manager->register_cpt_onomy( 'location', 'events' );
-  }
-};
-//add_action( 'wp_loaded', 'create_cptonomies' );
+// Add locations as CPT-onomy
+// function create_cptonomies() {
+//   global $cpt_onomies_manager;
+//   if ( $cpt_onomies_manager ) {
+//     $cpt_onomies_manager->register_cpt_onomy( 'location', 'events' );
+//   }
+// };
+// add_action( 'wp_loaded', 'create_cptonomies' );
 
 
 //Enqueue styles and scripts
@@ -156,11 +162,8 @@ function theme_files() {
   add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
   // remove Wp version from scripts
   add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
-
-
-  wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/styles/css/style.css' );
-  wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/scripts/dist/scripts.min.js' );
 };
-add_action( 'wp_enqueue_scripts', 'theme_files' );
+
+// add_action( 'wp_enqueue_scripts', 'theme_files' );
 
 ?>

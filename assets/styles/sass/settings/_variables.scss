@@ -1,22 +1,39 @@
-$font-stack:        "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
-$font-stack-alt:    "usual", $font-stack;
+// Reusables
+$VCfont-size:           18px;
+$VCratio:               1.25;
+$VCbase:                1rem;
+$VCline-height:         1.618;
 
-$ms-base:           1rem;
-$ms-base-px:        16px;
-$ms-ratio:          1.125;
+$ms-base:               $VCbase;
+$ms-ratio:              $VCline-height, $VCratio;
 
-$grid-gutter-width: $ms-base * 2;
-$grid-columns:      12;
+$VCgrid-gutter:         $VCbase * 2;
+$VCgrid-columns:        12;
 
-$breakpoints: (
-  xs:               30rem,
-  sm:               40rem,
-  md:               50rem,
-  lg:               60rem,
-  xl:               70rem
+$VCmax-width:           80em;
+$VCbreakpoints: (
+  xs:                   0,
+  sm:                   40em,
+  md:                   50em,
+  lg:                   60em,
+  xl:                   70em
 );
 
-$white:             tint(black, 80%);
-$grey-light:        tint(black, 35%);
-$grey-dark:         tint(black, 60%);
-$black:             shade(white, 80%);
+// Flags
+$VCenable-flex:           true;
+$VCenable-grid-classes:   true;
+
+// Typography
+$VCfont-stack:          "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+$VCfont-stack-alt:      "usual", $VCfont-stack;
+
+// Colours
+$VCcolours: (
+  white:                #fff,
+  black:                #000,
+);
+
+$white:                 tint(black, 80%);
+$grey-light:            tint(black, 75%);
+$grey-dark:             tint(black, 35%);
+$black:                 shade(white, 80%);
