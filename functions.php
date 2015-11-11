@@ -93,7 +93,7 @@ function create_custom_taxonomy($name, $label = null) {
 
 // Add featured image support and sizes
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'slide', 2000, 9999 ); //Slide width
+add_image_size( 'slide', 2000, 1125, true ); //Slide width
 
 // Add menu support
 add_theme_support( 'menus' );
