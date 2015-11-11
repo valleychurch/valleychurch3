@@ -47,10 +47,14 @@ h6, .h6 {
   font-size: ms(-1);
 }
 
+a {
+  color: colour(orange);
+}
+
 hr {
   margin-bottom: $VCbase;
   border: none;
-  border-top: 1px solid $grey-light;
+  border-top: 1px solid colour(grey-light);
 }
 
 small,

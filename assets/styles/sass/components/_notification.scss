@@ -1,0 +1,24 @@
+.c-notification {
+  background-color: colour(grey-dark);
+  color: white;
+
+  .o-container {
+    padding: 1rem 3rem 1rem;
+  }
+
+  p {
+    margin: 0;
+    @include font-stack-alt();
+  }
+}
+
+  .c-notification__dismiss {
+    position: absolute;
+    top: 0.55rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    line-height: 1;
+    text-decoration: none !important;
+    color: white;
+    font-weight: 100;
+  }

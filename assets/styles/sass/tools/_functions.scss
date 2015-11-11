@@ -1,6 +1,6 @@
 // Get a colour from the palette
-@function colour($colour, $tone: 'base') {
-  @return map-get(map-get($VCcolours, $colour), $tone);
+@function colour($colour) {
+  @return map-get($VCcolours, $colour);
 }
 
 // Add percentage of white to a color

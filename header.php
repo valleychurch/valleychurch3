@@ -59,7 +59,14 @@
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container">
         <a class="logo u-center-block--xs u-pull-left--sm" href="#0">
-          <img src="holder.js/253x88">
+          <span class="o-flag">
+            <span class="o-flag__fix">
+              <img src="//placehold.it/60">
+            </span>
+            <span class="o-flag__flex">
+              Brand Name
+            </span>
+          </span>
         </a>
         <nav role="navigation" class="c-navigation u-pull-right--sm">
           <?php wp_nav_menu( array(
