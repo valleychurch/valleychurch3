@@ -382,6 +382,7 @@ hr,
 table,
 fieldset, figure,
 pre {
+  margin-top: 0;
   margin-bottom: 1rem; }
 
 ul, ol,
@@ -392,13 +393,20 @@ img {
   vertical-align: middle; }
 
 html {
-  font-size: 18px; }
+  font-size: 1rem; }
+  @media screen and (min-width: 40em) {
+    html {
+      font-size: 1.125rem; } }
   @media screen and (min-width: 50em) {
     html {
-      font-size: 20px; } }
+      font-size: 1.25rem; } }
+  @media screen and (min-width: 60em) {
+    html {
+      font-size: 1.375rem; } }
 
 body {
-  color: #333333;
+  background-color: #e6e6e6;
+  color: #262626;
   font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.618; }
@@ -408,13 +416,13 @@ body {
             font-feature-settings: "ss01", "ss02", "ss03"; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .logo, .h5, .h6 {
   font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
   line-height: 1.25;
   text-rendering: optimizeLegibility; }
   .fontvariant.wf-active h1, .fontvariant.wf-active h2, .fontvariant.wf-active h3, .fontvariant.wf-active h4, .fontvariant.wf-active h5, .fontvariant.wf-active h6, .fontvariant.wf-active
-  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6 {
+  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .logo, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6 {
     font-variant-alternates: styleset("ss01"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
@@ -440,7 +448,7 @@ h2, .h2 {
 h3, .h3 {
   font-size: 1.5625rem; }
 
-h4, .h4 {
+h4, .h4, .logo {
   font-size: 1.25rem; }
 
 h5, .h5 {
@@ -448,6 +456,9 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 0.8rem; }
+
+a {
+  color: #c05411; }
 
 hr {
   margin-bottom: 1rem;
@@ -495,7 +506,7 @@ textarea {
 input:disabled,
 input.is-disabled {
   color: #595959;
-  background-color: #cccccc; }
+  background-color: #fff; }
   input:disabled:hover,
   input.is-disabled:hover {
     cursor: not-allowed; }
@@ -1650,6 +1661,39 @@ input.is-disabled {
   .o-flag__flex {
     width: 100%; }
 
+.c-notification {
+  background-color: #595959;
+  color: white; }
+  .c-notification .o-container {
+    padding: 1rem 3rem 1rem; }
+  .c-notification p {
+    margin: 0;
+    font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif; }
+    .fontvariant.wf-active .c-notification p {
+      font-variant-alternates: styleset("ss01"), styleset("ss03");
+      -webkit-font-feature-settings: "ss01", "ss03";
+              font-feature-settings: "ss01", "ss03"; }
+
+.c-notification__dismiss {
+  position: absolute;
+  top: 0.55rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-decoration: none !important;
+  color: white;
+  font-weight: 100; }
+
+.logo {
+  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  color: #262626;
+  text-decoration: none;
+  font-weight: 400; }
+  .fontvariant.wf-active .logo {
+    font-variant-alternates: styleset("ss01"), styleset("ss03");
+    -webkit-font-feature-settings: "ss01", "ss03";
+            font-feature-settings: "ss01", "ss03"; }
+
 .c-menu {
   list-style-type: none;
   margin: 0;
@@ -1847,7 +1891,31 @@ input.is-disabled {
 .u-text-capitalize {
   text-transform: capitalize; }
 
-.u-text-muted {
+.u-text-white {
+  color: #e6e6e6; }
+
+.u-text-grey-light {
+  color: #bfbfbf; }
+
+.u-text-grey-dark, .u-text-muted {
   color: #595959; }
+
+.u-text-black {
+  color: #262626; }
+
+.u-text-orange {
+  color: #c05411; }
+
+.u-text-red {
+  color: #a83338; }
+
+.u-text-green {
+  color: #588023; }
+
+.u-text-blue {
+  color: #397aac; }
+
+.u-text-dark-blue {
+  color: #092940; }
 
 /*# sourceMappingURL=style.min.css.map */

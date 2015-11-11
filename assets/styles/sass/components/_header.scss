@@ -1,0 +1,9 @@
+.c-header {}
+
+  .logo {
+    @include font-stack-alt();
+    @extend .h4;
+    color: colour(black);
+    text-decoration: none;
+    font-weight: 400;
+  }

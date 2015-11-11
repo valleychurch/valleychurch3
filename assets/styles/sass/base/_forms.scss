@@ -10,7 +10,7 @@ select {
   display: block;
   width: 100%;
   appearance: none;
-  border: 1px solid $grey-light;
+  border: 1px solid colour(grey-light);
   border-radius: 2px;
 }
 
@@ -27,8 +27,8 @@ textarea {
 
 input:disabled,
 input.is-disabled {
-  color: $grey-dark;
-  background-color: $white;
+  color: colour(grey-dark);
+  background-color: $VCwhite;
 
   &:hover {
     cursor: not-allowed;

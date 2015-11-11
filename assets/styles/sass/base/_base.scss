@@ -1,13 +1,22 @@
 html {
-  font-size: $VCfont-size;
+  font-size: 1rem;
+
+  @include breakpoint(sm) {
+    font-size: (18/16) * 1rem;
+  }
 
   @include breakpoint(md) {
-    font-size: $VCfont-size + 2;
+    font-size: (20/16) * 1rem;
+  }
+
+  @include breakpoint(lg) {
+    font-size: (22/16) * 1rem;
   }
 }
 
 body {
-  color: $black;
+  background-color: colour(white);
+  color: colour(black);
   @include font-stack;
   font-size: $VCbase;
   line-height: $VCline-height;

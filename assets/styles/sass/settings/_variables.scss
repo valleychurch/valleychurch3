@@ -28,12 +28,17 @@ $VCfont-stack:          "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
 
 // Colours
-$VCcolours: (
-  white:                #fff,
-  black:                #000,
-);
+$VCwhite:               #fff;
+$VCblack:               #000;
 
-$white:                 tint(black, 80%);
-$grey-light:            tint(black, 75%);
-$grey-dark:             tint(black, 35%);
-$black:                 shade(white, 80%);
+$VCcolours: (
+  white:                shade($VCwhite, 10%),
+  grey-light:           tint($VCblack, 75%),
+  grey-dark:            tint($VCblack, 35%),
+  black:                tint($VCblack, 15%),
+  orange:               #c05411,
+  red:                  #a83338,
+  green:                #588023,
+  blue:                 #397aac,
+  dark-blue:            #092940,
+);
