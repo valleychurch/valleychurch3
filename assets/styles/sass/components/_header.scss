@@ -2,8 +2,14 @@
 
   .logo {
     @include font-stack-alt();
-    @extend .h4;
+    display: inline-block;
+    font-size: ms(1);
+    font-weight: 400;
     color: colour(black);
     text-decoration: none;
-    font-weight: 400;
+    letter-spacing: -1px;
+
+    @include breakpoint(md) {
+      font-size: ms(2);
+    }
   }

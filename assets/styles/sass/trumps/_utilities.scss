@@ -6,11 +6,11 @@
 
 
 // Floats
-.u-pull-right {
+.u-pull-left {
   @include pull-left;
 }
 
-.u-pull-left {
+.u-pull-right {
   @include pull-right;
 }
 

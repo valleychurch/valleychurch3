@@ -12,10 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/styles/css/style.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <script src="<?php echo get_template_directory_uri() . '/assets/scripts/dist/script.min.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/script.min.js"></script>
 
     <script src="https://use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -58,13 +58,13 @@
 
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container">
-        <a class="logo u-center-block--xs u-pull-left--sm" href="#0">
+        <a class="logo u-pull-left--sm" href="#0">
           <span class="o-flag">
             <span class="o-flag__fix">
-              <img src="//placehold.it/60">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48">
             </span>
-            <span class="o-flag__flex">
-              Brand Name
+            <span class="o-flag__fix">
+              Valley Church
             </span>
           </span>
         </a>

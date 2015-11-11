@@ -1,27 +1,16 @@
 html {
-<<<<<<< HEAD
   font-size: 1em;
+
+  @include breakpoint(sm) {
+    font-size: (18/16) * 1em;
+  }
 
   @include breakpoint(md) {
     font-size: (20/16) * 1em;
   }
 
   @include breakpoint(lg) {
-    font-size: (22/16) * 1em;
-=======
-  font-size: 1rem;
-
-  @include breakpoint(sm) {
-    font-size: (18/16) * 1rem;
-  }
-
-  @include breakpoint(md) {
-    font-size: (20/16) * 1rem;
-  }
-
-  @include breakpoint(lg) {
     font-size: (22/16) * 1rem;
->>>>>>> aeb807681dc60a1fd75cce1451227aaa2bad3a00
   }
 }
 

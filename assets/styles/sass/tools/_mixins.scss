@@ -35,6 +35,7 @@
 // "Source Sans Pro" typeface with correct stylistic sets enabled
 @mixin font-stack($alternates: true) {
   font-family: $VCfont-stack;
+  text-rendering: optimizeLegibility;
 
   @if ($alternates) {
     .fontvariant.wf-active & {
@@ -48,6 +49,7 @@
 // "Usual" typeface with correct stylistic sets enabled
 @mixin font-stack-alt($alternates: true) {
   font-family: $VCfont-stack-alt;
+  text-rendering: optimizeLegibility;
 
   @if ($alternates) {
     .fontvariant.wf-active & {
