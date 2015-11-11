@@ -389,13 +389,17 @@ dd {
   margin-left: 1rem; }
 
 img {
-  vertical-align: middle; }
+  vertical-align: middle;
+  max-width: 100%; }
 
 html {
-  font-size: 18px; }
+  font-size: 1em; }
   @media screen and (min-width: 50em) {
     html {
-      font-size: 20px; } }
+      font-size: 1.25em; } }
+  @media screen and (min-width: 60em) {
+    html {
+      font-size: 1.375em; } }
 
 body {
   color: #333333;
@@ -465,6 +469,10 @@ blockquote {
     font-variant-alternates: styleset("ss01"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
+
+.lead,
+.lede {
+  font-size: 1.25rem; }
 
 label {
   display: block;

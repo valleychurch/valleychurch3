@@ -4,6 +4,7 @@
   <div class="o-row">
     <div class="o-col-xs-12 o-col-md-8 o-col-md--offset-2">
       <h1>This is the primary heading and there should only be one of these per page</h1>
+      <p class="lead">This is a <strong>lead paragraph</strong>. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
       <p>A small paragraph to <em>emphasise</em> and show <strong>important</strong> bits.</p>
       <ul>
         <li>This is a list item</li>

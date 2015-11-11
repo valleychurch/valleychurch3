@@ -62,3 +62,8 @@ blockquote {
   @include font-stack-alt;
   font-style: italic;
 }
+
+.lead,
+.lede {
+  font-size: ms(1);
+}
