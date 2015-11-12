@@ -1,9 +1,5 @@
 html {
-  font-size: 1em;
-
-  @include breakpoint(sm) {
-    font-size: (18/16) * 1em;
-  }
+  font-size: (18/16) * 1em;
 
   @include breakpoint(md) {
     font-size: (20/16) * 1em;
