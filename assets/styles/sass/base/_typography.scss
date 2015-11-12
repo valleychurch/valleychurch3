@@ -1,7 +1,7 @@
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   @include font-stack-alt;
-  font-weight: 600;
+  font-weight: $VCfont-medium;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
 

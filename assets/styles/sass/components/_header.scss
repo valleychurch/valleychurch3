@@ -4,7 +4,7 @@
     @include font-stack-alt();
     display: inline-block;
     font-size: ms(1);
-    font-weight: 400;
+    font-weight: $VCfont-normal;
     color: colour(black);
     text-decoration: none;
     letter-spacing: -1px;

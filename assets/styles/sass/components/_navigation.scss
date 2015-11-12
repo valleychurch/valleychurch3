@@ -21,7 +21,7 @@
       .menu-item {
         a {
           @include font-stack;
-          font-weight: 400;
+          font-weight: $VCfont-normal;
         }
       }
     }

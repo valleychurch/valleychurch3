@@ -394,21 +394,17 @@ img {
   max-width: 100%; }
 
 html {
-  font-size: 1.125em; }
+  font-size: 1.0625em; }
   @media screen and (min-width: 50em) {
     html {
-      font-size: 1.25em; } }
-  @media screen and (min-width: 60em) {
-    html {
-      font-size: 1.375rem; } }
+      font-size: 1.125em; } }
 
 body {
-  background-color: #e6e6e6;
-  color: #262626;
   font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
-  line-height: 1.618; }
+  line-height: 1.618;
+  color: #262626; }
   .fontvariant.wf-active body {
     font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss02", "ss03";
@@ -490,8 +486,10 @@ dd {
 
 label {
   display: block;
-  font-size: 0.8rem;
   margin-bottom: 0.25rem; }
+  @media screen and (min-width: 50em) {
+    label {
+      font-size: 0.8rem; } }
 
 input,
 button,
@@ -499,10 +497,15 @@ textarea,
 select {
   display: block;
   width: 100%;
-  font-size: 0.8rem;
   line-height: normal;
   border: 1px solid #bfbfbf;
   border-radius: 2px; }
+  @media screen and (min-width: 50em) {
+    input,
+    button,
+    textarea,
+    select {
+      font-size: 0.8rem; } }
 
 input[type="text"],
 input[type="search"],
@@ -1674,6 +1677,7 @@ input.is-disabled:hover {
     width: 100%; }
 
 .o-btn {
+  width: 100%;
   display: inline-block;
   text-align: center;
   white-space: nowrap;

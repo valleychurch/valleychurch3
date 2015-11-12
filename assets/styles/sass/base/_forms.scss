@@ -1,7 +1,10 @@
 label {
   display: block;
-  font-size: ms(-1);
   margin-bottom: quarter($VCbase);
+
+  @include breakpoint(md) {
+    font-size: ms(-1);
+  }
 }
 
 input,
@@ -10,10 +13,13 @@ textarea,
 select {
   display: block;
   width: 100%;
-  font-size: ms(-1);
   line-height: normal;
   border: 1px solid colour(grey-light);
   border-radius: 2px;
+
+  @include breakpoint(md) {
+    font-size: ms(-1);
+  }
 }
 
 input[type="text"],
