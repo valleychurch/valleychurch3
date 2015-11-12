@@ -1,5 +1,6 @@
 label {
   display: block;
+  font-size: ms(-1);
   margin-bottom: quarter($VCbase);
 }
 
@@ -9,7 +10,8 @@ textarea,
 select {
   display: block;
   width: 100%;
-  appearance: none;
+  font-size: ms(-1);
+  line-height: normal;
   border: 1px solid colour(grey-light);
   border-radius: 2px;
 }
@@ -26,10 +28,8 @@ textarea {
 }
 
 input:disabled,
+input[disabled],
 input.is-disabled {
-  color: colour(grey-dark);
-  background-color: $VCwhite;
-
   &:hover {
     cursor: not-allowed;
   }

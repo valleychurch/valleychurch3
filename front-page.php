@@ -62,13 +62,11 @@
       <blockquote><p>“Ooh - a blockquote! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.”</p></blockquote>
       <h4>A sub heading which is not as important as the second, but should be used with consideration</h4>
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      <pre><code>
-        #header h1 a {
-        display: block;
-        width: 300px;
-        height: 80px;
-      }
-    </code></pre>
+      <pre><code>#header h1 a {
+  display: block;
+  width: 300px;
+  height: 80px;
+}</code></pre>
     <h5>A sub heading which is not as important as the second, but should be used with consideration</h5>
     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
     <dl>
@@ -82,7 +80,7 @@
         commodo consequat.</dd>
       </dl>
       <h6>This heading plays a relatively small bit part role, if you use it at all</h6>
-      <small>And this denotes small text</small>
+      <p><small>And this denotes small text</small></p>
       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
       <hr/>
       <h6>Forms</h6>
@@ -90,9 +88,7 @@
         <label>
           Email address
         </label>
-        <input type="email" placeholder="drew@dropbox.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-
-        <p>Inputs take up the entire width of their parent, so you can and should use them in the grid.</p>
+        <input type="email" placeholder="come@me.bro" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
 
         <div class="o-row">
 
@@ -100,7 +96,7 @@
             <label>
               Password
             </label>
-            <input type="email" placeholder="Keep it secret." type="password">
+            <input placeholder="Keep it secret." type="password">
           </div>
 
           <div class="o-col-xs-6">
@@ -114,7 +110,7 @@
             <label>
               Disabled field
             </label>
-            <input type="text" value="This is disabled" disabled="">
+            <input type="text" value="This is disabled" disabled>
           </div>
 
           <div class="o-col-xs-6">

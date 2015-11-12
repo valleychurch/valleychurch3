@@ -1,0 +1,11 @@
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-left: 0;
+
+  @include breakpoint(sm) {
+    font-size: ms(-1);
+  }
+}

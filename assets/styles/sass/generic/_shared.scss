@@ -14,10 +14,11 @@ pre {
   margin-bottom: $VCbase;
 }
 
-ul, ol,
 dd {
-  margin-left: $VCbase;
+  margin-top: 0;
+  margin-bottom: half($VCbase);
 }
+
 
 img {
   vertical-align: middle;

@@ -9,8 +9,9 @@
     @include pull-left;
 
     a {
+      font-size: ms(0);
       @include font-stack-alt;
-      font-weight: 700;
+      // font-weight: 700;
     }
   }
 

@@ -58,24 +58,28 @@
 
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container">
-        <a class="logo u-pull-left--sm" href="#0">
-          <span class="o-flag">
-            <span class="o-flag__fix">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48">
+        <div class="u-pull-left">
+          <a class="logo u-pull-left" href="#0">
+            <span class="o-flag">
+              <span class="o-flag__fix">
+                <!-- <img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48"> -->
+                <img src="//placehold.it/48">
+              </span>
+              <span class="o-flag__fix">
+                Brand Name
+              </span>
             </span>
-            <span class="o-flag__fix">
-              Valley Church
-            </span>
-          </span>
-        </a>
-        <nav role="navigation" class="c-navigation u-pull-right--sm">
-          <?php wp_nav_menu( array(
-            'theme_location' => 'Main Menu',
-            'menu' => 'Main Menu',
-            'container' => false,
-            'menu_class' => 'c-menu'
-          ) ); ?>
-        </nav>
+          </a>
+          <nav role="navigation" class="c-navigation u-pull-left">
+            <?php wp_nav_menu( array(
+              'theme_location' => 'Main Menu',
+              'menu' => 'Main Menu',
+              'container' => false,
+              'menu_class' => 'c-menu'
+            ) ); ?>
+          </nav>
+        </div>
+        <?php get_search_form(); ?>
       </div>
     </header>
 
