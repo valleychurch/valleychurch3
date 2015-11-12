@@ -1690,10 +1690,18 @@ input.is-disabled:hover {
       -ms-user-select: none;
           user-select: none; }
 
+.o-btn--reset {
+  width: auto;
+  background-color: transparent;
+  border: none;
+  color: #262626; }
+
 .c-notification {
+  display: none;
   background-color: #595959;
   color: white; }
   .c-notification .o-container {
+    position: relative;
     padding: 1rem 3rem 1rem; }
   .c-notification p {
     margin: 0;
@@ -1828,6 +1836,60 @@ input.is-disabled:hover {
     display: block;
     margin-left: auto;
     margin-right: auto; } }
+.u-hide {
+  display: none; }
+
+.u-show {
+  display: block; }
+
+.u-show-inline {
+  display: inline-block; }
+
+.u-hide--xs {
+  display: none; }
+
+.u-show--xs {
+  display: block; }
+
+.u-show-inline--xs {
+  display: inline-block; }
+
+@media screen and (min-width: 40em) {
+  .u-hide--sm {
+    display: none; }
+
+  .u-show--sm {
+    display: block; }
+
+  .u-show-inline--sm {
+    display: inline-block; } }
+@media screen and (min-width: 50em) {
+  .u-hide--md {
+    display: none; }
+
+  .u-show--md {
+    display: block; }
+
+  .u-show-inline--md {
+    display: inline-block; } }
+@media screen and (min-width: 60em) {
+  .u-hide--lg {
+    display: none; }
+
+  .u-show--lg {
+    display: block; }
+
+  .u-show-inline--lg {
+    display: inline-block; } }
+@media screen and (min-width: 70em) {
+  .u-hide--xl {
+    display: none; }
+
+  .u-show--xl {
+    display: block; }
+
+  .u-show-inline--xl {
+    display: inline-block; } }
 .u-text-left {
   text-align: left !important; }
 

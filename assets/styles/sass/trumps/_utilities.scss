@@ -31,6 +31,18 @@
   }
 }
 
+.u-hide           { display: none; }
+.u-show           { display: block; }
+.u-show-inline    { display: inline-block; }
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-hide--#{$breakpoint}           { display: none; }
+    .u-show--#{$breakpoint}           { display: block; }
+    .u-show-inline--#{$breakpoint}    { display: inline-block; }
+  }
+}
+
 
 // Text alignment
 .u-text-left            { text-align: left !important; }

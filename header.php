@@ -26,51 +26,31 @@
 
   <body <?php body_class(); ?>>
 
-    <?php
-      $args =
-        array(
-          'post_type' => 'notification',
-          'showposts' => 1,
-          'post_status' => 'publish'
-        );
-
-      $notification = new WP_Query( $args );
-
-      if ( $notification->have_posts() ) :
-        while ( $notification->have_posts() ) :
-          $notification->the_post();
-    ?>
-
-    <div class="c-notification" id="notification-<?php the_date('dmY'); ?>" style="display: none;">
-      <div class="o-container">
-        <?php the_content(); ?>
-        <a class="c-notification__dismiss js-notification-dismiss" href="#0">
-          &times;
-        </a>
-      </div>
-    </div>
-
-    <?php
-        endwhile;
-      endif;
-      wp_reset_query();
-    ?>
+    <?php get_template_part( 'partials/notification' ); ?>
 
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container">
-        <div class="u-pull-left">
+        <div class="u-pull-left--sm">
           <a class="logo u-pull-left" href="#0">
             <span class="o-flag">
               <span class="o-flag__fix">
                 <!-- <img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48"> -->
                 <img src="//placehold.it/48">
+                <!-- <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                </object> -->
               </span>
               <span class="o-flag__fix">
-                Brand Name
+                <span class="u-hide u-show-inline--sm">
+                  Brand
+                </span>
+                <span class="u-hide u-show-inline--md">
+                   Name
+                </span>
               </span>
             </span>
           </a>
-          <nav role="navigation" class="c-navigation u-pull-left">
+          <nav role="navigation" class="c-navigation u-pull-left--sm">
             <?php wp_nav_menu( array(
               'theme_location' => 'Main Menu',
               'menu' => 'Main Menu',
@@ -79,7 +59,9 @@
             ) ); ?>
           </nav>
         </div>
-        <?php get_search_form(); ?>
+        <div class="u-pull-right--sm">
+          <?php get_search_form(); ?>
+        </div>
       </div>
     </header>
 

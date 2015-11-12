@@ -8,3 +8,10 @@
   cursor: pointer;
   user-select: none;
 }
+
+  .o-btn--reset {
+    width: auto;
+    background-color: transparent;
+    border: none;
+    color: colour(black);
+  }

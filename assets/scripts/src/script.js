@@ -45,7 +45,7 @@ function checkNotifications() {
 
 // Attach the event for the click
 function attachNotifications() {
-  $('.c-notification').show();
+  $('.c-notification').slideDown();
   $('.js-notification-dismiss').on('click', function(e) {
     e.preventDefault();
     $('.c-notification').slideUp(function() {
