@@ -77,3 +77,31 @@
 @each $colour in map-keys($VCcolours) {
   .u-bg-#{$colour}   { background-color: colour($colour); }
 }
+
+.u-margin,
+%u-margin {
+  margin-bottom: $VCbase;
+
+  &--double {
+    margin-bottom: double($VCbase);
+  }
+
+  &--half {
+    margin-bottom: half($VCbase);
+  }
+
+  &--none {
+    margin-bottom: 0;
+  }
+}
+
+.u-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

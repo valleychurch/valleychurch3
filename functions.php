@@ -19,7 +19,18 @@ function create_plural($name, $label = null, $nameplural, $labelplural) {
   return ( ( $label != null ) ?( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
 }
 
-// Function for default arguments when creating a custom post type
+/**
+ * Create a custom post type
+ *
+ * @param string $name                    The name of the post type
+ * @param string $label                   Used to generate labels different to the name
+ * @param string $icon                    Dashicon to use for WordPress admin
+ * @param bool $exclude_from_search       Show in search results?
+ * @param array $rewrite                  Options for changing the slug in front of the post type
+ * @param array $supports                 Options for changing what the post type supports (title, editor, thumbnail, etc)
+ * @return                                Custom post type arguments
+ * @since 1.0
+ */
 function create_custom_post_type_args($name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
@@ -50,8 +61,15 @@ function create_custom_post_type_args($name, $label = null, $icon = null, $exclu
   return $args;
 }
 
-// Function for default arguments when creating a custom taxonomy
-function create_custom_taxonomy($name, $label = null) {
+/**
+ * Create arguments for a custom taxonomy
+ *
+ * @param string $name      The name of the taxonomy
+ * @param string $label     Used to generate labels different to the name
+ * @return                  Custom taxonomy arguments
+ * @since 1.0
+ */
+function create_custom_taxonomy_args($name, $label = null) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
   $singular = create_singular( $name, $label );
@@ -81,7 +99,25 @@ function create_custom_taxonomy($name, $label = null) {
   return $args;
 }
 
+/**
+ * Checks to see if the specified email address has a Gravatar image.
+ *
+ * @param $email_address  The email of the address of the user to check
+ * @return                Whether or not the user has a gravatar
+ * @since 1.0
+ */
+function has_gravatar( $email_address ) {
 
+  // Build the Gravatar URL by hasing the email address
+  $url = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim ( $email_address ) ) ) . '?d=404';
+
+  // Now check the headers...
+  $headers = @get_headers( $url );
+
+  // If 200 is found, the user has a Gravatar; otherwise, they don't.
+  return preg_match( '|200|', $headers[0] ) ? true : false;
+
+} // end example_has_gravatar
 
 
 
@@ -135,8 +171,8 @@ add_action( 'init', 'create_custom_post_types' );
 
 //Create custom taxonomies
 function create_custom_taxonomies() {
-  register_taxonomy('series', 'podcast', create_custom_taxonomy('series', 'Series') );
-  register_taxonomy('location_type', 'location', create_custom_taxonomy('type', 'Location Type') );
+  register_taxonomy('series', 'podcast', create_custom_taxonomy_args('series', 'Series') );
+  register_taxonomy('location_type', 'location', create_custom_taxonomy_args('type', 'Location Type') );
 };
 add_action( 'init', 'create_custom_taxonomies' );
 

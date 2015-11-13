@@ -5,6 +5,7 @@
   vertical-align: middle;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0;
 
   text-align: center;
 
@@ -28,18 +29,20 @@
     left: 0;
 
     border-radius: 100%;
-    box-shadow: inset 0 0 0 1px colour(gray-light);
+    //box-shadow: inset 0 0 0 1px colour(gray-light);
 
     pointer-events: none;
   }
 
   &#{&}--no-img {
-    border: 2px solid;
+    background-color: colour(grey-dark);
+    border: 2px solid colour(grey-dark);
 
     &:after {
       content: attr(data-initials);
       @include font-stack-alt;
       box-shadow: none;
+      color: white;
     }
 
     &.c-avatar--xs:after {

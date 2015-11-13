@@ -15,7 +15,7 @@
 
     <style>
       /* Get critical CSS before anything else */
-      @import '<?php echo get_template_directory_uri(); ?>/assets/styles/css/critical.css';
+      /* @import '<?php echo get_template_directory_uri(); ?>/assets/styles/css/critical.css'; */
     </style>
 
     <script src="https://use.typekit.net/jtz8aoh.js"></script>
