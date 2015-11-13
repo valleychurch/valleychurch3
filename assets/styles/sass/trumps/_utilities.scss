@@ -71,3 +71,9 @@
 @each $colour in map-keys($VCcolours) {
   .u-text-#{$colour}   { color: colour($colour); }
 }
+
+
+// Background colours
+@each $colour in map-keys($VCcolours) {
+  .u-bg-#{$colour}   { background-color: colour($colour); }
+}

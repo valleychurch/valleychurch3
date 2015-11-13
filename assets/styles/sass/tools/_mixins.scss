@@ -85,3 +85,21 @@
 @mixin pull-right() {
   float: right !important;
 }
+
+
+// Avatar sizing
+@mixin avatar-size($s: 32px) {
+  width: $s;
+  height: $s;
+
+  font-size: round($s * 0.45);
+  line-height: ($s - 4px);
+
+  @if($s < 32px) {
+      font-weight: 700;
+  } @else if($s >= 48px) {
+      font-weight: 400;
+  } @else {
+      font-weight: 600;
+  }
+}

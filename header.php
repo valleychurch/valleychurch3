@@ -12,10 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/styles/css/style.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/script.min.js"></script>
+    <style>
+      /* Get critical CSS before anything else */
+      @import '<?php echo get_template_directory_uri(); ?>/assets/styles/css/critical.css';
+    </style>
 
     <script src="https://use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -43,9 +44,11 @@
               <span class="o-flag__fix">
                 <span class="u-hide u-show-inline--sm">
                   Brand
+                  <!-- Valley -->
                 </span>
                 <span class="u-hide u-show-inline--md">
                    Name
+                   <!-- Church -->
                 </span>
               </span>
             </span>

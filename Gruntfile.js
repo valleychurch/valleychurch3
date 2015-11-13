@@ -4,10 +4,11 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'nested'
+          //style: 'compressed'
         },
         files: {
-          'assets/styles/css/style.min.css': 'assets/styles/sass/style.scss'
+          'assets/styles/css/style.min.css': 'assets/styles/sass/style.scss',
+          'assets/styles/css/editor-style.css': 'assets/styles/sass/editor-style.scss',
         }
       }
     },
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'assets/styles/css/style.min.css'
+        src: 'assets/styles/css/*.css'
       }
     },
     uglify: {
@@ -28,13 +29,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'assets/scripts/dist/script.min.js':
-            [
-              'assets/scripts/lib/jquery.js',
-              'assets/scripts/lib/modernizr.js',
-              'assets/scripts/lib/holder.js',
-              'assets/scripts/src/script.js',
-            ]
+          'assets/scripts/dist/script.min.js': 'assets/scripts/src/script.js',
+          'assets/scripts/dist/jquery.min.js' : 'assets/scripts/lib/jquery.js',
+          'assets/scripts/dist/modernizr.min.js' : 'assets/scripts/lib/modernizr.js',
+          'assets/scripts/dist/holder.min.js' : 'assets/scripts/lib/holder.js'
         }
       }
     },
@@ -47,12 +45,25 @@ module.exports = function(grunt) {
         files: 'assets/scripts/**/*.js',
         tasks: ['uglify']
       }
+    },
+    criticalcss: {
+      dist: {
+        options: {
+          url: "http://valley.dev:80",
+          width: 1280,
+          height: 800,
+          outputfile: 'assets/styles/css/critical.css',
+          filename: 'assets/styles/css/style.min.css',
+          buffer: 800*1024
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-criticalcss');
 
-  grunt.registerTask('default', ['sass', 'postcss', 'uglify', 'watch']);
+  grunt.registerTask('default', ['sass', 'postcss', 'criticalcss', 'uglify', 'watch']);
 }
