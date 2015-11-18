@@ -1,4 +1,6 @@
-.c-header {}
+.c-header {
+  padding: 1em 0;
+}
 
   .logo {
     @include font-stack-alt();
@@ -8,6 +10,12 @@
     color: colour(black);
     text-decoration: none;
     letter-spacing: -1px;
+
+    & object,
+    & svg {
+      width: 40px;
+      height: 40px;
+    }
 
     @include breakpoint(md) {
       // font-size: ms(2);

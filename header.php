@@ -30,7 +30,7 @@
     <?php get_template_part( 'partials/notification' ); ?>
 
     <header role="banner" class="c-header u-clearfix">
-      <div class="o-container">
+      <div class="o-container o-container--full">
         <div class="u-pull-left--sm">
           <a class="logo u-pull-left" href="#0">
             <span class="o-flag">
@@ -42,14 +42,8 @@
                 </object> -->
               </span>
               <span class="o-flag__fix">
-                <span class="u-hide u-show-inline--sm">
-                  Brand
-                  <!-- Valley -->
-                </span>
-                <span class="u-hide u-show-inline--md">
-                   Name
-                   <!-- Church -->
-                </span>
+                <!-- <span class="u-hide u-show-inline--sm">Valley</span><span class="u-hide u-show-inline--md">&nbsp;Church</span> -->
+                <span class="u-hide u-show-inline--sm">Brand</span><span class="u-hide u-show-inline--md">&nbsp;Name</span>
               </span>
             </span>
           </a>

@@ -5,6 +5,7 @@
   padding: 0;
 
   @include breakpoint(md) {
+    padding-left: 1rem;
     display: block;
   }
 }
@@ -14,9 +15,12 @@
     @include pull-left;
 
     a {
-      font-size: ms(0);
+      font-size: ms(-1);
       @include font-stack-alt;
-      // font-weight: 700;
+
+      @include breakpoint(md) {
+        padding: 1rem 0.5rem;
+      }
     }
   }
 

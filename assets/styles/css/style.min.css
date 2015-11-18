@@ -398,11 +398,13 @@ html {
   @media screen and (min-width: 50em) {
     html {
       font-size: 1.125em; } }
+  @media screen and (min-width: 60em) {
+    html {
+      font-size: 1.1875em; } }
 
 body {
   font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1rem;
   line-height: 1.618;
   color: #262626; }
   .fontvariant.wf-active body {
@@ -525,13 +527,16 @@ input.is-disabled:hover {
 .o-container {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
   max-width: 80em; }
   .o-container::after {
     content: "";
     display: table;
     clear: both; }
+
+.o-container--full {
+  max-width: 100%; }
 
 .o-row {
   display: -webkit-flex;
@@ -540,14 +545,14 @@ input.is-disabled:hover {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin-left: -1rem;
-  margin-right: -1rem; }
+  margin-left: -1em;
+  margin-right: -1em; }
 
 .o-col-xs-1, .o-col-xs-2, .o-col-xs-3, .o-col-xs-4, .o-col-xs-5, .o-col-xs-6, .o-col-xs-7, .o-col-xs-8, .o-col-xs-9, .o-col-xs-10, .o-col-xs-11, .o-col-xs-12, .o-col-sm-1, .o-col-sm-2, .o-col-sm-3, .o-col-sm-4, .o-col-sm-5, .o-col-sm-6, .o-col-sm-7, .o-col-sm-8, .o-col-sm-9, .o-col-sm-10, .o-col-sm-11, .o-col-sm-12, .o-col-md-1, .o-col-md-2, .o-col-md-3, .o-col-md-4, .o-col-md-5, .o-col-md-6, .o-col-md-7, .o-col-md-8, .o-col-md-9, .o-col-md-10, .o-col-md-11, .o-col-md-12, .o-col-lg-1, .o-col-lg-2, .o-col-lg-3, .o-col-lg-4, .o-col-lg-5, .o-col-lg-6, .o-col-lg-7, .o-col-lg-8, .o-col-lg-9, .o-col-lg-10, .o-col-lg-11, .o-col-lg-12, .o-col-xl-1, .o-col-xl-2, .o-col-xl-3, .o-col-xl-4, .o-col-xl-5, .o-col-xl-6, .o-col-xl-7, .o-col-xl-8, .o-col-xl-9, .o-col-xl-10, .o-col-xl-11, .o-col-xl-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  padding-left: 1em;
+  padding-right: 1em; }
 
 .o-col-xs-1 {
   -webkit-flex: 0 0 8.33333%;
@@ -1798,6 +1803,9 @@ input.is-disabled:hover {
   color: white;
   font-weight: 100; }
 
+.c-header {
+  padding: 1em 0; }
+
 .logo {
   font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
@@ -1811,6 +1819,9 @@ input.is-disabled:hover {
     font-variant-alternates: styleset("ss01"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
+  .logo object, .logo svg {
+    width: 40px;
+    height: 40px; }
 
 .c-menu {
   display: none;
@@ -1819,19 +1830,23 @@ input.is-disabled:hover {
   padding: 0; }
   @media screen and (min-width: 50em) {
     .c-menu {
+      padding-left: 1rem;
       display: block; } }
 
 .menu-item {
   display: inline-block;
   float: left !important; }
   .menu-item a {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
     text-rendering: optimizeLegibility; }
     .fontvariant.wf-active .menu-item a {
       font-variant-alternates: styleset("ss01"), styleset("ss03");
       -webkit-font-feature-settings: "ss01", "ss03";
               font-feature-settings: "ss01", "ss03"; }
+    @media screen and (min-width: 50em) {
+      .menu-item a {
+        padding: 1rem 0.5rem; } }
 
 .sub-menu {
   display: none; }
@@ -2070,7 +2085,7 @@ input.is-disabled:hover {
   text-transform: capitalize; }
 
 .u-text-white {
-  color: #e6e6e6; }
+  color: #e5e5e5; }
 
 .u-text-grey-light {
   color: #bfbfbf; }
@@ -2097,7 +2112,7 @@ input.is-disabled:hover {
   color: #092940; }
 
 .u-bg-white {
-  background-color: #e6e6e6; }
+  background-color: #e5e5e5; }
 
 .u-bg-grey-light {
   background-color: #bfbfbf; }

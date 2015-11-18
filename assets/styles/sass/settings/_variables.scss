@@ -11,7 +11,7 @@ $VCfont-bold:           700;
 $ms-base:               $VCbase;
 $ms-ratio:              $VCline-height, $VCratio;
 
-$VCgrid-gutter:         $VCbase * 2;
+$VCgrid-gutter:         2em;
 $VCgrid-columns:        12;
 
 $VCmax-width:           80em;
