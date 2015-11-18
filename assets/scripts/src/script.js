@@ -8,6 +8,10 @@ var VC = {
 };
 
 
+// Load Typekit
+try{Typekit.load({ async: true });}catch(e){}
+
+
 // Obligatory debounce function
 function debounce(func, wait, immediate) {
   var result;
@@ -71,10 +75,33 @@ function addTests() {
   });
 };
 
+// Side nav toggle
+function sideNav() {
+  $('.js-nav-toggle').on('click', function(e) {
+    e.preventDefault();
+    $('body').toggleClass('is-menu-active');
+  });
+};
+
+// Check if
+function checkSideNav() {
+  if (Modernizr.mq('(min-width: 50em)')) {
+    if ($('body').hasClass('is-menu-active')) {
+      $('body').removeClass('is-menu-active');
+    }
+  }
+};
+
 $(function() {
   addTests();
   checkNotifications();
+  sideNav();
+  checkSideNav();
   VC.siteActive = true;
   VC.supports.objectFit = Modernizr.objectFit;
   VC.supports.fontVariantLigatures = Modernizr.fontvariant;
+});
+
+$(window).resize(function() {
+  debounce(checkSideNav, 250);
 });

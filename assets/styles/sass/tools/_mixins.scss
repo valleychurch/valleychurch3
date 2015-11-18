@@ -104,3 +104,9 @@
   //     font-weight: 600;
   // }
 }
+
+
+// 100% height
+@mixin full-height() {
+  height: 100%;
+}

@@ -138,6 +138,7 @@ add_theme_support( 'menus' );
 // Add custom menu
 function register_custom_menu() {
   register_nav_menu( 'primary', 'Main Menu' );
+  register_nav_menu( 'side-nav', 'Side Menu' );
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
 
@@ -208,11 +209,11 @@ function theme_files() {
   // remove Wp version from scripts
   //add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css' );
   wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'] );
 
-  wp_enqueue_style( 'site' );
   wp_enqueue_style( 'font-awesome' );
+  wp_enqueue_style( 'site' );
 
   // Remove and add our own version of jQuery
   wp_deregister_script( 'jquery' );
@@ -220,11 +221,13 @@ function theme_files() {
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js' );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'] );
   wp_register_script( 'holder', get_template_directory_uri() . '/assets/scripts/dist/holder.min.js', ['jquery'] );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'holder'] );
+  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js' );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'holder', 'typekit'] );
 
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'holder' );
+  wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'site' );
 };
 

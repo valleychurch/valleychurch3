@@ -5,12 +5,12 @@
     <div class="o-col-xs-12 o-col-md-8 o-col-md--offset-2">
 
       <h1>This is the primary heading and there should only be one of these per page</h1>
-      <figure class="c-avatar c-avatar--xl">
+      <!-- <figure class="c-avatar c-avatar--xl">
         <img src="http://i.imgur.com/VRgezU3.jpg" alt="Rick Butterfield" />
       </figure>
       <figure class="c-avatar c-avatar--no-img c-avatar--xl" data-initials="VC">
-        <!-- <img src="http://i.imgur.com/0tRX9MO.jpg" alt="Daniel Eden" /> -->
-      </figure>
+        <img src="http://i.imgur.com/0tRX9MO.jpg" alt="Daniel Eden" />
+      </figure> -->
       <p class="lead">This is a <strong>lead paragraph</strong>. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
       <p>A small paragraph to <em>emphasise</em> and show <strong>important</strong> bits.</p>
       <ul>

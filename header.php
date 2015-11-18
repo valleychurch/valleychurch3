@@ -13,53 +13,60 @@
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-    <style>
-      /* Get critical CSS before anything else */
-      /* @import '<?php echo get_template_directory_uri(); ?>/assets/styles/css/critical.css'; */
-    </style>
-
-    <script src="https://use.typekit.net/jtz8aoh.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
     <?php wp_head(); ?>
 
   </head>
 
-  <body <?php body_class(); ?>>
+  <body <?php body_class( 'is-menu-active' ); ?>>
 
-    <?php get_template_part( 'partials/notification' ); ?>
+    <nav role="navigation" class="c-side-navigation u-hide--md">
+      <?php get_search_form(); ?>
+      <?php wp_nav_menu( array(
+        'theme_location' => 'Side Menu',
+        'menu' => 'Main Menu',
+        'container' => false,
+        'menu_class' => 'c-menu'
+      ) ); ?>
+    </nav>
 
-    <header role="banner" class="c-header u-clearfix">
-      <div class="o-container o-container--full">
-        <div class="u-pull-left--sm">
-          <a class="logo u-pull-left" href="#0">
-            <span class="o-flag">
-              <span class="o-flag__fix">
-                <!-- <img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48"> -->
-                <img src="//placehold.it/48">
-                <!-- <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
-                </object> -->
+    <div class="o-page-wrap">
+
+      <?php get_template_part( 'partials/notification' ); ?>
+
+      <header role="banner" class="c-header u-clearfix">
+        <div class="o-container o-container--full">
+          <div class="u-pull-left--sm">
+            <a class="logo u-pull-left" href="#0">
+              <span class="o-flag">
+                <span class="o-flag__fix">
+                  <!-- <img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48"> -->
+                  <img src="//placehold.it/48">
+                  <!-- <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                  </object> -->
+                </span>
+                <span class="o-flag__fix">
+                  <!-- <span class="u-hide u-show-inline--sm">Valley</span><span class="u-hide u-show-inline--md">&nbsp;Church</span> -->
+                  <span class="u-hide u-show-inline--sm">Brand</span><span class="u-hide u-show-inline--md">&nbsp;Name</span>
+                </span>
               </span>
-              <span class="o-flag__fix">
-                <!-- <span class="u-hide u-show-inline--sm">Valley</span><span class="u-hide u-show-inline--md">&nbsp;Church</span> -->
-                <span class="u-hide u-show-inline--sm">Brand</span><span class="u-hide u-show-inline--md">&nbsp;Name</span>
-              </span>
-            </span>
-          </a>
-          <nav role="navigation" class="c-navigation u-pull-left--sm">
-            <?php wp_nav_menu( array(
-              'theme_location' => 'Main Menu',
-              'menu' => 'Main Menu',
-              'container' => false,
-              'menu_class' => 'c-menu'
-            ) ); ?>
-          </nav>
+            </a>
+            <nav role="navigation" class="c-navigation u-pull-left--sm u-hide u-show--md">
+              <?php wp_nav_menu( array(
+                'theme_location' => 'Main Menu',
+                'menu' => 'Main Menu',
+                'container' => false,
+                'menu_class' => 'c-menu'
+              ) ); ?>
+            </nav>
+          </div>
+          <div class="u-pull-right u-hide--md">
+            <button class="o-btn c-nav-toggle js-nav-toggle"><i class="fa fa-bars"></i></button>
+          </div>
+          <div class="u-pull-right--sm u-hide u-show--sm">
+            <?php get_search_form(); ?>
+          </div>
         </div>
-        <div class="u-pull-right--sm">
-          <?php get_search_form(); ?>
-        </div>
-      </div>
-    </header>
+      </header>
 
-    <main role="main">
+      <main role="main">

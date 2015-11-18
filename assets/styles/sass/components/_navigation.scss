@@ -1,36 +1,117 @@
 .c-menu {
-  display: none;
   list-style-type: none;
   margin: 0;
   padding: 0;
 
   @include breakpoint(md) {
     padding-left: 1rem;
-    display: block;
   }
 }
 
   .menu-item {
-    display: inline-block;
-    @include pull-left;
+    display: block;
+    position: relative;
+    margin-bottom: 1rem;
+
+    @include breakpoint(md) {
+      display: inline-block;
+      @include pull-left;
+    }
 
     a {
-      font-size: ms(-1);
+      display: block;
+      position: relative;
+      padding: 0.5rem 0 0.125rem;
       @include font-stack-alt;
+      font-size: ms(-1);
+      color: colour(grey-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
 
       @include breakpoint(md) {
-        padding: 1rem 0.5rem;
+        color: colour(black);
+        text-transform: none;
+        letter-spacing: 0px;
+        padding: 0.7rem 0.5rem;
+
+        &:hover {
+          cursor: pointer;
+
+          & + .sub-menu {
+            display: block;
+          }
+        }
       }
     }
   }
 
     .sub-menu {
-      display: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint(md) {
+        display: none;
+        position: absolute;
+
+        &:hover {
+          display: block;
+        }
+      }
 
       .menu-item {
+        margin-bottom: 0;
+
         a {
+          padding: 0;
+          color: white;
+          font-size: ms(0);
           @include font-stack;
           font-weight: $VCfont-normal;
+          text-transform: none;
+          letter-spacing: 0px;
+
+          @include breakpoint(md) {
+            color: colour(black);
+            cursor: pointer;
+          }
+
+          &[target=_blank]::after {
+            content: "\f08e";
+            display: inline-block;
+            position: relative;
+            top: auto;
+            right: auto;
+            line-height: 1.5;
+            padding-left: 0.5rem;
+            font-family: "FontAwesome";
+            font-size: ms(-1);
+          }
+
+          &::after {
+            content: '';
+            display: none;
+          }
         }
       }
     }
+
+
+.c-side-navigation {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: -15em;
+  bottom: 0;
+  width: 15em;
+  background-color: colour(grey-dark);
+  transition: transform 250ms ease-in-out;
+
+  .is-menu-active & {
+    transform: translate3d(-15em, 0, 0);
+  }
+}
+
+  .c-nav-toggle {
+  }

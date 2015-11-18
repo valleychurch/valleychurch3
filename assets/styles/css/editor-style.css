@@ -385,6 +385,7 @@ body {
   margin: 1em; }
 
 html {
+  height: 100%;
   font-size: 1.0625em; }
   @media screen and (min-width: 50em) {
     html {
@@ -394,6 +395,8 @@ html {
       font-size: 1.1875em; } }
 
 body {
+  position: relative;
+  height: 100%;
   font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.618;
@@ -402,6 +405,17 @@ body {
     font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss02", "ss03";
             font-feature-settings: "ss01", "ss02", "ss03"; }
+
+.o-page-wrap {
+  position: relative;
+  height: 100%;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out; }
+  .is-menu-active .o-page-wrap {
+    position: fixed;
+    -webkit-transform: translate3d(-15em, 0, 0);
+            transform: translate3d(-15em, 0, 0); }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
