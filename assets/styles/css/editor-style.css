@@ -400,20 +400,21 @@ body {
   font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.618;
-  color: #262626; }
+  color: #262626;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out; }
   .fontvariant.wf-active body {
     font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss02", "ss03";
             font-feature-settings: "ss01", "ss02", "ss03"; }
-
-.o-page-wrap {
-  position: relative;
-  height: 100%;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out; }
-  .is-menu-active .o-page-wrap {
+  body.is-menu-active {
     position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     -webkit-transform: translate3d(-15em, 0, 0);
             transform: translate3d(-15em, 0, 0); }
 

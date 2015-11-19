@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         tasks: ['sass', 'postcss']
       },
       scripts: {
-        files: 'assets/scripts/**/*.js',
+        files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
         tasks: ['uglify']
       }
     },

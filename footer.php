@@ -1,12 +1,10 @@
-      </main>
+    </main>
 
-      <footer class="c-footer u-clearfix">
-        <div class="o-container">
+    <footer class="c-footer u-clearfix">
+      <div class="o-container">
 
-        </div>
-      </footer>
-
-    </div>
+      </div>
+    </footer>
 
     <?php wp_footer(); ?>
   </body>

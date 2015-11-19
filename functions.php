@@ -131,6 +131,7 @@ function has_gravatar( $email_address ) {
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'slide', 2000, 1125, true ); //Slide width
 add_image_size( 'slide-small', 1280, 720, true ); //Slide width small
+add_image_size( 'banner', 2000, 800, true ); //Featured image banner size
 
 // Add menu support
 add_theme_support( 'menus' );

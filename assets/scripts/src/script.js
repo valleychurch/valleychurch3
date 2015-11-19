@@ -85,7 +85,9 @@ function sideNav() {
 
 // Check if
 function checkSideNav() {
-  if (Modernizr.mq('(min-width: 50em)')) {
+  console.log("checkSideNav");
+
+  if (Modernizr.mq('(min-width: 60em)')) {
     if ($('body').hasClass('is-menu-active')) {
       $('body').removeClass('is-menu-active');
     }
@@ -103,5 +105,6 @@ $(function() {
 });
 
 $(window).resize(function() {
-  debounce(checkSideNav, 250);
+  console.log("Resize");
+  debounce(checkSideNav(), 250);
 });
