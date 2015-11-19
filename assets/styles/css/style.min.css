@@ -1943,6 +1943,21 @@ input.is-disabled:hover {
       height: auto;
       background-color: transparent; } }
 
+.c-navigation--toggle {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  background-color: #262626;
+  transition: all 250ms ease-in-out; }
+  .is-menu-active .c-navigation--toggle {
+    visibility: visible;
+    opacity: 0.85; }
+
 .u-clearfix::after,
 .u-cf::after {
   content: "";

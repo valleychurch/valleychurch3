@@ -21,6 +21,8 @@
 
     <?php get_template_part( 'partials/notification' ); ?>
 
+    <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container o-container--full">
         <!-- <div class="u-pull-left--sm"> -->

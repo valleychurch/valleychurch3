@@ -126,5 +126,20 @@
   }
 }
 
-  .c-nav-toggle {
+  .c-navigation--toggle {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    background-color: colour(black);
+    transition: all 250ms ease-in-out;
+
+    .is-menu-active & {
+      visibility: visible;
+      opacity: 0.85;
+    }
   }
