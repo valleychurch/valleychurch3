@@ -11,7 +11,11 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+    <!-- Typekit - Outside of functions.php so that we can async it -->
+    <script src="https://use.typekit.net/jtz8aoh.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <?php wp_head(); ?>
   </head>
@@ -25,23 +29,22 @@
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container o-container--full">
         <!-- <div class="u-pull-left--sm"> -->
-          <a class="logo u-pull-left" href="#0">
+          <a class="logo u-pull-left" href="<?php bloginfo( 'url' ); ?>">
             <span class="o-flag">
               <span class="o-flag__fix">
-                <!-- <img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icon.svg" width="48" height="48"> -->
-                <img src="//placehold.it/48">
-                <!-- <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                <!-- <img src="//placehold.it/48"> -->
+                <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
                   <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
-                </object> -->
+                </object>
               </span>
               <span class="o-flag__fix">
-                <!-- <span class="u-hide u-show-inline--sm">Valley</span><span class="u-hide u-show-inline--md">&nbsp;Church</span> -->
-                <span class="u-hide u-show-inline--sm">Brand</span><span class="u-hide u-show-inline--md">&nbsp;Name</span>
+                <span class="u-show-inline">Valley</span><span class="u-hide u-show-inline--md">&nbsp;Church</span>
+                <!-- <span class="u-hide u-show-inline--sm">Brand</span><span class="u-hide u-show-inline--md">&nbsp;Name</span> -->
               </span>
             </span>
           </a>
-          <nav role="navigation" class="c-navigation">
-            <div class="u-pull-right--md">
+          <nav role="navigation" class="c-navigation u-cf">
+            <div class="u-pull-right--md u-margin u-margin--lg--none">
               <?php get_search_form(); ?>
             </div>
             <div class="u-pull-left--md">
@@ -49,7 +52,7 @@
                 'theme_location' => 'Main Menu',
                 'menu' => 'Main Menu',
                 'container' => false,
-                'menu_class' => 'c-menu'
+                'menu_class' => 'c-menu u-cf'
               ) ); ?>
             </div>
           </nav>
@@ -60,4 +63,4 @@
       </div>
     </header>
 
-    <main role="main">
+    <main class="c-main" role="main">

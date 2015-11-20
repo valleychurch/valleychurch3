@@ -1,0 +1,28 @@
+.c-search {
+  width: 100%;
+
+  @include breakpoint(lg) {
+    width: 10rem;
+  }
+
+  @include breakpoint(xl) {
+    width: 12rem;
+  }
+
+  .o-flag__fix {
+    padding: 0;
+  }
+}
+
+  .c-search__input {
+    border: 1px solid #bfbfbf;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .c-search__button {
+    padding: 0.5rem 0.65rem;
+    border-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }

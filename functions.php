@@ -132,6 +132,7 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'slide', 2000, 1125, true ); //Slide width
 add_image_size( 'slide-small', 1280, 720, true ); //Slide width small
 add_image_size( 'banner', 2000, 800, true ); //Featured image banner size
+add_image_size( 'banner-small', 1500, 800, true ); //Featured image banner size
 
 // Add menu support
 add_theme_support( 'menus' );
@@ -219,16 +220,16 @@ function theme_files() {
   // Remove and add our own version of jQuery
   wp_deregister_script( 'jquery' );
 
+  //wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js' );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js' );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'] );
   wp_register_script( 'holder', get_template_directory_uri() . '/assets/scripts/dist/holder.min.js', ['jquery'] );
-  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js' );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'holder', 'typekit'] );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'holder'] );
 
+  //wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'holder' );
-  wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'site' );
 };
 

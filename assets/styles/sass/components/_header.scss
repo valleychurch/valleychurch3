@@ -1,23 +1,42 @@
 .c-header {
-  padding: 1em 0;
+  // padding: 1em 0;
+  // background-color: colour(grey-xlight);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+
+  .o-container {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
 }
 
   .logo {
-    @include font-stack-alt();
+    position: relative;
     display: inline-block;
+    z-index: 10;
+    @include font-stack-alt();
     font-size: ms(1);
     font-weight: $VCfont-normal;
     color: colour(black);
     text-decoration: none;
     letter-spacing: -1px;
+    padding: 0.75rem 0;
 
     & object,
     & svg {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
+
+      // @include breakpoint(md) {
+      //   width: 48px;
+      //   height: 48px;
+      // }
     }
 
     @include breakpoint(md) {
-      // font-size: ms(2);
+      font-size: ms(0);
     }
   }

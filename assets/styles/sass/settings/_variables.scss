@@ -11,16 +11,16 @@ $VCfont-bold:           700;
 $ms-base:               $VCbase;
 $ms-ratio:              $VCline-height, $VCratio;
 
-$VCgrid-gutter:         2em;
+$VCgrid-gutter:         2rem;
 $VCgrid-columns:        12;
 
-$VCmax-width:           80em;
+$VCmax-width:           80rem;
 $VCbreakpoints: (
   xs:                   0,
-  sm:                   40em,
-  md:                   50em,
-  lg:                   60em,
-  xl:                   70em
+  sm:                   40rem,
+  md:                   50rem,
+  lg:                   60rem,
+  xl:                   70rem
 );
 
 // Flags
@@ -37,6 +37,7 @@ $VCblack:               #000;
 
 $VCcolours: (
   white:                shade($VCwhite, 10%),
+  grey-xlight:          tint($VCblack, 98%),
   grey-light:           tint($VCblack, 75%),
   grey-dark:            tint($VCblack, 35%),
   black:                tint($VCblack, 15%),

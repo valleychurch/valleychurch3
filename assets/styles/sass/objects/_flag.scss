@@ -33,7 +33,7 @@
     // Use the --rev modifier when the order is reversed (fixed-width element on
     // the right of the fluid width element)
     .o-flag--rev & {
-      padding-right: 0;
+      // padding-right: 0;
       padding-left: 10px;
     }
 

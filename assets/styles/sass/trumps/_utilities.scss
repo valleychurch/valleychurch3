@@ -95,6 +95,27 @@
   }
 }
 
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-margin--#{$breakpoint},
+    %u-margin--#{$breakpoint} {
+      margin-bottom: $VCbase;
+
+      &--double {
+        margin-bottom: double($VCbase);
+      }
+
+      &--half {
+        margin-bottom: half($VCbase);
+      }
+
+      &--none {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 .u-hidden {
   position: absolute;
   width: 1px;

@@ -379,20 +379,21 @@ dd {
 
 img {
   vertical-align: middle;
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 body {
-  margin: 1em; }
+  margin: 1rem; }
 
 html {
   height: 100%;
-  font-size: 1.0625em; }
-  @media screen and (min-width: 50em) {
+  font-size: 1.0625rem; }
+  @media screen and (min-width: 50rem) {
     html {
-      font-size: 1.125em; } }
-  @media screen and (min-width: 60em) {
+      font-size: 1.125rem; } }
+  @media screen and (min-width: 60rem) {
     html {
-      font-size: 1.1875em; } }
+      font-size: 1.1875rem; } }
 
 body {
   position: relative;
@@ -415,8 +416,8 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-transform: translate3d(-15em, 0, 0);
-            transform: translate3d(-15em, 0, 0); }
+    -webkit-transform: translate3d(-15rem, 0, 0);
+            transform: translate3d(-15rem, 0, 0); }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -488,14 +489,14 @@ dt {
 
 dd {
   margin-left: 0; }
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 40rem) {
     dd {
       font-size: 0.8rem; } }
 
 label {
   display: block;
   margin-bottom: 0.25rem; }
-  @media screen and (min-width: 50em) {
+  @media screen and (min-width: 50rem) {
     label {
       font-size: 0.8rem; } }
 
@@ -508,7 +509,7 @@ select {
   line-height: normal;
   border: 1px solid #bfbfbf;
   border-radius: 2px; }
-  @media screen and (min-width: 50em) {
+  @media screen and (min-width: 50rem) {
     input,
     button,
     textarea,
@@ -522,6 +523,7 @@ input[type="tel"],
 input[type="password"],
 select,
 textarea {
+  box-sizing: border-box;
   width: 100%;
   padding: 0.5rem 0.75rem; }
 
