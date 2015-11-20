@@ -41,6 +41,11 @@
     .fontvariant.wf-active & {
       font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
       font-feature-settings: "ss01", "ss02", "ss03";
+
+      & em {
+        font-variant-alternates: styleset("ss01"), styleset("ss03");
+        font-feature-settings: "ss01", "ss03";
+      }
     }
   }
 }

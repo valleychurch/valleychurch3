@@ -15,7 +15,7 @@
 
     <!-- Typekit - Outside of functions.php so that we can async it -->
     <script src="https://use.typekit.net/jtz8aoh.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
     <?php wp_head(); ?>
   </head>

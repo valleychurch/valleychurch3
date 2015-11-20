@@ -409,6 +409,10 @@ body {
     font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss02", "ss03";
             font-feature-settings: "ss01", "ss02", "ss03"; }
+    .fontvariant.wf-active body em {
+      font-variant-alternates: styleset("ss01"), styleset("ss03");
+      -webkit-font-feature-settings: "ss01", "ss03";
+              font-feature-settings: "ss01", "ss03"; }
   body.is-menu-active {
     position: fixed;
     overflow: hidden;
