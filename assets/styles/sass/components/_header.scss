@@ -1,6 +1,7 @@
 .c-header {
   // padding: 1em 0;
   // background-color: colour(grey-xlight);
+  background: linear-gradient( to bottom, rgba(25, 25, 25, 0.85), rgba(25, 25, 25, 0));
   position: absolute;
   top: 0;
   right: 0;
@@ -20,7 +21,7 @@
     @include font-stack-alt();
     font-size: ms(1);
     font-weight: $VCfont-normal;
-    color: colour(black);
+    color: white;
     text-decoration: none;
     letter-spacing: -1px;
     padding: 0.75rem 0;

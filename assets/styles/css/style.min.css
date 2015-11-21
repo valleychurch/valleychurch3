@@ -1824,6 +1824,7 @@ input.is-disabled:hover {
   font-weight: 100; }
 
 .c-header {
+  background: linear-gradient(to bottom, rgba(25, 25, 25, 0.85), rgba(25, 25, 25, 0));
   position: absolute;
   top: 0;
   right: 0;
@@ -1841,7 +1842,7 @@ input.is-disabled:hover {
   text-rendering: optimizeLegibility;
   font-size: 1.25rem;
   font-weight: 400;
-  color: #262626;
+  color: white;
   text-decoration: none;
   letter-spacing: -1px;
   padding: 0.75rem 0; }
@@ -1897,7 +1898,7 @@ input.is-disabled:hover {
               font-feature-settings: "ss01", "ss03"; }
     @media screen and (min-width: 60rem) {
       .menu-item a {
-        color: #262626;
+        color: white;
         text-transform: none;
         letter-spacing: 0px;
         padding: 0.98rem 0.5rem; } }

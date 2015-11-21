@@ -43,7 +43,7 @@
       text-decoration: none;
 
       @include breakpoint(lg) {
-        color: colour(black);
+        color: white;
         text-transform: none;
         letter-spacing: 0px;
         padding: 0.98rem 0.5rem;
