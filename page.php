@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
       <?php if ( has_post_thumbnail() ) { ?>
-      <figure class="c-featured">
+      <figure class="c-featured u-margin u-margin--md--double">
         <?php the_post_thumbnail(); ?>
         <?php if ( get_post( $attachment_id )->post_excerpt !== "" ) { ?>
         <figcaption class="o-container c-featured__caption">

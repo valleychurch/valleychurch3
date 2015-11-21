@@ -34,7 +34,7 @@
               <span class="o-flag__fix">
                 <!-- <img src="//placehold.it/48"> -->
                 <object title="<?php bloginfo( 'name' ); ?>" type="image/svg+xml" data="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
-                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.svg">
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon.png">
                 </object>
               </span>
               <span class="o-flag__fix">
@@ -57,7 +57,7 @@
             </div>
           </nav>
           <div class="u-pull-right u-hide--lg">
-            <button class="o-btn c-nav-toggle js-nav-toggle"><i class="fa fa-bars"></i></button>
+            <button class="o-btn c-nav-toggle js-nav-toggle">Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i></button>
           </div>
         <!-- </div> -->
       </div>

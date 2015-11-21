@@ -7,21 +7,19 @@
 
   <?php while (have_posts()) : the_post(); ?>
 
-    <article <?php post_class( 'o-col-xs-12 u-margin u-margin--md--double' ); ?> role="article">
-      <div class="o-row">
-        <figure class="o-col-xs-12 o-col-md-3 o-col-lg-4">
+    <div class="o-col-xs-12 o-col-md-4">
+      <article <?php post_class( 'u-margin u-margin--md--double' ); ?> role="article">
+        <figure>
           <?php the_post_thumbnail(); ?>
         </figure>
-        <div class="o-col-xs-12 o-col-md-9 o-col-lg-8">
-          <h2 class="h1">
-            <a href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </h2>
-          <?php the_content('Read more'); ?>
-        </div>
-      </div>
-    </article>
+        <h2>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </h2>
+        <?php // the_content('Read more'); ?>
+      </article>
+    </div>
 
   <?php endwhile; else: ?>
 

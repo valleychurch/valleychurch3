@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+<div class="c-banner u-margin u-margin--sm--double" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/hero-home.jpg'); ">
+  <div class="o-container u-text-center">
+    <h1 class="giga u-margin--none">Welcome Home</h1>
+  </div>
+</div>
+
 <div class="o-container">
   <div class="o-row">
     <div class="o-col-xs-12 o-col-md-8 o-col-md--offset-2">

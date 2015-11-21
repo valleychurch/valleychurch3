@@ -387,13 +387,16 @@ body {
 
 html {
   height: 100%;
-  font-size: 1.0625rem; }
+  font-size: 16px; }
+  @media screen and (min-width: 40rem) {
+    html {
+      font-size: 17px; } }
   @media screen and (min-width: 50rem) {
     html {
-      font-size: 1.125rem; } }
+      font-size: 18px; } }
   @media screen and (min-width: 60rem) {
     html {
-      font-size: 1.1875rem; } }
+      font-size: 19px; } }
 
 body {
   position: relative;
@@ -469,7 +472,7 @@ h6, .h6 {
 hr {
   margin-bottom: 1rem;
   border: none;
-  border-top: 1px solid #bfbfbf; }
+  border-top: 1px solid #a6a6a6; }
 
 small,
 .small {
@@ -511,7 +514,7 @@ select {
   display: block;
   width: 100%;
   line-height: normal;
-  border: 1px solid #bfbfbf;
+  border: 1px solid #a6a6a6;
   border-radius: 2px; }
   @media screen and (min-width: 50rem) {
     input,

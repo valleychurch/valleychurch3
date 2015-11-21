@@ -23,7 +23,7 @@
       cursor: pointer;
 
       @include breakpoint(lg) {
-        background-color: colour(white);
+        background-color: colour(black);
       }
 
       .sub-menu {
@@ -46,7 +46,7 @@
         color: white;
         text-transform: none;
         letter-spacing: 0px;
-        padding: 0.98rem 0.5rem;
+        padding: 0.5rem;
 
       }
     }
@@ -61,7 +61,7 @@
         display: none;
         width: 15rem;
         position: absolute;
-        background-color: colour(white);
+        background-color: colour(black);
 
         &:hover {
           display: block;
@@ -75,16 +75,21 @@
 
         a {
           padding: 0;
-          color: white;
+          color: colour(white);
           font-size: ms(0);
           @include font-stack;
           font-weight: $VCfont-normal;
           text-transform: none;
           letter-spacing: 0px;
 
+          &:hover {
+            color: white;
+          }
+
           @include breakpoint(lg) {
-            font-size: ms(0);
-            color: colour(black);
+            padding: 0.1rem 0.5rem;
+            font-size: 0.875rem;
+            color: colour(white);
             cursor: pointer;
           }
 
@@ -137,6 +142,15 @@
     // transform: translate3d(-15rem, 0, 0);
   }
 }
+
+  .c-nav-toggle {
+    background-color: transparent;
+    color: white;
+    padding: 0.35rem 0.5rem;
+    text-transform: uppercase;
+    border: none;
+    @include font-stack-alt;
+  }
 
   .c-navigation--toggle {
     visibility: hidden;

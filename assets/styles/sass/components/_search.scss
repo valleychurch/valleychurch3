@@ -1,4 +1,5 @@
 .c-search {
+  position: relative;
   width: 100%;
 
   @include breakpoint(lg) {
@@ -15,14 +16,34 @@
 }
 
   .c-search__input {
-    border: 1px solid #bfbfbf;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    padding: 0.5rem 2rem 0.5rem 0.25rem !important;
+    color: white;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom: 1px solid colour(grey-light);
+    transition: all 250ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      border-bottom-color: colour(white);
+
+      & + .c-search__button {
+        color: colour(white);
+      }
+    }
   }
 
   .c-search__button {
-    padding: 0.5rem 0.65rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 2px;
+    width: auto;
+    background-color: transparent;
+    color: colour(grey-light);
     border-width: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 0;
+    transition: all 250ms ease-in-out;
   }
