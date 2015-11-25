@@ -24,11 +24,12 @@
     display: inline-block;
     z-index: 10;
     @include font-stack-alt();
-    font-size: ms(1);
+    font-size: ms(2);
     font-weight: $VCfont-normal;
     color: white;
     text-decoration: none;
     letter-spacing: -1px;
+    line-height: 1;
     // padding: 0.75rem 0;
 
     @include breakpoint(md) {
@@ -47,6 +48,6 @@
     }
 
     @include breakpoint(md) {
-      font-size: ms(0);
+      font-size: ms(1);
     }
   }
