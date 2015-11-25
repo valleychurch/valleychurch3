@@ -20,7 +20,8 @@ $VCbreakpoints: (
   sm:                   40rem,
   md:                   50rem,
   lg:                   60rem,
-  xl:                   70rem
+  xl:                   70rem,
+  max:                  $VCmax-width
 );
 
 // Flags
