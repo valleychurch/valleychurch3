@@ -44,10 +44,10 @@
             </span>
           </a>
           <nav role="navigation" class="c-navigation u-cf">
-            <div class="u-pull-right--md u-margin u-margin--lg--none">
+            <div class="u-pull-right--lg u-margin u-margin--lg--none">
               <?php get_search_form(); ?>
             </div>
-            <div class="u-pull-left--md">
+            <div class="u-pull-left--lg">
               <?php wp_nav_menu( array(
                 'theme_location' => 'Main Menu',
                 'menu' => 'Main Menu',
