@@ -401,7 +401,7 @@ html {
 body {
   position: relative;
   height: 100%;
-  font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.618;
   color: #262626;
@@ -428,7 +428,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-weight: 600;
   line-height: 1.25;
@@ -472,14 +472,14 @@ h6, .h6 {
 hr {
   margin-bottom: 1rem;
   border: none;
-  border-top: 1px solid #a5a5a5; }
+  border-top: 1px solid #a6a6a6; }
 
 small,
 .small {
   font-size: 0.8rem; }
 
 blockquote {
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-style: italic; }
   .fontvariant.wf-active blockquote {
@@ -514,7 +514,7 @@ select {
   display: block;
   width: 100%;
   line-height: normal;
-  border: 1px solid #a5a5a5;
+  border: 1px solid #a6a6a6;
   border-radius: 2px; }
   @media screen and (min-width: 50rem) {
     input,

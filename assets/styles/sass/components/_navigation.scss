@@ -35,8 +35,8 @@
       display: block;
       position: relative;
       padding: 0.5rem 0 0.125rem;
-      @include font-stack-alt;
-      font-size: ms(-1);
+      // @include font-stack-alt;
+      font-size: ms(0);
       color: colour(grey-light);
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -44,10 +44,10 @@
 
       @include breakpoint(lg) {
         color: white;
+        font-size: ms(-1);
         text-transform: none;
         letter-spacing: 0px;
         padding: 0.65rem 0.5rem;
-
       }
     }
   }
@@ -88,7 +88,7 @@
 
           @include breakpoint(lg) {
             padding: 0.1rem 0.5rem;
-            font-size: 0.875rem;
+            font-size: ms(-1);
             color: colour(white);
             cursor: pointer;
           }
@@ -149,7 +149,7 @@
     padding: 0.35rem 0.5rem;
     text-transform: uppercase;
     border: none;
-    @include font-stack-alt;
+    // @include font-stack-alt;
   }
 
   .c-navigation--toggle {

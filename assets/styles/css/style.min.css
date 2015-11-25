@@ -410,7 +410,7 @@ html {
 body {
   position: relative;
   height: 100%;
-  font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.618;
   color: #262626;
@@ -437,7 +437,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-weight: 600;
   line-height: 1.25;
@@ -481,14 +481,14 @@ h6, .h6 {
 hr {
   margin-bottom: 1rem;
   border: none;
-  border-top: 1px solid #a5a5a5; }
+  border-top: 1px solid #a6a6a6; }
 
 small,
 .small {
   font-size: 0.8rem; }
 
 blockquote {
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-style: italic; }
   .fontvariant.wf-active blockquote {
@@ -523,7 +523,7 @@ select {
   display: block;
   width: 100%;
   line-height: normal;
-  border: 1px solid #a5a5a5;
+  border: 1px solid #a6a6a6;
   border-radius: 2px; }
   @media screen and (min-width: 50rem) {
     input,
@@ -1974,7 +1974,7 @@ input.is-disabled:hover {
     border: 2px solid #595959; }
     .c-avatar.c-avatar--no-img:after {
       content: attr(data-initials);
-      font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+      font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
       text-rendering: optimizeLegibility;
       box-shadow: none;
       color: white; }
@@ -2026,7 +2026,7 @@ input.is-disabled:hover {
     padding: 1rem 3rem 1rem 1rem; }
   .c-notification p {
     margin: 0;
-    font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+    font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
     text-rendering: optimizeLegibility; }
     .fontvariant.wf-active .c-notification p {
       font-variant-alternates: styleset("ss01"), styleset("ss03");
@@ -2062,7 +2062,7 @@ input.is-disabled:hover {
   position: relative;
   display: inline-block;
   z-index: 10;
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   font-size: 1.5625rem;
   font-weight: 400;
@@ -2112,20 +2112,15 @@ input.is-disabled:hover {
     display: block;
     position: relative;
     padding: 0.5rem 0 0.125rem;
-    font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
-    text-rendering: optimizeLegibility;
-    font-size: 0.8rem;
-    color: #a5a5a5;
+    font-size: 1rem;
+    color: #a6a6a6;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none; }
-    .fontvariant.wf-active .menu-item a {
-      font-variant-alternates: styleset("ss01"), styleset("ss03");
-      -webkit-font-feature-settings: "ss01", "ss03";
-              font-feature-settings: "ss01", "ss03"; }
     @media screen and (min-width: 60rem) {
       .menu-item a {
         color: white;
+        font-size: 0.8rem;
         text-transform: none;
         letter-spacing: 0px;
         padding: 0.65rem 0.5rem; } }
@@ -2148,9 +2143,9 @@ input.is-disabled:hover {
     margin-bottom: 0; }
     .sub-menu .menu-item a {
       padding: 0;
-      color: #e5e5e5;
+      color: #e6e6e6;
       font-size: 1rem;
-      font-family: "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
+      font-family: "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
       text-rendering: optimizeLegibility;
       font-weight: 400;
       text-transform: none;
@@ -2168,8 +2163,8 @@ input.is-disabled:hover {
       @media screen and (min-width: 60rem) {
         .sub-menu .menu-item a {
           padding: 0.1rem 0.5rem;
-          font-size: 0.875rem;
-          color: #e5e5e5;
+          font-size: 0.8rem;
+          color: #e6e6e6;
           cursor: pointer; } }
       .sub-menu .menu-item a[target=_blank]::after {
         content: "\f08e";
@@ -2212,13 +2207,7 @@ input.is-disabled:hover {
   color: white;
   padding: 0.35rem 0.5rem;
   text-transform: uppercase;
-  border: none;
-  font-family: "usual", "source-sans-pro", "Helvetica Neue", Arial, sans-serif;
-  text-rendering: optimizeLegibility; }
-  .fontvariant.wf-active .c-nav-toggle {
-    font-variant-alternates: styleset("ss01"), styleset("ss03");
-    -webkit-font-feature-settings: "ss01", "ss03";
-            font-feature-settings: "ss01", "ss03"; }
+  border: none; }
 
 .c-navigation--toggle {
   visibility: hidden;
@@ -2256,13 +2245,13 @@ input.is-disabled:hover {
   border: none;
   border-radius: 0;
   background-color: transparent;
-  border-bottom: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a6a6a6;
   transition: all 250ms ease-in-out; }
   .c-search__input:hover, .c-search__input:focus {
     outline: none;
-    border-bottom-color: #e5e5e5; }
+    border-bottom-color: #e6e6e6; }
     .c-search__input:hover + .c-search__button, .c-search__input:focus + .c-search__button {
-      color: #e5e5e5; }
+      color: #e6e6e6; }
 
 .c-search__button {
   position: absolute;
@@ -2271,7 +2260,7 @@ input.is-disabled:hover {
   bottom: 2px;
   width: auto;
   background-color: transparent;
-  color: #a5a5a5;
+  color: #a6a6a6;
   border-width: 0;
   border-radius: 0;
   transition: all 250ms ease-in-out; }
@@ -2574,13 +2563,13 @@ input.is-disabled:hover {
   text-transform: capitalize; }
 
 .u-text-white {
-  color: #e5e5e5; }
+  color: #e6e6e6; }
 
 .u-text-grey-xlight {
-  color: #f9f9f9; }
+  color: #fafafa; }
 
 .u-text-grey-light {
-  color: #a5a5a5; }
+  color: #a6a6a6; }
 
 .u-text-grey-dark, .u-text-muted {
   color: #595959; }
@@ -2604,13 +2593,13 @@ input.is-disabled:hover {
   color: #092940; }
 
 .u-bg-white {
-  background-color: #e5e5e5; }
+  background-color: #e6e6e6; }
 
 .u-bg-grey-xlight {
-  background-color: #f9f9f9; }
+  background-color: #fafafa; }
 
 .u-bg-grey-light {
-  background-color: #a5a5a5; }
+  background-color: #a6a6a6; }
 
 .u-bg-grey-dark {
   background-color: #595959; }
