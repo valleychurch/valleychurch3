@@ -10,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e03c31">
+    <meta name="msapplication-navbutton-color" content="#e03c31">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -20,9 +22,12 @@
     <?php wp_head(); ?>
   </head>
 
-  <body <?php body_class(); ?>>
+  <body <?php body_class( ); ?>>
 
-    <?php get_template_part( 'partials/notification' ); ?>
+    <?php
+      //TODO: Rethink how notifications can work with an absolutely positioned header
+      //get_template_part( 'partials/notification' );
+    ?>
 
     <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
