@@ -65,7 +65,7 @@
 .u-text-uppercase       { text-transform: uppercase; }
 .u-text-capitalize      { text-transform: capitalize; }
 
-.u-text-muted           { @extend .u-text-grey-dark; }
+.u-text-muted           { color: greyscale(5); }
 
 //Text colours
 @each $colour in map-keys($VCcolours) {

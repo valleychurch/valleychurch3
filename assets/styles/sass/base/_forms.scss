@@ -14,7 +14,7 @@ select {
   display: block;
   width: 100%;
   line-height: normal;
-  border: 1px solid colour(grey-light);
+  border: 1px solid greyscale(8);
   border-radius: 2px;
 
   @include breakpoint(md) {
@@ -32,11 +32,18 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   padding: half($VCbase) three-quarters($VCbase);
+
+  &:focus,
+  &:active {
+    outline-color: colour(red, x-light);
+  }
 }
 
 input:disabled,
 input[disabled],
 input.is-disabled {
+  color: greyscale(8);
+  background-color: greyscale(10);
   &:hover {
     cursor: not-allowed;
   }

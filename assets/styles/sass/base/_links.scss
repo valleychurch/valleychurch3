@@ -1,0 +1,12 @@
+a {
+  @include transition();
+  &,
+  &:active {
+    color: colour(red);
+  }
+
+  &:focus,
+  &:hover {
+    color: colour(red, dark);
+  }
+}

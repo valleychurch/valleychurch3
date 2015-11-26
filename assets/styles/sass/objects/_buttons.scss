@@ -1,12 +1,30 @@
 .o-btn {
   width: 100%;
   display: inline-block;
-  text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
   user-select: none;
+  background-color: colour(red);
+  color: white;
+  font-size: ms(1);
+  text-align: center;
+  border: none;
+  padding: 0.5rem;
+  border: 1px solid colour(red, dark);
+  border-radius: 4px;
+  @include transition();
+
+  &:hover {
+    background-color: colour(red, dark);
+    border-color: colour(red, x-dark);
+  }
+
+  @include breakpoint(sm) {
+    min-width: 10rem;
+    width: auto;
+  }
 }
 
   .o-btn--reset {

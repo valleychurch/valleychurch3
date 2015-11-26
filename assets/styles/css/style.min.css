@@ -379,6 +379,7 @@ ul, ol, dl,
 input, select, textarea,
 blockquote, p, address,
 hr,
+button,
 table,
 fieldset, figure,
 pre {
@@ -414,9 +415,9 @@ body {
   text-rendering: optimizeLegibility;
   line-height: 1.618;
   color: #262626;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out; }
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out; }
   .fontvariant.wf-active body {
     font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss02", "ss03";
@@ -449,72 +450,76 @@ h1, h2, h3, h4, h5, h6,
             font-feature-settings: "ss01", "ss03"; }
 
 .tera {
-  font-size: 3.8147rem; }
+  font-size: 2.2807rem; }
 
 .giga {
-  font-size: 3.05176rem; }
+  font-size: 2.02729rem; }
 
 .mega {
-  font-size: 2.61792rem; }
+  font-size: 1.80203rem; }
 
 .kilo {
-  font-size: 2.44141rem; }
-
-h1, .h1 {
-  font-size: 1.95313rem; }
-
-h2, .h2 {
   font-size: 1.618rem; }
 
+h1, .h1 {
+  font-size: 1.60181rem; }
+
+h2, .h2 {
+  font-size: 1.42383rem; }
+
 h3, .h3 {
-  font-size: 1.5625rem; }
+  font-size: 1.26563rem; }
 
 h4, .h4 {
-  font-size: 1.25rem; }
+  font-size: 1.125rem; }
 
 h5, .h5 {
   font-size: 1rem; }
 
 h6, .h6 {
-  font-size: 0.8rem; }
+  font-size: 0.88889rem; }
 
 hr {
   margin-bottom: 1rem;
   border: none;
-  border-top: 1px solid #a6a6a6; }
+  border-top: 1px solid #b9b6b5; }
 
 small,
 .small {
-  font-size: 0.8rem; }
+  font-size: 0.88889rem; }
 
 blockquote {
-  font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
-  text-rendering: optimizeLegibility;
-  font-style: italic; }
-  .fontvariant.wf-active blockquote {
-    font-variant-alternates: styleset("ss01"), styleset("ss03");
-    -webkit-font-feature-settings: "ss01", "ss03";
-            font-feature-settings: "ss01", "ss03"; }
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #5f5b5b; }
 
 .lead,
 .lede {
-  font-size: 1.25rem; }
+  font-size: 1.125rem; }
+
+a {
+  transition: all 150ms ease-in-out; }
+  a, a:active {
+    color: #e03c31; }
+  a:focus, a:hover {
+    color: #be332a; }
 
 dt {
   font-weight: 700; }
 
 dd {
+  font-style: italic;
   margin-left: 0; }
   @media screen and (min-width: 40rem) {
     dd {
-      font-size: 0.8rem; } }
+      font-size: 0.88889rem; } }
 
 label {
   display: block;
   margin-bottom: 0.25rem; }
   @media screen and (min-width: 50rem) {
     label {
-      font-size: 0.8rem; } }
+      font-size: 0.88889rem; } }
 
 input,
 button,
@@ -523,14 +528,14 @@ select {
   display: block;
   width: 100%;
   line-height: normal;
-  border: 1px solid #a6a6a6;
+  border: 1px solid #b9b6b5;
   border-radius: 2px; }
   @media screen and (min-width: 50rem) {
     input,
     button,
     textarea,
     select {
-      font-size: 0.8rem; } }
+      font-size: 0.88889rem; } }
 
 input[type="text"],
 input[type="search"],
@@ -542,11 +547,30 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   padding: 0.5rem 0.75rem; }
+  input[type="text"]:focus, input[type="text"]:active,
+  input[type="search"]:focus,
+  input[type="search"]:active,
+  input[type="email"]:focus,
+  input[type="email"]:active,
+  input[type="tel"]:focus,
+  input[type="tel"]:active,
+  input[type="password"]:focus,
+  input[type="password"]:active,
+  select:focus,
+  select:active,
+  textarea:focus,
+  textarea:active {
+    outline-color: #e9776f; }
 
-input:disabled:hover,
-input[disabled]:hover,
-input.is-disabled:hover {
-  cursor: not-allowed; }
+input:disabled,
+input[disabled],
+input.is-disabled {
+  color: #b9b6b5;
+  background-color: #e8e5e4; }
+  input:disabled:hover,
+  input[disabled]:hover,
+  input.is-disabled:hover {
+    cursor: not-allowed; }
 
 .o-container {
   margin-left: auto;
@@ -1924,7 +1948,6 @@ input.is-disabled:hover {
 .o-btn {
   width: 100%;
   display: inline-block;
-  text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   -ms-touch-action: manipulation;
@@ -1933,7 +1956,23 @@ input.is-disabled:hover {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  background-color: #e03c31;
+  color: white;
+  font-size: 1.125rem;
+  text-align: center;
+  border: none;
+  padding: 0.5rem;
+  border: 1px solid #be332a;
+  border-radius: 4px;
+  transition: all 150ms ease-in-out; }
+  .o-btn:hover {
+    background-color: #be332a;
+    border-color: #9d2a22; }
+  @media screen and (min-width: 40rem) {
+    .o-btn {
+      min-width: 10rem;
+      width: auto; } }
 
 .o-btn--reset {
   width: auto;
@@ -1970,8 +2009,8 @@ input.is-disabled:hover {
     border-radius: 100%;
     pointer-events: none; }
   .c-avatar.c-avatar--no-img {
-    background-color: #595959;
-    border: 2px solid #595959; }
+    background-color: #757272;
+    border: 2px solid #757272; }
     .c-avatar.c-avatar--no-img:after {
       content: attr(data-initials);
       font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
@@ -2019,7 +2058,7 @@ input.is-disabled:hover {
 
 .c-notification {
   display: none;
-  background-color: #595959;
+  background-color: #757272;
   color: white; }
   .c-notification .o-container {
     position: relative;
@@ -2064,7 +2103,7 @@ input.is-disabled:hover {
   z-index: 10;
   font-family: "usual", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
-  font-size: 1.5625rem;
+  font-size: 1.26563rem;
   font-weight: 400;
   color: white;
   text-decoration: none;
@@ -2082,7 +2121,7 @@ input.is-disabled:hover {
     height: 32px; }
   @media screen and (min-width: 50rem) {
     .logo {
-      font-size: 1.25rem; } }
+      font-size: 1.125rem; } }
 
 .c-menu {
   list-style-type: none;
@@ -2113,14 +2152,16 @@ input.is-disabled:hover {
     position: relative;
     padding: 0.5rem 0 0.125rem;
     font-size: 1rem;
-    color: #a6a6a6;
+    color: #757272;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none; }
+    @media screen and (min-width: 40rem) {
+      .menu-item a {
+        font-size: 0.88889rem; } }
     @media screen and (min-width: 60rem) {
       .menu-item a {
         color: white;
-        font-size: 0.8rem;
         text-transform: none;
         letter-spacing: 0px;
         padding: 0.65rem 0.5rem; } }
@@ -2144,26 +2185,19 @@ input.is-disabled:hover {
     .sub-menu .menu-item a {
       padding: 0;
       color: #e6e6e6;
-      font-size: 1rem;
-      font-family: "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
-      text-rendering: optimizeLegibility;
+      font-size: 1.125rem;
       font-weight: 400;
       text-transform: none;
       letter-spacing: 0px; }
-      .fontvariant.wf-active .sub-menu .menu-item a {
-        font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
-        -webkit-font-feature-settings: "ss01", "ss02", "ss03";
-                font-feature-settings: "ss01", "ss02", "ss03"; }
-        .fontvariant.wf-active .sub-menu .menu-item a em {
-          font-variant-alternates: styleset("ss01"), styleset("ss03");
-          -webkit-font-feature-settings: "ss01", "ss03";
-                  font-feature-settings: "ss01", "ss03"; }
       .sub-menu .menu-item a:hover {
         color: white; }
+      @media screen and (min-width: 40rem) {
+        .sub-menu .menu-item a {
+          font-size: 1rem; } }
       @media screen and (min-width: 60rem) {
         .sub-menu .menu-item a {
+          font-size: 0.88889rem;
           padding: 0.1rem 0.5rem;
-          font-size: 0.8rem;
           color: #e6e6e6;
           cursor: pointer; } }
       .sub-menu .menu-item a[target=_blank]::after {
@@ -2175,7 +2209,7 @@ input.is-disabled:hover {
         line-height: 1.5;
         padding-left: 0.5rem;
         font-family: "FontAwesome";
-        font-size: 0.8rem; }
+        font-size: 0.88889rem; }
       .sub-menu .menu-item a::after {
         content: '';
         display: none; }
@@ -2221,7 +2255,7 @@ input.is-disabled:hover {
   z-index: -1;
   opacity: 0;
   background-color: #262626;
-  transition: all 250ms ease-in-out; }
+  transition: all 150ms ease-in-out; }
   .is-menu-active .c-navigation--toggle {
     visibility: visible;
     opacity: 0.85;
@@ -2245,8 +2279,8 @@ input.is-disabled:hover {
   border: none;
   border-radius: 0;
   background-color: transparent;
-  border-bottom: 1px solid #a6a6a6;
-  transition: all 250ms ease-in-out; }
+  border-bottom: 1px solid #757272;
+  transition: all 150ms ease-in-out; }
   .c-search__input:hover, .c-search__input:focus {
     outline: none;
     border-bottom-color: #e6e6e6; }
@@ -2257,13 +2291,20 @@ input.is-disabled:hover {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 2px;
-  width: auto;
+  bottom: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
   background-color: transparent;
-  color: #a6a6a6;
+  color: #757272;
   border-width: 0;
   border-radius: 0;
-  transition: all 250ms ease-in-out; }
+  transition: all 150ms ease-in-out; }
+  .c-search__button:hover {
+    color: #e6e6e6;
+    background-color: transparent; }
 
 .c-banner {
   display: table;
@@ -2273,7 +2314,7 @@ input.is-disabled:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: all 250ms ease-in-out; }
+  transition: all 150ms ease-in-out; }
   @media screen and (min-width: 40rem) {
     .c-banner {
       height: 20rem; } }
@@ -2562,65 +2603,32 @@ input.is-disabled:hover {
 .u-text-capitalize {
   text-transform: capitalize; }
 
+.u-text-muted {
+  color: #757272; }
+
 .u-text-white {
   color: #e6e6e6; }
-
-.u-text-grey-xlight {
-  color: #fafafa; }
-
-.u-text-grey-light {
-  color: #a6a6a6; }
-
-.u-text-grey-dark, .u-text-muted {
-  color: #595959; }
 
 .u-text-black {
   color: #262626; }
 
-.u-text-orange {
-  color: #c05411; }
-
 .u-text-red {
-  color: #a83338; }
-
-.u-text-green {
-  color: #588023; }
+  color: #e03c31; }
 
 .u-text-blue {
-  color: #397aac; }
-
-.u-text-dark-blue {
-  color: #092940; }
+  color: #3a5dae; }
 
 .u-bg-white {
   background-color: #e6e6e6; }
 
-.u-bg-grey-xlight {
-  background-color: #fafafa; }
-
-.u-bg-grey-light {
-  background-color: #a6a6a6; }
-
-.u-bg-grey-dark {
-  background-color: #595959; }
-
 .u-bg-black {
   background-color: #262626; }
 
-.u-bg-orange {
-  background-color: #c05411; }
-
 .u-bg-red {
-  background-color: #a83338; }
-
-.u-bg-green {
-  background-color: #588023; }
+  background-color: #e03c31; }
 
 .u-bg-blue {
-  background-color: #397aac; }
-
-.u-bg-dark-blue {
-  background-color: #092940; }
+  background-color: #3a5dae; }
 
 .u-margin {
   margin-bottom: 1rem; }

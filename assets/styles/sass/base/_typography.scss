@@ -54,7 +54,7 @@ a {
 hr {
   margin-bottom: $VCbase;
   border: none;
-  border-top: 1px solid colour(grey-light);
+  border-top: 1px solid greyscale(8);
 }
 
 small,
@@ -63,8 +63,10 @@ small,
 }
 
 blockquote {
-  @include font-stack-alt;
+  //@include font-stack-alt;
+  font-size: ms(1);
   font-style: italic;
+  color: greyscale(4);
 }
 
 .lead,

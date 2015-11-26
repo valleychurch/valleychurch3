@@ -3,6 +3,7 @@ dt {
 }
 
 dd {
+  font-style: italic;
   margin-left: 0;
 
   @include breakpoint(sm) {
