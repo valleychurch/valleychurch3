@@ -1,24 +1,14 @@
 <?php get_header(); ?>
 
-      <?php if ( has_post_thumbnail() ) { ?>
-      <figure class="c-featured">
-        <?php
-        the_post_thumbnail();
-        if ( isset( get_post( get_post_thumbnail_id())->post_excerpt ) ) { ?>
-        <figcaption class="o-container c-featured__caption">
-          <?php echo get_post( get_post_thumbnail_id())->post_excerpt; ?>
-        </figcaption>
-        <?php } ?>
-      </figure>
-      <?php } ?>
+      <?php get_template_part( 'partials/featured-image' ); ?>
 
       <article <?php post_class( 'o-container' ); ?> role="article">
 
         <div class="o-row">
 
-          <div class="o-col-md-4">
+          <div class="o-col-xs-12 c-post-content u-center-block">
 
-            <div class="o-flag u-margin">
+            <div class="o-flag u-margin--double">
               <div class="o-flag__fix">
                 <?php get_template_part( 'partials/avatar' ); ?>
               </div>
@@ -58,10 +48,6 @@
               <?php } ?>
             </p>
             <?php } ?>
-
-          </div>
-
-          <div class="o-col-md-8 o-col-lg-7">
 
             <h1><?php the_title(); ?></h1>
 

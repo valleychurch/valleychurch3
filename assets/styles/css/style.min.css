@@ -2377,6 +2377,9 @@ input.is-disabled {
     .c-banner .o-container * {
       color: white; }
 
+.c-post-content {
+  max-width: 39rem; }
+
 .c-footer {
   padding: 1rem 0;
   background-color: #2e2e2e;

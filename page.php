@@ -1,15 +1,6 @@
 <?php get_header(); ?>
 
-      <?php if ( has_post_thumbnail() ) { ?>
-      <figure class="c-featured u-margin u-margin--md--double">
-        <?php the_post_thumbnail(); ?>
-        <?php if ( get_post( $attachment_id )->post_excerpt !== "" ) { ?>
-        <figcaption class="o-container c-featured__caption">
-          <?php echo get_post( $attachment_id )->post_excerpt; ?>
-        </figcaption>
-        <?php } ?>
-      </figure>
-      <?php } ?>
+      <?php get_template_part( 'partials/featured-image' ); ?>
 
       <article <?php post_class( 'o-container' ); ?> role="article">
 
