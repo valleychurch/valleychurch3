@@ -19,6 +19,7 @@
 // Settings
 // Global variables, config switches
 @import "settings/variables";
+@import "settings/fonts";
 
 // Generic
 // Ground zero styles
@@ -51,6 +52,7 @@
 @import "components/main";
 @import "components/search";
 @import "components/banner";
+@import "components/footer";
 
 // Trumps
 // Helpers and overrides

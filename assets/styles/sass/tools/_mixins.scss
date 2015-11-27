@@ -32,19 +32,19 @@
 }
 
 
-// "Source Sans Pro" typeface with correct stylistic sets enabled
+// "Lato" typeface with correct stylistic sets enabled
 @mixin font-stack($alternates: true) {
   font-family: $VCfont-stack;
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
     .fontvariant.wf-active & {
-      font-variant-alternates: styleset("ss01"), styleset("ss02"), styleset("ss03");
-      font-feature-settings: "ss01", "ss02", "ss03";
+      // font-variant-alternates: styleset("ss04");
+      // font-feature-settings: "ss04";
 
       & em {
-        font-variant-alternates: styleset("ss01"), styleset("ss03");
-        font-feature-settings: "ss01", "ss03";
+        // font-variant-alternates: styleset("ss01"), styleset("ss03");
+        // font-feature-settings: "salt";
       }
     }
   }

@@ -1,6 +1,6 @@
 // Reusables
 $VCfont-size:           18px;
-$VCratio:               1.125;
+$VCratio:               1.2;
 $VCbase:                1rem;
 $VCline-height:         1.618;
 
@@ -9,7 +9,7 @@ $VCfont-medium:         600;
 $VCfont-bold:           700;
 
 $ms-base:               $VCbase;
-$ms-ratio:              $VCline-height, $VCratio;
+$ms-ratio:              $VCratio;
 
 $VCgrid-gutter:         2rem;
 $VCgrid-columns:        12;
@@ -35,7 +35,7 @@ $VCenable-flex:         true;
 $VCenable-grid-classes: true;
 
 // Typography
-$VCfont-stack:          "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+$VCfont-stack:          "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
 
 // Colours
@@ -69,16 +69,16 @@ $VCcolours: (
 // https://github.com/dropbox/scooter/blob/master/scss/variables/_colors.scss
 // TODO: Tint with some $VCred
 $VCgrayscale-colours: (
-  1:  mix(#171717, $VCred, 98%),
-  2:  mix(#2e2e2e, $VCred, 98%),
-  3:  mix(#454545, $VCred, 98%),
-  4:  mix(#5c5c5c, $VCred, 98%),
-  5:  mix(#737373, $VCred, 98%),
-  6:  mix(#8a8a8a, $VCred, 98%),
-  7:  mix(#a1a1a1, $VCred, 98%),
-  8:  mix(#b8b8b8, $VCred, 98%),
-  9:  mix(#cfcfcf, $VCred, 98%),
-  10: mix(#e8e8e8, $VCred, 98%),
+  1:  #171717,
+  2:  #2e2e2e,
+  3:  #454545,
+  4:  #5c5c5c,
+  5:  #737373,
+  6:  #8a8a8a,
+  7:  #a1a1a1,
+  8:  #b8b8b8,
+  9:  #cfcfcf,
+  10: #e8e8e8,
 );
 
 $VCavatar-sizes: (
