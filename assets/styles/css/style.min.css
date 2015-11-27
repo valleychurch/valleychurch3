@@ -2381,6 +2381,23 @@ input.is-disabled {
   padding: 1rem 0;
   background-color: #2e2e2e;
   color: white; }
+  .c-footer a,
+  .c-footer a:active {
+    color: white; }
+
+.c-menu-footer {
+  margin: 0;
+  padding: 0; }
+  .c-menu-footer .menu-item {
+    display: block;
+    float: none !important;
+    margin: 0 0 0.25rem; }
+    .c-menu-footer .menu-item:hover {
+      background-color: transparent; }
+    .c-menu-footer .menu-item a {
+      text-transform: none;
+      padding: 0;
+      letter-spacing: 0; }
 
 .u-clearfix::after,
 .u-cf::after {

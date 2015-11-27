@@ -108,7 +108,7 @@ function create_custom_taxonomy_args($name, $label = null) {
  */
 function has_gravatar( $email_address ) {
 
-  // Build the Gravatar URL by hasing the email address
+  // Build the Gravatar URL by hashing the email address
   $url = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim ( $email_address ) ) ) . '?d=404';
 
   // Now check the headers...
@@ -132,7 +132,7 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'slide', 2000, 1125, true ); //Slide width
 add_image_size( 'slide-small', 1280, 720, true ); //Slide width small
 add_image_size( 'banner', 2000, 800, true ); //Featured image banner size
-add_image_size( 'banner-small', 1500, 800, true ); //Featured image banner size
+add_image_size( 'banner-small', 1500, 800, true ); //Featured image banner size small
 
 // Add menu support
 add_theme_support( 'menus' );
@@ -141,6 +141,9 @@ add_theme_support( 'menus' );
 function register_custom_menu() {
   register_nav_menu( 'primary', 'Main Menu' );
   register_nav_menu( 'side-nav', 'Side Menu' );
+  register_nav_menu( 'footer-1', 'Footer 1' );
+  register_nav_menu( 'footer-2', 'Footer 2' );
+  register_nav_menu( 'footer-3', 'Footer 3' );
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
 
