@@ -39,11 +39,11 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: 'assets/styles/sass/**/*.scss',
-        tasks: ['sass', 'postcss']
+        tasks: ['sass', 'postcss', 'notify:sass']
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
-        tasks: ['uglify']
+        tasks: ['uglify', 'notify:scripts']
       }
     },
     criticalcss: {
@@ -59,10 +59,30 @@ module.exports = function(grunt) {
       }
     },
     notify: {
+      notify_hooks: {
+        options: {
+          enabled: true,
+          max_jshint_notifications: 5, // maximum number of notifications from jshint output
+          success: true, // whether successful grunt executions should be notified automatically
+          duration: 3 // the duration of notification in seconds, for `notify-send` only
+        }
+      },
       watch: {
         options: {
-          title: 'Site Built',
-          message: 'All files compiled'
+          title: 'Site built',
+          message: 'All files compiled, watching for changes'
+        }
+      },
+      sass: {
+        options: {
+          title: 'Sass compiled',
+          message: 'Sass files compiled, watching for changes'
+        }
+      },
+      scripts: {
+        options: {
+          title: 'Scripts compiled',
+          message: 'Javascript files compiled, watching for changes'
         }
       }
     }
@@ -77,9 +97,9 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass',
     'postcss',
-    'criticalcss',
+    //'criticalcss',
     'uglify',
+    'notify:watch',
     'watch',
-    'notify:watch'
   ]);
 }
