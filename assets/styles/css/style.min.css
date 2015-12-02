@@ -534,9 +534,9 @@ blockquote {
 a {
   transition: all 150ms ease-in-out; }
   a, a:active {
-    color: #e03c31; }
+    color: #da291c; }
   a:focus, a:hover {
-    color: #be3329; }
+    color: #b92217; }
 
 dt {
   font-weight: 700; }
@@ -594,7 +594,7 @@ textarea {
   select:active,
   textarea:focus,
   textarea:active {
-    outline-color: #e9766e; }
+    outline-color: #e56960; }
 
 input:disabled,
 input[disabled],
@@ -1991,18 +1991,18 @@ input.is-disabled {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: #e03c31;
+  background-color: #da291c;
   color: white;
   font-size: 1.2rem;
   text-align: center;
   border: none;
   padding: 0.5rem;
-  border: 1px solid #be3329;
+  border: 1px solid #b92217;
   border-radius: 4px;
   transition: all 150ms ease-in-out; }
   .o-btn:hover {
-    background-color: #be3329;
-    border-color: #9c2a22; }
+    background-color: #b92217;
+    border-color: #981c13; }
   @media screen and (min-width: 40rem) {
     .o-btn {
       min-width: 10rem;
@@ -2368,7 +2368,7 @@ input.is-disabled {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(190, 51, 41, 0.8); }
+    background: rgba(152, 28, 19, 0.8); }
   .c-banner .o-container {
     display: table-cell;
     vertical-align: middle;
@@ -2387,6 +2387,8 @@ input.is-disabled {
   .c-footer a,
   .c-footer a:active {
     color: white; }
+  .c-footer .logo {
+    padding: 0; }
 
 .c-menu-footer {
   margin: 0;
@@ -2672,7 +2674,7 @@ input.is-disabled {
   color: #262626; }
 
 .u-text-red {
-  color: #e03c31; }
+  color: #da291c; }
 
 .u-text-blue {
   color: #3a5dae; }
@@ -2684,7 +2686,7 @@ input.is-disabled {
   background-color: #262626; }
 
 .u-bg-red {
-  background-color: #e03c31; }
+  background-color: #da291c; }
 
 .u-bg-blue {
   background-color: #3a5dae; }

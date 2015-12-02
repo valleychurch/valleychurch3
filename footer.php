@@ -4,7 +4,7 @@
       <div class="o-container">
         <div class="o-row u-margin">
           <div class="o-col-xs-12 o-col-sm-3 u-margin">
-            <?php //get_template_part( 'partials/logo' ); ?>
+            <?php get_template_part( 'partials/logo' ); ?>
           </div>
           <div class="o-col-xs-12 o-col-sm-3 u-margin">
             <h4>About</h4>

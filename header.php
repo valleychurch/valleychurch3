@@ -55,4 +55,4 @@
       </div>
     </header>
 
-    <main class="c-main" role="main">
+    <main class="c-main u-margin u-margin--md--double" role="main">

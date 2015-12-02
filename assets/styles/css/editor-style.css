@@ -542,7 +542,7 @@ textarea {
   select:active,
   textarea:focus,
   textarea:active {
-    outline-color: #e9766e; }
+    outline-color: #e56960; }
 
 input:disabled,
 input[disabled],

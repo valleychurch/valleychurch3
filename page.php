@@ -6,7 +6,7 @@
 
         <div class="o-row">
 
-          <div class="o-col-md-9 o-col-lg-7 u-center-block">
+          <div class="o-col-xs-12 c-post-content u-center-block">
 
             <h1><?php the_title(); ?></h1>
 
