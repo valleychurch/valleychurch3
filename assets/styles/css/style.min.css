@@ -536,7 +536,7 @@ a {
   a, a:active {
     color: #da291c; }
   a:focus, a:hover {
-    color: #b92318; }
+    color: #b92217; }
 
 dt {
   font-weight: 700; }
@@ -1997,12 +1997,12 @@ input.is-disabled {
   text-align: center;
   border: none;
   padding: 0.5rem;
-  border: 1px solid #b92318;
+  border: 1px solid #b92217;
   border-radius: 4px;
   transition: all 150ms ease-in-out; }
   .o-btn:hover {
-    background-color: #b92318;
-    border-color: #991d14; }
+    background-color: #b92217;
+    border-color: #981c13; }
   @media screen and (min-width: 40rem) {
     .o-btn {
       min-width: 10rem;
@@ -2218,7 +2218,7 @@ input.is-disabled {
     margin-bottom: 0; }
     .sub-menu .menu-item a {
       padding: 0;
-      color: #e6e6e6;
+      color: #e5e5e5;
       font-size: 1.2rem;
       font-weight: 400;
       text-transform: none;
@@ -2232,7 +2232,7 @@ input.is-disabled {
         .sub-menu .menu-item a {
           font-size: 0.83333rem;
           padding: 0.1rem 0.5rem;
-          color: #e6e6e6;
+          color: #e5e5e5;
           cursor: pointer; } }
       .sub-menu .menu-item a[target=_blank]::after {
         content: "\f08e";
@@ -2317,9 +2317,9 @@ input.is-disabled {
   transition: all 150ms ease-in-out; }
   .c-search__input:hover, .c-search__input:focus {
     outline: none;
-    border-bottom-color: #e6e6e6; }
+    border-bottom-color: #e5e5e5; }
     .c-search__input:hover + .c-search__button, .c-search__input:focus + .c-search__button {
-      color: #e6e6e6; }
+      color: #e5e5e5; }
 
 .c-search__button {
   position: absolute;
@@ -2337,7 +2337,7 @@ input.is-disabled {
   border-radius: 0;
   transition: all 150ms ease-in-out; }
   .c-search__button:hover {
-    color: #e6e6e6;
+    color: #e5e5e5;
     background-color: transparent; }
 
 .c-banner {
@@ -2368,7 +2368,7 @@ input.is-disabled {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(153, 29, 20, 0.8); }
+    background: rgba(152, 28, 19, 0.8); }
   .c-banner .o-container {
     display: table-cell;
     vertical-align: middle;
@@ -2668,7 +2668,7 @@ input.is-disabled {
   color: #737373; }
 
 .u-text-white {
-  color: #e6e6e6; }
+  color: #e5e5e5; }
 
 .u-text-black {
   color: #262626; }
@@ -2680,7 +2680,7 @@ input.is-disabled {
   color: #3a5dae; }
 
 .u-bg-white {
-  background-color: #e6e6e6; }
+  background-color: #e5e5e5; }
 
 .u-bg-black {
   background-color: #262626; }
