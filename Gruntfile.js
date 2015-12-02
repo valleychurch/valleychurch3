@@ -57,6 +57,14 @@ module.exports = function(grunt) {
           buffer: 800*1024
         }
       }
+    },
+    notify: {
+      watch: {
+        options: {
+          title: 'Site Built',
+          message: 'All files compiled'
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -64,6 +72,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-criticalcss');
+  grunt.loadNpmTasks('grunt-notify');
 
-  grunt.registerTask('default', ['sass', 'postcss', 'criticalcss', 'uglify', 'watch']);
+  grunt.registerTask('default', [
+    'sass',
+    'postcss',
+    'criticalcss',
+    'uglify',
+    'watch',
+    'notify:watch'
+  ]);
 }
