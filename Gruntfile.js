@@ -36,6 +36,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'assets/images/src',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: 'assets/images/dist'
+        }]
+      }
+    },
     watch: {
       css: {
         files: 'assets/styles/sass/**/*.scss',
@@ -90,6 +100,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-notify');
@@ -99,6 +110,7 @@ module.exports = function(grunt) {
     'postcss',
     //'criticalcss',
     'uglify',
+    'imagemin',
     'notify:watch',
     'watch',
   ]);

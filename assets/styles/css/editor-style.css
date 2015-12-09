@@ -525,9 +525,9 @@ blockquote {
 a {
   transition: all 150ms ease-in-out; }
   a, a:active {
-    color: #da291c; }
+    color: #b7312c; }
   a:focus, a:hover {
-    color: #b92318; }
+    color: #9c2a25; }
 
 dt {
   font-weight: 700; }
@@ -585,7 +585,7 @@ textarea {
   select:active,
   textarea:focus,
   textarea:active {
-    outline-color: #e56960; }
+    outline-color: #cd6f6b; }
 
 input:disabled,
 input[disabled],
