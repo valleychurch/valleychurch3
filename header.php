@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#e03c31">
-    <meta name="msapplication-navbutton-color" content="#e03c31">
+    <meta name="theme-color" content="#b7312c">
+    <meta name="msapplication-navbutton-color" content="#b7312c">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
