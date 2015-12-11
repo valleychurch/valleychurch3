@@ -3,6 +3,8 @@
     init: function(ed, url) {
       ed.onPreInit.add(function(ed) {
 
+        console.log(ed);
+
         // Get the DOM document object for the IFRAME
         var doc = ed.getDoc();
 

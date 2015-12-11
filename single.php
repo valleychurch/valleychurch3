@@ -6,7 +6,7 @@
 
         <div class="o-row">
 
-          <div class="o-col-xs-12 c-post-content u-center-block">
+          <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
 
             <div class="o-flag u-margin--double">
               <div class="o-flag__fix">
@@ -28,20 +28,20 @@
               $twitter = get_the_author_meta( 'twitter', $post->post_author );
               $facebook = get_the_author_meta( 'facebook', $post->post_author );
               $instagram = get_the_author_meta( 'instagram', $post->post_author );
-              if ($twitter || $facebook || $instagram) {
+              if ( $twitter || $facebook || $instagram ) {
             ?>
             <p class="author-social">
-              <?php if ($twitter) { ?>
+              <?php if ( $twitter ) { ?>
               <a href="http://twitter.com/<?php echo $twitter; ?>" target="_blank">
                 <i class="fa fa-lg fa-twitter-square"></i>
               </a>
               <?php }
-              if ($facebook) { ?>
+              if ( $facebook ) { ?>
               <a href="http://facebook.com/<?php echo $facebook; ?>" target="_blank">
                 <i class="fa fa-lg fa-facebook-square"></i>
               </a>
               <?php }
-              if ($instagram) { ?>
+              if ( $instagram ) { ?>
               <a href="http://instagram.com/<?php echo $instagram; ?>" target="_blank">
                 <i class="fa fa-lg fa-instagram"></i>
               </a>
@@ -64,7 +64,7 @@
 
         <div class="o-row">
 
-          <div class="o-col-xs-6 o-col-xs--offset-4">
+          <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
 
             <hr/>
 
