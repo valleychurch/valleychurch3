@@ -10,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#b7312c">
-    <meta name="msapplication-navbutton-color" content="#b7312c">
+    <meta name="theme-color" content="#ab2328">
+    <meta name="msapplication-navbutton-color" content="#ab2328">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -33,7 +33,7 @@
 
     <header role="banner" class="c-header u-clearfix">
       <div class="o-container o-container--full">
-      
+
         <?php get_template_part( 'partials/logo' ); ?>
 
         <nav role="navigation" class="c-navigation u-cf">

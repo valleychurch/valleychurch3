@@ -534,9 +534,9 @@ blockquote {
 a {
   transition: all 150ms ease-in-out; }
   a, a:active {
-    color: #b7312c; }
+    color: #ab2328; }
   a:focus, a:hover {
-    color: #9c2a25; }
+    color: #911e22; }
 
 dt {
   font-weight: 700; }
@@ -594,7 +594,7 @@ textarea {
   select:active,
   textarea:focus,
   textarea:active {
-    outline-color: #cd6f6b; }
+    outline-color: #c46569; }
 
 input:disabled,
 input[disabled],
@@ -1991,18 +1991,18 @@ input.is-disabled {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-color: #b7312c;
+  background-color: #ab2328;
   color: white;
   font-size: 1.2rem;
   text-align: center;
   border: none;
   padding: 0.5rem;
-  border: 1px solid #9c2a25;
+  border: 1px solid #911e22;
   border-radius: 4px;
   transition: all 150ms ease-in-out; }
   .o-btn:hover {
-    background-color: #9c2a25;
-    border-color: #80221f; }
+    background-color: #911e22;
+    border-color: #78191c; }
   @media screen and (min-width: 40rem) {
     .o-btn {
       min-width: 10rem;
@@ -2368,7 +2368,7 @@ input.is-disabled {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(128, 34, 31, 0.8); }
+    background: rgba(171, 35, 40, 0.8); }
   .c-banner .o-container {
     display: table-cell;
     vertical-align: middle;
@@ -2674,7 +2674,7 @@ input.is-disabled {
   color: #262626; }
 
 .u-text-red {
-  color: #b7312c; }
+  color: #ab2328; }
 
 .u-text-blue {
   color: #3a5dae; }
@@ -2686,7 +2686,7 @@ input.is-disabled {
   background-color: #262626; }
 
 .u-bg-red {
-  background-color: #b7312c; }
+  background-color: #ab2328; }
 
 .u-bg-blue {
   background-color: #3a5dae; }
