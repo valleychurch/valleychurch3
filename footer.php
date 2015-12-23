@@ -40,7 +40,7 @@
         <div class="o-row">
           <hr/>
           <div class="o-col-xs-12">
-            <p class="small">&copy; <?php echo date('Y') ?> <?php bloginfo( 'name' ); ?> &bull; <a href="http://freemethodist.org.uk" target="_blank">A Free Methodist UK Church</a> &bull; <a href="http://www.charitycommission.gov.uk/search-for-a-charity/?txt=1125080" target="_blank">Registered Charity No. 1125080</a> &bull; <a href="/privacy">Privacy &amp; Cookie Policy</a></p>
+            <p class="small">&copy; <?php echo date( 'Y' ) ?> <?php bloginfo( 'name' ); ?> &bull; <a href="http://freemethodist.org.uk" target="_blank">A Free Methodist UK Church</a> &bull; <a href="http://www.charitycommission.gov.uk/search-for-a-charity/?txt=1125080" target="_blank">Registered Charity No. 1125080</a> &bull; <a href="/privacy">Privacy &amp; Cookie Policy</a></p>
           </div>
         </div>
       </div>

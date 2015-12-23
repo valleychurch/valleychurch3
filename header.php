@@ -16,13 +16,13 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Typekit - Outside of functions.php so that we can async it -->
-    <script src="https://use.typekit.net/jtz8aoh.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+    <script src="//use.typekit.net/jtz8aoh.js"></script>
+    <script>try{Typekit.load({async: true});}catch(e){}</script>
 
     <?php wp_head(); ?>
   </head>
 
-  <body <?php body_class( ); ?>>
+  <body <?php body_class(); ?>>
 
     <?php
       //TODO: Rethink how notifications can work with an absolutely positioned header

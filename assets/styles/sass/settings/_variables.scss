@@ -47,23 +47,23 @@ $VCred:                 #ab2328; //Pantone 7621C
 $VCblue:                #3a5dae;
 
 $VCcolours: (
-  white:                shade($VCwhite, 10%),
-  black:                tint($VCblack, 15%),
+  white:                darken($VCwhite, 10%),
+  black:                lighten($VCblack, 15%),
 
   red: (
+    x-dark:             darken($VCred, $VCcolour-percentage-x),
+    dark:               darken($VCred, $VCcolour-percentage),
     base:               $VCred,
-    x-dark:             shade($VCred, $VCcolour-percentage-x),
-    dark:               shade($VCred, $VCcolour-percentage),
-    light:              tint($VCred, $VCcolour-percentage),
-    x-light:            tint($VCred, $VCcolour-percentage-x),
+    light:              lighten($VCred, $VCcolour-percentage),
+    x-light:            lighten($VCred, $VCcolour-percentage-x),
   ),
 
   blue: (
+    x-dark:             darken($VCblue, $VCcolour-percentage-x),
+    dark:               darken($VCblue, $VCcolour-percentage),
     base:               $VCblue,
-    x-dark:             shade($VCblue, $VCcolour-percentage-x),
-    dark:               shade($VCblue, $VCcolour-percentage),
-    light:              tint($VCblue, $VCcolour-percentage),
-    x-light:            tint($VCblue, $VCcolour-percentage-x),
+    light:              lighten($VCblue, $VCcolour-percentage),
+    x-light:            lighten($VCblue, $VCcolour-percentage-x),
   )
 );
 

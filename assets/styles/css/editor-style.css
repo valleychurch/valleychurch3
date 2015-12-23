@@ -527,7 +527,7 @@ a {
   a, a:active {
     color: #ab2328; }
   a:focus, a:hover {
-    color: #911e22; }
+    color: #6b1619; }
 
 dt {
   font-weight: 700; }
@@ -585,7 +585,7 @@ textarea {
   select:active,
   textarea:focus,
   textarea:active {
-    outline-color: #c46569; }
+    outline-color: #e58285; }
 
 input:disabled,
 input[disabled],

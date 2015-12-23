@@ -44,3 +44,9 @@
     }
   }
 }
+
+.c-banner--clear {
+  &::after {
+    display: none;
+  }
+}

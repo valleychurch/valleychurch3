@@ -95,17 +95,6 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
   }
 }
 
-
-// Add percentage of white to a color
-@function tint($color, $percent){
-  @return mix(white, $color, $percent);
-}
-
-// Add percentage of black to a color
-@function shade($color, $percent){
-  @return mix(black, $color, $percent);
-}
-
 // Return a unitless number
 @function strip-units($number) {
   @return $number / ($number * 0 + 1);

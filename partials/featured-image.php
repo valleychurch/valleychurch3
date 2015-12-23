@@ -20,7 +20,7 @@ if ( has_post_thumbnail() ) {
     <img src="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>">
     <?php } ?>
   </picture>
-  
+
   <!-- TODO: Add featured image captions -->
   <?php //if ( get_post( $attachment_id )->post_excerpt !== "" ) { ?>
   <!-- <figcaption class="o-container c-featured__caption">
