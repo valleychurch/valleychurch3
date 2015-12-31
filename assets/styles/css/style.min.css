@@ -2040,7 +2040,7 @@ input.is-disabled {
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
   .o-btn--ghost:hover {
-    background-color: rgba(230, 230, 230, 0.1);
+    background-color: transparent;
     border-color: #e6e6e6; }
 
 .c-avatar {

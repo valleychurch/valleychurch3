@@ -37,7 +37,8 @@ get_header(); ?>
       center: center,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       rotateControl: false,
-      panControl: false
+      panControl: false,
+      scrollwheel: false
     };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
@@ -112,7 +113,7 @@ get_header(); ?>
         <?php the_content(); ?>
 
         <h2>Where do groups meet?</h2>
-        <p>Our connect groups meet all over the region, check out the map below to find one near you!</p>
+        <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
 
       </div>
 
@@ -120,17 +121,6 @@ get_header(); ?>
 
     <div class="o-row c-map c-map--40 u-margin">
       <div id="map-canvas" class="c-map__inner"></div>
-    </div>
-
-    <div class="o-row">
-
-      <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
-
-        <h2>Interested in joining?</h2>
-        <p>Please <a href="/contact">get in touch</a> if you're interested in joining a connect group!</p>
-
-      </div>
-
     </div>
 
   </article>
