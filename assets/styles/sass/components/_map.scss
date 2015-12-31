@@ -1,4 +1,19 @@
-.c-google-map {
+.c-map {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-bottom: 75%;
+
+  @include breakpoint(sm) {
+    padding-bottom: 60%;
+  }
+
+  @include breakpoint(md) {
+    padding-bottom: 50%;
+  }
+}
+
+.c-map__inner {
   position: absolute;
   top: 0;
   right: 0;

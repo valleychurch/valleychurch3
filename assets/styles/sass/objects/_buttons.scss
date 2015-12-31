@@ -4,6 +4,7 @@
   white-space: nowrap;
   vertical-align: middle;
   touch-action: manipulation;
+  text-decoration: none;
   cursor: pointer;
   user-select: none;
   background-color: colour(red);
@@ -11,7 +12,7 @@
   font-size: ms(1);
   text-align: center;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border: 1px solid colour(red, dark);
   border-radius: 4px;
   @include transition();
@@ -32,4 +33,18 @@
     background-color: transparent;
     border: none;
     color: colour(black);
+  }
+
+  .o-btn--ghost {
+    @include font-stack-alt;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    border: 3px solid colour(white, 0.6);
+
+    &:hover {
+      background-color: colour(white, 0.1);
+      border-color: colour(white, 1);
+    }
   }

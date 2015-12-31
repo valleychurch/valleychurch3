@@ -4,7 +4,8 @@ var VC = {
   supports: {
     objectFit: false,
     fontVariantLigatures: false,
-  }
+  },
+  homeSliderActive: false
 };
 
 
@@ -83,10 +84,8 @@ function sideNav() {
   });
 };
 
-// Check if
+// Check if sidenav is still showing on >60em windows
 function checkSideNav() {
-  console.log("checkSideNav");
-
   if (Modernizr.mq('(min-width: 60em)')) {
     if ($('body').hasClass('is-menu-active')) {
       $('body').removeClass('is-menu-active');
@@ -94,17 +93,42 @@ function checkSideNav() {
   }
 };
 
+function loadHomeSlider() {
+  var prevImg =
+    '<svg width="30" height="48" class="prev-btn">' +
+      '<image xlink:href="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-prev.svg" src="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-prev.png" width="30" height="48" class="prev-btn" />' +
+    '</svg>';
+
+  var nextImg =
+    '<svg width="30" height="48" class="next-btn">' +
+      '<image xlink:href="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-next.svg" src="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-next.png" width="30" height="48" class="next-btn" />' +
+    '</svg>';
+
+  $('.c-slides').responsiveSlides({
+    speed: 500,
+    timeout: 8000,
+    auto: true,
+    nav: true,
+    pager: true,
+    navContainer: '.slide-control',
+    prevText: prevImg,
+    nextText: nextImg
+  });
+
+  VC.homeSliderActive = true;
+}
+
 $(function() {
   addTests();
   checkNotifications();
   sideNav();
   checkSideNav();
+  loadHomeSlider();
   VC.siteActive = true;
   VC.supports.objectFit = Modernizr.objectFit;
   VC.supports.fontVariantLigatures = Modernizr.fontvariant;
 });
 
 $(window).resize(function() {
-  console.log("Resize");
   debounce(checkSideNav(), 250);
 });

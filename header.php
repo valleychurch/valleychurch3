@@ -3,7 +3,7 @@
 <!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 
   <head>
     <meta charset="utf-8">
@@ -24,35 +24,37 @@
 
   <body <?php body_class(); ?>>
 
-    <?php
-      //TODO: Rethink how notifications can work with an absolutely positioned header
-      //get_template_part( 'partials/notification' );
-    ?>
+    <div class="o-container o-container--page">
 
-    <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+      <?php
+        //TODO: Rethink how notifications can work with an absolutely positioned header
+        //get_template_part( 'partials/notification' );
+      ?>
 
-    <header role="banner" class="c-header u-clearfix">
-      <div class="o-container o-container--full">
+      <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
-        <?php get_template_part( 'partials/logo' ); ?>
+      <header role="banner" class="c-header u-clearfix">
+        <div class="o-container o-container--full">
 
-        <nav role="navigation" class="c-navigation u-cf">
-          <div class="u-pull-right--lg u-margin u-margin--lg--none">
-            <?php get_search_form(); ?>
+          <?php get_template_part( 'partials/logo' ); ?>
+
+          <nav role="navigation" class="c-navigation u-cf">
+            <div class="u-pull-right--lg u-margin u-margin--lg--none">
+              <?php get_search_form(); ?>
+            </div>
+            <div class="u-pull-left--lg">
+              <?php wp_nav_menu( array(
+                'theme_location' => 'Main Menu',
+                'menu' => 'Main Menu',
+                'container' => false,
+                'menu_class' => 'c-menu u-cf'
+              ) ); ?>
+            </div>
+          </nav>
+          <div class="u-pull-right u-hide--lg">
+            <button class="o-btn c-nav-toggle js-nav-toggle">Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i></button>
           </div>
-          <div class="u-pull-left--lg">
-            <?php wp_nav_menu( array(
-              'theme_location' => 'Main Menu',
-              'menu' => 'Main Menu',
-              'container' => false,
-              'menu_class' => 'c-menu u-cf'
-            ) ); ?>
-          </div>
-        </nav>
-        <div class="u-pull-right u-hide--lg">
-          <button class="o-btn c-nav-toggle js-nav-toggle">Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i></button>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main class="c-main u-margin u-margin--md--double" role="main">
+      <main class="c-main u-margin" role="main">

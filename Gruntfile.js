@@ -32,6 +32,7 @@ module.exports = function(grunt) {
           'assets/scripts/dist/script.min.js': 'assets/scripts/src/script.js',
           'assets/scripts/dist/jquery.min.js' : 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/modernizr.min.js' : 'assets/scripts/lib/modernizr.js',
+          'assets/scripts/dist/responsiveslides.min.js' : 'assets/scripts/lib/responsiveslides.js',
           'assets/scripts/dist/holder.min.js' : 'assets/scripts/lib/holder.js'
         }
       }

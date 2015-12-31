@@ -1,16 +1,18 @@
 .c-header {
   // padding: 1em 0;
   // background-color: colour(grey-xlight);
-  background: linear-gradient( to bottom, rgba(25, 25, 25, 0.85), rgba(25, 25, 25, 0));
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
+  // background: linear-gradient( to bottom, rgba(25, 25, 25, 0.85), rgba(25, 25, 25, 0));
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // left: 0;
+  position: relative;
   z-index: 20;
+  background-color: grayscale(2);
   padding: 0.75rem;
 
   @include breakpoint(sm) {
-    padding: 1rem;
+    padding: 0 1rem;
   }
 
   .o-container {
@@ -33,12 +35,16 @@
     // padding: 0.75rem 0;
 
     @include breakpoint(md) {
-      padding: 0.3rem;
+      padding: 0.3rem 0;
+    }
+
+    @include breakpoint(lg) {
+      padding: 0.8rem 0;
     }
 
     & object,
     & svg {
-      width: 32px;
+      width: 201px;
       height: 32px;
 
       // @include breakpoint(md) {
