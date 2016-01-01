@@ -105,18 +105,20 @@
       display: inline-block;
 
       &.rslides_here a {
-        background: white;
+        background-color: $VCred;
       }
     }
 
     a {
       //@extend .hide__text;
       display: inline-block;
-      width: $VCbase * 1.25;
-      height: $VCbase * 1.25;
-      //background: $hero;
-      //@include border-radius(12px);
-      //@include box-shadow($villain, 0, 0, 6px);
+      width: 1rem;
+      height: 1rem;
+      overflow: hidden;
+      font-size: 0;
+      line-height: 0;
+      border-radius: 50%;
+      background-color: white;
     }
 
     @include breakpoint(sm) {

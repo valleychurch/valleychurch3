@@ -25,13 +25,7 @@
     position: relative;
     display: inline-block;
     z-index: 10;
-    @include font-stack-alt();
-    font-size: ms(2);
-    font-weight: $VCfont-normal;
-    color: white;
-    text-decoration: none;
-    letter-spacing: -1px;
-    line-height: 1;
+    line-height: 0;
     // padding: 0.75rem 0;
 
     @include breakpoint(md) {
@@ -46,6 +40,8 @@
     & svg {
       width: 201px;
       height: 32px;
+      position: relative;
+      z-index: -1;
 
       // @include breakpoint(md) {
       //   width: 48px;

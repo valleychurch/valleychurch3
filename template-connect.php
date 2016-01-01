@@ -1,57 +1,48 @@
 <?php
 /*
-Template Name: Connect Groups
- */
-
+  Template Name: Connect Groups
+*/
 get_header(); ?>
 
 <?php
-  $type = 'connect';
-  $args=array(
-    'post_type' => $type,
-    'post_status' => 'publish',
-    'posts_per_page' => 1000
-  );
-  $temp = $wp_query;  // assign orginal query to temp variable for later use
-  $wp_query = null;
-  $wp_query = new WP_Query($args);
+  $args =
+    array(
+      'post_type' => 'connect',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
+
+  $connect = new WP_Query( $args );
 ?>
 
-<script type="text/javascript">
-  google.maps.visualRefresh = true;
-
-  var map,
-      mapOptions,
-      info,
-      bounds,
-      myloc,
-      connectgroups,
-      group,
-      marker,
-      pos,
-      center = new google.maps.LatLng(53.733241, -2.662240);
-  //Set up map
-  function initialize() {
-    mapOptions = {
+<script>
+  function initMap() {
+    mapOpts = {
       zoom: 9,
-      center: center,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: mapCentre,
+      //mapTypeId: google.maps.MapTypeId.ROADMAP,
       rotateControl: false,
       panControl: false,
+      mapTypeControl: false,
+      mapTypeControlOptions: {
+        myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+      },
+      streetViewControl: false,
       scrollwheel: false
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    //Create info window
-    info = new google.maps.InfoWindow({
+    map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
+
+    map.set('styles', mapStyle);
+
+    mapInfoWindow = new google.maps.InfoWindow({
       content: 'Loading...'
     });
 
-    //Create bounds (to auto-size the map)
-    bounds = new google.maps.LatLngBounds();
+    mapBounds = new google.maps.LatLngBounds();
 
-    var connectgroups = [
-      <?php $i = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    mapLocations = [
+      <?php $i = 0; if ( $connect->have_posts() ) : while ( $connect->have_posts() ) : $connect->the_post(); ?>
         <?php
           $info = get_the_content();
           $loc = get_field("cg_location");
@@ -62,40 +53,29 @@ get_header(); ?>
     ];
 
     //Add marker and info window for each group
-    for (var i = 0; i < connectgroups.length; i++) {
-      group = connectgroups[i];
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(group[2], group[3]),
+    for (var i = 0; i < mapLocations.length; i++) {
+      var mapConnectGroup = mapLocations[i];
+      mapMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(mapConnectGroup[2], mapConnectGroup[3]),
         map: map,
-        title: group[0],
-        html: group[1]
+        title: mapConnectGroup[0],
+        html: mapConnectGroup[1]
       });
-      google.maps.event.addListener(marker, 'click', function() {
-        info.setContent("<h2 class='delta no-margin-bottom'>" + this.title + "</h2>" + this.html);
-        info.open(map, this);
+      google.maps.event.addListener(mapMarker, 'click', function() {
+        mapInfoWindow.setContent("<h3 class='no-margin-bottom'>" + this.title + "</h3>" + this.html);
+        mapInfoWindow.open(map, this);
       });
-      bounds.extend(new google.maps.LatLng(group[2], group[3]));
+      mapBounds.extend(new google.maps.LatLng(mapConnectGroup[2], mapConnectGroup[3]));
     }
 
-    //Fit map
-    map.fitBounds(bounds);
-    recenter();
+    map.fitBounds(mapBounds);
+    centreMap();
   }
 
-  function recenter() {
-    google.maps.event.trigger(map, 'resize');
-    map.setCenter(center);
-    map.fitBounds(bounds);
-  }
+  google.maps.event.addDomListener(window, 'load', initMap);
+  google.maps.event.addDomListener(window, 'load', centreMap);
 
-  google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(window, 'load', recenter);
-
-  google.maps.event.addDomListener(window, 'resize', debounce(recenter,200));
-
-  $(document).ready(function() {
-    //recenter();
-  });
+  google.maps.event.addDomListener(window, 'resize', centreMap);
 </script>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -119,8 +99,8 @@ get_header(); ?>
 
     </div>
 
-    <div class="o-row c-map c-map--40 u-margin">
-      <div id="map-canvas" class="c-map__inner"></div>
+    <div class="o-row c-map c-map--40">
+      <div class="c-map__inner js-google-map"></div>
     </div>
 
   </article>

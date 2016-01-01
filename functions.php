@@ -230,16 +230,16 @@ function theme_files() {
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'] );
   wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'] );
   wp_register_script( 'holder', get_template_directory_uri() . '/assets/scripts/dist/holder.min.js', ['jquery'] );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides'] );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js' );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides', 'google-maps'] );
 
   //wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'responsiveslides' );
   wp_enqueue_script( 'holder' );
-  wp_enqueue_script( 'site' );
   wp_enqueue_script( 'google-maps' );
+  wp_enqueue_script( 'site' );
 };
 
 add_action( 'wp_enqueue_scripts', 'theme_files' );

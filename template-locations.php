@@ -1,266 +1,85 @@
 <?php
-
-/* Template Name: Locations */
-
+/*
+  Template Name: Locations
+*/
 get_header();
 ?>
 
-      <?php
-        $args =
-          array(
-            'post_type' => 'location',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-          );
+<?php
+  $args =
+    array(
+      'post_type' => 'location',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
 
-        $locations = new WP_Query( $args );
-      ?>
+  $locations = new WP_Query( $args );
+?>
 
-      <script>
-        var map,
-            mapOpts,
-            mapStyle,
-            mapStyled,
-            mapCentre = new google.maps.LatLng(53.733241, -2.662240),
-            mapBounds,
-            mapLocations,
-            mapMarker;
+<script>
+  function initMap() {
+    mapOpts = {
+      zoom: 9,
+      center: mapCentre,
+      //mapTypeId: google.maps.MapTypeId.ROADMAP,
+      rotateControl: false,
+      panControl: false,
+      mapTypeControl: false,
+      mapTypeControlOptions: {
+        myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+      },
+      streetViewControl: false,
+      scrollwheel: false
+    };
 
-        var mapStyled = new google.maps.StyledMapType(mapStyle, { name: "Styled" });
+    map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
 
-        function initMap() {
-          mapOpts = {
-            zoom: 9,
-            center: mapCentre,
-            //mapTypeId: google.maps.MapTypeId.ROADMAP,
-            rotateControl: false,
-            panControl: false,
-            mapTypeControl: false,
-            mapTypeControlOptions: {
-              myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-            },
-            streetViewControl: false,
-            scrollwheel: false
-          };
+    map.set('styles', mapStyle);
 
-          map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
+    mapBounds = new google.maps.LatLngBounds();
 
-          map.set('styles', [
-            {
-                "featureType": "all",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "saturation": 36
-                    },
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 40
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    },
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 17
-                    },
-                    {
-                        "weight": 1.2
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 20
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 21
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 29
-                    },
-                    {
-                        "weight": 0.2
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 18
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 16
-                    }
-                ]
-            },
-            {
-                "featureType": "transit",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 19
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#000000"
-                    },
-                    {
-                        "lightness": 17
-                    }
-                ]
-            }
-          ]);
+    mapLocations = [
+    <?php
+    $i = 0; if ( $locations->have_posts() ) : while ( $locations->have_posts() ) : $locations->the_post();
+    $info = get_the_content();
+    $location = get_field('location');
+    if ( $location ) {
+    ?>
+      ['<?php the_title(); ?>', <?php echo $location['lat']; ?>, <?php echo $location['lng']; ?>],
+    <?php 
+    $i++;
+    }
+    endwhile;
+    endif;
+    wp_reset_query();
+    ?>
+    ];
 
-          mapBounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < mapLocations.length; i++) {
+      var mapLocation = mapLocations[i];
+      mapMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(mapLocation[1], mapLocation[2]),
+        map: map,
+        title: mapLocation[0]
+      });
+      mapBounds.extend(new google.maps.LatLng(mapLocation[1], mapLocation[2]));
+    }
 
-          mapLocations = [
-          <?php
-            $i = 0; if ( $locations->have_posts() ) : while ( $locations->have_posts() ) : $locations->the_post();
-            $info = get_the_content();
-            $location = get_field('location');
-            if ( $location ) {
-          ?>
-            ['<?php the_title(); ?>', <?php echo $location['lat']; ?>, <?php echo $location['lng']; ?>],
-          <?php
-            $i++;
-            }
-            endwhile; endif; wp_reset_query();
-          ?>
-          ];
+    map.fitBounds(mapBounds);
+    centreMap();
+  }
 
-          for (var i = 0; i < mapLocations.length; i++) {
-            var mapLocation = mapLocations[i];
-            mapMarker = new google.maps.Marker({
-              position: new google.maps.LatLng(mapLocation[1], mapLocation[2]),
-              map: map,
-              title: mapLocation[0]
-            })
-            mapBounds.extend(new google.maps.LatLng(mapLocation[1], mapLocation[2]));
-          }
+  google.maps.event.addDomListener(window, 'load', initMap);
+  google.maps.event.addDomListener(window, 'load', centreMap);
 
-          map.fitBounds(mapBounds);
-          centreMap();
-        }
-
-        function centreMap() {
-          google.maps.event.trigger(map, 'resize');
-          map.setCenter(mapCentre);
-          map.fitBounds(mapBounds);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initMap);
-        google.maps.event.addDomListener(window, 'load', centreMap);
-
-        google.maps.event.addDomListener(window, 'resize', centerMap);
-      </script>
+  google.maps.event.addDomListener(window, 'resize', centreMap);
+</script>
 
 
       <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
 
-        <div class="c-google-map js-google-map">
-
+        <div class="o-row c-map c-map--40">
+          <div class="c-map__inner js-google-map"></div>
         </div>
 
       </div>

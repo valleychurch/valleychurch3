@@ -57,4 +57,4 @@
         </div>
       </header>
 
-      <main class="c-main u-margin" role="main">
+      <main class="c-main" role="main">
