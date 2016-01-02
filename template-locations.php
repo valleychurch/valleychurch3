@@ -46,7 +46,7 @@ get_header();
     if ( $location ) {
     ?>
       ['<?php the_title(); ?>', <?php echo $location['lat']; ?>, <?php echo $location['lng']; ?>],
-    <?php 
+    <?php
     $i++;
     }
     endwhile;
@@ -85,7 +85,7 @@ get_header();
       </div>
 
 
-      <article <?php post_class( 'o-container' ); ?> role="article">
+      <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
 
         <div class="o-row">
 

@@ -8,7 +8,7 @@
   <?php while (have_posts()) : the_post(); ?>
 
     <div class="o-col-xs-12 o-col-md-4">
-      <article <?php post_class( 'u-margin u-margin--md--double' ); ?> role="article">
+      <article <?php post_class( 'c-article u-margin u-margin--md--double' ); ?>>
         <figure>
           <?php the_post_thumbnail(); ?>
         </figure>

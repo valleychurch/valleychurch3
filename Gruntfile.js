@@ -55,6 +55,10 @@ module.exports = function(grunt) {
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
         tasks: ['uglify', 'notify:scripts']
+      },
+      images: {
+        files: ['assets/images/src/*.{png,jpg,gif,svg}'],
+        tasks: ['imagemin']
       }
     },
     criticalcss: {

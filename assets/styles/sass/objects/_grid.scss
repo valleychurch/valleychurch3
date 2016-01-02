@@ -15,10 +15,14 @@
     max-width: 100%;
   }
 
+  .o-container--sm {
+    max-width: map-get($VCbreakpoints, 'lg');
+  }
+
   .o-container--page {
     padding-left: 0;
     padding-right: 0;
-    box-shadow: 0 0 25px rgba(0,0,0,.1);
+    @include box-shadow;
   }
 
 

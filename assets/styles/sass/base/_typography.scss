@@ -1,9 +1,8 @@
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.exa, .peta, .tera, .giga, .mega, .kilo {
   @include font-stack-alt;
-  font-weight: $VCfont-normal;
   line-height: 1.25;
-  text-rendering: optimizeLegibility;
 }
 
 .exa {
@@ -80,4 +79,9 @@ blockquote {
 .lede {
   font-size: ms(1);
   // line-height: 1.25;
+}
+
+::selection {
+  background-color: colour(red, 0.8);
+  color: white;
 }

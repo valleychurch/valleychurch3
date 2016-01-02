@@ -1,8 +1,44 @@
 .o-card {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: $VCbase;
 }
 
   .o-card__body {
-    padding: 1rem;
+    padding: $VCbase;
   }
+
+  .o-card__overlay {
+    position: absolute;
+    //top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem;
+    z-index: 10;
+
+    .o-card__title,
+    .o-card__text {
+      color: white;
+    }
+  }
+
+  .o-card__overlay__middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+.o-card--overlay {
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: greyscale(2, 0.8);
+    z-index: 0;
+  }
+}

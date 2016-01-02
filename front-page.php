@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-  <div class="c-banner u-margin" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-home.jpg'); ">
+  <div class="c-banner c-banner--red u-margin" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-home.jpg'); ">
     <div class="o-container u-text-center">
       <h1 class="giga u-margin--none">Welcome Home!</h1>
       <p class="h2">We're so glad you're here</p>
-      <a class="o-btn o-btn--ghost" href="/about">Find out more about Valley</a>
+      <!-- <a class="o-btn o-btn--ghost" href="/about">Find out more about Valley</a> -->
     </div>
   </div>
 
@@ -20,8 +20,8 @@
 
       $slides = new WP_Query( $args );
       if ( $slides->have_posts() ) : ?>
-      <div class="o-col-xs-12 o-col-sm-9 o-col-md-8 o-col-lg-6">
-        <ul class="c-slides">
+      <div class="o-col-xs-12 o-col-md-6">
+        <ul class="c-slides u-margin u-cf">
         <?php while ( $slides->have_posts() ) :
           $slides->the_post();
           if ( has_post_thumbnail() ) :
@@ -54,6 +54,31 @@
         <div class="slide-control"></div>
       </div>
     <?php endif; ?>
+      <div class="o-col-xs-12 o-col-md-6">
+        <div class="o-card o-card--overlay">
+          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/pastors.jpg">
+          <div class="o-card__overlay">
+            <div class="o-card__overlay__middle">
+              <h2 class="o-card__title">Senior Pastors</h2>
+              <p class="o-card__text u-show u-hide--md u-show--lg">
+                Ed &amp; Michele Carter are the Senior Pastors of Valley Church. They have a heart to see you empowered to fulfil all that God has for you.
+              </p>
+              <a class="o-btn o-btn--ghost" href="/pastors">
+                Read more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-banner u-margin" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-home.jpg'); ">
+    <div class="o-container u-text-center">
+      <div class="o-container o-container--sm">
+        <p class="h1"><em>"We will tell the next generation the praiseworthy deeds of the Lord, his power, and the wonders he has done."</em></p>
+        <a class="o-btn o-btn--ghost" href="/about">Find out more about our vision</a>
+      </div>
     </div>
   </div>
 

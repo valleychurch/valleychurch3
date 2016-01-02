@@ -1,5 +1,5 @@
 .o-btn {
-  width: 100%;
+  // width: 100%;
   display: inline-block;
   white-space: nowrap;
   vertical-align: middle;
@@ -12,7 +12,7 @@
   font-size: ms(1);
   text-align: center;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.75rem;
   border: 1px solid colour(red, dark);
   border-radius: 4px;
   @include transition();
@@ -23,8 +23,9 @@
   }
 
   @include breakpoint(sm) {
-    min-width: 10rem;
+    min-width: 8rem;
     width: auto;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -46,5 +47,6 @@
     &:hover {
       background-color: transparent;
       border-color: colour(white, 1);
+      color: white;
     }
   }

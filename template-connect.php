@@ -82,7 +82,7 @@ get_header(); ?>
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
-  <article <?php post_class( 'o-container' ); ?> role="article">
+  <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
 
     <div class="o-row">
 

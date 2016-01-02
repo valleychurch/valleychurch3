@@ -35,11 +35,12 @@
       display: block;
       position: relative;
       padding: 0.5rem 0 0.125rem;
-      // @include font-stack-alt;
-      font-size: ms(0);
+      @include font-stack-alt;
+      font-size: ms(-1);
+      font-weight: 300;
       color: greyscale(5);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-decoration: none;
 
       @include breakpoint(sm) {
@@ -49,8 +50,8 @@
       @include breakpoint(lg) {
         color: white;
         text-transform: none;
-        letter-spacing: 0px;
         padding: 1rem 0.5rem;
+        letter-spacing: 1px;
       }
     }
   }
@@ -66,9 +67,14 @@
         position: absolute;
         background-color: colour(black);
 
-        &:hover {
-          display: block;
-        }
+        // &:hover {
+        //   display: block;
+        // }
+      }
+
+      & & {
+        display: block;
+        position: relative;
       }
 
       .menu-item {
@@ -79,7 +85,8 @@
         a {
           padding: 0;
           color: colour(white);
-          font-size: ms(1);
+          @include font-stack;
+          font-size: ms(0);
           font-weight: $VCfont-normal;
           text-transform: none;
           letter-spacing: 0px;
@@ -116,6 +123,16 @@
             display: none;
           }
         }
+
+        &.sub-title > a {
+          font-size: ms(-1);
+          color: greyscale(8);
+
+          @include breakpoint(lg) {
+            font-size: ms(-2);
+            color: greyscale(5);
+          }
+        }
       }
     }
 
@@ -123,10 +140,10 @@
 .c-navigation {
   position: fixed;
   top: 0;
-  right: -15rem;
+  right: -18rem;
   bottom: 0;
   overflow: auto;
-  width: 15rem;
+  width: 18rem;
   height: 100%;
   padding: 1rem;
   background-color: colour(black);

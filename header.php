@@ -33,12 +33,12 @@
 
       <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
-      <header role="banner" class="c-header u-clearfix">
+      <header class="c-header u-clearfix">
         <div class="o-container o-container--full">
 
           <?php get_template_part( 'partials/logo' ); ?>
 
-          <nav role="navigation" class="c-navigation u-cf">
+          <nav class="c-navigation u-cf">
             <div class="u-pull-right--lg u-margin u-margin--lg--none">
               <?php get_search_form(); ?>
             </div>

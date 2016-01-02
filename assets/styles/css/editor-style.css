@@ -452,18 +452,20 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-transform: translate3d(-15rem, 0, 0);
-            transform: translate3d(-15rem, 0, 0); }
+    -webkit-transform: translate3d(-18rem, 0, 0);
+            transform: translate3d(-18rem, 0, 0); }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.exa, .peta, .tera, .giga, .mega, .kilo {
   font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
-  line-height: 1.25;
-  text-rendering: optimizeLegibility; }
+  line-height: 1.25; }
   .fontvariant.wf-active h1, .fontvariant.wf-active h2, .fontvariant.wf-active h3, .fontvariant.wf-active h4, .fontvariant.wf-active h5, .fontvariant.wf-active h6, .fontvariant.wf-active
-  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6 {
+  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6, .fontvariant.wf-active
+  .exa, .fontvariant.wf-active .peta, .fontvariant.wf-active .tera, .fontvariant.wf-active .giga, .fontvariant.wf-active .mega, .fontvariant.wf-active .kilo {
     font-variant-alternates: styleset("ss01"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
@@ -521,6 +523,14 @@ blockquote {
 .lead,
 .lede {
   font-size: 1.2rem; }
+
+::-moz-selection {
+  background-color: rgba(171, 35, 40, 0.8);
+  color: white; }
+
+::selection {
+  background-color: rgba(171, 35, 40, 0.8);
+  color: white; }
 
 a {
   transition: all 150ms ease-in-out; }

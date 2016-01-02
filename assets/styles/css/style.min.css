@@ -461,18 +461,20 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    -webkit-transform: translate3d(-15rem, 0, 0);
-            transform: translate3d(-15rem, 0, 0); }
+    -webkit-transform: translate3d(-18rem, 0, 0);
+            transform: translate3d(-18rem, 0, 0); }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.exa, .peta, .tera, .giga, .mega, .kilo {
   font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
-  font-weight: 400;
-  line-height: 1.25;
-  text-rendering: optimizeLegibility; }
+  line-height: 1.25; }
   .fontvariant.wf-active h1, .fontvariant.wf-active h2, .fontvariant.wf-active h3, .fontvariant.wf-active h4, .fontvariant.wf-active h5, .fontvariant.wf-active h6, .fontvariant.wf-active
-  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6 {
+  .h1, .fontvariant.wf-active .h2, .fontvariant.wf-active .h3, .fontvariant.wf-active .h4, .fontvariant.wf-active .h5, .fontvariant.wf-active .h6, .fontvariant.wf-active
+  .exa, .fontvariant.wf-active .peta, .fontvariant.wf-active .tera, .fontvariant.wf-active .giga, .fontvariant.wf-active .mega, .fontvariant.wf-active .kilo {
     font-variant-alternates: styleset("ss01"), styleset("ss03");
     -webkit-font-feature-settings: "ss01", "ss03";
             font-feature-settings: "ss01", "ss03"; }
@@ -530,6 +532,14 @@ blockquote {
 .lead,
 .lede {
   font-size: 1.2rem; }
+
+::-moz-selection {
+  background-color: rgba(171, 35, 40, 0.8);
+  color: white; }
+
+::selection {
+  background-color: rgba(171, 35, 40, 0.8);
+  color: white; }
 
 a {
   transition: all 150ms ease-in-out; }
@@ -620,10 +630,13 @@ input.is-disabled {
 .o-container--full {
   max-width: 100%; }
 
+.o-container--sm {
+  max-width: 60rem; }
+
 .o-container--page {
   padding-left: 0;
   padding-right: 0;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1); }
 
 .o-row {
   display: -webkit-flex;
@@ -1991,8 +2004,35 @@ input.is-disabled {
 .o-card__body {
   padding: 1rem; }
 
-.o-btn {
+.o-card__overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+  z-index: 10; }
+  .o-card__overlay .o-card__title,
+  .o-card__overlay .o-card__text {
+    color: white; }
+
+.o-card__overlay__middle {
+  display: table-cell;
+  vertical-align: middle; }
+
+.o-card--overlay::after {
+  content: "";
+  position: absolute;
+  display: block;
   width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(46, 46, 46, 0.8);
+  z-index: 0; }
+
+.o-btn {
   display: inline-block;
   white-space: nowrap;
   vertical-align: middle;
@@ -2009,7 +2049,7 @@ input.is-disabled {
   font-size: 1.2rem;
   text-align: center;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.75rem;
   border: 1px solid #6b1619;
   border-radius: 4px;
   transition: all 150ms ease-in-out; }
@@ -2018,8 +2058,9 @@ input.is-disabled {
     border-color: #2c090a; }
   @media screen and (min-width: 40rem) {
     .o-btn {
-      min-width: 10rem;
-      width: auto; } }
+      min-width: 8rem;
+      width: auto;
+      padding: 0.5rem 1rem; } }
 
 .o-btn--reset {
   width: auto;
@@ -2029,6 +2070,8 @@ input.is-disabled {
 
 .o-btn--ghost {
   font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
   letter-spacing: 1px;
   font-size: 1rem;
@@ -2041,7 +2084,8 @@ input.is-disabled {
             font-feature-settings: "ss01", "ss03"; }
   .o-btn--ghost:hover {
     background-color: transparent;
-    border-color: #e6e6e6; }
+    border-color: #e6e6e6;
+    color: white; }
 
 .c-avatar {
   width: 32px;
@@ -2077,6 +2121,8 @@ input.is-disabled {
     .c-avatar.c-avatar--no-img:after {
       content: attr(data-initials);
       font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.5px;
       text-rendering: optimizeLegibility;
       box-shadow: none;
       color: white; }
@@ -2129,6 +2175,8 @@ input.is-disabled {
   .c-notification p {
     margin: 0;
     font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
     text-rendering: optimizeLegibility; }
     .fontvariant.wf-active .c-notification p {
       font-variant-alternates: styleset("ss01"), styleset("ss03");
@@ -2205,11 +2253,20 @@ input.is-disabled {
     display: block;
     position: relative;
     padding: 0.5rem 0 0.125rem;
-    font-size: 1rem;
+    font-family: "usual", "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-rendering: optimizeLegibility;
+    font-size: 0.83333rem;
+    font-weight: 300;
     color: #737373;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-decoration: none; }
+    .fontvariant.wf-active .menu-item a {
+      font-variant-alternates: styleset("ss01"), styleset("ss03");
+      -webkit-font-feature-settings: "ss01", "ss03";
+              font-feature-settings: "ss01", "ss03"; }
     @media screen and (min-width: 40rem) {
       .menu-item a {
         font-size: 0.83333rem; } }
@@ -2217,8 +2274,8 @@ input.is-disabled {
       .menu-item a {
         color: white;
         text-transform: none;
-        letter-spacing: 0px;
-        padding: 1rem 0.5rem; } }
+        padding: 1rem 0.5rem;
+        letter-spacing: 1px; } }
 
 .sub-menu {
   list-style-type: none;
@@ -2229,9 +2286,10 @@ input.is-disabled {
       display: none;
       width: 15rem;
       position: absolute;
-      background-color: #262626; }
-      .sub-menu:hover {
-        display: block; } }
+      background-color: #262626; } }
+  .sub-menu .sub-menu {
+    display: block;
+    position: relative; }
   .sub-menu .menu-item {
     display: block;
     float: none !important;
@@ -2239,7 +2297,9 @@ input.is-disabled {
     .sub-menu .menu-item a {
       padding: 0;
       color: #e6e6e6;
-      font-size: 1.2rem;
+      font-family: "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+      font-size: 1rem;
       font-weight: 400;
       text-transform: none;
       letter-spacing: 0px; }
@@ -2267,14 +2327,21 @@ input.is-disabled {
       .sub-menu .menu-item a::after {
         content: '';
         display: none; }
+    .sub-menu .menu-item.sub-title > a {
+      font-size: 0.83333rem;
+      color: #b8b8b8; }
+      @media screen and (min-width: 60rem) {
+        .sub-menu .menu-item.sub-title > a {
+          font-size: 0.69444rem;
+          color: #737373; } }
 
 .c-navigation {
   position: fixed;
   top: 0;
-  right: -15rem;
+  right: -18rem;
   bottom: 0;
   overflow: auto;
-  width: 15rem;
+  width: 18rem;
   height: 100%;
   padding: 1rem;
   background-color: #262626; }
@@ -2350,8 +2417,8 @@ input.is-disabled {
   right: 0;
   bottom: 0;
   min-width: 0;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 35px;
   padding: 0;
   margin: 0;
   background-color: transparent;
@@ -2367,20 +2434,20 @@ input.is-disabled {
   display: table;
   position: relative;
   width: 100%;
-  height: 17rem;
+  min-height: 17rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: all 150ms ease-in-out; }
   @media screen and (min-width: 40rem) {
     .c-banner {
-      height: 20rem; } }
+      min-height: 20rem; } }
   @media screen and (min-width: 50rem) {
     .c-banner {
-      height: 22rem; } }
+      min-height: 22rem; } }
   @media screen and (min-width: 60rem) {
     .c-banner {
-      height: 25rem; } }
+      min-height: 25rem; } }
   .c-banner::after {
     content: "";
     position: absolute;
@@ -2391,14 +2458,19 @@ input.is-disabled {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(171, 35, 40, 0.8); }
-  .c-banner .o-container {
+    background-color: rgba(46, 46, 46, 0.85); }
+  .c-banner > .o-container {
     display: table-cell;
     vertical-align: middle;
     position: relative;
-    z-index: 10; }
-    .c-banner .o-container * {
+    z-index: 10;
+    padding-top: 1rem;
+    padding-bottom: 1rem; }
+    .c-banner > .o-container * {
       color: white; }
+
+.c-banner--red::after {
+  background-color: rgba(171, 35, 40, 0.85); }
 
 .c-banner--clear::after {
   display: none; }
@@ -2428,13 +2500,12 @@ input.is-disabled {
 .slide-control {
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; }
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem; }
   .slide-control .rslides_nav {
     position: absolute;
-    top: 50%;
-    margin-top: -1.5rem;
+    bottom: 0.25rem;
     z-index: 5; }
     .slide-control .rslides_nav.prev {
       left: 1.5rem; }
@@ -2452,10 +2523,6 @@ input.is-disabled {
       @media screen and (min-width: 60rem) {
         .slide-control .rslides_nav.next {
           right: 0.75rem; } }
-    @media screen and (min-width: 40rem) {
-      .slide-control .rslides_nav {
-        top: auto;
-        bottom: 0.5rem; } }
   .slide-control .rslides_tabs {
     position: absolute;
     bottom: 1rem;
@@ -2468,11 +2535,12 @@ input.is-disabled {
     text-align: center;
     width: 75%; }
     .slide-control .rslides_tabs li {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1rem;
+      height: 1rem;
       text-align: center;
       margin-right: 6px;
-      display: inline-block; }
+      display: inline-block;
+      box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1); }
       .slide-control .rslides_tabs li.rslides_here a {
         background-color: #ab2328; }
     .slide-control .rslides_tabs a {
@@ -2484,9 +2552,6 @@ input.is-disabled {
       line-height: 0;
       border-radius: 50%;
       background-color: white; }
-    @media screen and (min-width: 40rem) {
-      .slide-control .rslides_tabs {
-        bottom: 0.5rem; } }
 
 .c-featured picture,
 .c-featured source,
@@ -2495,6 +2560,9 @@ input.is-disabled {
 
 .c-post-content {
   max-width: 39rem; }
+
+.no-featured-image .c-article {
+  padding-top: 1rem; }
 
 .c-footer {
   padding: 1rem 0;

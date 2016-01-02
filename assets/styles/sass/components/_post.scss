@@ -9,3 +9,9 @@
 .c-post-content {
   max-width: 39rem;
 }
+
+.c-article {
+  .no-featured-image & {
+    padding-top: $VCbase;
+  }
+}

@@ -54,6 +54,8 @@
 // "Usual" typeface with correct stylistic sets enabled
 @mixin font-stack-alt($alternates: true) {
   font-family: $VCfont-stack-alt;
+  font-weight: $VCfont-light;
+  letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
@@ -120,4 +122,13 @@
 // Default transition
 @mixin transition($property: all, $timing: $VCtransition-timing, $easing: $VCtransition-easing) {
   transition: $property $timing $easing;
+}
+
+
+@mixin box-shadow($x-spacing: 0, $y-spacing: 0, $blur: 25px, $spread: 0, $colour: rgba(0,0,0,.1)) {
+  box-shadow: $x-spacing $y-spacing $blur $spread $colour;
+}
+
+@mixin text-shadow($x-spacing: 0, $y-spacing: 0, $blur: 0, $colour: black) {
+  text-shadow: $x-spacing $y-spacing $blur $colour;
 }

@@ -2,22 +2,22 @@
   display: table;
   position: relative;
   width: 100%;
-  height: 17rem;
+  min-height: 17rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   @include transition();
 
   @include breakpoint(sm) {
-    height: 20rem;
+    min-height: 20rem;
   }
 
   @include breakpoint(md) {
-    height: 22rem;
+    min-height: 22rem;
   }
 
   @include breakpoint(lg) {
-    height: 25rem;
+    min-height: 25rem;
   }
 
   &::after {
@@ -30,18 +30,26 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(red(colour(red)),green(colour(red)),blue(colour(red)),0.8);
+    background-color: greyscale(2, 0.85);
   }
 
-  .o-container {
+  & > .o-container {
     display: table-cell;
     vertical-align: middle;
     position: relative;
     z-index: 10;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     * {
       color: white;
     }
+  }
+}
+
+.c-banner--red {
+  &::after {
+    background-color: rgba(red(colour(red)),green(colour(red)),blue(colour(red)),0.85);
   }
 }
 
