@@ -13,11 +13,11 @@
   }
 
   @include breakpoint(md) {
-    min-height: 22rem;
+    min-height: 25rem;
   }
 
   @include breakpoint(lg) {
-    min-height: 25rem;
+    min-height: 30rem;
   }
 
   &::after {

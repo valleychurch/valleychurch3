@@ -63,8 +63,9 @@
 
       @include breakpoint(lg) {
         display: none;
-        width: 15rem;
         position: absolute;
+        width: 15rem;
+        padding-bottom: 0.25rem;
         background-color: colour(black);
 
         // &:hover {

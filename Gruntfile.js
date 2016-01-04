@@ -58,7 +58,7 @@ module.exports = function(grunt) {
       },
       images: {
         files: ['assets/images/src/*.{png,jpg,gif,svg}'],
-        tasks: ['imagemin']
+        tasks: ['imagemin', 'notify:images']
       }
     },
     criticalcss: {
@@ -98,6 +98,12 @@ module.exports = function(grunt) {
         options: {
           title: 'Scripts compiled',
           message: 'Javascript files compiled, watching for changes'
+        }
+      },
+      images: {
+        options: {
+          title: 'Images minified',
+          message: 'Image files minified, watching for changes'
         }
       }
     }

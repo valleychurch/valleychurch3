@@ -5,7 +5,7 @@ if ( has_post_thumbnail() ) {
   $img_banner_small = wp_get_attachment_image_src( $img_id, 'banner-small' );
   $img_banner_xsmall = wp_get_attachment_image_src( $img_id, 'banner-xsmall' );
   ?>
-<figure class="c-featured u-margin u-margin--md--double">
+<figure class="c-featured">
   <picture>
     <?php if ( $img_banner ) { ?>
     <source media="(min-width: 70rem)" srcset="<?php echo $img_banner[0]; ?>">

@@ -7,44 +7,49 @@
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+
   background-color: colour(red);
+  padding: 0.25rem 0.75rem;
+
+  @include font-stack-alt;
   color: white;
   font-size: ms(1);
+  font-weight: $VCfont-light;
   text-align: center;
-  border: none;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid colour(red, dark);
-  border-radius: 4px;
-  @include transition();
+  letter-spacing: 1px;
 
-  &:hover {
+  border: none;
+  //border: 1px solid colour(red, dark);
+  border-radius: 4px;
+  @include transition;
+
+  &:hover,
+  &:focus {
     background-color: colour(red, dark);
-    border-color: colour(red, x-dark);
+    //border-color: colour(red, x-dark);
+    color: white;
   }
 
   @include breakpoint(sm) {
-    min-width: 8rem;
-    width: auto;
-    padding: 0.5rem 1rem;
+    //min-width: 8rem;
+    font-size: ms(0);
+    //padding: 0.5rem 1rem;
   }
 }
 
   .o-btn--reset {
-    width: auto;
     background-color: transparent;
-    border: none;
     color: colour(black);
   }
 
   .o-btn--ghost {
     @include font-stack-alt;
-    letter-spacing: 1px;
-    font-size: 1rem;
     background-color: transparent;
     color: white;
     border: 3px solid colour(white, 0.6);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: transparent;
       border-color: colour(white, 1);
       color: white;

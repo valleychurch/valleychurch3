@@ -39,8 +39,8 @@
 
   @if ($alternates) {
     .fontvariant.wf-active & {
-      // font-variant-alternates: styleset("ss04");
-      // font-feature-settings: "ss04";
+      font-variant-alternates: styleset("ss04");
+      font-feature-settings: "ss04";
 
       & em {
         // font-variant-alternates: styleset("ss01"), styleset("ss03");
@@ -54,8 +54,6 @@
 // "Usual" typeface with correct stylistic sets enabled
 @mixin font-stack-alt($alternates: true) {
   font-family: $VCfont-stack-alt;
-  font-weight: $VCfont-light;
-  letter-spacing: 0.5px;
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {

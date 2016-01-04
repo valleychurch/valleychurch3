@@ -25,7 +25,7 @@ $VCbreakpoints: (
   max:                  $VCmax-width
 );
 
-$VCcolour-percentage:   15%;
+$VCcolour-percentage:   10%;
 $VCcolour-percentage-x: double($VCcolour-percentage);
 
 $VCtransition-timing:   150ms;
@@ -36,7 +36,7 @@ $VCenable-flex:         true;
 $VCenable-grid-classes: true;
 
 // Typography
-$VCfont-stack:          "LatoLatinWeb", "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+$VCfont-stack:          "lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
 
 // Colours

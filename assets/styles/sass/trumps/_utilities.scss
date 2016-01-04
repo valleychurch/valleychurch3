@@ -4,6 +4,16 @@
   @include clearfix();
 }
 
+// Grid ordering
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    @for $i from 0 through 12 {
+      .u-grid-#{$i}--#{$breakpoint} {
+        order: #{$i};
+      }
+    }
+  }
+}
 
 // Floats
 .u-pull-left {
@@ -31,15 +41,17 @@
   }
 }
 
-.u-hide           { display: none; }
-.u-show           { display: block; }
-.u-show-inline    { display: inline-block; }
+.u-hide                 { display: none; }
+.u-show                 { display: block; }
+.u-show-inline          { display: inline; }
+.u-show-inline-block    { display: inline; }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-hide--#{$breakpoint}           { display: none; }
-    .u-show--#{$breakpoint}           { display: block; }
-    .u-show-inline--#{$breakpoint}    { display: inline-block; }
+    .u-hide--#{$breakpoint}                   { display: none; }
+    .u-show--#{$breakpoint}                   { display: block; }
+    .u-show-inline--#{$breakpoint}            { display: inline; }
+    .u-show-inline-block--#{$breakpoint}      { display: inline-block; }
   }
 }
 
@@ -71,6 +83,11 @@
 @each $colour in map-keys($VCcolours) {
   .u-text-#{"" + $colour}   { color: colour($colour); }
 }
+
+.u-text-light           { font-weight: $VCfont-light; }
+.u-text-normal          { font-weight: $VCfont-normal; }
+.u-text-medium          { font-weight: $VCfont-medium; }
+.u-text-bold            { font-weight: $VCfont-bold; }
 
 
 // Background colours

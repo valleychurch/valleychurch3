@@ -264,6 +264,10 @@ function featured_image_class($classes) {
 };
 add_action( 'body_class', 'featured_image_class' );
 
+function modify_read_more_link() {
+  return '<a class="o-btn c-more-link" href="' . get_permalink() . '">Read more</a>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 //Add social media links to profile
 function add_contact_methods( $contactmethods ) {

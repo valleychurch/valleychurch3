@@ -1,3 +1,21 @@
+.c-section {
+  padding: $VCbase $VCbase 0;
+  //margin-top: -$VCbase;
+
+  @include breakpoint(md) {
+    padding: ($VCbase * 1.5) ($VCbase * 1.5) ($VCbase * 0.5);
+  }
+
+  @include breakpoint(lg) {
+    padding: ($VCbase * 2) ($VCbase * 2) $VCbase;
+  }
+}
+
+.c-section--gray,
+.c-section--grey {
+  background-color: greyscale(10);
+}
+
 .c-featured {
   picture,
   source,

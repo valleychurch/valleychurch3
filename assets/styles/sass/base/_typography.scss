@@ -2,7 +2,9 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
 .exa, .peta, .tera, .giga, .mega, .kilo {
   @include font-stack-alt;
+  font-weight: $VCfont-medium;
   line-height: 1.25;
+  letter-spacing: 0.5px;
 }
 
 .exa {
@@ -82,6 +84,6 @@ blockquote {
 }
 
 ::selection {
-  background-color: colour(red, 0.8);
+  background-color: colour(red, 0.75);
   color: white;
 }

@@ -1,6 +1,7 @@
 .o-card {
   position: relative;
   margin-bottom: $VCbase;
+  background: white;
 }
 
   .o-card__body {
@@ -41,4 +42,8 @@
     background-color: greyscale(2, 0.8);
     z-index: 0;
   }
+}
+
+.o-card--shadow {
+  @include box-shadow;
 }
