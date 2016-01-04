@@ -279,13 +279,13 @@ function checkSideNav() {
 
 function loadHomeSlider() {
   var prevImg =
-    '<svg width="30" height="48" class="prev-btn">' +
-      '<image xlink:href="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-prev.svg" src="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-prev.png" width="30" height="48" class="prev-btn" />' +
+    '<svg width="100%" height="100%" class="prev-btn">' +
+      '<image xlink:href="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" src="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.png" width="100%" height="100%" class="prev-btn" />' +
     '</svg>';
 
   var nextImg =
-    '<svg width="30" height="48" class="next-btn">' +
-      '<image xlink:href="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-next.svg" src="http://valleychurch.eu/wp-content/themes/valleychurch2/img/icons/icon-next.png" width="30" height="48" class="next-btn" />' +
+    '<svg width="100%" height="100%" class="next-btn">' +
+      '<image xlink:href="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" src="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.png" width="100%" height="100%" class="next-btn" />' +
     '</svg>';
 
   $('.c-slides').responsiveSlides({

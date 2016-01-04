@@ -369,7 +369,7 @@ blockquote, p, address,
 hr,
 button,
 table,
-fieldset, figure,
+fieldset,
 pre {
   margin-top: 0;
   margin-bottom: 1rem; }

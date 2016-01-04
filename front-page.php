@@ -3,7 +3,7 @@
   <section class="c-banner c-banner--red" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-home.jpg');">
     <div class="o-container u-text-center">
       <h1 class="giga u-margin--none">Welcome Home!</h1>
-      <p class="h2 u-text-light">We're so glad you're here</p>
+      <p class="h2 u-text-light">We're glad you're here</p>
     </div>
   </section>
 
@@ -20,7 +20,7 @@
       $wp_query = new WP_Query( $args );
       if ( have_posts() ) : ?>
       <div class="o-col-xs-12 o-col-md-6">
-        <ul class="c-slides u-cf">
+        <ul class="c-slides u-margin u-margin-md--none u-cf">
         <?php while ( have_posts() ) :
           the_post();
           if ( has_post_thumbnail() ) :
@@ -60,8 +60,8 @@
           <div class="o-card__overlay">
             <div class="o-card__overlay__middle">
               <h2 class="o-card__title">Senior Pastors</h2>
-              <p class="o-card__text u-hide u-show--lg">
-                Ed &amp; Michele Carter are the Senior Pastors of Valley Church. <span class="u-hide u-show-inline--xl">They have a heart to see you empowered to fulfil all that God has for you.</span>
+              <p class="o-card__text u-hide u-show--sm u-hide--md u-show--lg">
+                Ed &amp; Michele Carter are the Senior Pastors of Valley Church. <span class="u-hide u-show--sm u-hide--md u-show-inline--xl">They have a heart to see you empowered to fulfil all that God has for you.</span>
               </p>
               <a class="o-btn o-btn--ghost" href="/pastors">
                 Read more
@@ -85,7 +85,7 @@
   <section class="o-container c-section c-section--grey">
     <div class="o-row">
 
-      <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xs-12 o-col-md-12 o-col-lg-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg">
           <div class="o-card__body">
@@ -100,7 +100,7 @@
         </div>
       </div>
 
-      <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-cg.jpg">
           <div class="o-card__body">
@@ -115,7 +115,7 @@
         </div>
       </div>
 
-      <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-youth.jpg">
           <div class="o-card__body">
@@ -124,7 +124,7 @@
               We believe in empowering a new generation and want to see young people live life to the full!
             </p>
             <a class="o-btn" href="/youth">
-              Read more
+              Get involved
             </a>
           </div>
         </div>
@@ -136,7 +136,7 @@
   <section class="o-container c-section">
     <div class="o-row">
 
-      <div class="o-col-xs-12 o-col-md-8 u-grid-0--xs u-grid-1--md">
+      <div class="o-col-xs-12 o-col-md-9 u-grid-0--xs u-grid-1--md">
         <h2><a href="/thelatest">The Latest</a></h2>
         <?php
           $args =
@@ -150,22 +150,22 @@
           if ( have_posts() ) :
             while ( have_posts() ) :
               the_post(); ?>
-          <div class="o-card o-card--shadow">
-            <?php get_template_part( 'partials/featured-image' ); ?>
-            <div class="o-card__body">
-              <h3 class="o-card__title">
-                <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
-                  <?php the_title(); ?>
-                </a>
-              </h3>
-              <?php the_content('Read more'); ?>
-            </div>
+        <div class="o-card o-card--shadow">
+          <?php get_template_part( 'partials/featured-image' ); ?>
+          <div class="o-card__body">
+            <h3 class="h1 o-card__title">
+              <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
+                <?php the_title(); ?>
+              </a>
+            </h3>
+            <?php the_content('Read more'); ?>
           </div>
+        </div>
         <?php endwhile; else : endif; ?>
         <?php wp_reset_query(); ?>
       </div>
 
-      <div class="o-col-xs-12 o-col-md-4 u-grid-1--xs u-grid-0--md">
+      <div class="o-col-xs-12 o-col-md-3 u-grid-1--xs u-grid-0--md">
         <h2><a href="/messages">Messages</a></h2>
         <div class="o-row">
         <?php
@@ -185,12 +185,12 @@
             <div class="o-card o-card--shadow">
               <?php get_template_part( 'partials/featured-image' ); ?>
               <div class="o-card__body">
-                <h3 class="h5 o-card__title">
+                <h3 class="o-card__title u-margin--none">
                   <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
                     <?php the_title(); ?>
                   </a>
                 </h3>
-                <?php the_content('Read more'); ?>
+                <?php //the_content('Read more'); ?>
               </div>
             </div>
           </div>

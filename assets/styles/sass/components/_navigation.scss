@@ -146,7 +146,7 @@
   overflow: auto;
   width: 18rem;
   height: 100%;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   background-color: colour(black);
   // transition: transform 250ms ease-in-out;
 
@@ -170,11 +170,17 @@
   .c-nav-toggle {
     background-color: transparent;
     color: white;
-    padding: 0.35rem 0.5rem;
+    padding: 0.5rem;
+    margin-top: -0.275rem;
     text-transform: uppercase;
     border: none;
     margin-bottom: 0;
     // @include font-stack-alt;
+
+    &:hover,
+    &:focus {
+      background-color: colour(black);
+    }
   }
 
   .c-navigation--toggle {

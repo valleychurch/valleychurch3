@@ -20,12 +20,10 @@
 }
 
   .c-search__input {
-    padding: 0.5rem 2rem 0.5rem 0.25rem !important;
+    padding: 0.5rem 2rem 0.5rem 0.875rem !important;
     color: white;
     border: none;
-    border-radius: 0;
-    background-color: transparent;
-    border-bottom: 1px solid greyscale(5);
+    background-color: colour(black);
     @include transition();
 
     &:hover,
@@ -62,6 +60,6 @@
 
     @include breakpoint(lg) {
       width: 40px;
-      height: 40px;
+      height: 42px;
     }
   }

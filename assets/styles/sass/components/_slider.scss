@@ -41,35 +41,22 @@
 
   .rslides_nav {
     position: absolute;
-    //top: 50%;
-    bottom: 0.25rem;
-    //margin-top: $VCbase;
-    //@include opacity(0.4);
-    //@include single-transition(opacity, 0.1s, ease-in-out);
     z-index: 5;
+    width: 20px;
+    height: 32px;
+    bottom: 0.75rem;
+
+    @include breakpoint(lg) {
+      width: 30px;
+      height: 48px;
+    }
 
     &.prev {
-      left: $VCbase * 1.5;
-
-      @include breakpoint(md) {
-        left: $VCbase * 1;
-      }
-
-      @include breakpoint(lg) {
-        left: $VCbase * 0.75;
-      }
+      left: $VCbase * 0.75;
     }
 
     &.next {
-      right: $VCbase * 1.5;
-
-      @include breakpoint(md) {
-        right: $VCbase * 1;
-      }
-
-      @include breakpoint(lg) {
-        right: $VCbase * 0.75;
-      }
+      right: $VCbase * 0.75;
     }
 
     &:hover {
@@ -84,23 +71,29 @@
 
   .rslides_tabs {
     position: absolute;
-    bottom: $VCbase;
+    bottom: $VCbase * 0.5;
     left: 0;
     right: 0;
+    z-index: 8;
+    padding: 0;
     margin-left: auto;
     margin-right: auto;
-    z-index: 8;
     margin-bottom: 0;
     text-align: center;
-    width: 75%;
+    width: 100%;
 
     li {
-      width: $VCbase;
-      height: $VCbase;
+      width: $VCbase * 1.5;
+      height: $VCbase * 1.5;
       text-align: center;
       margin-right: 6px;
       display: inline-block;
       @include box-shadow;
+
+      @include breakpoint(md) {
+        width: $VCbase;
+        height: $VCbase;
+      }
 
       &.rslides_here a {
         background-color: $VCred;
@@ -110,13 +103,18 @@
     a {
       //@extend .hide__text;
       display: inline-block;
-      width: $VCbase;
-      height: $VCbase;
+      width: $VCbase * 1.5;
+      height: $VCbase * 1.5;
       overflow: hidden;
       font-size: 0;
       line-height: 0;
       border-radius: 50%;
       background-color: white;
+
+      @include breakpoint(md) {
+        width: $VCbase;
+        height: $VCbase;
+      }
     }
   }
 }
