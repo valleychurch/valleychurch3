@@ -85,7 +85,7 @@
   <section class="o-container c-section c-section--grey">
     <div class="o-row">
 
-      <div class="o-col-xs-12 o-col-md-12 o-col-lg-4">
+      <div class="o-col-xs-12 o-col-md-12 o-col-xl-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg">
           <div class="o-card__body">
@@ -100,13 +100,13 @@
         </div>
       </div>
 
-      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
+      <div class="o-col-xs-12 o-col-md-6 o-col-xl-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-cg.jpg">
           <div class="o-card__body">
             <h2 class="h3 o-card__title">Connect Groups</h2>
             <p class="o-card__text">
-              Connect Groups meet in homes fornightly to hang out, eat a meal together and chat.
+              Connect Groups meet in homes fortnightly to hang out, eat a meal together and chat.
             </p>
             <a class="o-btn" href="/connect">
               Find one near you
@@ -115,7 +115,7 @@
         </div>
       </div>
 
-      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
+      <div class="o-col-xs-12 o-col-md-6 o-col-xl-4">
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-youth.jpg">
           <div class="o-card__body">

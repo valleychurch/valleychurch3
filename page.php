@@ -1,21 +1,25 @@
 <?php get_header(); ?>
 
-      <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php get_template_part( 'partials/featured-image' ); ?>
 
-      <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+  <section class="c-section">
 
-        <div class="o-row">
+    <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
 
-          <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+      <div class="o-row">
 
-            <h1><?php the_title(); ?></h1>
+        <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
 
-            <?php the_content(); ?>
+          <h1><?php the_title(); ?></h1>
 
-          </div>
+          <?php the_content(); ?>
 
         </div>
 
-      </article>
+      </div>
+
+    </article>
+
+  </section>
 
 <?php get_footer(); ?>

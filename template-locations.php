@@ -75,58 +75,62 @@ get_header();
   google.maps.event.addDomListener(window, 'resize', centreMap);
 </script>
 
+  <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
 
-      <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
+    <div class="o-row c-map c-map--40">
+      <div class="c-map__inner js-google-map"></div>
+    </div>
 
-        <div class="o-row c-map c-map--40">
-          <div class="c-map__inner js-google-map"></div>
+  </div>
+
+  <section class="c-section">
+
+    <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+
+      <div class="o-row">
+
+        <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+
+          <h1><?php the_title(); ?></h1>
+
+          <?php the_content(); ?>
+          <?php wp_reset_query(); ?>
+
         </div>
 
       </div>
 
+      <?php if ( $locations->have_posts() ) : ?>
 
-      <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+      <div class="o-row">
 
-        <div class="o-row">
+      <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
-          <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+        <div class="o-col-xs-12 o-col-md-4">
 
-            <h1><?php the_title(); ?></h1>
-
-            <?php the_content(); ?>
-            <?php wp_reset_query(); ?>
-
-          </div>
-
-        </div>
-
-        <?php if ( $locations->have_posts() ) : ?>
-
-        <div class="o-row">
-
-        <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
-
-          <div class="o-col-xs-12 o-col-md-4">
-
-            <div class="o-card">
-              <?php if ( has_post_thumbnail() ) { ?>
-              <div class="o-card__image"><?php the_post_thumbnail(); ?></div>
+          <div class="o-card">
+            <?php if ( has_post_thumbnail() ) { ?>
+            <div class="o-card__image"><?php the_post_thumbnail(); ?></div>
+            <?php } ?>
+            <div class="o-card__body">
+              <h2 class="o-card__title"><?php the_title(); ?></h2>
+              <?php $terms = get_the_terms( $post->ID, 'location_type' ); if ( $terms && !is_wp_error( $terms ) ) { ?>
+              <p class="o-card__subtitle"><?php echo $terms[0]->name; ?></p>
               <?php } ?>
-              <div class="o-card__body">
-                <h2 class="o-card__title"><?php the_title(); ?></h2>
-                <?php $terms = get_the_terms( $post->ID, 'location_type' ); if ( $terms && !is_wp_error( $terms ) ) { ?>
-                <p class="o-card__subtitle"><?php echo $terms[0]->name; ?></p>
-                <?php } ?>
-                <p class="o-card__text"><?php the_field('location_address'); ?></p>
-              </div>
+              <p class="o-card__text"><?php the_field('location_address'); ?></p>
             </div>
-
           </div>
-
-        <?php endwhile; ?>
 
         </div>
 
-        <?php endif; ?>
+      <?php endwhile; ?>
 
-      </article>
+      </div>
+
+      <?php endif; ?>
+
+    </article>
+
+  </section>
+
+<?php get_footer(); ?>

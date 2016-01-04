@@ -82,28 +82,33 @@ get_header(); ?>
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
-  <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+  <section class="c-section">
 
-    <div class="o-row">
+    <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
 
-      <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1><?php the_title(); ?></h1>
+        <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
 
-        <?php the_content(); ?>
+          <h1><?php the_title(); ?></h1>
 
-        <h2>Where do groups meet?</h2>
-        <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
+          <?php the_content(); ?>
+
+          <h2>Where do groups meet?</h2>
+          <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
+
+        </div>
 
       </div>
 
-    </div>
+    </article>
 
-    <div class="o-row c-map c-map--40">
-      <div class="c-map__inner js-google-map"></div>
-    </div>
+  </section>
 
-  </article>
+  <div class="c-map c-map--40">
+    <div class="c-map__inner js-google-map"></div>
+  </div>
+
 
 <?php endwhile; endif; ?>
 

@@ -59,13 +59,12 @@
     .sub-menu {
       list-style-type: none;
       margin: 0;
-      padding: 0;
+      padding: 0 0 0.25rem;
 
       @include breakpoint(lg) {
         display: none;
         position: absolute;
         width: 15rem;
-        padding-bottom: 0.25rem;
         background-color: colour(black);
 
         // &:hover {
@@ -116,7 +115,7 @@
             line-height: 1.5;
             padding-left: 0.5rem;
             font-family: "FontAwesome";
-            font-size: ms(-1);
+            font-size: ms(-2);
           }
 
           &::after {
