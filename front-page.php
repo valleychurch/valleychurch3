@@ -89,7 +89,7 @@
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg">
           <div class="o-card__body">
-            <h2 class="o-card__title">Plan a visit</h2>
+            <h2 class="h3 o-card__title">Plan a visit</h2>
             <p class="o-card__text">
               We're one church in many locations and we'd love to see you this Sunday!
             </p>
@@ -104,9 +104,9 @@
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-cg.jpg">
           <div class="o-card__body">
-            <h2 class="o-card__title">Connect Groups</h2>
+            <h2 class="h3 o-card__title">Connect Groups</h2>
             <p class="o-card__text">
-              Connect Groups meet in people’s homes fornightly to wwhang out, eat a meal together and chat.
+              Connect Groups meet in homes fornightly to hang out, eat a meal together and chat.
             </p>
             <a class="o-btn" href="/connect">
               Find one near you
@@ -119,9 +119,9 @@
         <div class="o-card u-text-center">
           <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-youth.jpg">
           <div class="o-card__body">
-            <h2 class="o-card__title">Valley Youth (11-18s)</h2>
+            <h2 class="h3 o-card__title">Valley Youth (11-18s)</h2>
             <p class="o-card__text">
-              We believe in the next generation and we want to see young people live life to the full!
+              We believe in empowering a new generation and want to see young people live life to the full!
             </p>
             <a class="o-btn" href="/youth">
               Read more
