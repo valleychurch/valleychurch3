@@ -82,22 +82,18 @@ get_header(); ?>
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
-  <section class="c-section">
+  <section class="c-section o-container">
 
-    <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+    <article <?php post_class( 'o-row c-article u-margin' ); ?> role="article">
 
-      <div class="o-row">
+      <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
 
-        <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+        <h1><?php the_title(); ?></h1>
 
-          <h1><?php the_title(); ?></h1>
+        <?php the_content(); ?>
 
-          <?php the_content(); ?>
-
-          <h2>Where do groups meet?</h2>
-          <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
-
-        </div>
+        <h2>Where do groups meet?</h2>
+        <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
 
       </div>
 

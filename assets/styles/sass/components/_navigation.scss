@@ -145,7 +145,7 @@
   overflow: auto;
   width: 18rem;
   height: 100%;
-  padding: 0 1rem 1rem;
+  padding: 0.5rem 1rem 1rem;
   background-color: colour(black);
   // transition: transform 250ms ease-in-out;
 
@@ -179,6 +179,14 @@
     &:hover,
     &:focus {
       background-color: colour(black);
+    }
+
+    @include breakpoint(sm) {
+      margin-top: -0.125rem;
+    }
+
+    @include breakpoint(md) {
+      margin-top: 0.125rem;
     }
   }
 

@@ -493,6 +493,8 @@ small,
   font-size: 0.83333rem; }
 
 blockquote {
+  margin-left: 0;
+  margin-right: 0;
   font-size: 1.2rem;
   font-style: italic;
   color: #5c5c5c; }
@@ -2318,7 +2320,7 @@ input.is-disabled {
   overflow: auto;
   width: 18rem;
   height: 100%;
-  padding: 0 1rem 1rem;
+  padding: 0.5rem 1rem 1rem;
   background-color: #262626; }
   @media screen and (min-width: 60rem) {
     .c-navigation {
@@ -2342,6 +2344,12 @@ input.is-disabled {
   margin-bottom: 0; }
   .c-nav-toggle:hover, .c-nav-toggle:focus {
     background-color: #262626; }
+  @media screen and (min-width: 40rem) {
+    .c-nav-toggle {
+      margin-top: -0.125rem; } }
+  @media screen and (min-width: 50rem) {
+    .c-nav-toggle {
+      margin-top: 0.125rem; } }
 
 .c-navigation--toggle {
   visibility: hidden;
@@ -2377,15 +2385,19 @@ input.is-disabled {
 
 .c-search__input {
   padding: 0.5rem 2rem 0.5rem 0.625rem !important;
-  color: white;
+  color: #262626;
+  line-height: 1.35;
   border: none;
-  background-color: #262626;
   transition: all 150ms ease-in-out; }
-  .c-search__input:hover, .c-search__input:focus {
-    outline: none;
-    border-bottom-color: #e6e6e6; }
-    .c-search__input:hover + .c-search__button, .c-search__input:focus + .c-search__button {
-      color: #e6e6e6; }
+  @media screen and (min-width: 60rem) {
+    .c-search__input {
+      color: white;
+      background-color: #262626; }
+      .c-search__input:hover, .c-search__input:focus {
+        outline: none;
+        border-bottom-color: #e6e6e6; }
+        .c-search__input:hover + .c-search__button, .c-search__input:focus + .c-search__button {
+          color: #e6e6e6; } }
 
 .c-search__button {
   position: absolute;
@@ -2393,22 +2405,23 @@ input.is-disabled {
   right: 0;
   bottom: 0;
   min-width: 0;
-  width: 36px;
-  height: 35px;
+  width: 39px;
+  height: 39px;
   padding: 0;
   margin: 0;
   background-color: transparent;
   color: #737373;
+  line-height: 0;
   border-width: 0;
-  border-radius: 0;
+  border-radius: 0 2px 2px 0;
   transition: all 150ms ease-in-out; }
-  .c-search__button:hover {
-    color: #e6e6e6;
-    background-color: transparent; }
   @media screen and (min-width: 60rem) {
     .c-search__button {
       width: 40px;
-      height: 42px; } }
+      height: 42px; }
+      .c-search__button:hover {
+        color: #e6e6e6;
+        background-color: transparent; } }
 
 .c-banner {
   display: table;
