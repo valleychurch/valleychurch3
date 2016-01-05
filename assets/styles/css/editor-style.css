@@ -501,11 +501,14 @@ blockquote {
   color: white; }
 
 a {
+  text-decoration: none;
   transition: all 150ms ease-in-out; }
   a, a:active {
     color: #ab2328; }
   a:focus, a:hover {
     color: #811a1e; }
+  .c-article a, .c-footer a {
+    text-decoration: underline; }
 
 dt {
   font-weight: 700; }

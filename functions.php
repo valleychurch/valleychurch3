@@ -136,32 +136,39 @@ add_image_size( 'banner', 2000, 800, true );       // Featured image banner size
 add_image_size( 'banner-small', 1500, 800, true ); // Featured image banner size small
 add_image_size( 'banner-xsmall', 750, 600, true ); // Featured image banner size xsmall
 
+
 // Add menu support
 add_theme_support( 'menus' );
+
 
 // Add custom menu
 function register_custom_menu() {
   register_nav_menu( 'primary', 'Main Menu' );
-  register_nav_menu( 'side-nav', 'Side Menu' );
-  register_nav_menu( 'footer-1', 'Footer 1' );
-  register_nav_menu( 'footer-2', 'Footer 2' );
-  register_nav_menu( 'footer-3', 'Footer 3' );
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
+
 
 // Add WP 4.4 new title tag functionality
 add_theme_support( 'title-tag' );
 
+
 // Editor stylesheet
 add_editor_style( 'assets/styles/css/editor-style.css' ); //defaults to editor-style.css
 
+
 // Add Typekit to TinyMCE
-function add_typekit_tinymce( $plugin_array ){
+function add_typekit_tinymce( $plugin_array ) {
   $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js';
   return $plugin_array;
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
 
+
+// Add script async support
+function js_async_attr( $tag ) {
+  return str_replace( ' src', ' async="async" src', $tag );
+}
+add_filter( 'script_loader_tag', 'js_async_attr', 10 );
 
 
 //Create custom post types

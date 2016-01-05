@@ -1,4 +1,5 @@
 a {
+  text-decoration: none;
   @include transition();
   &,
   &:active {
@@ -8,5 +9,10 @@ a {
   &:focus,
   &:hover {
     color: colour(red, dark);
+  }
+
+  .c-article &,
+  .c-footer & {
+    text-decoration: underline;
   }
 }

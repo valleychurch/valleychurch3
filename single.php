@@ -13,7 +13,7 @@
                 <?php get_template_part( 'partials/avatar' ); ?>
               </div>
               <div class="o-flag__flex">
-                <p class="lead u-margin--none">
+                <p class="u-margin--none">
                   <?php the_author(); ?>
                 </p>
                 <p class="small u-text-muted u-margin--none">
