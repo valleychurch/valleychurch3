@@ -164,13 +164,6 @@ function add_typekit_tinymce( $plugin_array ) {
 add_filter("mce_external_plugins", "add_typekit_tinymce");
 
 
-// Add script async support
-function js_async_attr( $tag ) {
-  return str_replace( ' src', ' async="async" src', $tag );
-}
-add_filter( 'script_loader_tag', 'js_async_attr', 10 );
-
-
 //Create custom post types
 function create_custom_post_types() {
   register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt' ) ); //TODO: rename to 'event'
@@ -236,7 +229,7 @@ function theme_files() {
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js' );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'] );
   wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'] );
-  wp_register_script( 'holder', get_template_directory_uri() . '/assets/scripts/dist/holder.min.js', ['jquery'] );
+  //wp_register_script( 'holder', get_template_directory_uri() . '/assets/scripts/dist/holder.min.js', ['jquery'] );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js' );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides', 'google-maps'] );
 
@@ -244,12 +237,31 @@ function theme_files() {
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'responsiveslides' );
-  wp_enqueue_script( 'holder' );
+  //wp_enqueue_script( 'holder' );
   wp_enqueue_script( 'google-maps' );
   wp_enqueue_script( 'site' );
 };
 
 add_action( 'wp_enqueue_scripts', 'theme_files' );
+
+
+// Add script async support
+function defer_js_async( $tag ) {
+  $scripts_to_defer = array( 'script.min.js' );
+  $scripts_to_async = array( 'jquery.min.js', 'modernizr.min.js', 'responsiveslides.min.js');
+
+  foreach( $scripts_to_defer as $defer_script ) {
+    if( true == strpos( $tag, $defer_script ) )
+      return str_replace( ' src', ' defer="defer" src', $tag );
+  }
+  foreach( $scripts_to_async as $async_script ) {
+    if( true == strpos( $tag, $async_script ) )
+      return str_replace( ' src', ' async="async" src', $tag );
+  }
+  return $tag;
+}
+add_filter( 'script_loader_tag', 'defer_js_async', 10 );
+
 
 function admin_theme_files() {
   // wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'] );
