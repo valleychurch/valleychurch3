@@ -1,6 +1,11 @@
 {
   "name": "valleychurch.eu",
   "version": "3.0.0",
+  "description": "Valley Church WordPress theme",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/rickbutterfield/valleychurch3.git"
+  },
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "grunt": "^0.4.5",
