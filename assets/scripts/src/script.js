@@ -5,7 +5,8 @@ var VC = {
     objectFit: false,
     fontVariantLigatures: false,
   },
-  homeSliderActive: false
+  homeSliderActive: false,
+  notificationActive: false
 };
 
 var map,
@@ -19,172 +20,172 @@ var map,
     mapMarker;
 
 mapStyle = [
+  {
+    "featureType": "all",
+    "elementType": "labels.text.fill",
+    "stylers": [
     {
-        "featureType": "all",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "saturation": 36
-            },
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 40
-            }
-        ]
+      "saturation": 36
     },
     {
-        "featureType": "all",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 16
-            }
-        ]
+      "color": "#000000"
     },
     {
-        "featureType": "all",
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 20
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            },
-            {
-                "weight": 1.2
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 20
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 21
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 29
-            },
-            {
-                "weight": 0.2
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 18
-            }
-        ]
-    },
-    {
-        "featureType": "road.local",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 16
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 19
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 17
-            }
-        ]
+      "lightness": 40
     }
-  ];
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+    {
+      "visibility": "on"
+    },
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "all",
+    "elementType": "labels.icon",
+    "stylers": [
+    {
+      "visibility": "off"
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    },
+    {
+      "weight": 1.2
+    }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 20
+    }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 21
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.fill",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 29
+    },
+    {
+      "weight": 0.2
+    }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 18
+    }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 16
+    }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 19
+    }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+    {
+      "color": "#000000"
+    },
+    {
+      "lightness": 17
+    }
+    ]
+  }
+];
 
 function centreMap() {
   google.maps.event.trigger(map, 'resize');
@@ -194,7 +195,7 @@ function centreMap() {
 
 
 // Load Typekit
-try{Typekit.load({ async: true });}catch(e){}
+// try{Typekit.load({ async: true });}catch(e){}
 
 
 // Obligatory debounce function
@@ -218,10 +219,10 @@ function debounce(func, wait, immediate) {
 // Attaches events to allow notification functionality to work
 function checkNotifications() {
   try {
-    var notificationData = JSON.parse( localStorage.getItem( 'notification' ) );
+    var notificationData = JSON.parse( localStorage.getItem( 'VCNotification' ) );
     if ( notificationData !== null ) {
       if ($('.c-notification').attr('id') !== notificationData.id) {
-        localStorage.removeItem( 'notification' );
+        localStorage.removeItem( 'VCNotification' );
         attachNotifications();
       }
     }
@@ -234,16 +235,24 @@ function checkNotifications() {
 
 // Attach the event for the click
 function attachNotifications() {
-  $('.c-notification').slideDown();
+  $('.c-notification')
+    //.slideDown()
+    .addClass('is-notification-active')
+    .attr('aria-expanded', 'true');
+  VC.notificationActive = true;
+
   $('.js-notification-dismiss').on('click', function(e) {
     e.preventDefault();
-    $('.c-notification').slideUp(function() {
-      var notificationDataToSet = {
-        id: $(this).attr('id'),
-        hide: true,
-      };
-      localStorage.setItem( 'notification', JSON.stringify( notificationDataToSet ) );
-    });
+    $('.c-notification')
+      .attr('aria-expanded', 'false')
+      .removeClass('is-notification-active');
+
+    var notificationDataToSet = {
+      id: $('.c-notification').attr('id'),
+      hide: true,
+    };
+    localStorage.setItem( 'VCNotification', JSON.stringify( notificationDataToSet ) );
+    VC.notificationActive = false;
   });
 };
 
@@ -279,14 +288,14 @@ function checkSideNav() {
 
 function loadHomeSlider() {
   var prevImg =
-    '<svg width="100%" height="100%" class="prev-btn">' +
-      '<image xlink:href="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" src="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.png" width="100%" height="100%" class="prev-btn" />' +
-    '</svg>';
+    '<object type="image/svg+xml" title="Previous" width="100%" height="100%" class="prev-btn" data="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg">' +
+      '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.png" width="100%" height="100%" class="prev-btn" />' +
+    '</object>';
 
   var nextImg =
-    '<svg width="100%" height="100%" class="next-btn">' +
-      '<image xlink:href="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" src="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.png" width="100%" height="100%" class="next-btn" />' +
-    '</svg>';
+    '<object type="image/svg+xml" title="Next" width="100%" height="100%" class="next-btn" data="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg">' +
+      '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.png" width="100%" height="100%" class="next-btn" />' +
+    '</object>';
 
   $('.c-slides').responsiveSlides({
     speed: 500,
@@ -304,7 +313,6 @@ function loadHomeSlider() {
 
 $(function() {
   addTests();
-  checkNotifications();
   sideNav();
   checkSideNav();
   loadHomeSlider();
@@ -312,6 +320,10 @@ $(function() {
   VC.supports.objectFit = Modernizr.objectFit;
   VC.supports.fontVariantLigatures = Modernizr.fontvariant;
 });
+
+$(window).load(function() {
+  checkNotifications();
+})
 
 $(window).resize(function() {
   debounce(checkSideNav(), 250);

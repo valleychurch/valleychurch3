@@ -119,6 +119,10 @@
 
 // Default transition
 @mixin transition($property: all, $timing: $VCtransition-timing, $easing: $VCtransition-easing) {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+
   transition: $property $timing $easing;
 }
 

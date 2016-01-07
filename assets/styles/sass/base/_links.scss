@@ -11,6 +11,10 @@ a {
     color: colour(red, dark);
   }
 
+  &:visited {
+    color: colour(red, x-dark);
+  }
+
   .c-article &,
   .c-footer & {
     text-decoration: underline;
