@@ -5,7 +5,9 @@
   Configs
 ============================================================
 */
-global $vc_version = '3.0.0';
+
+$vc_theme_version = '3.0.0';
+
 
 /*
 ============================================================
@@ -80,7 +82,7 @@ function create_custom_taxonomy_args( $name, $label = null ) {
     'labels' => array(
       'name' => $plural,
       'singular_name' =>        $singular,
-      'add_new' =>              'Add New'
+      'add_new' =>              'Add New',
       'add_new_item' =>         'Add New ' . $singular,
       'edit_item' =>            'Edit ' . $singular,
       'new_item' =>             'New ' . $singular,
@@ -214,7 +216,7 @@ function theme_files() {
 
   // Register our CSS
   wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', '4.5.0' );
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], $vc_version );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], $vc_theme_version );
 
   wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
@@ -228,7 +230,7 @@ function theme_files() {
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3' );
   wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54' );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js' );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides', 'google-maps'], $vc_version );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides', 'google-maps'], $vc_theme_version );
 
   wp_enqueue_script( 'fastclick' );
   wp_enqueue_script( 'jquery' );
