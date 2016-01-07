@@ -26,10 +26,7 @@
 
     <div class="o-container o-container--page">
 
-      <?php
-        //TODO: Rethink how notifications can work with an absolutely positioned header
-        get_template_part( 'partials/notification' );
-      ?>
+      <?php get_template_part( 'partials/notification' ); ?>
 
       <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 

@@ -2,7 +2,7 @@
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
-  <section class="c-section o-container">
+  <section class="o-container c-section">
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?> role="article">
 

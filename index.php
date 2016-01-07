@@ -9,9 +9,7 @@
 
     <div class="o-col-xs-12 o-col-md-4">
       <article <?php post_class( 'c-article u-margin u-margin--md--double' ); ?>>
-        <figure>
-          <?php the_post_thumbnail(); ?>
-        </figure>
+        <?php get_template_part( 'partials/featured-image' ); ?>
         <h2>
           <a href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
@@ -21,13 +19,11 @@
       </article>
     </div>
 
-  <?php endwhile; else: ?>
+  <?php endwhile; ?>
 
     </div>
   </div>
 
-  <h1>No posts!</h1> <!-- TODO -->
-
-<?php endif; ?>
+<?php else: endif; ?>
 
 <?php get_footer(); ?>

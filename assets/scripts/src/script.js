@@ -316,13 +316,13 @@ $(function() {
   sideNav();
   checkSideNav();
   loadHomeSlider();
-  VC.siteActive = true;
   VC.supports.objectFit = Modernizr.objectFit;
   VC.supports.fontVariantLigatures = Modernizr.fontvariant;
 });
 
 $(window).load(function() {
   checkNotifications();
+  VC.siteActive = true;
 })
 
 $(window).resize(function() {

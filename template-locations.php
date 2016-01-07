@@ -83,13 +83,11 @@ get_header();
 
   </div>
 
-  <section class="c-section">
+  <section class="o-container c-section">
 
-    <article <?php post_class( 'o-container c-article u-margin' ); ?> role="article">
+    <article <?php post_class( 'o-row c-article u-margin' ); ?> role="article">
 
-      <div class="o-row">
-
-        <div class="o-col-xs-12 o-col-md-7 c-post-content u-center-block">
+        <div class="o-col-xs-12 c-post-content u-center-block">
 
           <h1><?php the_title(); ?></h1>
 
@@ -98,38 +96,36 @@ get_header();
 
         </div>
 
-      </div>
+    </article>
 
-      <?php if ( $locations->have_posts() ) : ?>
+  <?php if ( $locations->have_posts() ) : ?>
 
-      <div class="o-row">
+    <div class="o-row">
 
-      <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
+    <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
-        <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xs-12 o-col-md-4">
 
-          <div class="o-card">
-            <?php if ( has_post_thumbnail() ) { ?>
-            <div class="o-card__image"><?php the_post_thumbnail(); ?></div>
+        <div class="o-card">
+          <?php if ( has_post_thumbnail() ) { ?>
+          <div class="o-card__image"><?php the_post_thumbnail(); ?></div>
+          <?php } ?>
+          <div class="o-card__body">
+            <h2 class="o-card__title"><?php the_title(); ?></h2>
+            <?php $terms = get_the_terms( $post->ID, 'location_type' ); if ( $terms && !is_wp_error( $terms ) ) { ?>
+            <p class="o-card__subtitle"><?php echo $terms[0]->name; ?></p>
             <?php } ?>
-            <div class="o-card__body">
-              <h2 class="o-card__title"><?php the_title(); ?></h2>
-              <?php $terms = get_the_terms( $post->ID, 'location_type' ); if ( $terms && !is_wp_error( $terms ) ) { ?>
-              <p class="o-card__subtitle"><?php echo $terms[0]->name; ?></p>
-              <?php } ?>
-              <p class="o-card__text"><?php the_field('location_address'); ?></p>
-            </div>
+            <p class="o-card__text"><?php the_field('location_address'); ?></p>
           </div>
-
         </div>
 
-      <?php endwhile; ?>
-
       </div>
 
-      <?php endif; ?>
+    <?php endwhile; ?>
 
-    </article>
+    </div>
+
+  <?php else : endif; ?>
 
   </section>
 

@@ -1,6 +1,13 @@
-<?php get_header(); ?>
+<?php
+  get_header();
 
-  <section class="c-banner c-banner--red" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-home.jpg');">
+  $featured = get_template_directory_uri() . '/assets/images/dist/hero-home.jpg';
+  if ( has_post_thumbnail() ) {
+    $featured = get_the_post_thumbnail( $post, 'slide' );
+  }
+?>
+
+  <section class="c-banner c-banner--red" style="background-image:url('<?php echo $featured; ?>');">
     <div class="o-container u-text-center">
       <h1 class="giga u-margin--none">Welcome Home!</h1>
       <p class="h2 u-text-light">We're glad you're here</p>
@@ -76,7 +83,7 @@
   <section class="c-banner" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg'); ">
     <div class="o-container u-text-center">
       <div class="o-container o-container--sm">
-        <p class="h1"><em>"We’re not keeping this to ourselves, we’re passing it along to the next generation—God’s fame and fortune, the marvelous things he has done."</em></p>
+        <p class="h1"><em>"We're not keeping this to ourselves, we're passing it along to the next generation—God's fame and fortune, the marvelous things he has done."</em></p>
         <a class="o-btn o-btn--ghost" href="/about">Read more about our vision</a>
       </div>
     </div>

@@ -12,7 +12,7 @@ get_header(); ?>
       'posts_per_page' => -1,
     );
 
-  $connect = new WP_Query( $args );
+  $wp_query = new WP_Query( $args );
 ?>
 
 <script>
@@ -42,7 +42,7 @@ get_header(); ?>
     mapBounds = new google.maps.LatLngBounds();
 
     mapLocations = [
-      <?php $i = 0; if ( $connect->have_posts() ) : while ( $connect->have_posts() ) : $connect->the_post(); ?>
+      <?php $i = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php
           $info = get_the_content();
           $loc = get_field("cg_location");
@@ -78,11 +78,14 @@ get_header(); ?>
   google.maps.event.addDomListener(window, 'resize', centreMap);
 </script>
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php
+if (have_posts()) :
+  while (have_posts()) :
+    the_post(); ?>
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
-  <section class="c-section o-container">
+  <section class="o-container c-section">
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?> role="article">
 
@@ -105,7 +108,6 @@ get_header(); ?>
     <div class="c-map__inner js-google-map"></div>
   </div>
 
-
-<?php endwhile; endif; ?>
+<?php endwhile; else : endif; ?>
 
 <?php get_footer(); ?>

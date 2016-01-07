@@ -21,7 +21,7 @@ if ( has_post_thumbnail() ) {
     <?php } ?>
   </picture>
 
-  <!-- TODO: Add featured image captions -->
+  <!-- TODO: Add featured image captions for blog posts -->
   <?php //if ( get_post( $attachment_id )->post_excerpt !== "" ) { ?>
   <!-- <figcaption class="o-container c-featured__caption">
     <?php //echo get_post( $attachment_id )->post_excerpt; ?>
