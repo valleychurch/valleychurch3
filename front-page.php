@@ -49,7 +49,7 @@
               <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
               <?php } ?>
               <?php if ( $img_banner ) { ?>
-              <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>">
+              <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner[1]; ?>" height="<?php echo $img_banner[2]; ?>">
               <?php } ?>
             </picture>
             <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
@@ -63,7 +63,7 @@
     <?php wp_reset_query(); ?>
       <div class="o-col-xs-12 o-col-md-6">
         <div class="o-card o-card--overlay">
-          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/pastors.jpg">
+          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/pastors.jpg" width="1280" height="720">
           <div class="o-card__overlay">
             <div class="o-card__overlay__middle">
               <h2 class="o-card__title">Senior Pastors</h2>
@@ -94,7 +94,7 @@
 
       <div class="o-col-xs-12 o-col-md-12 o-col-xl-4">
         <div class="o-card u-text-center">
-          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg">
+          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg" width="1280" height="720">
           <div class="o-card__body">
             <h2 class="h3 o-card__title">Plan a visit</h2>
             <p class="o-card__text">
@@ -109,7 +109,7 @@
 
       <div class="o-col-xs-12 o-col-md-6 o-col-xl-4">
         <div class="o-card u-text-center">
-          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-cg.jpg">
+          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-cg.jpg" width="1280" height="720">
           <div class="o-card__body">
             <h2 class="h3 o-card__title">Connect Groups</h2>
             <p class="o-card__text">
@@ -124,7 +124,7 @@
 
       <div class="o-col-xs-12 o-col-md-6 o-col-xl-4">
         <div class="o-card u-text-center">
-          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-youth.jpg">
+          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-youth.jpg" width="1280" height="720">
           <div class="o-card__body">
             <h2 class="h3 o-card__title">Valley Youth (11-18s)</h2>
             <p class="o-card__text">
@@ -160,7 +160,7 @@
             the_post(); ?>
         <div class="o-col-xs-12 o-col-sm-6 o-col-lg-3">
           <div class="o-card o-card--shadow">
-            <?php get_template_part( 'partials/featured-image' ); ?>
+            <?php get_template_part( 'partials/featured-image-simple' ); ?>
             <div class="o-card__body">
               <h3 class="h4 o-card__title u-margin--none">
                 <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">

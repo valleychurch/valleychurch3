@@ -17,7 +17,7 @@ if ( has_post_thumbnail() ) {
     <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
     <?php } ?>
     <?php if ( $img_banner ) { ?>
-    <img src="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>">
+    <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner[1]; ?>" height="<?php echo $img_banner[2]; ?>">
     <?php } ?>
   </picture>
 
