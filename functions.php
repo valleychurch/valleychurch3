@@ -171,7 +171,7 @@ add_editor_style( 'assets/styles/css/editor-style.css' ); //defaults to editor-s
  * Add Typekit to TinyMCE
  */
 function add_typekit_tinymce( $plugin_array ) {
-  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js';
+  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js?ver=' . $vc_theme_version;
   return $plugin_array;
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
@@ -225,13 +225,15 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
+  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js' );
   wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6' );
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.1.4' );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', ['typekit'], '2.1.4' );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3' );
   wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54' );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js' );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'modernizr', 'responsiveslides', 'google-maps'], $vc_theme_version );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'google-maps'], $vc_theme_version );
 
+  wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'fastclick' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
