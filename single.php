@@ -27,12 +27,12 @@
         </div>
 
         <?php
-          $twitter = get_the_author_meta( 'twitter', $post->post_author );
-          $facebook = get_the_author_meta( 'facebook', $post->post_author );
-          $instagram = get_the_author_meta( 'instagram', $post->post_author );
-          if ( $twitter || $facebook || $instagram ) {
+          // $twitter = get_the_author_meta( 'twitter', $post->post_author );
+          // $facebook = get_the_author_meta( 'facebook', $post->post_author );
+          // $instagram = get_the_author_meta( 'instagram', $post->post_author );
+          // if ( $twitter || $facebook || $instagram ) {
         ?>
-        <p class="author-social">
+        <!-- <p class="author-social">
           <?php if ( $twitter ) { ?>
           <a href="http://twitter.com/<?php echo $twitter; ?>" target="_blank">
             <i class="fa fa-lg fa-twitter-square"></i>
@@ -48,8 +48,8 @@
             <i class="fa fa-lg fa-instagram"></i>
           </a>
           <?php } ?>
-        </p>
-        <?php } ?>
+        </p> -->
+        <?php //} ?>
 
         <?php the_content(); ?>
 
@@ -59,7 +59,7 @@
 
   </section>
 
-  <section class="comments c-section o-container">
+  <section class="o-container c-section">
 
     <div class="o-row">
 
