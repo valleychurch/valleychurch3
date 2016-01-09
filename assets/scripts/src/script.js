@@ -195,7 +195,7 @@ function centreMap() {
 
 
 // Load Typekit
-// try{Typekit.load({ async: true });}catch(e){}
+try{Typekit.load({ async: true });}catch(e){}
 
 
 // Obligatory debounce function

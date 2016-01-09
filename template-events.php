@@ -23,6 +23,7 @@ get_header(); ?>
   </section>
 
   <section class="o-container c-section c-section--grey">
+
     <div class="o-row">
     <?php
       $args =
@@ -35,7 +36,7 @@ get_header(); ?>
       $wp_query = new WP_Query( $args );
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
 
         <div class="o-card o-card--shadow">
           <?php if ( has_post_thumbnail() ) { ?>
@@ -70,10 +71,10 @@ get_header(); ?>
             </p>
           <?php } ?>
           </div>
+
         </div>
 
       </div>
-
     <?php endwhile; else : endif; ?>
     </div>
   </section>
