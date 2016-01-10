@@ -34,6 +34,9 @@ module.exports = function(grunt) {
           'assets/scripts/dist/modernizr.min.js' : 'assets/scripts/lib/modernizr.js',
           'assets/scripts/dist/responsiveslides.min.js' : 'assets/scripts/lib/responsiveslides.js',
           'assets/scripts/dist/fastclick.min.js' : 'assets/scripts/lib/fastclick.js',
+          'assets/scripts/dist/picturefill.min.js' : 'assets/scripts/lib/picturefill.js',
+          'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
+          'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
         }
       }
     },

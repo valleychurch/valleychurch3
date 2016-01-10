@@ -26,6 +26,10 @@
 
 .c-post-content {
   max-width: 39rem;
+
+  .no-flexbox & {
+    float: none;
+  }
 }
 
 .c-article {

@@ -47,6 +47,11 @@
     bottom: 0.75rem;
     z-index: 10;
 
+    & object,
+    & svg {
+      pointer-events: none;
+    }
+
     @include breakpoint(lg) {
       width: 30px;
       height: 48px;

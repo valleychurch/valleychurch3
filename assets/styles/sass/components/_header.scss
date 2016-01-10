@@ -46,6 +46,7 @@
       height: 32px;
       position: relative;
       z-index: -1;
+      pointer-events: none;
 
       // @include breakpoint(md) {
       //   width: 48px;
