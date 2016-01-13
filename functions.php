@@ -127,6 +127,11 @@ function has_gravatar( $email_address ) {
 */
 
 /**
+ * Compress jpg images to 80% quality
+ */
+add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
+
+/**
  * Add post thumbnails and custom image sizes
  */
 add_theme_support( 'post-thumbnails' );
@@ -226,21 +231,21 @@ function theme_files() {
 
   // Register our scripts
   wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, true );
+  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, true );
   wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', '2.1.4', true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.1.4', true );
   wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3', true );
   wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'google-maps', 'modernizr', 'responsiveslides'], $vc_theme_version, true );
 
   wp_enqueue_script( 'typekit' );
+  wp_enqueue_script( 'google-maps' );
   wp_enqueue_script( 'fastclick' );
   wp_enqueue_script( 'picturefill' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'modernizr' );
   wp_enqueue_script( 'responsiveslides' );
-  wp_enqueue_script( 'google-maps' );
   wp_enqueue_script( 'site' );
 };
 
@@ -251,8 +256,8 @@ add_action( 'wp_enqueue_scripts', 'theme_files' );
  * Add script async support
  */
 function defer_js_async( $tag ) {
-  $scripts_to_defer = array( 'script.min.js', 'fastclick' );
-  $scripts_to_async = array( 'modernizr', 'responsiveslides', 'picturefill' );
+  $scripts_to_defer = array( 'script.min.js' );
+  $scripts_to_async = array( 'modernizr', 'responsiveslides', 'picturefill', 'fastclick', 'jquery' );
 
   foreach( $scripts_to_defer as $defer_script ) {
     if( true == strpos( $tag, $defer_script ) )
@@ -264,6 +269,7 @@ function defer_js_async( $tag ) {
   }
   return $tag;
 }
+
 add_filter( 'script_loader_tag', 'defer_js_async', 10 );
 
 

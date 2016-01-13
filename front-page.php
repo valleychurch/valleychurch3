@@ -40,10 +40,10 @@
             <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
             <picture>
               <?php if ( $img_banner ) { ?>
-              <source media="(min-width: 70rem)" srcset="<?php echo $img_banner[0]; ?>">
+              <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>">
               <?php } ?>
               <?php if ( $img_banner_small ) { ?>
-              <source media="(min-width: 50rem)" srcset="<?php echo $img_banner_small[0]; ?>">
+              <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_small[0]; ?>">
               <?php } ?>
               <?php if ( $img_banner_xsmall ) { ?>
               <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
