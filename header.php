@@ -13,6 +13,9 @@
     <meta name="theme-color" content="#ab2328">
     <meta name="msapplication-navbutton-color" content="#ab2328">
 
+    <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
+    <link rel="dns-prefetch" href="//use.typekit.net">
+
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Critical CSS -->
