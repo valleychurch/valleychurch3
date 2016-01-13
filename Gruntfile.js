@@ -64,18 +64,18 @@ module.exports = function(grunt) {
         tasks: ['imagemin', 'notify:images']
       }
     },
-    // criticalcss: {
-    //   dist: {
-    //     options: {
-    //       url: "http://valley.dev:80",
-    //       width: 1280,
-    //       height: 800,
-    //       outputfile: 'assets/styles/css/critical.css',
-    //       filename: 'assets/styles/css/style.min.css',
-    //       buffer: 800*1024
-    //     }
-    //   }
-    // },
+    criticalcss: {
+      dist: {
+        options: {
+          url: "http://3.valleychurch.eu",
+          width: 1280,
+          height: 800,
+          outputfile: 'assets/styles/css/critical.css',
+          filename: 'assets/styles/css/style.min.css',
+          buffer: 800*1024
+        }
+      }
+    },
     notify: {
       notify_hooks: {
         options: {
@@ -116,13 +116,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-postcss');
-  //grunt.loadNpmTasks('grunt-criticalcss');
+  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-notify');
 
   grunt.registerTask('default', [
     'sass',
     'postcss',
-    //'criticalcss',
+    'criticalcss',
     'uglify',
     'imagemin',
     'notify:watch',

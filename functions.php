@@ -225,14 +225,14 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js' );
-  wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6' );
-  wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1' );
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', ['typekit'], '2.1.4' );
-  wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3' );
-  wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54' );
-  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js' );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'google-maps'], $vc_theme_version );
+  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, true );
+  wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
+  wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', ['typekit'], '2.1.4', true );
+  wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3', true );
+  wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
+  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', ['jquery', 'google-maps'], $vc_theme_version, true );
 
   wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'fastclick' );
@@ -328,5 +328,36 @@ function add_contact_methods( $contactmethods ) {
   return $contactmethods;
 }
 add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
+
+
+/**
+ * Remove WP emoji
+ */
+function disable_wp_emojicons() {
+  // all actions related to emojis
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+  // filter to remove TinyMCE emojis
+  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
+
+/**
+ * Remove WP emoji from TinyMCE
+ */
+function disable_emojicons_tinymce( $plugins ) {
+  if ( is_array( $plugins ) ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  } else {
+    return array();
+  }
+}
 
 ?>
