@@ -26,11 +26,9 @@
 
   <body <?php body_class(); ?>>
 
-    <!--[if lt IE 9]>
-    <div class="o-container o-container--full c-browse-happy">
-      <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    </div>
-    <![endif]-->
+    <!--[if lt IE 9]><div class="o-container o-container--full c-browse-happy">
+    <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    </div><![endif]-->
 
     <div class="o-container o-container--page">
 
