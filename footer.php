@@ -12,7 +12,7 @@
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
-      <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/respond.js"></script>
+      <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
       <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
   </body>

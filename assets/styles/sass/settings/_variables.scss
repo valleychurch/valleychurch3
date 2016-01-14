@@ -42,10 +42,9 @@ $VCfont-stack-alt:      "usual", $VCfont-stack;
 // Colours
 $VCwhite:               #fff;
 $VCblack:               #000;
-//$VCred:                 #da291c; //Pantone 485C (Hot Weekends)
-$VCred:                 #ab2328; //Pantone 7621C
-//$VCred:                 #ba0c2f; //Pantone 200C (Fat Media)
-$VCblue:                #3a5dae;
+$VCred:                 #b21e28;    // Pantone 7621C
+$VCblue:                #3a5dae;    // Pantone
+$VCyellow:              #f4ca1a;    // Pantone 7504C
 
 $VCcolours: (
   white:                darken($VCwhite, 10%),
@@ -65,6 +64,14 @@ $VCcolours: (
     base:               $VCblue,
     light:              lighten($VCblue, $VCcolour-percentage),
     x-light:            lighten($VCblue, $VCcolour-percentage-x),
+  ),
+
+  yellow: (
+    x-dark:             darken($VCyellow, $VCcolour-percentage-x),
+    dark:               darken($VCyellow, $VCcolour-percentage),
+    base:               $VCyellow,
+    light:              lighten($VCyellow, $VCcolour-percentage),
+    x-light:            lighten($VCyellow, $VCcolour-percentage-x),
   )
 );
 

@@ -288,14 +288,10 @@ function checkSideNav() {
 
 function loadHomeSlider() {
   var prevImg =
-    '<object type="image/svg+xml" title="Previous" width="100%" height="100%" class="prev-btn" data="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg">' +
-      '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.png" width="100%" height="100%" class="prev-btn" />' +
-    '</object>';
+    '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn" />';
 
   var nextImg =
-    '<object type="image/svg+xml" title="Next" width="100%" height="100%" class="next-btn" data="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg">' +
-      '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.png" width="100%" height="100%" class="next-btn" />' +
-    '</object>';
+    '<img src="/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn" />';
 
   $('.c-slides').responsiveSlides({
     speed: 500,
