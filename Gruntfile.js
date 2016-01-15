@@ -79,6 +79,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+      options: {
+        sourceMap: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'assets/styles/css/critical.min.css': ['assets/styles/css/critical.css']
+        }
+      }
+    },
     notify: {
       notify_hooks: {
         options: {
@@ -114,6 +125,8 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -125,9 +138,10 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass',
     'postcss',
-    'criticalcss',
     'uglify',
     'imagemin',
+    'criticalcss',
+    'cssmin',
     'notify:watch',
     'watch',
   ]);

@@ -253,27 +253,6 @@ add_action( 'wp_enqueue_scripts', 'theme_files' );
 
 
 /**
- * Add script async support
- */
-function defer_js_async( $tag ) {
-  $scripts_to_defer = array( 'script.min.js' );
-  $scripts_to_async = array( 'google', 'contact-form-7', 'wp-embed', 'jetpack' );
-
-  foreach( $scripts_to_defer as $defer_script ) {
-    if( true == strpos( $tag, $defer_script ) )
-      return str_replace( ' src', ' defer="defer" src', $tag );
-  }
-  foreach( $scripts_to_async as $async_script ) {
-    if( true == strpos( $tag, $async_script ) )
-      return str_replace( ' src', ' async="async" src', $tag );
-  }
-  return $tag;
-}
-
-// add_filter( 'script_loader_tag', 'defer_js_async', 10 );
-
-
-/**
  * Add class to `body` if there's a featured image
  */
 function featured_image_class($classes) {
