@@ -230,6 +230,7 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
+  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0', false );
   wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, true );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, true );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', true );
@@ -237,8 +238,9 @@ function theme_files() {
   // wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   // wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
   // wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  // wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'jquery', 'google-maps' ], '3.0.0', true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery', 'google-maps' ], '3.0.0', true );
 
+  wp_enqueue_script( 'global' );
   wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'google-maps' );
   wp_enqueue_script( 'jquery' );
@@ -246,81 +248,39 @@ function theme_files() {
   // wp_enqueue_script( 'fastclick' );
   // wp_enqueue_script( 'picturefill' );
   // wp_enqueue_script( 'responsiveslides' );
-  // wp_enqueue_script( 'site' );
+  wp_enqueue_script( 'site' );
 };
 
 add_action( 'wp_enqueue_scripts', 'theme_files' );
 
 
 /**
- * Load theme scripts in the footer
+ * Try and load CSS ajax in the header (if it's not already come from localStorage)
  */
-function keel_load_theme_files() {
-  // If stylesheet is in browser cache, load it the traditional way
-  // Otherwise, inline critical CSS and load full stylesheet asynchronously
-  // See keel_initialize_theme_detects()
-  if ( isset($_COOKIE['fullCSS']) && $_COOKIE['fullCSS'] === 'true' ) {
-    // wp_enqueue_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', null, null, 'all' );
-  }
-  // Load JavaScript file
-  wp_enqueue_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', null, null, true );
-}
-add_action( 'wp_enqueue_scripts', 'keel_load_theme_files' );
-
-
-/**
- * Include feature detect inits in the header
- */
-function keel_initialize_theme_detects() {
-  // If stylesheet is in browser cache, load it the traditional way
-  if ( isset($_COOKIE['fullCSS']) && $_COOKIE['fullCSS'] === 'true' ) {
-  ?>
-    <script>
-      // Contains loadCSS.js, onloadCSS.js, and some light feature detection (for things like SVG support)
-      <?php echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/detects.min.js' ); ?>
-      loadCSSFromStorage();
-    </script>
-  <?php
-  // Otherwise, inline critical CSS and load full stylesheet asynchronously
-  } else {
-  ?>
-    <script>
-      <?php echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/detects.min.js' ); ?>
-      var stylesheet = loadCSS('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
-      onloadCSS( stylesheet, function() {
-        // var expires = new Date(+new Date + (7 * 24 * 60 * 60 * 1000)).toUTCString();
-        // document.cookie = 'fullCSS=true; expires=' + expires;
-        storeCss( stylesheet );
-      });
-    </script>
-    <style>
-      <?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/css/style.min.css' ); ?>
-    </style>
-  <?php
-  }
+function keel_initialize_theme_detects() { ?>
+  <script>
+    if (!valley.css.loaded) {
+      if (valley.isModernBrowser) {
+        loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', '3.0.0');
+      }
+      else {
+        loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', '3.0.0');
+      }
+    }
+  </script>
+<?php
 }
 add_action('wp_head', 'keel_initialize_theme_detects', 30);
 
 
 /**
- * Include script inits in the footer
+ * Include noscript CSS in the footer
  */
-function keel_initialize_theme_scripts() {
-  // If cookie isn't set, load a noscript fallback
-  if ( !isset($_COOKIE['fullCSS']) || $_COOKIE['fullCSS'] !== 'true' ) {
-  ?>
-    <noscript>
-      <link href='<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>' rel='stylesheet' type='text/css'>
-    </noscript>
-  <?php
-  }
-
-  ?>
-    <script>
-      // Inline footer JavaScript and inits
-    </script>
-  <?php
-}
+function keel_initialize_theme_scripts() { ?>
+  <noscript>
+    <link href='<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>' rel='stylesheet' type='text/css'>
+  </noscript>
+<?php }
 add_action('wp_footer', 'keel_initialize_theme_scripts', 30);
 
 

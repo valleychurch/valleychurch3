@@ -7,6 +7,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
+          'style.css': 'assets/styles/sass/wp-style.scss',
           'assets/styles/css/style.min.css': 'assets/styles/sass/style.scss',
           'assets/styles/css/editor-style.css': 'assets/styles/sass/editor-style.scss',
         }
@@ -31,18 +32,13 @@ module.exports = function(grunt) {
         files: {
           'assets/scripts/dist/script.min.js':
             [
+              'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
               'assets/scripts/src/script.js'
             ],
-          'assets/scripts/dist/detects.min.js':
-            [
-              'assets/scripts/lib/modernizr.js',
-              'assets/scripts/lib/loadCSS.js',
-              'assets/scripts/lib/onloadCSS.js',
-              'assets/scripts/lib/detects.js',
-            ],
+          'assets/scripts/dist/global.min.js': 'assets/scripts/src/global.js',
           'assets/scripts/dist/jquery.min.js' : 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',

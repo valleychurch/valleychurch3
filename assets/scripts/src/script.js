@@ -1,21 +1,3 @@
-// Global variable for storing things
-var valley = {
-  supports: {
-    objectFit: false,
-    fontVariantLigatures: false,
-  },
-  css: {
-    loaded: false,
-    fromLocalStorage: false,
-    fromAsync: false,
-  },
-  js: {
-    loaded: false,
-  },
-  homeSliderActive: false,
-  notificationActive: false
-};
-
 var map,
     mapOpts,
     mapStyle,
@@ -319,7 +301,7 @@ $(function() {
   sideNav();
   checkSideNav();
   loadHomeSlider();
-  valley.supports.objectFit = Modernizr.objectFit;
+  valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 });
 
