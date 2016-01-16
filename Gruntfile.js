@@ -31,11 +31,17 @@ module.exports = function(grunt) {
         files: {
           'assets/scripts/dist/script.min.js':
             [
-              'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
               'assets/scripts/src/script.js'
+            ],
+          'assets/scripts/dist/detects.min.js':
+            [
+              'assets/scripts/lib/modernizr.js',
+              'assets/scripts/lib/loadCSS.js',
+              'assets/scripts/lib/onloadCSS.js',
+              'assets/scripts/lib/detects.js',
             ],
           'assets/scripts/dist/jquery.min.js' : 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
@@ -71,11 +77,10 @@ module.exports = function(grunt) {
       dist: {
         options: {
           url: "http://3.valleychurch.eu",
-          width: 1280,
-          height: 800,
-          outputfile: 'assets/styles/css/critical.css',
+          width: 1440,
+          height: 900,
+          outputfile: 'assets/styles/css/critical.min.css',
           filename: 'assets/styles/css/style.min.css',
-          buffer: 800*1024
         }
       }
     },
@@ -86,7 +91,7 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'assets/styles/css/critical.min.css': ['assets/styles/css/critical.css']
+          'assets/styles/css/critical.min.css': 'assets/styles/css/critical.min.css'
         }
       }
     },

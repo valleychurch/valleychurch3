@@ -1,9 +1,16 @@
 // Global variable for storing things
-var VC = {
-  siteActive: false,
+var valley = {
   supports: {
     objectFit: false,
     fontVariantLigatures: false,
+  },
+  css: {
+    loaded: false,
+    fromLocalStorage: false,
+    fromAsync: false,
+  },
+  js: {
+    loaded: false,
   },
   homeSliderActive: false,
   notificationActive: false
@@ -239,7 +246,7 @@ function attachNotifications() {
     //.slideDown()
     .addClass('is-notification-active')
     .attr('aria-expanded', 'true');
-  VC.notificationActive = true;
+  valley.notificationActive = true;
 
   $('.js-notification-dismiss').on('click', function(e) {
     e.preventDefault();
@@ -252,7 +259,7 @@ function attachNotifications() {
       hide: true,
     };
     localStorage.setItem( 'VCNotification', JSON.stringify( notificationDataToSet ) );
-    VC.notificationActive = false;
+    valley.notificationActive = false;
   });
 };
 
@@ -304,7 +311,7 @@ function loadHomeSlider() {
     nextText: nextImg
   });
 
-  VC.homeSliderActive = true;
+  valley.homeSliderActive = true;
 }
 
 $(function() {
@@ -312,13 +319,13 @@ $(function() {
   sideNav();
   checkSideNav();
   loadHomeSlider();
-  VC.supports.objectFit = Modernizr.objectFit;
-  VC.supports.fontVariantLigatures = Modernizr.fontvariant;
+  valley.supports.objectFit = Modernizr.objectFit;
+  valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 });
 
 $(window).load(function() {
   checkNotifications();
-  VC.siteActive = true;
+  valley.js.loaded = true;
 })
 
 $(window).resize(function() {
