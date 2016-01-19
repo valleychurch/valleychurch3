@@ -38,7 +38,7 @@
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
-    .fontvariant.wf-active & {
+    .fontvariant & {
       font-variant-alternates: styleset("ss04");
       font-feature-settings: "ss04";
 
@@ -57,7 +57,7 @@
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
-    .fontvariant.wf-active & {
+    .fontvariant & {
       font-variant-alternates: styleset("ss01"), styleset("ss03");
       font-feature-settings: "ss01", "ss03";
     }

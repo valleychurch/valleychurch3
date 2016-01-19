@@ -1,5 +1,8 @@
-// Global variable for storing things
+/**
+ * Global variable for storing bits of information and resuables
+ */
 var valley = {
+  version: '3.0.0',
   isModernBrowser: (
     'querySelector' in document
     && 'addEventListener' in window
@@ -15,6 +18,9 @@ var valley = {
     fromLocalStorage: false,
     fromAsync: false,
   },
+  fontAwesome: {
+    loaded: false
+  },
   js: {
     loaded: false,
   },
@@ -26,16 +32,29 @@ var valley = {
   notificationActive: false
 };
 
-// Run this as soon as possible for quick loading!
-loadCSSFromStorage('3.0.0');
+
+/**
+ * Try and get CSS from localStorage as soon as possible
+ */
+loadCSSFromStorage(valley.version);
+
+
+/**
+ * Async load the main script file (non-render blocking)
+ */
+var script = document.createElement('script');
+script.async = 'async';
+script.src = '/wp-content/themes/valleychurch3/assets/scripts/dist/script.min.js';
+document.getElementsByTagName("head")[0].appendChild(script);
+
 
 /**
  * Most of this taken from the amazing work of Patrick Hamann and The Guardian team
  * https://github.com/guardian/frontend/blob/9c071adf6a1b9238362be85210cdad05c6a53955/common/app/views/fragments/loadCss.scala.html
  */
 
-function loadCSSFromStorage(v) {
-  var c = localStorage.getItem('valley.css.' + v), s, sc;
+function loadCSSFromStorage() {
+  var c = localStorage.getItem('valley.css.' + valley.version), s, sc;
   if(c) {
     s = document.createElement('style');
     sc = document.getElementsByTagName('script')[0];
@@ -44,31 +63,35 @@ function loadCSSFromStorage(v) {
     sc.parentNode.insertBefore(s, sc);
     valley.css.loaded = true;
     valley.css.fromLocalStorage = true;
-    valley.css.version = v;
+    valley.css.version = valley.version;
   }
 }
 
-function loadCSSWithAjax(c, v) {
+function loadCSSWithAjax(c, save) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', c);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      if(xhr.status === 200) {
-        inlineCSS(xhr.responseText, v);
-        storeCSS(xhr.responseText, v);
-      };
-    } else {
-      // console.log("XHR readyState !== 4");
-      // loadCSSWithLink(c);
+  try {
+    xhr.open('GET', c);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if(xhr.status === 200) {
+          inlineCSS(xhr.responseText, valley.version);
+          if (save === true) {
+            storeCSS(xhr.responseText, valley.version);
+          }
+        };
+      }
     }
+    setTimeout( function () {
+      if(xhr.readyState < 4) {
+        xhr.abort();
+        loadCSSWithLink(c);
+      }
+    }, 5000);
+    xhr.send();
   }
-  setTimeout( function () {
-    if(xhr.readyState < 4) {
-      xhr.abort();
-      loadCSSWithLink(c);
-    }
-  }, 5000);
-  xhr.send();
+  catch (ex) {
+    loadCSSWithLink(c);
+  }
 }
 
 function loadCSSWithLink(c) {
@@ -84,17 +107,17 @@ function injectElement(e) {
   sc.parentNode.insertBefore(e, sc);
 }
 
-function inlineCSS(c, v) {
+function inlineCSS(c) {
   var s = document.createElement('style');
   s.innerHTML = c;
   s.setAttribute('data-loaded-from', 'ajax');
   injectElement(s);
   valley.css.loaded = true;
   valley.css.fromAsync = true;
-  valley.css.version = v;
+  valley.css.version = valley.version;
 }
 
-function storeCSS(c, v) {
+function storeCSS(c) {
   Object.keys(localStorage).some(function(key) {
     if(key.match(/^valley.css/g)) {
       localStorage.removeItem(key);
@@ -103,7 +126,7 @@ function storeCSS(c, v) {
     return false;
   });
   try {
-    localStorage.setItem('valley.css.' + v, c);
+    localStorage.setItem('valley.css.' + valley.version, c);
   }
   catch(e) {}
 }

@@ -25,7 +25,6 @@
   &.is-notification-active {
     max-height: 1000px;
     overflow: hidden;
-    @include transition();
   }
 }
 

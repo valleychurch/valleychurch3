@@ -183,10 +183,6 @@ function centreMap() {
 }
 
 
-// Load Typekit
-try{Typekit.load({ async: true });}catch(e){}
-
-
 // Obligatory debounce function
 function debounce(func, wait, immediate) {
   var result;
@@ -208,10 +204,10 @@ function debounce(func, wait, immediate) {
 // Attaches events to allow notification functionality to work
 function checkNotifications() {
   try {
-    var notificationData = JSON.parse( localStorage.getItem( 'VCNotification' ) );
+    var notificationData = JSON.parse( localStorage.getItem( 'valley.notification' ) );
     if ( notificationData !== null ) {
       if ($('.c-notification').attr('id') !== notificationData.id) {
-        localStorage.removeItem( 'VCNotification' );
+        localStorage.removeItem( 'valley.notification' );
         attachNotifications();
       }
     }
@@ -240,7 +236,7 @@ function attachNotifications() {
       id: $('.c-notification').attr('id'),
       hide: true,
     };
-    localStorage.setItem( 'VCNotification', JSON.stringify( notificationDataToSet ) );
+    localStorage.setItem( 'valley.notification', JSON.stringify( notificationDataToSet ) );
     valley.notificationActive = false;
   });
 };

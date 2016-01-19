@@ -39,17 +39,17 @@
           <li class="o-slide">
             <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
             <picture>
-              <?php if ( $img_banner ) { ?>
-              <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>">
-              <?php }
+              <?php //if ( $img_banner ) { ?>
+              <!-- <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>"> -->
+              <?php //}
               if ( $img_banner_small ) { ?>
               <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_small[0]; ?>">
               <?php }
               if ( $img_banner_xsmall ) { ?>
               <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
               <?php }
-              if ( $img_banner ) { ?>
-              <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner[1]; ?>" height="<?php echo $img_banner[2]; ?>">
+              if ( $img_banner_small ) { ?>
+              <img srcset="<?php echo $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner_small[1]; ?>" height="<?php echo $img_banner_small[2]; ?>">
               <?php } ?>
             </picture>
             <?php if ( get_field('slider_link') ) { ?></a><?php } ?>

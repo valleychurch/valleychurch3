@@ -106,18 +106,13 @@ function create_custom_taxonomy_args( $name, $label = null ) {
  * Checks to see if the specified email address has a Gravatar image.
  */
 function has_gravatar( $email_address ) {
-
   // Build the Gravatar URL by hashing the email address
   $url = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim ( $email_address ) ) ) . '?d=404';
-
   // Now check the headers...
   $headers = @get_headers( $url );
-
   // If 200 is found, the user has a Gravatar; otherwise, they don't.
   return preg_match( '|200|', $headers[0] ) ? true : false;
-
 }
-
 
 
 /*
@@ -149,7 +144,7 @@ add_image_size( 'banner-xsmall', 750, 600, true ); // Featured image banner size
 add_theme_support( 'menus' );
 
 function register_custom_menu() {
-  register_nav_menu( 'primary', 'Main Menu' );
+  register_nav_menu( 'primary', 'Nav v2' );
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
 
@@ -230,58 +225,87 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0', false );
-  wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, true );
-  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, true );
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', true );
+  // wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0', false );
+  // wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, false );
+  wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
+  // wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', true );
   // wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3', true );
   // wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   // wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
   // wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery', 'google-maps' ], '3.0.0', true );
+  // wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery', 'google-maps' ], '3.0.0', true );
 
-  wp_enqueue_script( 'global' );
-  wp_enqueue_script( 'typekit' );
+  // wp_enqueue_script( 'global' );
+  // wp_enqueue_script( 'typekit' );
   wp_enqueue_script( 'google-maps' );
-  wp_enqueue_script( 'jquery' );
+  // wp_enqueue_script( 'jquery' );
   // wp_enqueue_script( 'modernizr' );
   // wp_enqueue_script( 'fastclick' );
   // wp_enqueue_script( 'picturefill' );
   // wp_enqueue_script( 'responsiveslides' );
-  wp_enqueue_script( 'site' );
+  // wp_enqueue_script( 'site' );
 };
 
 add_action( 'wp_enqueue_scripts', 'theme_files' );
+
+/**
+ * Add `async` and `defer` attributes to some built in WP scripts
+ */
+function add_defer_attribute($tag) {
+  // array of scripts to defer
+  $scripts_to_defer = array( 'contact-form-7' , 'jetpack', 'wp-embed' );
+  foreach( $scripts_to_defer as $defer_script){
+    if( true == strpos( $tag, $defer_script ) )
+      return str_replace( ' src', ' defer="defer" src', $tag );
+  }
+  // array of scripts to async
+  $scripts_to_async = array('comment-reply.min.js', 'custom.js');
+  foreach( $scripts_to_async as $async_script ){
+    if( true == strpos( $tag, $async_script ) )
+      return str_replace( ' src', ' async="async" src', $tag );
+  }
+  return $tag;
+}
+add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
 
 /**
  * Try and load CSS ajax in the header (if it's not already come from localStorage)
  */
-function keel_initialize_theme_detects() { ?>
+function loadCSSAsync() { ?>
   <script>
+    <?php echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
     if (!valley.css.loaded) {
-      if (valley.isModernBrowser) {
-        loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', '3.0.0');
-      }
-      else {
-        loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', '3.0.0');
-      }
+      if (valley.isModernBrowser)
+        loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
+      else
+        loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
     }
+
+    // if (!valley.fontAwesome.loaded) {
+    //   if (valley.isModernBrowser)
+    //     loadCSSWithAjax('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', false);
+    //   else
+    //     loadCSSWithLink('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css');
+    // }
   </script>
+  <script src="//use.typekit.net/jtz8aoh.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <?php
 }
-add_action('wp_head', 'keel_initialize_theme_detects', 30);
+add_action( 'wp_head', 'loadCSSAsync', 30 );
 
 
 /**
  * Include noscript CSS in the footer
  */
-function keel_initialize_theme_scripts() { ?>
+function loadCSSFallback() { ?>
   <noscript>
-    <link href='<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>' rel='stylesheet' type='text/css'>
+    <link href="<?php echo get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>" rel="stylesheet" type="text/css">
+    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   </noscript>
 <?php }
-add_action('wp_footer', 'keel_initialize_theme_scripts', 30);
+add_action( 'wp_footer', 'loadCSSFallback', 30 );
 
 
 /**
