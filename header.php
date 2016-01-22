@@ -25,7 +25,6 @@
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-
     <!-- Inline Critical CSS -->
     <style><?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
 
