@@ -10,15 +10,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#b21e28">
+
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/dist/touchicon.png">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/dist/favicon.png">
+    <!--[if IE]><link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/dist/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->
+    <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/images/dist/tileicon.png">
+    <meta name="msapplication-TileColor" content="#b21e28">
     <meta name="msapplication-navbutton-color" content="#b21e28">
+    <meta name="theme-color" content="#b21e28">
 
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Critical CSS -->
+
+    <!-- Inline Critical CSS -->
     <style><?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
 
     <?php wp_head(); ?>
