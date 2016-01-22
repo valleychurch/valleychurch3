@@ -1,8 +1,10 @@
 <?php
 /*
-  Template Name: Events
+  Template Name: Messages
 */
-get_header(); ?>
+get_header();
+$paged = get_query_var( 'paged', 1 );
+?>
 
   <?php get_template_part( 'partials/featured-image' ); ?>
 
@@ -14,7 +16,10 @@ get_header(); ?>
 
         <h1><?php the_title(); ?></h1>
 
-        <?php the_content(); ?>
+        <?php
+        if ( !$paged || $paged == 1 )
+          the_content();
+        ?>
 
       </div>
 
@@ -28,16 +33,17 @@ get_header(); ?>
     <?php
       $args =
         array(
-          'post_type' => 'events',
+          'post_type' => 'podcast',
           'post_status' => 'publish',
-          'posts_per_page' => -1
+          'paged' => $paged,
+          'posts_per_page' => 12
         );
 
       $wp_query = new WP_Query( $args );
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
-        <?php get_template_part( 'partials/card', 'event' ); ?>
+      <div class="o-col-xs-6 o-col-md-4 o-col-lg-3">
+        <?php get_template_part( 'partials/card', 'message' ); ?>
       </div>
     <?php
     endwhile;

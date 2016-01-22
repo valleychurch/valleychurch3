@@ -67,4 +67,4 @@
         </div>
       </header>
 
-      <main class="c-main" role="main">
+      <main class="c-main">

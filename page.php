@@ -4,7 +4,7 @@
 
   <section class="o-container c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?> role="article">
+    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
       <div class="o-col-xs-12 c-post-content u-center-block">
 

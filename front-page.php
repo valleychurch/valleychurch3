@@ -146,31 +146,21 @@
         <h2><a href="/messages">Messages</a></h2>
       </div>
       <?php
-        $args =
-          array(
-            'post_type' => 'podcast',
-            'post_status' => 'publish',
-            'posts_per_page' => 4
-          );
+      $args =
+        array(
+          'post_type' => 'podcast',
+          'post_status' => 'publish',
+          'posts_per_page' => 4
+        );
 
-        $wp_query = new WP_Query( $args );
+      $wp_query = new WP_Query( $args );
 
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-            the_post(); ?>
-        <div class="o-col-xs-12 o-col-sm-6 o-col-lg-3">
-          <div class="o-card o-card--shadow">
-            <?php get_template_part( 'partials/featured-image-simple' ); ?>
-            <div class="o-card__body">
-              <h3 class="h4 o-card__title u-margin--none">
-                <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
-                  <?php the_title(); ?>
-                </a>
-              </h3>
-              <?php //the_content('Read more'); ?>
-            </div>
-          </div>
-        </div>
+      if ( have_posts() ) :
+        while ( have_posts() ) :
+          the_post(); ?>
+      <div class="o-col-xs-12 o-col-sm-6 o-col-lg-3">
+        <?php get_template_part( 'partials/card', 'message' ); ?>
+      </div>
       <?php endwhile; else : endif; ?>
       <?php wp_reset_query(); ?>
     </div>
@@ -182,47 +172,19 @@
         <h2><a href="/thelatest">The Latest</a></h2>
       </div>
       <?php
-        $args =
-          array(
-            'post_type' => 'post',
-            'post_status' => 'publish',
-            'posts_per_page' => 2
-          );
+      $args =
+        array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'posts_per_page' => 2
+        );
 
-        $wp_query = new WP_Query( $args );
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-            the_post(); ?>
+      $wp_query = new WP_Query( $args );
+      if ( have_posts() ) :
+        while ( have_posts() ) :
+          the_post(); ?>
       <div class="o-col-xs-12 o-col-sm-6">
-        <div class="o-card o-card--shadow">
-          <?php get_template_part( 'partials/featured-image' ); ?>
-          <div class="o-card__body">
-            <h3 class="h1 o-card__title">
-              <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
-                <?php the_title(); ?>
-              </a>
-            </h3>
-            <div class="o-flag u-margin--double">
-              <div class="o-flag__fix">
-                <?php get_template_part( 'partials/avatar' ); ?>
-              </div>
-              <div class="o-flag__flex">
-                <p class="u-margin--none">
-                  <?php the_author(); ?>
-                </p>
-                <p class="small u-text-muted u-margin--none">
-                  <strong>
-                    <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
-                  </strong>
-                </p>
-              </div>
-            </div>
-            <?php the_content('Read more'); ?>
-            <p class="u-margin--none">
-              <?php comments_popup_link(); ?>
-            </p>
-          </div>
-        </div>
+        <?php get_template_part( 'partials/card', 'blog' ); ?>
       </div>
       <?php endwhile; else : endif; ?>
       <?php wp_reset_query(); ?>
