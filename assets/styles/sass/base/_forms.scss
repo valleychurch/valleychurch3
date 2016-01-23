@@ -39,6 +39,10 @@ textarea {
   }
 }
 
+input[type="search"] {
+  appearance: none;
+}
+
 input:disabled,
 input[disabled],
 input.is-disabled {

@@ -2,7 +2,7 @@
  * Global variable for storing bits of information and resuables
  */
 var valley = {
-  version: '3.0.0.alpha',
+  version: '3.0.0.beta',
   isModernBrowser: (
     'querySelector' in document
     && 'addEventListener' in window
@@ -36,7 +36,7 @@ var valley = {
 /**
  * Try and get CSS from localStorage as soon as possible
  */
-loadCSSFromStorage(valley.version);
+// loadCSSFromStorage(valley.version);
 
 
 /**

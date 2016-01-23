@@ -242,9 +242,9 @@ function attachNotifications() {
 };
 
 function addTests() {
-  Modernizr.addTest('objectfit', function() {
-    return !!('objectFit' in document.documentElement.style);
-  });
+  // Modernizr.addTest('objectfit', function() {
+  //   return !!('objectFit' in document.documentElement.style);
+  // });
 
   Modernizr.addTest('fontvariant', function() {
     var fontVariantLigatures = !!('fontVariantLigatures' in document.body.style);

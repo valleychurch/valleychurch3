@@ -1,11 +1,11 @@
-<a class="o-card o-card--shadow" href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
+<a class="o-card o-card--shadow" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">
   <?php get_template_part( 'partials/featured-image-simple' ); ?>
   <div class="o-card__body">
-    <h3 class="h4 o-card__title u-margin--none">
-      <!-- <a > -->
-        <?php the_title(); ?>
-      <!-- </a> -->
+    <h3 class="h5 o-card__title">
+      <?php echo get_the_title(); ?>
     </h3>
-    <?php //the_content('Read more'); ?>
+    <p class="u-margin--none small">
+      <?php echo get_the_content(); ?>
+    </p>
   </div>
 </a>

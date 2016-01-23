@@ -87,7 +87,7 @@ get_header();
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-        <div class="o-col-xs-12 c-post-content u-center-block">
+        <div class="o-col-xxs-12 c-post-content u-center-block">
 
           <h1><?php the_title(); ?></h1>
 
@@ -104,7 +104,7 @@ get_header();
 
     <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
-      <div class="o-col-xs-12 o-col-md-4">
+      <div class="o-col-xxs-12 o-col-md-4">
 
         <div class="o-card">
           <?php if ( has_post_thumbnail() ) { ?>

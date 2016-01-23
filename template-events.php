@@ -10,7 +10,7 @@ get_header(); ?>
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="o-col-xs-12 c-post-content u-center-block">
+      <div class="o-col-xxs-12 c-post-content u-center-block">
 
         <h1><?php the_title(); ?></h1>
 
@@ -36,7 +36,7 @@ get_header(); ?>
       $wp_query = new WP_Query( $args );
       if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <div class="o-col-xs-12 o-col-md-6 o-col-lg-4">
+      <div class="o-col-xxs-12 o-col-md-6 o-col-lg-4">
         <?php get_template_part( 'partials/card', 'event' ); ?>
       </div>
     <?php

@@ -1,7 +1,7 @@
 .o-card {
   display: block;
   position: relative;
-  margin-bottom: $VCbase;
+  margin-bottom: $VCbase * 1.5;
   background: white;
 }
 
@@ -10,7 +10,11 @@
   }
 
   .o-card__body {
-    padding: $VCbase;
+    padding: $VCbase * 0.75;
+
+    @include breakpoint(md) {
+      padding: $VCbase;
+    }
   }
 
   .o-card__overlay {
@@ -51,4 +55,8 @@
 
 .o-card--shadow {
   @include box-shadow;
+}
+
+a.o-card--shadow:hover {
+  @include box-shadow($colour: rgba(0,0,0,.25));
 }

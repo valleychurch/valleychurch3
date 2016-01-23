@@ -21,6 +21,10 @@
     min-height: 30rem;
   }
 
+  @include breakpoint(xl) {
+    min-height: 35rem;
+  }
+
   &::after {
     content: "";
     position: absolute;

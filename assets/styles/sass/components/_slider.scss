@@ -52,7 +52,12 @@
       pointer-events: none;
     }
 
+    @include breakpoint(md) {
+      bottom: 1rem;
+    }
+
     @include breakpoint(lg) {
+      bottom: 1.25rem;
       width: 30px;
       height: 48px;
     }

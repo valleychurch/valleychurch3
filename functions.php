@@ -6,7 +6,7 @@
 ============================================================
 */
 
-$vc_theme_version = '3.0.0.alpha';
+$vc_theme_version = '3.0.0.beta';
 
 
 /*
@@ -282,12 +282,12 @@ function loadCSSAsync() { ?>
         loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
     }
 
-    // if (!valley.fontAwesome.loaded) {
-    //   if (valley.isModernBrowser)
-    //     loadCSSWithAjax('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', false);
-    //   else
-    //     loadCSSWithLink('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css');
-    // }
+    if (!valley.fontAwesome.loaded) {
+      if (valley.isModernBrowser)
+        loadCSSWithAjax('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', false);
+      else
+        loadCSSWithLink('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css');
+    }
   </script>
   <script src="//use.typekit.net/jtz8aoh.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -400,5 +400,13 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
+
+/**
+ * Remove `Customizer` from wpadminbar
+ */
+function remove_some_nodes_from_admin_top_bar_menu( $wp_admin_bar ) {
+  $wp_admin_bar->remove_menu( 'customize' );
+}
+add_action( 'admin_bar_menu', 'remove_some_nodes_from_admin_top_bar_menu', 999 );
 
 ?>

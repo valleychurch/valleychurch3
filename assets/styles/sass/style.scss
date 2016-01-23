@@ -46,6 +46,7 @@
 @import "components/banner";
 @import "components/slider";
 @import "components/post";
+@import "components/pagination";
 @import "components/footer";
 @import "components/map";
 
@@ -53,4 +54,4 @@
 // Helpers and overrides
 // @import "trumps/helpers";
 @import "trumps/utilities";
-// @import "trumps/ie";
+@import "trumps/trumps";

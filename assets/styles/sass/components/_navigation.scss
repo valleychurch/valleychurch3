@@ -43,15 +43,19 @@
       letter-spacing: 2px;
       text-decoration: none;
 
-      @include breakpoint(sm) {
+      @include breakpoint(md) {
         font-size: ms(-1);
       }
 
       @include breakpoint(lg) {
-        color: white;
+        color: greyscale(8);
         text-transform: none;
         padding: 1rem 0.5rem;
         letter-spacing: 1px;
+
+        &:hover {
+          color: white;
+        }
       }
     }
   }
@@ -86,7 +90,7 @@
           padding: 0;
           color: colour(white);
           @include font-stack;
-          font-size: ms(0);
+          font-size: ms(1);
           font-weight: $VCfont-normal;
           text-transform: none;
           letter-spacing: 0px;
@@ -95,7 +99,7 @@
             color: white;
           }
 
-          @include breakpoint(sm) {
+          @include breakpoint(xs) {
             font-size: ms(0);
           }
 
@@ -125,7 +129,7 @@
         }
 
         &.sub-title > a {
-          font-size: ms(-1);
+          font-size: ms(0);
           color: greyscale(8);
 
           @include breakpoint(lg) {
@@ -140,14 +144,19 @@
 .c-navigation {
   position: fixed;
   top: 0;
-  right: -18rem;
+  right: -15rem;
   bottom: 0;
   overflow: auto;
-  width: 18rem;
+  width: 15rem;
   height: 100%;
   padding: 0.5rem 1rem 1rem;
   background-color: colour(black);
   // transition: transform 250ms ease-in-out;
+
+  @include breakpoint(xs) {
+    width: 18rem;
+    right: -18rem;
+  }
 
   @include breakpoint(lg) {
     position: relative;

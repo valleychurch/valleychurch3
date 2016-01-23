@@ -15,10 +15,17 @@
 
 <div class="c-notification" id="notification-<?php the_date('dmY'); ?>" aria-expanded="false">
   <div class="o-container">
-    <?php the_content(); ?>
-    <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
-      &times;
-    </button>
+    <div class="o-flag o-flag--rev">
+      <div class="o-flag__flex">
+        <?php the_content(); ?>
+      </div>
+      <div class="o-flag__fix">
+        <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
+          <!-- &times; -->
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -11,11 +11,11 @@
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="o-col-xs-12 o-col-md-10 c-post-content u-center-block">
+      <div class="o-col-xxs-12 o-col-md-10 c-post-content u-center-block">
 
         <div class="o-row">
 
-          <div class="o-col-xs-12 o-col-md-4">
+          <div class="o-col-xxs-12 o-col-md-4">
 
             <?php
             set_query_var( 'page_id', $message_id );
@@ -25,7 +25,7 @@
 
           </div>
 
-          <div class="o-col-xs-12 o-col-md-8">
+          <div class="o-col-xxs-12 o-col-md-8">
 
             <h1><?php the_title(); ?></h1>
 

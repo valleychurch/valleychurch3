@@ -1,0 +1,33 @@
+ul.page-numbers {
+  margin: 0 0 $VCbase 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin-bottom: $VCbase * 0.5;
+
+    a,
+    a:visited,
+    span {
+      @extend .o-btn;
+      @extend .o-btn--ghost;
+      color: colour(black);
+      border-color: greyscale(9);
+
+      &.current {
+        color: white;
+        background-color: colour(red);
+        border-color: colour(red, dark);
+      }
+
+      &:hover,
+      &:focus {
+        background-color: colour(red, dark);
+        border-color: colour(red, dark);
+      }
+    }
+  }
+}

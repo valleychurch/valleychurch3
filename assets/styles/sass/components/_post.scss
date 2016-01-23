@@ -30,6 +30,10 @@
   .no-flexbox & {
     float: none;
   }
+
+  &--wide {
+    max-width: 50rem;
+  }
 }
 
 .c-article {

@@ -17,5 +17,9 @@
 
     <?php wp_footer(); ?>
 
+    <?php if ( strpos($_SERVER['HTTP_HOST'], 'valleychurch') === false ) { ?>
+    <script src="//<?php echo $_SERVER['HTTP_HOST']; ?>:35729/livereload.js"></script>
+    <?php } ?>
+
   </body>
 </html>
