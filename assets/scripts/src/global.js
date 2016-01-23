@@ -36,7 +36,7 @@ var valley = {
 /**
  * Try and get CSS from localStorage as soon as possible
  */
-// loadCSSFromStorage(valley.version);
+loadCSSFromStorage(valley.version);
 
 
 /**
