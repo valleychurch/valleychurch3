@@ -77,8 +77,8 @@ module.exports = function(grunt) {
       dist: {
         options: {
           url: "http://valleychurch.eu",
-          width: 1920,
-          height: 1080,
+          //width: 1920,
+          //height: 1080,
           outputfile: 'assets/styles/css/critical.min.css',
           filename: 'assets/styles/css/style.min.css'
         }
