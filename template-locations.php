@@ -92,30 +92,47 @@ get_header();
           <h1><?php the_title(); ?></h1>
 
           <?php the_content(); ?>
-          <?php wp_reset_query(); ?>
 
         </div>
 
     </article>
 
+  </section>
+
+  <?php wp_reset_query(); ?>
   <?php if ( $locations->have_posts() ) : ?>
 
-    <div class="o-row">
+  <section class="o-container c-section c-section--grey">
 
+    <div class="o-row">
     <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
       <div class="o-col-xxs-12 o-col-md-4">
 
-        <div class="o-card">
-          <?php if ( has_post_thumbnail() ) { ?>
-          <div class="o-card__image"><?php the_post_thumbnail(); ?></div>
-          <?php } ?>
+        <div class="o-card u-text-center">
+          <?php
+          set_query_var( 'class', 'o-card__img' );
+          get_template_part( 'partials/featured-image', 'slide' );
+          ?>
           <div class="o-card__body">
-            <h2 class="o-card__title"><?php the_title(); ?></h2>
-            <?php $terms = get_the_terms( $post->ID, 'location_type' ); if ( $terms && !is_wp_error( $terms ) ) { ?>
-            <p class="o-card__subtitle"><?php echo $terms[0]->name; ?></p>
+            <?php $times = get_field( 'service_times' ); ?>
+            <h2 class="o-card__title <?php ( $times ) ? print "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
+            <?php if ( $times ) { ?>
+            <h3 class="o-card__subtitle"><?php the_field( 'service_times' ); ?></h3>
             <?php } ?>
-            <p class="o-card__text"><?php the_field('location_address'); ?></p>
+            <div class="o-card__text">
+            <?php if ( get_field( 'address' ) ) { ?>
+            <p>
+            <?php if ( get_field( 'google_maps_link' ) ) { ?>
+              <a href="http://<?php echo get_field( 'google_maps_link' ); ?>" target="_blank">
+            <?php }
+            echo get_field( 'address' );
+            if ( get_field( 'google_maps_link' ) ) { ?>
+              </a>
+            <?php } ?>
+            </p>
+            <?php } ?>
+            </div>
           </div>
         </div>
 

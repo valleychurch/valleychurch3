@@ -12,7 +12,12 @@ a {
   }
 
   &:visited {
-    color: colour(red, x-dark);
+    color: colour(red, dark);
+
+    &:focus,
+    &:hover {
+      color: colour(red, x-dark);
+    }
   }
 
   .c-article &,

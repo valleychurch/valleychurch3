@@ -7,6 +7,7 @@ ul.page-numbers {
 
   li {
     display: inline-block;
+    min-width: 45px;
     margin-bottom: $VCbase * 0.5;
 
     a,

@@ -8,11 +8,11 @@ get_header(); ?>
 
   <section class="o-container c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-row c-article u-margin--double' ); ?>>
 
       <div class="o-col-xxs-12 c-post-content u-center-block">
 
-        <h1><?php the_title(); ?></h1>
+        <h1 <?php ( get_field( 'hide_h1' ) == 1 ) ? print 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 
         <?php the_content(); ?>
 
@@ -33,16 +33,16 @@ get_header(); ?>
     if ( have_posts() ) : ?>
     <div class="o-row">
     <?php while( have_posts() ) : the_post(); ?>
-      <div class="o-col-xxs-12 o-col-md-10 u-center-block">
-        <div class="o-row u-margin">
+      <div class="o-col-xxs-12 o-col-lg-10 u-center-block">
+        <div class="o-row u-margin--double">
         <?php if ( has_post_thumbnail() ) { ?>
-          <div class="o-col-xxs-12 o-col-md-5">
+          <div class="o-col-xxs-12 o-col-sm-4 o-col-md-5">
             <?php
             set_query_var( 'margin', true );
-            get_template_part( 'partials/featured-image' );
+            get_template_part( 'partials/featured-image', 'simple' );
             ?>
           </div>
-          <div class="o-col-xxs-12 o-col-md-7">
+          <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7">
         <?php } else { ?>
           <div class="o-col-xxs-12">
         <?php }
@@ -52,7 +52,18 @@ get_header(); ?>
           <?php } else { ?>
             <h2><?php the_title(); ?></h2>
           <?php }
-          the_content(); ?>
+          the_content();
+          if ( have_rows( 'twitter' ) ) {
+            while ( have_rows( 'twitter' ) ) {
+              the_row(); ?>
+          <p class="u-margin--half">
+            <a href="http://twitter.com/<?php echo get_sub_field( 'twitter_handle' ); ?>" target="_blank">
+              <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
+            </a>
+          </p>
+          <?php }
+          }
+          ?>
           </div>
         </div>
       </div>

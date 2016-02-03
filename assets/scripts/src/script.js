@@ -1,8 +1,10 @@
+var googleActive = (typeof google !== "undefined")
+
 var map,
     mapOpts,
     mapStyle,
-    mapStyled = new google.maps.StyledMapType(mapStyle, { name: "Styled" }),
-    mapCentre = new google.maps.LatLng(53.733241, -2.662240),
+    mapStyled = (googleActive) ? new google.maps.StyledMapType(mapStyle, { name: "Styled" }) : "",
+    mapCentre = (googleActive) ? new google.maps.LatLng(53.733241, -2.662240) : "",
     mapBounds,
     mapLocations,
     mapInfoWindow,
@@ -176,12 +178,6 @@ mapStyle = [
   }
 ];
 
-function centreMap() {
-  google.maps.event.trigger(map, 'resize');
-  map.setCenter(mapCentre);
-  map.fitBounds(mapBounds);
-}
-
 
 // Obligatory debounce function
 function debounce(func, wait, immediate) {
@@ -292,13 +288,23 @@ function loadHomeSlider() {
   valley.homeSliderActive = true;
 }
 
+function responsiveIframes() {
+  $('iframe').each(function(i, el) {
+    $(el).wrap('<div class="o-ratio"/>');
+  });
+}
+
 $(function() {
   addTests();
   sideNav();
   checkSideNav();
   loadHomeSlider();
+  responsiveIframes();
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
+
+  var doc = document.documentElement;
+  doc.setAttribute('data-useragent', navigator.userAgent)
 });
 
 $(window).load(function() {

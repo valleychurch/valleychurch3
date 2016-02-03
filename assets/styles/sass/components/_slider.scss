@@ -1,3 +1,7 @@
+.c-slide-container {
+  position: relative;
+}
+
 .c-slides {
   position: relative;
   margin: 0;
@@ -35,9 +39,9 @@
 .slide-control {
   position: absolute;
   top: 0;
-  right: $VCbase;
-  bottom: $VCbase;
-  left: $VCbase;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   .rslides_nav {
     position: absolute;

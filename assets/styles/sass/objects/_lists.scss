@@ -1,0 +1,11 @@
+.o-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+  .o-list--inline {
+    li {
+      display: inline-block;
+    }
+  }

@@ -3,10 +3,19 @@
   background-color: greyscale(2);
   color: white;
 
-  a,
-  a:active {
-    color: white;
+  a {
+    &,
+    &:active {
+      color: colour(white);
+    }
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
   }
+
+
 
   .logo {
     padding: 0;
@@ -30,6 +39,15 @@
         text-transform: none;
         padding: 0;
         letter-spacing: 0;
+      }
+    }
+  }
+
+  .c-footer__menu {
+    li {
+      @include breakpoint(md) {
+        display: inline-block;
+        margin-right: $VCbase * 0.5;
       }
     }
   }

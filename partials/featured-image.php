@@ -10,19 +10,19 @@ else {
 }
 if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
   $img_banner = wp_get_attachment_image_src( $img_id, 'banner' );
+  $img_banner_medium = wp_get_attachment_image_src( $img_id, 'banner-medium' );
   $img_banner_small = wp_get_attachment_image_src( $img_id, 'banner-small' );
-  $img_banner_xsmall = wp_get_attachment_image_src( $img_id, 'banner-xsmall' );
   ?>
 <figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
   <picture>
     <?php if ( $img_banner ) { ?>
     <source media="(min-width: 70rem)" srcset="<?php echo $img_banner[0]; ?>">
     <?php } ?>
-    <?php if ( $img_banner_small ) { ?>
-    <source media="(min-width: 50rem)" srcset="<?php echo $img_banner_small[0]; ?>">
+    <?php if ( $img_banner_medium ) { ?>
+    <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_medium[0]; ?>">
     <?php } ?>
-    <?php if ( $img_banner_xsmall ) { ?>
-    <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
+    <?php if ( $img_banner_small ) { ?>
+    <source srcset="<?php echo $img_banner_small[0]; ?>">
     <?php } ?>
     <?php if ( $img_banner ) { ?>
     <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner[1]; ?>" height="<?php echo $img_banner[2]; ?>">

@@ -55,6 +55,16 @@ h6, .h6 {
   font-size: ms(-1);
 }
 
+ul,
+ol {
+  margin: 0 0 $VCbase $VCbase * 1.5;
+  padding: 0;
+
+  li {
+    padding-left: $VCbase * 0.25;
+  }
+}
+
 hr {
   margin-bottom: $VCbase;
   border: none;
@@ -84,4 +94,12 @@ blockquote {
 ::selection {
   background-color: colour(red, 0.75);
   color: white;
+}
+
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }

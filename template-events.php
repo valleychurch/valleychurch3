@@ -25,28 +25,29 @@ get_header(); ?>
   <section class="o-container c-section c-section--grey">
 
     <div class="o-row">
-    <?php
-      $args =
-        array(
-          'post_type' => 'events',
-          'post_status' => 'publish',
-          'posts_per_page' => -1
-        );
+      <div class="c-post-content--wide u-center-block">
+      <?php
+        $args =
+          array(
+            'post_type' => 'events',
+            'post_status' => 'publish',
+            'posts_per_page' => -1
+          );
 
-      $wp_query = new WP_Query( $args );
-      if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        $wp_query = new WP_Query( $args );
+        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <div class="o-col-xxs-12 o-col-md-6 o-col-lg-4">
-        <?php get_template_part( 'partials/card', 'event' ); ?>
+        <div class="o-col-xxs-12">
+          <?php get_template_part( 'partials/card', 'event' ); ?>
+        </div>
+      <?php
+      endwhile;
+      get_template_part( 'partials/pagination' );
+      else :
+        get_template_part( 'no-content-found' );
+      endif;
+      ?>
       </div>
-    <?php
-    endwhile;
-    next_posts_link( 'Older Entries' );
-    previous_posts_link( 'Newer Entries' );
-    else :
-      get_template_part( 'no-content-found' );
-    endif;
-    ?>
     </div>
   </section>
 

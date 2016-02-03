@@ -6,24 +6,24 @@
         <?php the_title(); ?>
       </a>
     </h3>
-    <div class="o-flag u-margin--double">
-      <div class="o-flag__fix">
-        <?php get_template_part( 'partials/avatar' ); ?>
-      </div>
-      <div class="o-flag__flex">
-        <p class="u-margin--none">
-          <?php the_author(); ?>
-        </p>
-        <p class="small u-text-muted u-margin--none">
-          <strong>
+    <div class="o-card__text">
+      <div class="o-flag u-margin--double">
+        <div class="o-flag__fix">
+          <?php get_template_part( 'partials/avatar' ); ?>
+        </div>
+        <div class="o-flag__flex">
+          <p class="u-margin--none">
+            <?php the_author(); ?>
+          </p>
+          <p class="small u-text-muted u-margin--none">
             <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
-          </strong>
-        </p>
+          </p>
+        </div>
       </div>
+      <?php the_content('Read more'); ?>
+      <p class="u-margin--none">
+        <?php comments_popup_link(); ?>
+      </p>
     </div>
-    <?php the_content('Read more'); ?>
-    <p class="u-margin--none">
-      <?php comments_popup_link(); ?>
-    </p>
   </div>
 </div>

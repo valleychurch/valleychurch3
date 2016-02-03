@@ -2,7 +2,7 @@
  * Global variable for storing bits of information and resuables
  */
 var valley = {
-  version: '3.0.0.beta',
+  version: '3.0.0',
   isModernBrowser: (
     'querySelector' in document
     && 'addEventListener' in window
@@ -36,16 +36,16 @@ var valley = {
 /**
  * Try and get CSS from localStorage as soon as possible
  */
-loadCSSFromStorage(valley.version);
+// loadCSSFromStorage(valley.version);
 
 
 /**
  * Async load the main script file (non-render blocking)
  */
-var script = document.createElement('script');
-script.async = 'async';
-script.src = '/wp-content/themes/valleychurch3/assets/scripts/dist/script.min.js';
-document.getElementsByTagName("head")[0].appendChild(script);
+// var script = document.createElement('script');
+// script.async = 'async';
+// script.src = '/wp-content/themes/valleychurch3/assets/scripts/dist/script.min.js';
+// document.getElementsByTagName("head")[0].appendChild(script);
 
 
 /**
@@ -76,7 +76,7 @@ function loadCSSWithAjax(c, save) {
         if(xhr.status === 200) {
           inlineCSS(xhr.responseText, valley.version);
           if (save === true) {
-            storeCSS(xhr.responseText, valley.version);
+            //storeCSS(xhr.responseText, valley.version);
           }
         };
       }
@@ -129,4 +129,10 @@ function storeCSS(c) {
     localStorage.setItem('valley.css.' + valley.version, c);
   }
   catch(e) {}
+}
+
+function centreMap() {
+  google.maps.event.trigger(map, 'resize');
+  map.setCenter(mapCentre);
+  map.fitBounds(mapBounds);
 }

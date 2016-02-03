@@ -2,12 +2,14 @@
   position: relative;
   width: 100%;
 
-  @include breakpoint(lg) {
-    width: 10rem;
-  }
+  .c-navigation & {
+    @include breakpoint(lg) {
+      width: 10rem;
+    }
 
-  @include breakpoint(xl) {
-    width: 12rem;
+    @include breakpoint(xl) {
+      width: 12rem;
+    }
   }
 
   .o-flag__fix {
@@ -23,24 +25,29 @@
     padding: 0.5rem 2rem 0.5rem 0.625rem !important;
     color: colour(black);
     line-height: 1.35;
-    border: none;
+    border: 1px solid greyscale(9);
     @include transition();
 
+    .c-navigation & {
+      border: none;
+    }
+
     @include breakpoint(lg) {
-      color: white;
-      background-color: colour(black);
+      .c-navigation & {
+        color: white;
+        background-color: colour(black);
 
-      &:hover,
-      &:focus {
-        outline: none;
-        border-bottom-color: colour(white);
+        &:hover,
+        &:focus {
+          outline: none;
+          //border-bottom-color: colour(white);
 
-        & + .c-search__button {
-          color: colour(white);
+          & + .c-search__button {
+            color: colour(white);
+          }
         }
       }
     }
-
   }
 
   .c-search__button {

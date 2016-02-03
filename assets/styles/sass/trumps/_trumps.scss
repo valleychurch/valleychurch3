@@ -5,3 +5,12 @@
     top: -32px !important;
   }
 }
+
+.c-navigation {
+  .is-menu-active & {
+    html[data-useragent*='MSIE 9.0'] &,
+    html[data-useragent*='MSIE 10.0'] & {
+      right: 0;
+    }
+  }
+}

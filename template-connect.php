@@ -95,9 +95,6 @@ if (have_posts()) :
 
         <?php the_content(); ?>
 
-        <h2>Where do groups meet?</h2>
-        <p>Our connect groups meet all over the region, check out the map below to find one near you! Please <a href="/contact">get in touch</a> if you're interested in joining a connect group.</p>
-
       </div>
 
     </article>

@@ -6,7 +6,7 @@
 ============================================================
 */
 
-$vc_theme_version = '3.0.0.beta';
+$vc_theme_version = '3.0.0';
 
 
 /*
@@ -64,7 +64,10 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
     'exclude_from_search' => $exclude_from_search,
     'rewrite' => $rewrite,
     'supports' => $supports,
-    'menu_icon' => $icon
+    'menu_icon' => $icon,
+    'hierarchical' => false,
+    'capability_type' => 'post',
+    'has_archive' => ( $name === "message" ? true : false )
   );
   return $args;
 }
@@ -130,12 +133,12 @@ add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
  * Add post thumbnails and custom image sizes
  */
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'slide', 2000, 1125, true );       // Slide width
-add_image_size( 'slide-small', 1280, 720, true );  // Slide width small
-add_image_size( 'slide-xsmall', 640, 360, true );  // Slide width xsmall
-add_image_size( 'banner', 2000, 800, true );       // Featured image banner size
-add_image_size( 'banner-small', 1500, 800, true ); // Featured image banner size small
-add_image_size( 'banner-xsmall', 750, 600, true ); // Featured image banner size xsmall
+add_image_size( 'slide', 2000, 1125, true );       // 16:9 slide full-size
+add_image_size( 'slide-medium', 1280, 720, true );  // 16:9 slide medium
+add_image_size( 'slide-small', 640, 360, true );  // 16:9 slide small
+add_image_size( 'banner', 2000, 800, true );       // Featured image banner full-size
+add_image_size( 'banner-medium', 1280, 608, true ); // Featured image banner medium
+add_image_size( 'banner-small', 640, 360, true ); // Featured image banner small
 
 
 /**
@@ -171,7 +174,7 @@ add_editor_style( 'assets/styles/css/editor-style.css' ); //defaults to editor-s
  * Add Typekit to TinyMCE
  */
 function add_typekit_tinymce( $plugin_array ) {
-  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js?ver=' . '3.0.0';
+  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js?ver=' . $vc_theme_version;
   return $plugin_array;
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
@@ -181,13 +184,14 @@ add_filter("mce_external_plugins", "add_typekit_tinymce");
  * Create custom post types
  */
 function create_custom_post_types() {
-  register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt' ) );            //TODO: rename to 'event'
-  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt' ) );              //TODO: rename to 'slide'
-  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone' ) );           //TODO: rename to 'message'
-  register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite' ) );
-  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location' ) );
-  register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt' ) );
-  register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning' ) );
+  $supports_simple = array( 'title', 'thumbnail', 'author' );
+  register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null ) );                   //TODO: rename to 'event'
+  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple ) );    //TODO: rename to 'slide'
+  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null ) );                  //TODO: rename to 'message'
+  register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null ) );
+  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, null ) );
+  register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt', true, null ) );
+  register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning', true, null ) );
 };
 add_action( 'init', 'create_custom_post_types' );
 
@@ -216,34 +220,34 @@ function theme_files() {
 
   // Register our CSS
   wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', '4.5.0' );
-  // wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], '3.0.0' );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], '3.0.0.test' );
 
   wp_enqueue_style( 'font-awesome' );
-  // wp_enqueue_style( 'site' );
+  wp_enqueue_style( 'site' );
 
   // Remove built in jQuery
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  // wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0', false );
+  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0.test', false );
   // wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, false );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
-  // wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', true );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', false );
   // wp_register_script( 'modernizr', get_template_directory_uri() . '/assets/scripts/dist/modernizr.min.js', ['jquery'], '2.8.3', true );
   // wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   // wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
   // wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  // wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery', 'google-maps' ], '3.0.0', true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], '3.0.0.test', true );
 
-  // wp_enqueue_script( 'global' );
+  wp_enqueue_script( 'global' );
   // wp_enqueue_script( 'typekit' );
-  wp_enqueue_script( 'google-maps' );
-  // wp_enqueue_script( 'jquery' );
+  if ( is_page( 'connect' ) ) { wp_enqueue_script( 'google-maps' ); }
+  wp_enqueue_script( 'jquery' );
   // wp_enqueue_script( 'modernizr' );
   // wp_enqueue_script( 'fastclick' );
   // wp_enqueue_script( 'picturefill' );
   // wp_enqueue_script( 'responsiveslides' );
-  // wp_enqueue_script( 'site' );
+  wp_enqueue_script( 'site' );
 };
 
 add_action( 'wp_enqueue_scripts', 'theme_files' );
@@ -274,13 +278,13 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
  */
 function loadCSSAsync() { ?>
   <script>
-    <?php echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
-    if (!valley.css.loaded) {
-      if (valley.isModernBrowser)
-        loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
-      else
-        loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
-    }
+    <?php //echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
+    // if (!valley.css.loaded) {
+      // if (valley.isModernBrowser)
+        // loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
+      // else
+        //loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
+    // }
 
     // if (!valley.fontAwesome.loaded) {
     //   if (valley.isModernBrowser)
@@ -289,11 +293,11 @@ function loadCSSAsync() { ?>
     //     loadCSSWithLink('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css');
     // }
   </script>
-  <script src="//use.typekit.net/jtz8aoh.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <!--<script src="//use.typekit.net/jtz8aoh.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>-->
 <?php
 }
-add_action( 'wp_head', 'loadCSSAsync', 30 );
+// add_action( 'wp_head', 'loadCSSAsync', 30 );
 
 
 /**
@@ -305,7 +309,7 @@ function loadCSSFallback() { ?>
     <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
   </noscript>
 <?php }
-add_action( 'wp_footer', 'loadCSSFallback', 30 );
+// add_action( 'wp_footer', 'loadCSSFallback', 30 );
 
 
 /**

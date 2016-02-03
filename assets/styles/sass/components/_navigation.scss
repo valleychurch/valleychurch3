@@ -11,6 +11,7 @@
   .menu-item {
     display: block;
     position: relative;
+    padding: 0;
     margin-bottom: 1rem;
 
     @include breakpoint(lg) {
@@ -171,7 +172,8 @@
   }
 
   .is-menu-active & {
-    // transform: translate3d(-15rem, 0, 0);
+    // display: block;
+    transform: translate3d(0, 0, 0);
   }
 }
 

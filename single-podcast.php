@@ -11,11 +11,11 @@
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="o-col-xxs-12 o-col-md-10 c-post-content u-center-block">
+      <div class="o-col-xxs-12">
 
         <div class="o-row">
 
-          <div class="o-col-xxs-12 o-col-md-4">
+          <div class="o-col-xxs-8 o-col-md-4 o-col-lg-3 u-center-block--xxs">
 
             <?php
             set_query_var( 'page_id', $message_id );
@@ -25,9 +25,12 @@
 
           </div>
 
-          <div class="o-col-xxs-12 o-col-md-8">
+          <div class="o-col-xxs-12 o-col-md-8 o-col-lg-9">
 
             <h1><?php the_title(); ?></h1>
+            <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
+            <h2><?php echo get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
+            <?php } ?>
 
             <div class="o-flag u-margin--double">
               <div class="o-flag__fix">
@@ -36,11 +39,6 @@
               <div class="o-flag__flex">
                 <p class="u-margin--none">
                   <?php the_author(); ?>
-                </p>
-                <p class="small u-text-muted u-margin--none">
-                  <strong>
-                    <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
-                  </strong>
                 </p>
               </div>
             </div>

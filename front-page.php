@@ -31,56 +31,70 @@
       $wp_query = new WP_Query( $args );
       if ( have_posts() ) : ?>
       <div class="o-col-xxs-12 o-col-md-6">
-        <ul class="c-slides u-margin u-margin-md--none u-cf">
-        <?php while ( have_posts() ) :
-          the_post();
-          if ( has_post_thumbnail() ) :
-            $img_id = get_post_thumbnail_id( $post->ID );
-            $img_banner = wp_get_attachment_image_src( $img_id, 'slide' );
-            $img_banner_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
-            $img_banner_xsmall = wp_get_attachment_image_src( $img_id, 'slide-xsmall' );
-        ?>
-          <li class="o-slide">
-            <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
-            <picture>
-              <?php //if ( $img_banner ) { ?>
-              <!-- <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>"> -->
-              <?php //}
-              if ( $img_banner_small ) { ?>
-              <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_small[0]; ?>">
-              <?php }
-              if ( $img_banner_xsmall ) { ?>
-              <source srcset="<?php echo $img_banner_xsmall[0]; ?>">
-              <?php }
-              if ( $img_banner_small ) { ?>
-              <img srcset="<?php echo $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner_small[1]; ?>" height="<?php echo $img_banner_small[2]; ?>">
-              <?php } ?>
-            </picture>
-            <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
-          </li>
-        <?php endif;
-        endwhile; ?>
-        </ul>
-        <div class="slide-control"></div>
+        <div class="c-slide-container">
+          <ul class="c-slides u-margin u-margin-md--none u-cf">
+          <?php while ( have_posts() ) :
+            the_post();
+            if ( has_post_thumbnail() ) :
+              $img_id = get_post_thumbnail_id( $post->ID );
+              $img_banner = wp_get_attachment_image_src( $img_id, 'slide' );
+              $img_banner_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
+              $img_banner_small = wp_get_attachment_image_src( $img_id, 'slide-xsmall' );
+          ?>
+            <li class="o-slide">
+              <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
+              <picture>
+                <?php //if ( $img_banner ) { ?>
+                <!-- <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>"> -->
+                <?php //}
+                if ( $img_banner_medium ) { ?>
+                <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_medium[0]; ?>">
+                <?php }
+                if ( $img_banner_small ) { ?>
+                <source srcset="<?php echo $img_banner_small[0]; ?>">
+                <?php }
+                if ( $img_banner_small ) { ?>
+                <img srcset="<?php echo $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner_small[1]; ?>" height="<?php echo $img_banner_small[2]; ?>">
+                <?php } ?>
+              </picture>
+              <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
+            </li>
+          <?php endif;
+          endwhile; ?>
+          </ul>
+          <div class="slide-control"></div>
+        </div>
       </div>
     <?php else : endif; ?>
     <?php wp_reset_query(); ?>
+    <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
       <div class="o-col-xxs-12 o-col-md-6">
-        <div class="o-card o-card--overlay">
-          <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/pastors.jpg" width="1280" height="720">
+        <span class="o-card o-card--overlay">
+          <?php if ( get_field( 'image' ) ) {
+            set_query_var( 'image_id', get_field('image')["id"] );
+            get_template_part( 'partials/featured-image', 'simple' );
+          }
+          ?>
           <div class="o-card__overlay">
             <div class="o-card__overlay__middle">
-              <h2 class="o-card__title">Senior Pastors</h2>
-              <p class="o-card__text u-hide u-show--sm u-hide--md u-show--lg">
-                Ed &amp; Michele Carter are the Senior Pastors of Valley Church. <span class="u-hide u-show--sm u-hide--md u-show-inline--xl">They have a heart to see you empowered to fulfil all that God has for you.</span>
+            <?php if ( get_field( 'title' ) ) { ?>
+              <h2 class="o-card__title"><?php echo get_field( 'title' ); ?></h2>
+            <?php } ?>
+            <?php if ( get_field( 'content' ) ) { ?>
+              <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
+              <?php echo get_field( 'content' ); ?>
               </p>
-              <a class="o-btn o-btn--ghost" href="/pastors">
-                Read more
+            <?php } ?>
+            <?php if ( get_field( 'show_button' ) == 1 ) { ?>
+              <a class="o-btn o-btn--ghost" href="<?php the_field( 'button_link' ); ?>">
+                <?php echo get_field( 'button_text' ); ?>
               </a>
+            <?php } ?>
             </div>
           </div>
-        </div>
+        </span>
       </div>
+    <?php } ?>
     </div>
   </section>
 
@@ -102,9 +116,8 @@
     <?php while ( have_rows( 'home_page_cards' ) ) :
       the_row(); ?>
 
-      <div class="<?php ($i > 1) ? print "o-col-xxs-12 o-col-md-6 o-col-xl-4" : print "o-col-xxs-12 o-col-md-12 o-col-xl-4"; ?>">
+      <div class="<?php ($i > 1) ? print "o-col-xxs-12 o-col-sm-6 o-col-lg-4" : print "o-col-xxs-12 o-col-sm-12 o-col-lg-4"; ?>">
         <div class="o-card u-text-center">
-          <!-- <img class="o-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg" width="1280" height="720"> -->
           <?php if ( get_sub_field( 'image' ) ) {
             set_query_var( 'image_id', get_sub_field( 'image' )["id"] );
             set_query_var( 'class', 'o-card__img' );
@@ -125,9 +138,9 @@
             <?php } ?>
 
             <?php if ( get_sub_field( 'show_button' ) == 1 ) { ?>
-            <a class="o-btn" <?php if ( get_sub_field( 'button_link' ) ) { var_dump( get_sub_field( 'button_link' ) ); } ?>>
+            <a class="o-btn" href="<?php the_sub_field( 'button_link' ); ?>">
               <?php if ( get_sub_field( 'button_text' ) ) {
-                the_sub_field( 'button_text' );
+                echo get_sub_field( 'button_text' );
               } ?>
             </a>
             <?php } ?>
@@ -146,7 +159,7 @@
   </section>
   <?php
   else :
-    get_template_part( 'partials/no-content-found' );
+    // get_template_part( 'partials/no-content-found' );
   endif; ?>
 
   <section class="o-container c-section">
