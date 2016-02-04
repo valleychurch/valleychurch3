@@ -19,13 +19,6 @@
 
     </div> <!-- .container -->
 
-    <!-- IE fixes -->
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
-    <![endif]-->
-
     <?php wp_footer(); ?>
 
     <?php // if ( strpos($_SERVER['HTTP_HOST'], 'valleychurch') === false ) { ?>

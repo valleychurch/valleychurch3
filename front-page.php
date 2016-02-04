@@ -39,14 +39,14 @@
               $img_id = get_post_thumbnail_id( $post->ID );
               $img_banner = wp_get_attachment_image_src( $img_id, 'slide' );
               $img_banner_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
-              $img_banner_small = wp_get_attachment_image_src( $img_id, 'slide-xsmall' );
+              $img_banner_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
           ?>
             <li class="o-slide">
               <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
               <picture>
-                <?php //if ( $img_banner ) { ?>
-                <!-- <source media="(min-width: 60rem)" srcset="<?php echo $img_banner[0]; ?>"> -->
-                <?php //}
+                <?php if ( $img_banner_small ) { ?>
+                <source media="(min-width: 60rem)" srcset="<?php echo $img_banner_small[0]; ?>">
+                <?php }
                 if ( $img_banner_medium ) { ?>
                 <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_medium[0]; ?>">
                 <?php }
