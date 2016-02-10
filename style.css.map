@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA;;;;;;;EAOE,ACPF;;;;EAIE",
+"mappings": "AAAA;;;;;;;EAOE,ACPF;;;;;EAKE",
 "sources": ["assets/styles/sass/_theme-info.scss","assets/styles/sass/_changelog.scss"],
 "names": [],
 "file": "style.css"

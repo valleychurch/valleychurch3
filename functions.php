@@ -6,7 +6,7 @@
 ============================================================
 */
 
-$vc_theme_version = '3.0.1';
+$vc_theme_version = '3.0.2';
 
 
 /*
@@ -220,7 +220,7 @@ function theme_files() {
 
   // Register our CSS
   wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', '4.5.0' );
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], '3.0.0.test' );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], '3.0.2' );
 
   wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
@@ -229,7 +229,7 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.0.test', false );
+  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.2', false );
   // wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, false );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', false );
@@ -237,7 +237,7 @@ function theme_files() {
   // wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   // wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
   // wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], '3.0.0.test', true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], '3.0.2', true );
 
   wp_enqueue_script( 'global' );
   // wp_enqueue_script( 'typekit' );

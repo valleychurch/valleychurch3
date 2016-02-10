@@ -32,6 +32,8 @@ $VCcolour-percentage-x: double($VCcolour-percentage);
 $VCtransition-timing:   150ms;
 $VCtransition-easing:   ease-in-out;
 
+$VCcdn-url:             "//cdn.valleychurch.eu"; //Protocol-relative for when we move to HTTPS
+
 // Flags
 $VCenable-flex:         true;
 $VCenable-grid-classes: true;
