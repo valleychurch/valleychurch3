@@ -3,7 +3,7 @@ label {
   margin-bottom: quarter($VCbase);
 
   @include breakpoint(md) {
-    font-size: ms(-1);
+    // font-size: ms(-1);
   }
 }
 

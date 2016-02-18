@@ -76,7 +76,7 @@ module.exports = function(grunt) {
     criticalcss: {
       dist: {
         options: {
-          url: "http://valleychurch.eu",
+          url: "https://valleychurch.eu",
           //width: 1920,
           //height: 1080,
           outputfile: 'assets/styles/css/critical.min.css',

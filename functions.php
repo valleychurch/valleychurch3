@@ -6,7 +6,8 @@
 ============================================================
 */
 
-$vc_theme_version = '3.0.2';
+define( 'VC_THEME_VERSION', '3.0.3' );
+$vc_theme_version = '3.0.3';
 
 
 /*
@@ -49,7 +50,7 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
   $args = array(
     'public' => true,
     'labels' => array(
-      'name' => $plural,
+      'name' =>                 $plural,
       'singular_name' =>        $singular,
       'add_new' =>              'Add New',
       'add_new_item' =>         'Add New ' . $singular,
@@ -83,7 +84,7 @@ function create_custom_taxonomy_args( $name, $label = null ) {
   $args = array(
     'hierarchical' => true,
     'labels' => array(
-      'name' => $plural,
+      'name' =>                 $plural,
       'singular_name' =>        $singular,
       'add_new' =>              'Add New',
       'add_new_item' =>         'Add New ' . $singular,
@@ -125,9 +126,9 @@ function has_gravatar( $email_address ) {
 */
 
 /**
- * Compress jpg images to 80% quality
+ * Compress jpg images to 85% quality
  */
-add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
+add_filter( 'jpeg_quality', create_function( '', 'return 85;' ) );
 
 /**
  * Add post thumbnails and custom image sizes
@@ -174,7 +175,7 @@ add_editor_style( 'assets/styles/css/editor-style.css' ); //defaults to editor-s
  * Add Typekit to TinyMCE
  */
 function add_typekit_tinymce( $plugin_array ) {
-  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js?ver=' . $vc_theme_version;
+  $plugin_array['typekit'] = get_template_directory_uri() . '/assets/scripts/src/typekit.tinymce.js?ver=' . VC_THEME_VERSION;
   return $plugin_array;
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
@@ -186,8 +187,8 @@ add_filter("mce_external_plugins", "add_typekit_tinymce");
 function create_custom_post_types() {
   $supports_simple = array( 'title', 'thumbnail', 'author' );
   register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null ) );                   //TODO: rename to 'event'
-  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple ) );    //TODO: rename to 'slide'
-  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null ) );                  //TODO: rename to 'message'
+  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple ) );   //TODO: rename to 'slide'
+  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null ) );                 //TODO: rename to 'message'
   register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null ) );
   register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, null ) );
   register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt', true, null ) );
@@ -200,8 +201,8 @@ add_action( 'init', 'create_custom_post_types' );
  * Create custom taxonomies
  */
 function create_custom_taxonomies() {
-  register_taxonomy('series', 'podcast', create_custom_taxonomy_args('series', 'Series') );
-  register_taxonomy('location_type', 'location', create_custom_taxonomy_args('type', 'Location Type') );
+  register_taxonomy( 'series', 'podcast', create_custom_taxonomy_args( 'series', 'Series' ) );
+  register_taxonomy( 'location_type', 'location', create_custom_taxonomy_args( 'type', 'Location Type' ) );
 };
 add_action( 'init', 'create_custom_taxonomies' );
 
@@ -220,7 +221,7 @@ function theme_files() {
 
   // Register our CSS
   wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', '4.5.0' );
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], '3.0.2' );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], VC_THEME_VERSION );
 
   wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
@@ -229,7 +230,7 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, '3.0.2', false );
+  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, VC_THEME_VERSION, false );
   // wp_register_script( 'typekit', '//use.typekit.net/jtz8aoh.js', null, null, false );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', false );
@@ -237,7 +238,7 @@ function theme_files() {
   // wp_register_script( 'fastclick', get_template_directory_uri() . '/assets/scripts/dist/fastclick.min.js', null, '1.0.6', true );
   // wp_register_script( 'picturefill', get_template_directory_uri() . '/assets/scripts/dist/picturefill.min.js', null, '3.0.1', true );
   // wp_register_script( 'responsiveslides', get_template_directory_uri() . '/assets/scripts/dist/responsiveslides.min.js', ['jquery'], '1.54', true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], '3.0.2', true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], VC_THEME_VERSION, true );
 
   wp_enqueue_script( 'global' );
   // wp_enqueue_script( 'typekit' );
@@ -255,16 +256,16 @@ add_action( 'wp_enqueue_scripts', 'theme_files' );
 /**
  * Add `async` and `defer` attributes to some built in WP scripts
  */
-function add_defer_attribute($tag) {
+function add_defer_attribute( $tag ) {
   // array of scripts to defer
   $scripts_to_defer = array( 'contact-form-7' , 'jetpack', 'wp-embed' );
-  foreach( $scripts_to_defer as $defer_script){
+  foreach( $scripts_to_defer as $defer_script) {
     if( true == strpos( $tag, $defer_script ) )
       return str_replace( ' src', ' defer="defer" src', $tag );
   }
   // array of scripts to async
-  $scripts_to_async = array('comment-reply.min.js', 'custom.js');
-  foreach( $scripts_to_async as $async_script ){
+  $scripts_to_async = array( 'comment-reply.min.js', 'custom.js' );
+  foreach( $scripts_to_async as $async_script ) {
     if( true == strpos( $tag, $async_script ) )
       return str_replace( ' src', ' async="async" src', $tag );
   }

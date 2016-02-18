@@ -47,7 +47,7 @@ get_header(); ?>
           $info = get_the_content();
           $loc = get_field("cg_location");
       ?>
-        ['<?php the_title(); ?>','<?php echo $info; ?>',<?php echo $loc['lat']; ?>,<?php echo $loc['lng']; ?>],
+        ['<?php the_title(); ?>','<?php echo $info; ?>',<?= ( $loc ) ? $loc : ''; ?>],
       <?php $i++; endwhile; else : endif; ?>
       <?php wp_reset_query(); ?>
     ];
@@ -62,7 +62,7 @@ get_header(); ?>
         html: mapConnectGroup[1]
       });
       google.maps.event.addListener(mapMarker, 'click', function() {
-        mapInfoWindow.setContent("<h3 class='no-margin-bottom'>" + this.title + "</h3>" + this.html);
+        mapInfoWindow.setContent("<h3 class='h4 u-margin--half'>" + this.title + "</h3>" + this.html);
         mapInfoWindow.open(map, this);
       });
       mapBounds.extend(new google.maps.LatLng(mapConnectGroup[2], mapConnectGroup[3]));
