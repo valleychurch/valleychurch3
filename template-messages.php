@@ -14,7 +14,7 @@ $paged = get_query_var( 'paged', 1 );
 
       <div class="o-col-xxs-12 c-post-content u-center-block">
 
-        <h1><?php the_title(); ?></h1>
+        <h1 <?php ( get_field( 'hide_h1' ) == 1 ) ? print 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 
         <?php
         if ( !$paged || $paged == 1 )

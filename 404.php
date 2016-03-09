@@ -10,7 +10,7 @@
 
         <h1>Sorry, we can't find the page you're looking for!</h1>
 
-        <p class="lead">You can either use the search below, or <a href="/">head back to the home page</a>.</p>
+        <p class="lead">Either use the search below, or <a href="/">head back to the home page</a>.</p>
 
         <?php get_search_form(); ?>
 

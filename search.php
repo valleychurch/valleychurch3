@@ -21,7 +21,6 @@
   <section class="o-container c-section c-section--grey">
 
     <div class="o-row">
-
     <?php while ( have_posts() ) : the_post(); ?>
 
       <div class="o-col-xxs-12">
@@ -43,15 +42,15 @@
       </div>
 
     <?php endwhile; ?>
-
     </div>
 
     <?php get_template_part( 'partials/pagination' ); ?>
 
   </section>
 
-  <?php else : ?>
-  <?php get_template_part( 'partials/no-content-found' ); ?>
-  <?php endif; ?>
+  <?php
+  else :
+    get_template_part( 'partials/no-content-found' );
+  endif; ?>
 
 <?php get_footer(); ?>
