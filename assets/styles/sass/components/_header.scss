@@ -9,10 +9,10 @@
   position: relative;
   z-index: 20;
   background-color: grayscale(2);
-  padding: 0.75rem;
+  padding: .75rem;
 
   @include breakpoint(md) {
-    padding: 0.5rem;
+    padding: .5rem;
   }
 
   @include breakpoint(lg) {
@@ -25,36 +25,36 @@
   }
 }
 
-  .logo {
-    position: relative;
-    display: inline-block;
-    z-index: 10;
-    line-height: 0;
-    // padding: 0.75rem 0;
+.logo {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  line-height: 0;
+  // padding: 0.75rem 0;
 
-    @include breakpoint(md) {
-      padding: 0.3rem 0;
-    }
-
-    @include breakpoint(lg) {
-      padding: 0.8rem 0;
-    }
-
-    & object,
-    & svg {
-      width: 201px;
-      height: 32px;
-      position: relative;
-      z-index: -1;
-      pointer-events: none;
-
-      // @include breakpoint(md) {
-      //   width: 48px;
-      //   height: 48px;
-      // }
-    }
-
-    @include breakpoint(md) {
-      font-size: ms(1);
-    }
+  @include breakpoint(md) {
+    padding: .3rem 0;
   }
+
+  @include breakpoint(lg) {
+    padding: .8rem 0;
+  }
+
+  object,
+  svg {
+    width: 201px;
+    height: 32px;
+    position: relative;
+    z-index: -1;
+    pointer-events: none;
+
+    // @include breakpoint(md) {
+    //   width: 48px;
+    //   height: 48px;
+    // }
+  }
+
+  @include breakpoint(md) {
+    font-size: ms(1);
+  }
+}

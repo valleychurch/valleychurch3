@@ -17,63 +17,63 @@
   }
 
   .c-header & {
-    margin: 0.5rem 0;
+    margin: .5rem 0;
   }
 }
 
-  .c-search__input {
-    padding: 0.5rem 2rem 0.5rem 0.625rem !important;
-    color: colour(black);
-    line-height: 1.35;
-    border: 1px solid greyscale(9);
-    @include transition();
+.c-search__input {
+  padding: .5rem 2rem .5rem .625rem !important;
+  color: colour(black);
+  line-height: 1.35;
+  border: 1px solid greyscale(9);
+  @include transition();
 
+  .c-navigation & {
+    border: 0;
+  }
+
+  @include breakpoint(lg) {
     .c-navigation & {
-      border: none;
-    }
+      color: white;
+      background-color: colour(black);
 
-    @include breakpoint(lg) {
-      .c-navigation & {
-        color: white;
-        background-color: colour(black);
+      &:hover,
+      &:focus {
+        outline: none;
+        //border-bottom-color: colour(white);
 
-        &:hover,
-        &:focus {
-          outline: none;
-          //border-bottom-color: colour(white);
-
-          & + .c-search__button {
-            color: colour(white);
-          }
+        & + .c-search__button {
+          color: colour(white);
         }
       }
     }
   }
+}
 
-  .c-search__button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    min-width: 0;
-    width: 39px;
-    height: 39px;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    color: greyscale(5);
-    line-height: 0;
-    border-width: 0;
-    border-radius: 0 2px 2px 0;
-    @include transition();
+.c-search__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 0;
+  width: 39px;
+  height: 39px;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  color: greyscale(5);
+  line-height: 0;
+  border-width: 0;
+  border-radius: 0 2px 2px 0;
+  @include transition();
 
-    @include breakpoint(lg) {
-      width: 40px;
-      height: 42px;
+  @include breakpoint(lg) {
+    width: 40px;
+    height: 42px;
 
-      &:hover {
-        color: colour(white);
-        background-color: transparent;
-      }
+    &:hover {
+      color: colour(white);
+      background-color: transparent;
     }
   }
+}

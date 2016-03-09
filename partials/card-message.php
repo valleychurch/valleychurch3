@@ -18,7 +18,7 @@
           <?php get_template_part( 'partials/avatar' ); ?>
         </div>
         <div class="o-flag__flex">
-          <p class="u-margin--none">
+          <p class="u-margin--none u-line-height--small">
             <?php if ( get_field( 'podcast_author' ) ) {
               the_field( 'podcast_author' );
             } else {

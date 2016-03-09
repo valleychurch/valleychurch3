@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, h6,
   @include font-stack-alt;
   font-weight: $VCfont-medium;
   line-height: 1.25;
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
 }
 
 .exa {
@@ -61,13 +61,13 @@ ol {
   padding: 0;
 
   li {
-    padding-left: $VCbase * 0.25;
+    padding-left: $VCbase * .25;
   }
 }
 
 hr {
   margin-bottom: $VCbase;
-  border: none;
+  border: 0;
   border-top: 1px solid greyscale(8);
 }
 
@@ -92,7 +92,7 @@ blockquote {
 }
 
 ::selection {
-  background-color: colour(red, 0.75);
+  background-color: colour(red, .75);
   color: white;
 }
 

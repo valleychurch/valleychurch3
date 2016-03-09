@@ -7,35 +7,29 @@ label {
   }
 }
 
-input,
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
 button,
 textarea,
 select {
+  padding: half($VCbase) three-quarters($VCbase);
+  box-sizing: border-box;
   display: block;
   width: 100%;
   line-height: normal;
   border: 1px solid greyscale(8);
   border-radius: 2px;
 
-  @include breakpoint(md) {
-    font-size: ms(-1);
-  }
-}
-
-input[type="text"],
-input[type="search"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
-  box-sizing: border-box;
-  width: 100%;
-  padding: half($VCbase) three-quarters($VCbase);
-
   &:focus,
   &:active {
     outline-color: colour(red);
+  }
+
+  @include breakpoint(md) {
+    font-size: ms(-1);
   }
 }
 
@@ -48,6 +42,7 @@ input[disabled],
 input.is-disabled {
   color: greyscale(8);
   background-color: greyscale(10);
+
   &:hover {
     cursor: not-allowed;
   }

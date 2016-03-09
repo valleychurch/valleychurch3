@@ -3,7 +3,7 @@
   //margin-top: -$VCbase;
 
   @include breakpoint(md) {
-    padding: ($VCbase * 1.5) ($VCbase * 1.5) ($VCbase * 0.5);
+    padding: ($VCbase * 1.5) ($VCbase * 1.5) ($VCbase * .5);
   }
 
   @include breakpoint(lg) {

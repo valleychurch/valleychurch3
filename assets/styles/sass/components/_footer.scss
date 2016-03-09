@@ -22,32 +22,32 @@
   }
 }
 
-  .c-menu-footer {
-    margin: 0;
-    padding: 0;
+.c-menu-footer {
+  margin: 0;
+  padding: 0;
 
-    .menu-item {
-      display: block;
-      float: none !important;
-      margin: 0 0 0.25rem;
+  .menu-item {
+    display: block;
+    float: none !important;
+    margin: 0 0 .25rem;
 
-      &:hover {
-        background-color: transparent;
-      }
+    &:hover {
+      background-color: transparent;
+    }
 
-      a {
-        text-transform: none;
-        padding: 0;
-        letter-spacing: 0;
-      }
+    a {
+      text-transform: none;
+      padding: 0;
+      letter-spacing: 0;
     }
   }
+}
 
-  .c-footer__menu {
-    li {
-      @include breakpoint(md) {
-        display: inline-block;
-        margin-right: $VCbase * 0.5;
-      }
+.c-footer__menu {
+  li {
+    @include breakpoint(md) {
+      display: inline-block;
+      margin-right: $VCbase * .5;
     }
   }
+}

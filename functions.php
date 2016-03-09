@@ -6,8 +6,8 @@
 ============================================================
 */
 
-define( 'VC_THEME_VERSION', '3.0.3' );
-$vc_theme_version = '3.0.3';
+define( 'VC_THEME_VERSION', '3.0.4' );
+$vc_theme_version = '3.0.4';
 
 
 /*
@@ -179,6 +179,15 @@ function add_typekit_tinymce( $plugin_array ) {
   return $plugin_array;
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
+
+
+/**
+ * Add custom login CSS
+ */
+function add_custom_login() {
+  echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/styles/css/wp-login.css?ver=' . VC_THEME_VERSION . '"/>';
+}
+add_action('login_head', 'add_custom_login');
 
 
 /**

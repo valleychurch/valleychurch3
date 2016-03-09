@@ -5,30 +5,14 @@
       @media screen and (#{$rule}: map-get($VCbreakpoints, $bp)) {
         @content;
       }
-    }
-    @else {
+    } @else {
       @media screen and (#{$rule}: (map-get($VCbreakpoints, $bp) - 1)) {
         @content;
       }
     }
-  }
-  @else {
+  } @else {
     @content;
   }
-}
-
-
-// Return a fontsize
-@mixin font-size($ms) {
-  font-size: ms($ms) * $VCfont-size;
-  font-size: ms($ms);
-}
-
-
-// Return a lineheight
-@mixin line-height($ms) {
-  //line-height: strip-units(ms($ms) * $ms-ratio);
-  line-height: (ms($ms) * $VCratio);
 }
 
 
@@ -42,7 +26,7 @@
       font-variant-alternates: styleset("ss04");
       font-feature-settings: "ss04";
 
-      & em {
+      em {
         // font-variant-alternates: styleset("ss01"), styleset("ss03");
         // font-feature-settings: "salt";
       }
@@ -87,6 +71,7 @@
 @mixin pull-left() {
   float: left !important;
 }
+
 @mixin pull-right() {
   float: right !important;
 }
@@ -97,7 +82,7 @@
   width: $s;
   height: $s;
 
-  font-size: round($s * 0.4);
+  font-size: round($s * .4);
   line-height: ($s - 4px);
   font-weight: $VCfont-bold;
 

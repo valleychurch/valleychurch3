@@ -28,16 +28,16 @@
   }
 }
 
-  .c-notification__dismiss {
-    // position: absolute;
-    // top: 0.55rem;
-    // right: 1rem;
-    font-size: 2rem;
-    line-height: 1;
-    text-decoration: none !important;
-    color: white;
-    font-weight: 100;
-  }
+.c-notification__dismiss {
+  // position: absolute;
+  // top: 0.55rem;
+  // right: 1rem;
+  font-size: 2rem;
+  line-height: 1;
+  text-decoration: none !important;
+  color: white;
+  font-weight: 100;
+}
 
 .c-browse-happy {
   padding-top: $VCbase;

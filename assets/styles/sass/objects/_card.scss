@@ -5,49 +5,49 @@
   background: white;
 }
 
-  .o-card__img {
-    width: 100%;
+.o-card__img {
+  width: 100%;
+}
+
+.o-card__body {
+  padding: $VCbase * .75;
+
+  @include breakpoint(md) {
+    padding: $VCbase;
+  }
+}
+
+.o-card__text {
+  color: colour(black);
+}
+
+.o-card__overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: $VCbase * .75;
+  z-index: 10;
+
+  @include breakpoint(sm) {
+    padding: $VCbase;
   }
 
-  .o-card__body {
-    padding: $VCbase * 0.75;
-
-    @include breakpoint(md) {
-      padding: $VCbase;
-    }
-  }
-
+  .o-card__title,
   .o-card__text {
-    color: colour(black);
+    width: 45%;
+    color: white;
   }
+}
 
-  .o-card__overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: $VCbase * 0.75;
-    z-index: 10;
+.o-card__overlay__middle {
+  display: table-cell;
+  vertical-align: middle;
+}
 
-    @include breakpoint(sm) {
-      padding: $VCbase;
-    }
-
-    .o-card__title,
-    .o-card__text {
-      width: 45%;
-      color: white;
-    }
-  }
-
-  .o-card__overlay__middle {
-    display: table-cell;
-    vertical-align: middle;
-  }
-
-  .o_card__overlay__link {
-    text-decoration: underline;
-  }
+.o_card__overlay__link {
+  text-decoration: underline;
+}
 
 .o-card--overlay {
   &::after {
@@ -60,7 +60,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: greyscale(2, 0.8);
+    background-color: greyscale(2, .8);
     z-index: 0;
   }
 }

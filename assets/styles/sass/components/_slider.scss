@@ -45,14 +45,13 @@
 
   .rslides_nav {
     position: absolute;
-    z-index: 5;
     width: 20px;
     height: 32px;
-    bottom: 0.75rem;
+    bottom: .75rem;
     z-index: 10;
 
-    & object,
-    & svg {
+    object,
+    svg {
       pointer-events: none;
     }
 
@@ -67,11 +66,11 @@
     }
 
     &.prev {
-      left: $VCbase * 0.75;
+      left: $VCbase * .75;
     }
 
     &.next {
-      right: $VCbase * 0.75;
+      right: $VCbase * .75;
     }
 
     &:hover {
@@ -86,7 +85,7 @@
 
   .rslides_tabs {
     position: absolute;
-    bottom: $VCbase * 0.5;
+    bottom: $VCbase * .5;
     left: 0;
     right: 0;
     z-index: 8;

@@ -11,19 +11,19 @@
   // @include make-container-max-widths();
 }
 
-  .o-container--full {
-    max-width: 100%;
-  }
+.o-container--full {
+  max-width: 100%;
+}
 
-  .o-container--sm {
-    max-width: map-get($VCbreakpoints, 'lg');
-  }
+.o-container--sm {
+  max-width: map-get($VCbreakpoints, 'lg');
+}
 
-  .o-container--page {
-    padding-left: 0;
-    padding-right: 0;
-    @include box-shadow;
-  }
+.o-container--page {
+  padding-left: 0;
+  padding-right: 0;
+  @include box-shadow;
+}
 
 
 // Fluid container
