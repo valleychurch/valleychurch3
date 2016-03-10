@@ -8,7 +8,6 @@
   @include make-container();
   max-width: $VCmax-width;
   @include clearfix();
-  // @include make-container-max-widths();
 }
 
 .o-container--full {
@@ -25,21 +24,8 @@
   @include box-shadow;
 }
 
-
-// Fluid container
-//
-// Utilizes the mixin meant for fixed width containers, but without any defined
-// width for fluid, full width layouts.
-
-// .o-container-fluid {
-//   @include make-container();
-// }
-
-
 // Row
-//
 // Rows contain and clear the floats of your columns.
-
 @if $VCenable-grid-classes {
   .o-row {
     @include make-row();
@@ -48,22 +34,17 @@
 
 
 // Columns
-//
 // Common styles for small and large grid columns
-
 @if $VCenable-grid-classes {
   @include make-grid-columns();
 }
 
 
 // Flex variation
-//
 // Custom styles for additional flex alignment options.
-
 @if $VCenable-flex and $VCenable-grid-classes {
 
   // Flex column reordering
-
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
       .o-col-#{$breakpoint}-first { order: -1; }
@@ -72,7 +53,6 @@
   }
 
   // Alignment for every column in row
-
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
       .o-row-#{$breakpoint}-top    { align-items: flex-start; }
@@ -82,7 +62,6 @@
   }
 
   // Alignment per column
-
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
       .o-col-#{$breakpoint}-top    { align-self: flex-start; }

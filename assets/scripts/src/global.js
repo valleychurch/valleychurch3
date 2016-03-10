@@ -2,7 +2,7 @@
  * Global variable for storing bits of information and resuables
  */
 var valley = {
-  version: '3.0.4',
+  version: '3.0.5',
   isModernBrowser: (
     'querySelector' in document
     && 'addEventListener' in window

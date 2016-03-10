@@ -110,7 +110,7 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 }
 
 @function three-quarters($n) {
-  @return ($n / (1 / 0.75));
+  @return ($n / (1 / .75));
 }
 
 @function double($n) {

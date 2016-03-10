@@ -48,6 +48,10 @@
       font-size: ms(-1);
     }
 
+    &[href] {
+      color: colour(white);
+    }
+
     @include breakpoint(lg) {
       color: greyscale(8);
       text-transform: none;
@@ -71,10 +75,6 @@
     position: absolute;
     width: 15rem;
     background-color: colour(black);
-
-    // &:hover {
-    //   display: block;
-    // }
   }
 
   & & {
@@ -111,7 +111,7 @@
         cursor: pointer;
       }
 
-      &[target=_blank]::after {
+      &[target="_blank"]::after {
         content: "\f08e";
         display: inline-block;
         position: relative;
@@ -153,7 +153,6 @@
   padding: .5rem 1rem 1rem;
   background-color: colour(black);
   -webkit-overflow-scrolling: touch;
-  // transition: transform 250ms ease-in-out;
 
   @include breakpoint(xs) {
     width: 18rem;

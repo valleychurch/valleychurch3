@@ -103,3 +103,14 @@ blockquote {
   margin-right: auto;
   text-align: center;
 }
+
+code,
+kbd,
+pre,
+samp {
+  font-size: ms(0);
+
+  @include breakpoint(md) {
+    font-size: ms(-1);
+  }
+}
