@@ -32,7 +32,7 @@ $VCcolour-percentage-x: double($VCcolour-percentage);
 $VCtransition-timing:   150ms;
 $VCtransition-easing:   ease-in-out;
 
-$VCcdn-url:             "//cdn.valleychurch.eu"; //Protocol-relative for when we move to HTTPS
+$VCcdn-url:             "//cdn.valleychurch.eu";
 
 // Flags
 $VCenable-flex:         true;
@@ -46,7 +46,6 @@ $VCfont-stack-alt:      "usual", $VCfont-stack;
 $VCwhite:               #fff;
 $VCblack:               #000;
 $VCred:                 #b21e28;    // Pantone 7621C
-$VCblue:                #3a5dae;    // Pantone
 $VCyellow:              #f4ca1a;    // Pantone 7504C
 
 $VCcolours: (
@@ -61,14 +60,6 @@ $VCcolours: (
     x-light:            lighten($VCred, $VCcolour-percentage-x),
   ),
 
-  blue: (
-    x-dark:             darken($VCblue, $VCcolour-percentage-x),
-    dark:               darken($VCblue, $VCcolour-percentage),
-    base:               $VCblue,
-    light:              lighten($VCblue, $VCcolour-percentage),
-    x-light:            lighten($VCblue, $VCcolour-percentage-x),
-  ),
-
   yellow: (
     x-dark:             darken($VCyellow, $VCcolour-percentage-x),
     dark:               darken($VCyellow, $VCcolour-percentage),
@@ -80,7 +71,6 @@ $VCcolours: (
 
 // Taken from Scooter CSS
 // https://github.com/dropbox/scooter/blob/master/scss/variables/_colors.scss
-// TODO: Tint with some $VCred?
 $VCgrayscale-colours: (
   1:  #171717,
   2:  #2e2e2e,

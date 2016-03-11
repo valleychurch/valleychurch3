@@ -21,7 +21,7 @@ body {
   @include font-stack;
   line-height: $VCline-height;
   color: colour(black);
-  @include transition();
+  @include transition;
 
   &.is-menu-active {
     position: fixed;

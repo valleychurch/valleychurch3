@@ -112,20 +112,24 @@
 %u-margin {
   margin-bottom: $VCbase;
 
+  &--quadruple {
+    margin-bottom: quadruple($VCbase) !important;
+  }
+
   &--double {
-    margin-bottom: double($VCbase);
+    margin-bottom: double($VCbase) !important;
   }
 
   &--half {
-    margin-bottom: half($VCbase);
+    margin-bottom: half($VCbase) !important;
   }
 
   &--quarter {
-    margin-bottom: $VCbase * .25;
+    margin-bottom: quarter($VCbase) !important;
   }
 
   &--none {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
 

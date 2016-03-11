@@ -1,5 +1,5 @@
 .c-avatar {
-  @include avatar-size();
+  @include avatar-size;
 
   display: inline-block;
   vertical-align: middle;

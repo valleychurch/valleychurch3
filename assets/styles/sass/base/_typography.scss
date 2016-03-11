@@ -108,9 +108,38 @@ code,
 kbd,
 pre,
 samp {
+  padding: 2px 4px;
+  background: grayscale(11);
+  border-radius: 2px;
+  font-size: 14px;
+
+  @include breakpoint(xs) {
+    font-size: 15px;
+  }
+
+  @include breakpoint(md) {
+    font-size: 16px;
+  }
+
+  @include breakpoint(lg) {
+    font-size: 17px;
+  }
+}
+
+pre > code {
   font-size: ms(0);
 
   @include breakpoint(md) {
     font-size: ms(-1);
   }
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  line-height: 1.25 !important;
+}
+
+:not(pre)>code[class*=language-],
+pre[class*=language-] {
+  background-color: greyscale(11) !important;
 }

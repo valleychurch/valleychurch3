@@ -1,7 +1,9 @@
 "use strict";
 module.exports = function(grunt) {
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
+
     sass: {
       dist: {
         options: {
@@ -14,6 +16,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     postcss: {
       options: {
         map: true,
@@ -25,6 +28,7 @@ module.exports = function(grunt) {
         src: 'assets/styles/css/*.css'
       }
     },
+
     uglify: {
       options: {
         mangle: false
@@ -46,6 +50,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     imagemin: {
       dynamic: {
         files: [{
@@ -56,6 +61,7 @@ module.exports = function(grunt) {
         }]
       }
     },
+
     watch: {
       css: {
         files: 'assets/styles/sass/**/*.scss',
@@ -69,22 +75,18 @@ module.exports = function(grunt) {
         files: ['assets/images/src/*.{png,jpg,gif,svg}'],
         tasks: ['imagemin', 'notify:images']
       },
-      // livereload: {
-      //   options: { livereload: true },
-      //   files: ['assets/**/*'],
-      // }
     },
+
     criticalcss: {
       dist: {
         options: {
           url: "https://valleychurch.eu",
-          //width: 1920,
-          //height: 1080,
           outputfile: 'assets/styles/css/critical.min.css',
           filename: 'assets/styles/css/style.min.css'
         }
       }
     },
+
     cssmin: {
       options: {
         sourceMap: false,
@@ -97,6 +99,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     notify: {
       notify_hooks: {
         options: {
