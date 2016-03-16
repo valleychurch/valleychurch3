@@ -2,7 +2,7 @@
   <?php get_template_part( 'partials/featured-image' ); ?>
   <div class="o-card__body">
     <h3 class="h1 o-card__title">
-      <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>">
+      <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>">
         <?php the_title(); ?>
       </a>
     </h3>

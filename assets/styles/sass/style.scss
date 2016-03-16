@@ -29,28 +29,29 @@
 
 // Objects
 // Cosmetic-free design patterns
-@import "objects/grid";
-@import "objects/media";
-@import "objects/flag";
-@import "objects/card";
 @import "objects/buttons";
-@import "objects/ratio";
+@import "objects/card";
+@import "objects/flag";
+@import "objects/grid";
 @import "objects/lists";
+@import "objects/media";
+@import "objects/ratio";
 
 // Components
 // Designed chunks of UI
 @import "components/avatar";
-@import "components/notification";
-@import "components/header";
-@import "components/navigation";
-@import "components/main";
-@import "components/search";
 @import "components/banner";
-@import "components/slider";
-@import "components/post";
-@import "components/pagination";
 @import "components/footer";
+@import "components/header";
+@import "components/main";
 @import "components/map";
+@import "components/navigation";
+@import "components/notification";
+@import "components/pagination";
+@import "components/post";
+@import "components/search";
+@import "components/sharer";
+@import "components/slider";
 
 // Trumps
 // Helpers and overrides

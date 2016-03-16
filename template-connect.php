@@ -47,7 +47,7 @@ get_header(); ?>
           $info = get_the_content();
           $loc = get_field("cg_location");
       ?>
-        ['<?php the_title(); ?>','<?php echo $info; ?>',<?= ( $loc ) ? $loc : ''; ?>],
+        ['<?php the_title(); ?>','<?= $info; ?>',<?= ( $loc ) ? $loc : ''; ?>],
       <?php $i++; endwhile; else : endif; ?>
       <?php wp_reset_query(); ?>
     ];

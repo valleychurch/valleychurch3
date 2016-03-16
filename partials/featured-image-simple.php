@@ -17,19 +17,19 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
 <figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
   <picture>
     <?php if ( $img ) { ?>
-    <source media="(min-width: 70rem)" srcset="<?php echo $img[0]; ?>">
+    <source media="(min-width: 70rem)" srcset="<?= $img[0]; ?>">
     <?php } ?>
     <?php if ( $img_large ) { ?>
-    <source media="(min-width: 50rem)" srcset="<?php echo $img_large[0]; ?>">
+    <source media="(min-width: 50rem)" srcset="<?= $img_large[0]; ?>">
     <?php } ?>
     <?php if ( $img_medium ) { ?>
-    <source media="(min-width: 40rem)" srcset="<?php echo $img_medium[0]; ?>">
+    <source media="(min-width: 40rem)" srcset="<?= $img_medium[0]; ?>">
     <?php } ?>
     <?php if ( $img_small ) { ?>
-    <source srcset="<?php echo $img_small[0]; ?>">
+    <source srcset="<?= $img_small[0]; ?>">
     <?php } ?>
     <?php if ( $img ) { ?>
-    <img srcset="<?php echo $img[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img[1]; ?>" height="<?php echo $img[2]; ?>">
+    <img srcset="<?= $img[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img[1]; ?>" height="<?= $img[2]; ?>">
     <?php } ?>
   </picture>
 </figure>

@@ -16,16 +16,16 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
 <figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
   <picture>
     <?php if ( $img_banner ) { ?>
-    <source media="(min-width: 70rem)" srcset="<?php echo $img_banner[0]; ?>">
+    <source media="(min-width: 70rem)" srcset="<?= $img_banner[0]; ?>">
     <?php } ?>
     <?php if ( $img_banner_medium ) { ?>
-    <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_medium[0]; ?>">
+    <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
     <?php } ?>
     <?php if ( $img_banner_small ) { ?>
-    <source srcset="<?php echo $img_banner_small[0]; ?>">
+    <source srcset="<?= $img_banner_small[0]; ?>">
     <?php } ?>
     <?php if ( $img_banner ) { ?>
-    <img srcset="<?php echo $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner[1]; ?>" height="<?php echo $img_banner[2]; ?>">
+    <img srcset="<?= $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img_banner[1]; ?>" height="<?= $img_banner[2]; ?>">
     <?php } ?>
   </picture>
 

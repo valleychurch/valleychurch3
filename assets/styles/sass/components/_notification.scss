@@ -1,7 +1,6 @@
 .c-notification {
   overflow: hidden;
   max-height: 0;
-  //background-color: greyscale(5);
   background-color: colour(red, dark);
   color: white;
   @include transition();
@@ -17,8 +16,12 @@
 
     a {
       color: white;
-      //text-decoration: underline;
       border-bottom: 1px solid;
+
+      &:hover,
+      &:focus {
+        color: colour(white);
+      }
     }
   }
 
@@ -29,9 +32,6 @@
 }
 
 .c-notification__dismiss {
-  // position: absolute;
-  // top: 0.55rem;
-  // right: 1rem;
   font-size: 2rem;
   line-height: 1;
   text-decoration: none !important;

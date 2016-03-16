@@ -15,7 +15,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
       <div class="o-col-xxs-12 c-post-content u-center-block">
 
-        <h1><?php echo apply_filters( 'the_title', get_the_title( $front_page_id ) ); ?></h1>
+        <h1><?= apply_filters( 'the_title', get_the_title( $front_page_id ) ); ?></h1>
 
         <?php
         //if ( $paged == 1 ) {

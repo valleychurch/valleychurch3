@@ -109,10 +109,16 @@ module.exports = function(grunt) {
           duration: 3 // the duration of notification in seconds, for `notify-send` only
         }
       },
-      watch: {
+      local: {
+        options: {
+          title: 'Local site built',
+          message: 'All files compiled, watching for changes'
+        }
+      },
+      build: {
         options: {
           title: 'Site built',
-          message: 'All files compiled, watching for changes'
+          message: 'All files compiled and critical CSS generated, watching for changes'
         }
       },
       sass: {
@@ -145,14 +151,27 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-notify');
 
+  grunt.registerTask('local', [
+    'sass',
+    'postcss',
+    'uglify',
+    'imagemin',
+    'notify:local',
+    'watch',
+  ]);
+
   grunt.registerTask('default', [
+    'local'
+  ]);
+
+  grunt.registerTask('build', [
     'sass',
     'postcss',
     'uglify',
     'imagemin',
     'criticalcss',
     'cssmin',
-    'notify:watch',
+    'notify:build',
     'watch',
   ]);
 };

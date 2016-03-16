@@ -23,24 +23,24 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Inline Critical CSS -->
-    <style><?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
+    <style><?= file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/styles/css/style.min.css?ver=<?php echo VC_THEME_VERSION; ?>" />
+    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.min.css?ver=<?= VC_THEME_VERSION; ?>" />
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/jquery.min.js?ver=<?php echo VC_THEME_VERSION; ?>"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/global.min.js?ver=<?php echo VC_THEME_VERSION; ?>"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/script.min.js?ver=<?php echo VC_THEME_VERSION; ?>"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/jquery.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/global.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/script.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
   <body>
 

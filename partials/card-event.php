@@ -2,7 +2,7 @@
   <?php get_template_part( 'partials/featured-image-slide' ); ?>
   <div class="o-card__body">
     <h2 class="o-card__title <?php ( get_field( 'event_date' ) ) ? print 'u-margin--none' : '' ?>">
-      <!-- <a href="<?php echo get_permalink(); ?>" title="<?php the_title(); ?>"> -->
+      <!-- <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>"> -->
         <?php the_title(); ?>
       <!-- </a> -->
     </h2>

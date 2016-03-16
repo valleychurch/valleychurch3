@@ -57,7 +57,7 @@ get_header(); ?>
             while ( have_rows( 'twitter' ) ) {
               the_row(); ?>
           <p class="u-margin--half">
-            <a href="http://twitter.com/<?php echo get_sub_field( 'twitter_handle' ); ?>" target="_blank">
+            <a href="http://twitter.com/<?= get_sub_field( 'twitter_handle' ); ?>" target="_blank">
               <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
             </a>
           </p>

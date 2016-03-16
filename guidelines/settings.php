@@ -14,7 +14,7 @@
                   <p class="lead u-margin--quadruple">A central file for controlling the look and feel of the site</p>
 
                   <h3 id="variables">Variables</h3>
-<pre class="u-margin--quadruple"><code class="language-css"><?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/sass/settings/_variables.scss' ); ?></code></pre>
+<pre class="u-margin--quadruple"><code class="language-css"><?= file_get_contents( get_template_directory_uri() . '/assets/styles/sass/settings/_variables.scss' ); ?></code></pre>
 
                   <h3 id="fonts" class="u-margin--half">Fonts</h3>
                   <p>Loads local font files for Lato.</p>

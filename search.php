@@ -31,10 +31,10 @@
           } ?>
           </div>
           <div class="o-col-xxs-12 o-col-sm-7 o-col-md-8 o-col-lg-9">
-            <h2 class="u-margin--half"><a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_title(); ?></a></h2>
-            <p class="u-text-muted"><em><?php echo str_replace( 'http://', '', get_permalink() ); ?></em></p>
+            <h2 class="u-margin--half"><a href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>"><?php the_title(); ?></a></h2>
+            <p class="u-text-muted"><em><?= str_replace( 'http://', '', get_permalink() ); ?></em></p>
             <?php the_excerpt(); ?>
-            <a class="o-btn" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+            <a class="o-btn" href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>">
               Read more
             </a>
           </div>

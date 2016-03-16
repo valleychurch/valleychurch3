@@ -29,7 +29,7 @@
 
             <h1><?php the_title(); ?></h1>
             <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
-            <h2><?php echo get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
+            <h2><?= get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
             <?php } ?>
 
             <div class="o-flag u-margin--double">

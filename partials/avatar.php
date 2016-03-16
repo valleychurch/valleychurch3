@@ -8,9 +8,9 @@ $initials = substr(get_the_author_meta('first_name'),0,1) . substr(get_the_autho
 
 if ( get_avatar( $id ) ) { ?>
 <figure class="c-avatar c-avatar--md">
-  <?php echo get_avatar( $id, $size, $fallback, $alt ); ?>
+  <?= get_avatar( $id, $size, $fallback, $alt ); ?>
 </figure>
 <?php } else { ?>
-<figure class="c-avatar c-avatar--md c-avatar--no-img" data-initials="<?php echo $initials; ?>">
+<figure class="c-avatar c-avatar--md c-avatar--no-img" data-initials="<?= $initials; ?>">
 </figure>
 <?php } ?>

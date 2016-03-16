@@ -7,7 +7,7 @@
 
             </div>
             <div class="o-col-xxs-12 o-col-sm-3 u-text-center--xxs u-text-right--sm">
-              <p class="u-margin--none">&copy; 2016 Valley Church</p>
+              <p class="u-margin--none">&copy; <?= date( 'Y' ) . ' ' . bloginfo( 'name' ); ?></p>
             </div>
           </div>
         </div>

@@ -40,12 +40,12 @@
           <div class="o-card__body">
 
             <?php if ( get_sub_field( 'title' ) ) { ?>
-            <h2 class="h3 o-card__title"><?php echo get_sub_field( 'title' ); ?></h2>
+            <h2 class="h3 o-card__title"><?= get_sub_field( 'title' ); ?></h2>
             <?php } ?>
 
             <?php if ( get_sub_field( 'content' ) ) { ?>
             <p class="o-card__text">
-              <?php echo get_sub_field( 'content' ); ?>
+              <?= get_sub_field( 'content' ); ?>
             </p>
             <?php } ?>
 

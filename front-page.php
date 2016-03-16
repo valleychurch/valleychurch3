@@ -7,7 +7,7 @@
   }
 ?>
 
-  <section class="c-banner c-banner--red" style="background-image:url('<?php echo $featured; ?>');">
+  <section class="c-banner c-banner--red" style="background-image:url('<?= $featured; ?>');">
     <div class="o-container u-text-center">
     <?php if ( !empty( get_the_content() ) ) {
       the_content();
@@ -45,16 +45,16 @@
               <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
               <picture>
                 <?php if ( $img_banner_small ) { ?>
-                <source media="(min-width: 60rem)" srcset="<?php echo $img_banner_small[0]; ?>">
+                <source media="(min-width: 60rem)" srcset="<?= $img_banner_small[0]; ?>">
                 <?php }
                 if ( $img_banner_medium ) { ?>
-                <source media="(min-width: 40rem)" srcset="<?php echo $img_banner_medium[0]; ?>">
+                <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
                 <?php }
                 if ( $img_banner_small ) { ?>
-                <source srcset="<?php echo $img_banner_small[0]; ?>">
+                <source srcset="<?= $img_banner_small[0]; ?>">
                 <?php }
                 if ( $img_banner_small ) { ?>
-                <img srcset="<?php echo $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?php echo $img_banner_small[1]; ?>" height="<?php echo $img_banner_small[2]; ?>">
+                <img srcset="<?= $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img_banner_small[1]; ?>" height="<?= $img_banner_small[2]; ?>">
                 <?php } ?>
               </picture>
               <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
@@ -69,7 +69,7 @@
     <?php wp_reset_query(); ?>
     <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
       <div class="o-col-xxs-12 o-col-md-6">
-        <span class="o-card o-card--overlay">
+        <div class="o-card o-card--overlay">
           <?php if ( get_field( 'image' ) ) {
             set_query_var( 'image_id', get_field('image')["id"] );
             get_template_part( 'partials/featured-image', 'simple' );
@@ -78,27 +78,27 @@
           <div class="o-card__overlay">
             <div class="o-card__overlay__middle">
             <?php if ( get_field( 'title' ) ) { ?>
-              <h2 class="o-card__title"><?php echo get_field( 'title' ); ?></h2>
+              <h2 class="o-card__title"><?= get_field( 'title' ); ?></h2>
             <?php } ?>
             <?php if ( get_field( 'content' ) ) { ?>
               <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
-              <?php echo get_field( 'content' ); ?>
+              <?= get_field( 'content' ); ?>
               </p>
             <?php } ?>
             <?php if ( get_field( 'show_button' ) == 1 ) { ?>
               <a class="o-btn o-btn--ghost" href="<?php the_field( 'button_link' ); ?>">
-                <?php echo get_field( 'button_text' ); ?>
+                <?= get_field( 'button_text' ); ?>
               </a>
             <?php } ?>
             </div>
           </div>
-        </span>
+        </div>
       </div>
     <?php } ?>
     </div>
   </section>
 
-  <section class="c-banner" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg'); ">
+  <section class="c-banner" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg'); ">
     <div class="o-container u-text-center">
       <div class="o-container o-container--sm">
         <p class="h1 u-hide u-show--sm"><em>"We're not keeping this to ourselves, we're passing it along to the next generation&mdash;God's fame and fortune, the marvelous things He has done."</em></p>
@@ -128,12 +128,12 @@
           <div class="o-card__body">
 
             <?php if ( get_sub_field( 'title' ) ) { ?>
-            <h2 class="h3 o-card__title"><?php echo get_sub_field( 'title' ); ?></h2>
+            <h2 class="h3 o-card__title"><?= get_sub_field( 'title' ); ?></h2>
             <?php } ?>
 
             <?php if ( get_sub_field( 'content' ) ) { ?>
             <p class="o-card__text">
-              <?php echo get_sub_field( 'content' ); ?>
+              <?= get_sub_field( 'content' ); ?>
             </p>
             <?php } ?>
 

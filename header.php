@@ -26,7 +26,7 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
     <!-- Inline Critical CSS -->
-    <style><?php echo file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
+    <style><?= file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
@@ -35,8 +35,8 @@
     <!-- IE fixes -->
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
 
     <?php wp_head(); ?>

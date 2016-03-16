@@ -45,7 +45,7 @@ get_header();
     $location = get_field('location');
     if ( $location ) {
     ?>
-      ['<?php the_title(); ?>', <?php echo $location['lat']; ?>, <?php echo $location['lng']; ?>],
+      ['<?php the_title(); ?>', <?= $location['lat']; ?>, <?= $location['lng']; ?>],
     <?php
     $i++;
     }
@@ -124,7 +124,7 @@ get_header();
             <?php if ( get_field( 'address' ) ) { ?>
             <p>
             <?php if ( get_field( 'google_maps_link' ) ) { ?>
-              <a href="http://<?php echo get_field( 'google_maps_link' ); ?>" target="_blank">
+              <a href="http://<?= get_field( 'google_maps_link' ); ?>" target="_blank">
             <?php }
             echo get_field( 'address' );
             if ( get_field( 'google_maps_link' ) ) { ?>

@@ -274,12 +274,12 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
  */
 function loadCSSAsync() { ?>
   <!--<script>
-    <?php echo file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
+    <?= file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
     if (!valley.css.loaded) {
       if (valley.isModernBrowser) {
-        loadCSSWithAjax('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
+        loadCSSWithAjax('<?= get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
       } else {
-        loadCSSWithLink('<?php echo get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
+        loadCSSWithLink('<?= get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
       }
     }
 
@@ -304,7 +304,7 @@ function loadCSSAsync() { ?>
  */
 function loadCSSFallback() { ?>
   <!--<noscript>
-    <link href="<?php echo get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>" rel="stylesheet" type="text/css">
+    <link href="<?= get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </noscript>-->
 <?php }
