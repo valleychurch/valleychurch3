@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Global variable for storing bits of information and resuables
  */
@@ -76,11 +77,11 @@ function loadCSSWithAjax(c, save) {
         if(xhr.status === 200) {
           inlineCSS(xhr.responseText, valley.version);
           if (save === true) {
-            //storeCSS(xhr.responseText, valley.version);
+            storeCSS(xhr.responseText, valley.version);
           }
-        };
+        }
       }
-    }
+    };
     setTimeout( function () {
       if(xhr.readyState < 4) {
         xhr.abort();

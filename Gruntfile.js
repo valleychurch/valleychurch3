@@ -78,6 +78,21 @@ module.exports = function(grunt) {
       },
     },
 
+    version: {
+      php: {
+        options: {
+          prefix: '\'VC_THEME_VERSION\', \''
+        },
+        src: [ 'functions.php' ]
+      },
+      js: {
+        options: {
+          prefix: 'version: \''
+        },
+        src: [ 'assets/scripts/src/global.js' ]
+      }
+    },
+
     // criticalcss: {
     //   dist: {
     //     options: {
@@ -119,8 +134,8 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
-          title: 'Site built',
-          message: 'All files compiled and critical CSS generated, watching for changes'
+          title: 'Site built (v<%= pkg.version %>)',
+          message: 'All files compiled and version number bumped, watching for changes'
         }
       },
       sass: {
@@ -152,6 +167,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-version');
 
   grunt.registerTask('local', [
     'sass',
@@ -166,14 +182,13 @@ module.exports = function(grunt) {
     'local'
   ]);
 
-  // grunt.registerTask('build', [
-  //   'sass',
-  //   'postcss',
-  //   'uglify',
-  //   'imagemin',
-  //   'criticalcss',
-  //   'cssmin',
-  //   'notify:build',
-  //   'watch',
-  // ]);
+  grunt.registerTask('build', [
+    'version',
+    'sass',
+    'postcss',
+    'uglify',
+    'imagemin',
+    'notify:build',
+    'watch',
+  ]);
 };

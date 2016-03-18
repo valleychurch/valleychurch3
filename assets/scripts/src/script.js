@@ -1,4 +1,6 @@
-var googleActive = (typeof google !== "undefined")
+"use strict";
+
+var googleActive = (typeof google !== "undefined");
 
 var map,
     mapOpts,
@@ -187,15 +189,15 @@ function debounce(func, wait, immediate) {
     var context = this, args = arguments;
     var later = function() {
       timeout = null;
-      if (!immediate) result = func.apply(context, args);
+      if (!immediate) { result = func.apply(context, args); }
     };
     var callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) result = func.apply(context, args);
+    if (callNow) { result = func.apply(context, args); }
     return result;
   };
-};
+}
 
 // Attaches events to allow notification functionality to work
 function checkNotifications() {
@@ -212,7 +214,7 @@ function checkNotifications() {
     }
   }
   catch( e ) { }
-};
+}
 
 // Attach the event for the click
 function attachNotifications() {
@@ -248,7 +250,7 @@ function addTests() {
 
     return !!(fontVariantLigatures || fontFeatureSettings);
   });
-};
+}
 
 // Side nav toggle
 function sideNav() {
@@ -256,7 +258,7 @@ function sideNav() {
     e.preventDefault();
     $('body').toggleClass('is-menu-active');
   });
-};
+}
 
 // Check if sidenav is still showing on >60em windows
 function checkSideNav() {
@@ -265,7 +267,7 @@ function checkSideNav() {
       $('body').removeClass('is-menu-active');
     }
   }
-};
+}
 
 function loadHomeSlider() {
   var prevImg =
@@ -304,13 +306,13 @@ $(function() {
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 
   var doc = document.documentElement;
-  doc.setAttribute('data-useragent', navigator.userAgent)
+  doc.setAttribute('data-useragent', navigator.userAgent);
 });
 
 $(window).load(function() {
   checkNotifications();
   valley.js.loaded = true;
-})
+});
 
 $(window).resize(function() {
   debounce(checkSideNav(), 250);
