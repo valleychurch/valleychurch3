@@ -25,9 +25,6 @@
 
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Inline Critical CSS -->
-    <style><?= file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
-
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>

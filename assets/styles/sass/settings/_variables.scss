@@ -15,15 +15,18 @@ $ms-ratio:              $VCratio;
 $VCgrid-gutter:         2rem;
 $VCgrid-columns:        12;
 
+// Breakpoints in em rather than rem as per
+// http://zellwk.com/blog/media-query-units/
 $VCmax-width:           80rem;
+$VCmax-width-alt:       80em;
 $VCbreakpoints: (
   xxs:                  0,
-  xs:                   25rem,
-  sm:                   40rem,
-  md:                   50rem,
-  lg:                   60rem,
-  xl:                   70rem,
-  max:                  $VCmax-width
+  xs:                   25em,
+  sm:                   40em,
+  md:                   50em,
+  lg:                   60em,
+  xl:                   70em,
+  max:                  $VCmax-width-alt
 );
 
 $VCcolour-percentage:   10%;

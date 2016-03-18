@@ -11,7 +11,7 @@
               </ul>
             </div>
             <div class="o-col-xxs-12 o-col-sm-3 u-text-center--xxs u-text-right--sm">
-              <p class="u-margin--none">&copy; <?= date( 'Y' ) . ' ' . bloginfo( 'name' ); ?></p>
+              <p class="u-margin--none">&copy; <?= date( 'Y' ); ?> <?= bloginfo( 'name' ); ?></p>
             </div>
           </div>
         </div>

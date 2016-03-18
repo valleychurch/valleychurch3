@@ -7,14 +7,13 @@
 */
 
 define( 'VC_THEME_VERSION', '3.0.5' );
-$vc_theme_version = '3.0.5';
 
 
 /*
 ============================================================
   Reusable functions
 ============================================================
-*/
+*
 
 /**
  * Check if a string is plural
@@ -226,8 +225,8 @@ function theme_files() {
   remove_action( 'wp_head', 'wp_generator' );                           // WP version
 
   // Register our CSS
-  wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', '4.5.0' );
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.min.css', ['font-awesome'], VC_THEME_VERSION );
+  wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', null, null );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', ['font-awesome'], null );
 
   wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
@@ -236,12 +235,10 @@ function theme_files() {
   wp_deregister_script( 'jquery' );
 
   // Register our scripts
-  wp_register_script( 'global', get_template_directory_uri() . '/assets/scripts/dist/global.min.js', null, VC_THEME_VERSION, false );
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', false );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.min.js', [ 'global', 'jquery' ], VC_THEME_VERSION, true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
-  wp_enqueue_script( 'global' );
   if ( is_page( 'connect' ) ) { wp_enqueue_script( 'google-maps' ); }
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'site' );

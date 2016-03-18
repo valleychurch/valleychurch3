@@ -109,47 +109,47 @@
 
 //Margins
 .u-margin,
-%u-margin {
+.u-margin-bottom {
   margin-bottom: $VCbase;
 
-  &--quadruple {
-    margin-bottom: quadruple($VCbase) !important;
-  }
+  &--quadruple { margin-bottom: quadruple($VCbase) !important; }
+  &--double    { margin-bottom: double($VCbase) !important; }
+  &--half      { margin-bottom: half($VCbase) !important; }
+  &--quarter   { margin-bottom: quarter($VCbase) !important; }
+  &--none      { margin-bottom: 0 !important; }
+}
 
-  &--double {
-    margin-bottom: double($VCbase) !important;
-  }
+.u-margin-top {
+  margin-top: $VCbase;
 
-  &--half {
-    margin-bottom: half($VCbase) !important;
-  }
-
-  &--quarter {
-    margin-bottom: quarter($VCbase) !important;
-  }
-
-  &--none {
-    margin-bottom: 0 !important;
-  }
+  &--quadruple { margin-top: quadruple($VCbase) !important; }
+  &--double    { margin-top: double($VCbase) !important; }
+  &--half      { margin-top: half($VCbase) !important; }
+  &--quarter   { margin-top: quarter($VCbase) !important; }
+  &--none      { margin-top: 0 !important; }
 }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
     .u-margin--#{$breakpoint},
-    %u-margin--#{$breakpoint} {
+    .u-margin-bottom--#{$breakpoint} {
       margin-bottom: $VCbase;
 
-      &--double {
-        margin-bottom: double($VCbase);
-      }
+      &--quadruple { margin-bottom: quadruple($VCbase) !important; }
+      &--double    { margin-bottom: double($VCbase) !important; }
+      &--half      { margin-bottom: half($VCbase) !important; }
+      &--quarter   { margin-bottom: quarter($VCbase) !important; }
+      &--none      { margin-bottom: 0 !important; }
+    }
 
-      &--half {
-        margin-bottom: half($VCbase);
-      }
+    .u-margin-top--#{$breakpoint} {
+      margin-top: $VCbase;
 
-      &--none {
-        margin-bottom: 0;
-      }
+      &--quadruple { margin-top: quadruple($VCbase) !important; }
+      &--double    { margin-top: double($VCbase) !important; }
+      &--half      { margin-top: half($VCbase) !important; }
+      &--quarter   { margin-top: quarter($VCbase) !important; }
+      &--none      { margin-top: 0 !important; }
     }
   }
 }

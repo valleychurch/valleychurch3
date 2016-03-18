@@ -11,8 +11,8 @@ module.exports = function(grunt) {
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',
-          'assets/styles/css/style.min.css': 'assets/styles/sass/style.scss',
-          'assets/styles/css/editor-style.css': 'assets/styles/sass/editor-style.scss',
+          'assets/styles/css/style.<%= pkg.version %>.min.css': 'assets/styles/sass/style.scss',
+          'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
         }
       }
     },
@@ -35,15 +35,16 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'assets/scripts/dist/script.min.js':
+          'assets/scripts/dist/script.<%= pkg.version %>.min.js':
             [
               'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
+              'assets/scripts/src/global.js',
               'assets/scripts/src/script.js'
             ],
-          'assets/scripts/dist/global.min.js': 'assets/scripts/src/global.js',
+          // 'assets/scripts/dist/global.<%= pkg.version %>.min.js': 'assets/scripts/src/global.js',
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
@@ -77,28 +78,29 @@ module.exports = function(grunt) {
       },
     },
 
-    criticalcss: {
-      dist: {
-        options: {
-          url: "https://valleychurch.eu",
-          outputfile: 'assets/styles/css/critical.min.css',
-          filename: 'assets/styles/css/style.min.css'
-        }
-      }
-    },
+    // criticalcss: {
+    //   dist: {
+    //     options: {
+    //       url: "https://valleychurch.eu",
+    //       outputfile: 'assets/styles/css/critical.<%= pkg.version %>.min.css',
+    //       filename: 'assets/styles/css/style.<%= pkg.version %>.min.css',
+    //       buffer: 1024*1024
+    //     }
+    //   }
+    // },
 
-    cssmin: {
-      options: {
-        sourceMap: false,
-        sourceMapInlineSources: false,
-        roundingPrecision: -1
-      },
-      target: {
-        files: {
-          'assets/styles/css/critical.min.css': 'assets/styles/css/critical.min.css'
-        }
-      }
-    },
+    // cssmin: {
+    //   options: {
+    //     sourceMap: false,
+    //     sourceMapInlineSources: false,
+    //     roundingPrecision: -1
+    //   },
+    //   target: {
+    //     files: {
+    //       'assets/styles/css/critical.<%= pkg.version %>.min.css': 'assets/styles/css/critical.<%= pkg.version %>.min.css'
+    //     }
+    //   }
+    // },
 
     notify: {
       notify_hooks: {
@@ -164,14 +166,14 @@ module.exports = function(grunt) {
     'local'
   ]);
 
-  grunt.registerTask('build', [
-    'sass',
-    'postcss',
-    'uglify',
-    'imagemin',
-    'criticalcss',
-    'cssmin',
-    'notify:build',
-    'watch',
-  ]);
+  // grunt.registerTask('build', [
+  //   'sass',
+  //   'postcss',
+  //   'uglify',
+  //   'imagemin',
+  //   'criticalcss',
+  //   'cssmin',
+  //   'notify:build',
+  //   'watch',
+  // ]);
 };
