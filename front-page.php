@@ -44,7 +44,10 @@
             <li class="o-slide">
               <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
               <picture>
-                <?php if ( $img_banner_small ) { ?>
+                <?php if ( $img_banner_small || $img_banner_medium ) { ?>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+                <?php }
+                if ( $img_banner_small ) { ?>
                 <source media="(min-width: 60rem)" srcset="<?= $img_banner_small[0]; ?>">
                 <?php }
                 if ( $img_banner_medium ) { ?>
@@ -52,6 +55,9 @@
                 <?php }
                 if ( $img_banner_small ) { ?>
                 <source srcset="<?= $img_banner_small[0]; ?>">
+                <?php }
+                if ( $img_banner_small || $img_banner_medium ) { ?>
+                <!--[if IE 9]></video><![endif]-->
                 <?php }
                 if ( $img_banner_small ) { ?>
                 <img srcset="<?= $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img_banner_small[1]; ?>" height="<?= $img_banner_small[2]; ?>">

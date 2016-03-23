@@ -15,16 +15,22 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
   ?>
 <figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
   <picture>
-    <?php if ( $img_banner ) { ?>
+    <?php if ( $img_banner || $img_banner_medium || $img_banner_small ) { ?>
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
+    <?php }
+    if ( $img_banner ) { ?>
     <source media="(min-width: 70rem)" srcset="<?= $img_banner[0]; ?>">
-    <?php } ?>
-    <?php if ( $img_banner_medium ) { ?>
+    <?php }
+    if ( $img_banner_medium ) { ?>
     <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
-    <?php } ?>
-    <?php if ( $img_banner_small ) { ?>
+    <?php }
+    if ( $img_banner_small ) { ?>
     <source srcset="<?= $img_banner_small[0]; ?>">
-    <?php } ?>
-    <?php if ( $img_banner ) { ?>
+    <?php }
+    if ( $img_banner || $img_banner_medium || $img_banner_small ) { ?>
+    <!--[if IE 9]></video><![endif]-->
+    <?php }
+    if ( $img_banner ) { ?>
     <img srcset="<?= $img_banner[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img_banner[1]; ?>" height="<?= $img_banner[2]; ?>">
     <?php } ?>
   </picture>

@@ -1,19 +1,34 @@
 "use strict";
 module.exports = function(grunt) {
+
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-criticalcss');
+  grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-version');
+
   grunt.initConfig({
 
     pkg: grunt.file.readJSON('package.json'),
 
-    sass: {
-      dist: {
-        options: {
-          style: 'compressed'
-        },
-        files: {
-          'style.css': 'assets/styles/sass/wp-style.scss',
-          'assets/styles/css/style.<%= pkg.version %>.min.css': 'assets/styles/sass/style.scss',
-          'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
-        }
+    clean: {
+      js: [ 'assets/scripts/dist' ],
+      sass: [ 'assets/styles/css' ]
+    },
+
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'assets/images/src',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: 'assets/images/dist'
+        }]
       }
     },
 
@@ -26,6 +41,19 @@ module.exports = function(grunt) {
       },
       dist: {
         src: 'assets/styles/css/*.css'
+      }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'style.css': 'assets/styles/sass/wp-style.scss',
+          'assets/styles/css/style.<%= pkg.version %>.min.css': 'assets/styles/sass/style.scss',
+          'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
+        }
       }
     },
 
@@ -52,14 +80,30 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {
-      dynamic: {
-        files: [{
-          expand: true,
-          cwd: 'assets/images/src',
-          src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'assets/images/dist'
-        }]
+    version: {
+      php: {
+        options: {
+          prefix: '\'VC_THEME_VERSION\', \''
+        },
+        src: [ 'functions.php' ]
+      },
+      js: {
+        options: {
+          prefix: 'version: \''
+        },
+        src: [ 'assets/scripts/src/global.js' ]
+      },
+      sass: {
+        options: {
+          prefix: 'Version: '
+        },
+        src: [ 'assets/styles/sass/_theme-info.scss' ]
+      },
+      md: {
+        options: {
+          prefix: '## Version '
+        },
+        src: [ 'README.md' ]
       }
     },
 
@@ -76,21 +120,6 @@ module.exports = function(grunt) {
         files: ['assets/images/src/*.{png,jpg,gif,svg}'],
         tasks: ['imagemin', 'notify:images']
       },
-    },
-
-    version: {
-      php: {
-        options: {
-          prefix: '\'VC_THEME_VERSION\', \''
-        },
-        src: [ 'functions.php' ]
-      },
-      js: {
-        options: {
-          prefix: 'version: \''
-        },
-        src: [ 'assets/scripts/src/global.js' ]
-      }
     },
 
     // criticalcss: {
@@ -159,16 +188,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-criticalcss');
-  grunt.loadNpmTasks('grunt-notify');
-  grunt.loadNpmTasks('grunt-version');
-
   grunt.registerTask('local', [
     'sass',
     'postcss',
@@ -183,12 +202,12 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'clean',
     'version',
     'sass',
     'postcss',
     'uglify',
     'imagemin',
     'notify:build',
-    'watch',
   ]);
 };

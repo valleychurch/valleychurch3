@@ -3,9 +3,11 @@
 
         <figure class="c-featured">
           <picture>
+            <!--[if IE 9]><video style="display: none;"><![endif]-->
             <source media="(min-width: 70rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/03/guidelines-2000x800.jpg">
             <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/03/guidelines-1280x608.jpg">
             <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/03/guidelines-640x360.jpg">
+            <!--[if IE 9]></video><![endif]-->
             <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/03/guidelines-2000x800.jpg" alt="Guidelines" width="2000" height="800">
           </picture>
         </figure>
