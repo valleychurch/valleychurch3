@@ -1,7 +1,8 @@
 # Valley Church WordPress theme
-## Version 3.0.8
+## Version 3.0.9
 
 ### Changelog
+* v3.0.9 - Remove global.js
 * v3.0.8 - Normalize v4.0.0
 * v3.0.7 - More auto versioning, form styles
 * v3.0.6 - Auto versioning files using Grunt

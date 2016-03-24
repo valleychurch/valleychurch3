@@ -47,9 +47,9 @@
                 <?php if ( $img_banner_small || $img_banner_medium ) { ?>
                 <!--[if IE 9]><video style="display: none;"><![endif]-->
                 <?php }
-                if ( $img_banner_small ) { ?>
-                <source media="(min-width: 60rem)" srcset="<?= $img_banner_small[0]; ?>">
-                <?php }
+                //if ( $img_banner_medium ) { ?>
+                <!-- <source media="(min-width: 60rem)" srcset="<?= $img_banner_medium[0]; ?>"> -->
+                <?php //}
                 if ( $img_banner_medium ) { ?>
                 <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
                 <?php }

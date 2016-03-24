@@ -41,3 +41,5 @@ body {
 // @import "trumps/helpers";
 @import "trumps/utilities";
 // @import "trumps/ie";
+
+html .mceContentBody { height: auto !important; }

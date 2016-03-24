@@ -69,10 +69,8 @@ module.exports = function(grunt) {
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
-              'assets/scripts/src/global.js',
               'assets/scripts/src/script.js'
             ],
-          // 'assets/scripts/dist/global.<%= pkg.version %>.min.js': 'assets/scripts/src/global.js',
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',

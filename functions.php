@@ -6,7 +6,7 @@
 ============================================================
 */
 
-define( 'VC_THEME_VERSION', '3.0.8' );
+define( 'VC_THEME_VERSION', '3.0.9' );
 
 
 /*
@@ -164,7 +164,7 @@ add_theme_support( 'title-tag' );
 /**
  * Add editor stylesheet to TinyMCE
  */
-add_editor_style( 'assets/styles/css/editor-style.css' ); //defaults to editor-style.css
+add_editor_style( 'assets/styles/css/editor-style.' . VC_THEME_VERSION . '.css' ); //defaults to editor-style.css
 
 
 /**
@@ -236,7 +236,7 @@ function theme_files() {
 
   // Register our scripts
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
-  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, '2.2.0', false );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
   if ( is_page( 'connect' ) ) { wp_enqueue_script( 'google-maps' ); }
@@ -265,6 +265,16 @@ function add_defer_attribute( $tag ) {
 }
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
+
+/**
+ * Remove `ver` querystring
+ */
+function _remove_script_version( $src ){
+  $parts = explode( '?ver', $src );
+  return $parts[0];
+}
+add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
 /**
  * Try and load CSS ajax in the header (if it's not already come from localStorage)
