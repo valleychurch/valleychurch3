@@ -89,7 +89,7 @@ module.exports = function(grunt) {
         options: {
           prefix: 'version: \''
         },
-        src: [ 'assets/scripts/src/global.js' ]
+        src: [ 'assets/scripts/src/script.js' ]
       },
       sass: {
         options: {

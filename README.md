@@ -1,5 +1,5 @@
 # Valley Church WordPress theme
-## Version 3.0.9
+## Version 3.0.10
 
 ### Changelog
 * v3.0.9 - Remove global.js
