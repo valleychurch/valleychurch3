@@ -26,14 +26,13 @@
     <style><?= file_get_contents( get_template_directory_uri() . '/assets/styles/css/critical.min.css' ); ?></style>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
-    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.min.css?ver=<?= VC_THEME_VERSION; ?>" />
+    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION; ?>.min.css" />
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/jquery.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/global.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/script.min.js?ver=<?= VC_THEME_VERSION; ?>"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/jquery.min.js>"></script>
+    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/script.<?= VC_THEME_VERSION; ?>.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
 
     <!-- IE fixes -->
@@ -55,28 +54,28 @@
           <nav class="c-navigation u-cf">
             <div class="u-pull-left--lg">
               <ul class="c-menu u-cf">
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "getstarted" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="getstarted">Get Started</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "tools" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="tools">Tools</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "settings" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="settings">Settings</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "generic" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="generic">Generic</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "base" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="base">Base</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "objects" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="objects">Objects</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "components" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="components">Components</a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item <?= basename( $_SERVER['PHP_SELF'], '.php' ) == "trumps" ? 'current-menu-parent current-menu-item' : ''; ?>">
                   <a href="trumps">Trumps</a>
                 </li>
               </ul>
