@@ -11,6 +11,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-version');
+  grunt.loadNpmTasks('sassdown');
 
   grunt.initConfig({
 
@@ -143,6 +144,22 @@ module.exports = function(grunt) {
     //     }
     //   }
     // },
+
+    sassdown: {
+      styleguide: {
+        options: {
+          readme: 'assets/styles/sass/readme.md',
+          excludeMissing: true,
+          assets: ['assets/styles/css/style.<%= pkg.version %>.min.css'],
+        },
+        files: [{
+          expand: true,
+          cwd: 'assets/styles/sass',
+          src: ['**/*.scss'],
+          dest: 'styleguide/'
+        }]
+      }
+    },
 
     notify: {
       notify_hooks: {

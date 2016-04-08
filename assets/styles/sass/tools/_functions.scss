@@ -1,18 +1,9 @@
 $__alpha-stops: (0, .05, .1, .15, .2, .25, .3, .35, .4, .45, .5, .55, .6, .65, .7, .75, .8, .85, .9, .95, 1);
 $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
-//---------------------------
-//
-// The grayscale function takes two arguments:
-//  REQUIRED: Level of gray
-//    There are 10 levels of gray, ranging from 1 to 10 (darkest to lightest).
-//  OPTIONAL: Level of opacity
-//    There are 11 levels of opacity, ranging from 0.0 to 1.0 (transparent to opaque).
-//
-// Example: grayscale(1, 1);
-// This will create a dark gray that is fully opaque.
-//
-//---------------------------
+// Returns a grayscale value defined in $VCgrayscale-colours. $gradation is any
+// number between 1 and 10. $alpha is optional and can be anything between 0.0
+// and 1.0 in 0.05 increments.
 @function grayscale($gradation, $alpha: 1) {
   @if map-has-key($VCgrayscale-colours, $gradation) {
     $alpha-val: $alpha;
