@@ -1,6 +1,6 @@
 a {
+  @include transition('color');
   text-decoration: none;
-  @include transition("color");
 
   &,
   &:active {

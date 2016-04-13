@@ -5,45 +5,47 @@
       @media screen and (#{$rule}: map-get($VCbreakpoints, $bp)) {
         @content;
       }
-    } @else {
+    }
+    @else {
       @media screen and (#{$rule}: (map-get($VCbreakpoints, $bp) - 1)) {
         @content;
       }
     }
-  } @else {
+  }
+  @else {
     @content;
   }
 }
 
 
-// "Lato" typeface with correct stylistic sets enabled
+// 'Lato' typeface with correct stylistic sets enabled
 @mixin font-stack($alternates: true) {
   font-family: $VCfont-stack;
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
     .fontvariant & {
-      font-variant-alternates: styleset("ss04");
-      font-feature-settings: "ss04";
+      font-variant-alternates: styleset('ss04');
+      font-feature-settings: 'ss04';
 
       em {
-        // font-variant-alternates: styleset("ss01"), styleset("ss03");
-        // font-feature-settings: "salt";
+        // font-variant-alternates: styleset('ss01'), styleset('ss03');
+        // font-feature-settings: 'salt';
       }
     }
   }
 }
 
 
-// "Usual" typeface with correct stylistic sets enabled
+// 'Usual' typeface with correct stylistic sets enabled
 @mixin font-stack-alt($alternates: true) {
   font-family: $VCfont-stack-alt;
   text-rendering: optimizeLegibility;
 
   @if ($alternates) {
     .fontvariant & {
-      font-variant-alternates: styleset("ss01"), styleset("ss03");
-      font-feature-settings: "ss01", "ss03";
+      font-variant-alternates: styleset('ss01'), styleset('ss03');
+      font-feature-settings: 'ss01', 'ss03';
     }
   }
 }
@@ -52,7 +54,7 @@
 // Clearfix
 @mixin clearfix() {
   &::after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }

@@ -1,22 +1,21 @@
 <?php
 
 /*
-============================================================
-  Configs
-============================================================
-*/
+ * Configs
+ */
 
 define( 'VC_THEME_VERSION', '3.0.10' );
 
 
 /*
-============================================================
-  Reusable functions
-============================================================
-*
+ * Reusable functions
+ */
 
 /**
  * Check if a string is plural
+ *
+ * @param string $string String to check
+ * @return boo;
  */
 function check_plural($string) {
   return ( substr( $string, -1 ) == 's' );
@@ -24,6 +23,12 @@ function check_plural($string) {
 
 /**
  * Create a singular string
+ *
+ * @param string $name String to make singular
+ * @param string $label Label to override
+ *
+ * @return string
+ *
  */
 function create_singular($name, $label = null) {
   return ( ( $label != null ) ? ( $label ) : ( ucwords( $name ) ) );
@@ -31,6 +36,13 @@ function create_singular($name, $label = null) {
 
 /**
  * Create a plural string
+ *
+ * @param string $name String to make plural
+ * @param string $label Label to override
+ * @param string $nameplural Plural name to override
+ * @param string $labelplural Plural label to override
+ *
+ * @return string
  */
 function create_plural($name, $label = null, $nameplural, $labelplural) {
   return ( ( $label != null ) ?( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
@@ -47,7 +59,7 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
   $supports = ( ( $supports != null ) ? $supports : array( 'title', 'editor', 'thumbnail', 'author', 'revisions', 'excerpt' ) );
   $rewrite = ( ( $rewrite != null ) ? $rewrite : array( 'slug' => $name, 'with_front' => false ) );
   $args = array(
-    'public' => true,
+    'public' =>                 true,
     'labels' => array(
       'name' =>                 $plural,
       'singular_name' =>        $singular,
@@ -61,13 +73,13 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
       'not_found' =>            'No ' . $plural . ' found',
       'not_found_in_trash' =>   'No ' . $plural . ' found in trash',
     ),
-    'exclude_from_search' => $exclude_from_search,
-    'rewrite' => $rewrite,
-    'supports' => $supports,
-    'menu_icon' => $icon,
-    'hierarchical' => false,
-    'capability_type' => 'post',
-    'has_archive' => ( $name === "message" ? true : false )
+    'exclude_from_search' =>    $exclude_from_search,
+    'rewrite' =>                $rewrite,
+    'supports' =>               $supports,
+    'menu_icon' =>              $icon,
+    'hierarchical' =>           false,
+    'capability_type' =>        'post',
+    'has_archive' =>            ( $name === "message" ? true : false )
   );
   return $args;
 }
@@ -122,9 +134,10 @@ function has_gravatar( $email_address ) {
 */
 
 /**
- * Compress jpg images to 85% quality
+ * Compress jpg images to 82% quality
+ * https://make.wordpress.org/core/2016/03/12/performance-improvements-for-images-in-wordpress-4-5/
  */
-add_filter( 'jpeg_quality', create_function( '', 'return 85;' ) );
+add_filter( 'jpeg_quality', create_function( '', 'return 82;' ) );
 
 /**
  * Add post thumbnails and custom image sizes
