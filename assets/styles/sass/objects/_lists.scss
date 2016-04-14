@@ -1,3 +1,18 @@
+// Lists
+//
+// Override default `ul` styling and remove bullets
+//
+// Markup:
+//  <ul class="o-list {{modifier_class}}">
+//    <li><a href="#0">List item 1</li>
+//    <li><a href="#0">List item 2</li>
+//    <li><a href="#0">List item 3</li>
+//  </ul>
+//
+// .o-list--inline - Display the list inline (like a top nav)
+//
+// Styleguide: 5.lists
+
 .o-list {
   margin: 0;
   padding: 0;

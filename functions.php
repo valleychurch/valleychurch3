@@ -1,13 +1,13 @@
 <?php
 
-/*
+/**
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.0.10' );
+define( 'VC_THEME_VERSION', '3.0.11' );
 
 
-/*
+/**
  * Reusable functions
  */
 
@@ -15,7 +15,8 @@ define( 'VC_THEME_VERSION', '3.0.10' );
  * Check if a string is plural
  *
  * @param string $string String to check
- * @return boo;
+ *
+ * @return bool
  */
 function check_plural($string) {
   return ( substr( $string, -1 ) == 's' );
@@ -93,7 +94,7 @@ function create_custom_taxonomy_args( $name, $label = null ) {
   $singular = create_singular( $name, $label );
   $plural = create_plural( $name, $label, $nameplural, $labelplural );
   $args = array(
-    'hierarchical' => true,
+    'hierarchical' =>           true,
     'labels' => array(
       'name' =>                 $plural,
       'singular_name' =>        $singular,
@@ -106,11 +107,11 @@ function create_custom_taxonomy_args( $name, $label = null ) {
       'search_items' =>         'Search ' . $plural,
       'not_found' =>            'No ' . $plural . ' found',
     ),
-    'show_admin_column' => true,
-    'public' => true,
+    'show_admin_column' =>      true,
+    'public' =>                 true,
     'rewrite' => array(
-      'slug' => $name,
-      'with_front' => false
+      'slug' =>                 $name,
+      'with_front' =>           false
     ),
   );
 
@@ -127,14 +128,12 @@ function has_gravatar( $email_address ) {
 }
 
 
-/*
-============================================================
-  Add things to WordPress
-============================================================
-*/
+/**
+ * Add things to WordPress
+ */
 
 /**
- * Compress jpg images to 82% quality
+ * Compress jpg images to 82% quality (match WordPress 4.5 default)
  * https://make.wordpress.org/core/2016/03/12/performance-improvements-for-images-in-wordpress-4-5/
  */
 add_filter( 'jpeg_quality', create_function( '', 'return 82;' ) );

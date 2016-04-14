@@ -1,7 +1,9 @@
 # Valley Church WordPress theme
-## Version 3.0.10
+## Version 3.0.11
 
 ### Changelog
+* v3.0.11 - Using [KSS](https://github.com/kss-node/grunt-kss) to document styles
+* v3.0.10 - Not sure what changed in this version...
 * v3.0.9 - Remove global.js
 * v3.0.8 - Normalize v4.0.0
 * v3.0.7 - More auto versioning, form styles

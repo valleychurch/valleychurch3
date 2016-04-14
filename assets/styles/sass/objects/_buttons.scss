@@ -1,3 +1,17 @@
+// Buttons
+//
+// Button style for use across the site
+//
+// Styleguide: 5.buttons
+
+// Default button
+//
+// Default button style
+//
+// Markup:
+// <button class="o-btn">Click me!</button>
+//
+// Styleguide: 5.buttons.default
 .o-btn,
 .o-btn:visited {
   // width: 100%;
@@ -19,7 +33,7 @@
   text-align: center;
   letter-spacing: 1px;
 
-  border: none;
+  border: 0;
   //border: 1px solid colour(red, dark);
   border-radius: 4px;
   @include transition;
@@ -38,6 +52,14 @@
   }
 }
 
+// Reset button
+//
+// Clear out all default styles
+//
+// Markup:
+// <button class="o-btn o-btn--reset">Click me!</button>
+//
+// Styleguide: 5.buttons.reset
 .o-btn--reset {
   width: auto;
   padding: 0;
@@ -46,6 +68,14 @@
   color: colour(black);
 }
 
+// Ghost button
+//
+// Transparent button for use on dark backgrounds
+//
+// Markup:
+// <button class="o-btn o-btn--ghost">Click me!</button>
+//
+// Styleguide: 5.buttons.ghost
 .o-btn--ghost {
   @include font-stack-alt;
   background-color: transparent;

@@ -16,12 +16,12 @@ html {
 }
 
 body {
-  position: relative;
   @include full-height;
   @include font-stack;
+  @include transition;
+  position: relative;
   line-height: $VCline-height;
   color: colour(black);
-  @include transition;
 
   &.is-menu-active {
     position: fixed;

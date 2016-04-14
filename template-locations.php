@@ -1,7 +1,7 @@
 <?php
-/*
-  Template Name: Locations
-*/
+/**
+ * Template Name: Locations
+ */
 get_header();
 ?>
 

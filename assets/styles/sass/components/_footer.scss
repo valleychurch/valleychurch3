@@ -1,3 +1,27 @@
+// Header
+//
+// Default styling for the bottom of the page
+//
+// Markup:
+//  <footer class="c-footer">
+//    <div class="o-container">
+//      <div class="o-row">
+//        <div class="o-col-xxs-12 o-col-sm-9 u-text-center--xxs u-text-left--sm">
+//          <ul class="o-list c-footer__menu u-margin u-margin--sm--none">
+//            <li><a href="http://freemethodist.org.uk" target="_blank">A Free Methodist UK Church</a></li>
+//            <li><a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0" target="_blank">Registered Charity No. 1125080</a></li>
+//            <li><a href="/privacy">Privacy &amp; Cookie Policy</a></li>
+//          </ul>
+//        </div>
+//        <div class="o-col-xxs-12 o-col-sm-3 u-text-center--xxs u-text-right--sm">
+//          <p class="u-margin--none">&copy; 2016 Valley Church</p>
+//        </div>
+//      </div>
+//    </div>
+//  </footer>
+//
+// Styleguide: 6.footer
+
 .c-footer {
   padding: 1rem 0;
   background-color: greyscale(2);

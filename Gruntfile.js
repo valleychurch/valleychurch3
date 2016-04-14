@@ -8,10 +8,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-criticalcss');
+  grunt.loadNpmTasks('grunt-kss');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-version');
-  grunt.loadNpmTasks('sassdown');
 
   grunt.initConfig({
 
@@ -30,6 +30,19 @@ module.exports = function(grunt) {
           src: ['**/*.{png,jpg,gif,svg}'],
           dest: 'assets/images/dist'
         }]
+      }
+    },
+
+    kss: {
+      options: {
+        verbose: true,
+        template: 'template',
+        homepage: 'styleguide.md',
+        css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
+      },
+      dist: {
+        src: ['assets/styles/sass'],
+        dest: 'docs',
       }
     },
 
@@ -108,15 +121,15 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: 'assets/styles/sass/**/*.scss',
-        tasks: ['sass', 'postcss', 'notify:sass']
+        files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'template/*.html'],
+        tasks: ['sass', 'postcss', 'kss', 'notify:sass']
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
         tasks: ['uglify', 'notify:scripts']
       },
       images: {
-        files: ['assets/images/src/*.{png,jpg,gif,svg}'],
+        files: 'assets/images/src/*.{png,jpg,gif,svg}',
         tasks: ['imagemin', 'notify:images']
       },
     },
@@ -144,22 +157,6 @@ module.exports = function(grunt) {
     //     }
     //   }
     // },
-
-    sassdown: {
-      styleguide: {
-        options: {
-          readme: 'assets/styles/sass/readme.md',
-          excludeMissing: true,
-          assets: ['assets/styles/css/style.<%= pkg.version %>.min.css'],
-        },
-        files: [{
-          expand: true,
-          cwd: 'assets/styles/sass',
-          src: ['**/*.scss'],
-          dest: 'styleguide/'
-        }]
-      }
-    },
 
     notify: {
       notify_hooks: {
@@ -199,9 +196,14 @@ module.exports = function(grunt) {
           title: 'Images minified',
           message: 'Image files minified, watching for changes'
         }
-      }
+      },
     }
   });
+
+  // grunt.registerTask('styleguide', [
+  //   'notify:styleguide',
+  //   'watch:styleguide'
+  // ]);
 
   grunt.registerTask('local', [
     'sass',

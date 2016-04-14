@@ -1,3 +1,25 @@
+// Flag
+//
+// Display the [flag object](http://csswizardry.com/2013/05/the-flag-object/)
+//
+// Markup:
+//  <div class="o-flag {{modifier_class}}">
+//    <div class="o-flag__fix">
+//      <figure class="c-avatar c-avatar--md">
+//        <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/10.jpg" alt="Michele Carter" width="150" height="150" class="photo" />
+//      </figure>
+//    </div>
+//    <div class="o-flag__flex">
+//      <p class="u-margin--none">
+//        Michele Carter
+//      </p>
+//    </div>
+//  </div>
+//
+// .o-flag--rev - Reverse the direction
+//
+// Styleguide: 5.flag
+
 .o-flag {
   display: table;
   width: 100%;

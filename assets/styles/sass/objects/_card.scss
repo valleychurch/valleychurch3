@@ -1,3 +1,19 @@
+// Card
+//
+// Used for displaying information
+//
+// Markup:
+//  <div class="o-card {{modifier_class}}">
+//    <div class="o-card__body">
+//      <h1 class="o-card__title">Card title</h1>
+//      <p class="o-card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//    </div>
+//  </div>
+//
+// .o-card--shadow - Card with a subtle shadow
+// .o-card--inlay - Card with a grey background (can be used like a well)
+//
+// Styleguide: 5.card
 .o-card {
   display: block;
   position: relative;
@@ -20,6 +36,38 @@
 .o-card__text {
   color: colour(black);
 }
+
+// Card overlay
+//
+// Alternate style for displaying information over an image
+//
+// Markup:
+//  <div class="o-card o-card--overlay">
+//    <figure class="c-featured">
+//      <picture>
+//        <!--[if IE 9]><video style="display: none;"><![endif]-->
+//        <source media="(min-width: 70rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+//        <source media="(min-width: 50rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+//        <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1-640x360.jpg">
+//        <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+//        <!--[if IE 9]></video><![endif]-->
+//        <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg" alt="Home" width="1280" height="720">
+//      </picture>
+//    </figure>
+//    <div class="o-card__overlay">
+//      <div class="o-card__overlay__middle">
+//        <h2 class="o-card__title">Senior <br class="u-show u-hide--sm"/>Pastors</h2>
+//        <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
+//          Ed &amp; Michele Carter are the Senior Pastors of Valley Church.
+//        </p>
+//        <a class="o-btn o-btn--ghost" href="https://valleychurch.eu/team">
+//          Read more
+//        </a>
+//      </div>
+//    </div>
+//  </div>
+//
+// Styleguide: 5.card.overlay
 
 .o-card__overlay {
   position: absolute;
@@ -51,7 +99,7 @@
 
 .o-card--overlay {
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     width: 100%;
@@ -67,6 +115,10 @@
 
 .o-card--shadow {
   @include box-shadow;
+}
+
+.o-card--inlay {
+  background-color: greyscale(11);
 }
 
 a.o-card {

@@ -6,8 +6,8 @@
 
 .o-container {
   @include make-container;
-  max-width: $VCmax-width;
   @include clearfix;
+  max-width: $VCmax-width;
 }
 
 .o-container--full {
@@ -19,9 +19,9 @@
 }
 
 .o-container--page {
+  @include box-shadow;
   padding-left: 0;
   padding-right: 0;
-  @include box-shadow;
 }
 
 // Row

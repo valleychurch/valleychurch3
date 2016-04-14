@@ -41,6 +41,7 @@
     <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
     <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
+  </head>
   <body>
 
     <div class="o-container o-container--page">
@@ -49,7 +50,9 @@
 
       <header class="c-header u-clearfix">
         <div class="o-container o-container--full">
-          <?php include "partials/logo.php"; ?>
+          <a class="logo u-pull-left" href="/wp-content/themes/valleychurch3/guidelines">
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/icon.svg" width="32" height="32">
+          </a>
 
           <nav class="c-navigation u-cf">
             <div class="u-pull-left--lg">
@@ -82,11 +85,11 @@
             </div>
           </nav>
 
-          <div class="u-pull-right u-hide--lg">
+          <!-- <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
               <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
             </button>
-          </div>
+          </div> -->
         </div>
       </header>
 
