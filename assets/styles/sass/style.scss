@@ -1,8 +1,12 @@
-// Tools
-//
-// Default mixins and functions
-//
-// Styleguide: 1
+/**
+ * Tools
+ *
+ * Default mixins and functions
+ *
+ * Weight: 1
+ *
+ * Styleguide: tools
+ */
 @import 'tools/functions';
 @import 'tools/mixins';
 @import 'tools/animations';
@@ -10,28 +14,40 @@
 @import 'tools/grid-framework';
 @import 'tools/modular-scale';
 
-// Settings
-//
-// Global variables, config switches
-//
-// Styleguide: 2
+/**
+ * Settings
+ *
+ * Global variables, config switches
+ *
+ * Weight: 2
+ *
+ * Styleguide: settings
+ */
 @import 'settings/variables';
 @import 'settings/fonts';
 
-// Generic
-//
-// Ground zero styles
-//
-// Styleguide: 3
+/**
+ * Generic
+ *
+ * Ground zero styles
+ *
+ * Weight: 3
+ *
+ * Styleguide: generic
+ */
 @import 'generic/normalize';
 @import 'generic/boxsizing';
 @import 'generic/shared';
 
-// Base
-//
-// Unclassed HTML elements
-//
-// Styleguide: 4
+/**
+ * Base
+ *
+ * Unclassed HTML elements
+ *
+ * Weight: 4
+ *
+ * Styleguide: base
+ */
 @import 'base/base';
 @import 'base/typography';
 @import 'base/links';
@@ -39,11 +55,15 @@
 @import 'base/tables';
 @import 'base/forms';
 
-// Objects
-//
-// Cosmetic-free design patterns
-//
-// Styleguide: 5
+/**
+ * Objects
+ *
+ * Cosmetic-free design patterns
+ *
+ * Weight: 5
+ *
+ * Styleguide: objects
+ */
 @import 'objects/buttons';
 @import 'objects/card';
 @import 'objects/flag';
@@ -52,11 +72,15 @@
 @import 'objects/media';
 @import 'objects/ratio';
 
-// Components
-//
-// Designed chunks of UI
-//
-// Styleguide: 6
+/**
+ * Components
+ *
+ * Designed chunks of UI
+ *
+ * Weight: 6
+ *
+ * Styleguide: components
+ */
 @import 'components/avatar';
 @import 'components/banner';
 @import 'components/footer';
@@ -71,10 +95,14 @@
 @import 'components/sharer';
 @import 'components/slider';
 
-// Trumps
-//
-// Helpers and overrides
-//
-// Styleguide: 7
+/**
+ * Trumps
+ *
+ * Helpers and overrides
+ *
+ * Weight: 7
+ *
+ * Styleguide: trumps
+ */
 @import 'trumps/utilities';
 @import 'trumps/trumps';

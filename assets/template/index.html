@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="../assets/images/dist/touchicon.png">
+    <link rel="icon" href="../assets/images/dist/favicon.png">
+    <!--[if IE]><link rel="shortcut icon" href="../assets/images/dist/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->
+    <meta name="msapplication-TileImage" content="../assets/images/dist/tileicon.png">
+    <meta name="msapplication-TileColor" content="#b21e28">
+    <meta name="msapplication-navbutton-color" content="#b21e28">
+    <meta name="theme-color" content="#b21e28">
+
+    <title>Development Guidelines</title>
+
+    <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
+    <link rel="dns-prefetch" href="//use.typekit.net">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    {{{styles}}}
+
+    <!-- Load Typekit (EARLY!) -->
+    <script src="//use.typekit.net/jtz8aoh.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script src="../assets/scripts/dist/jquery.min.js"></script>
+    {{{scripts}}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+
+    <!-- IE fixes -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../assets/scripts/dist/respond.min.js"></script>
+    <script src="../assets/scripts/dist/rem.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="o-container o-container--page">
+
+      <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+
+      <header class="c-header u-clearfix">
+        <div class="o-container o-container--full">
+          <a class="logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
+            <img src="../assets/images/dist/icon.svg" width="32" height="32">
+          </a>
+
+          <nav class="c-navigation u-cf">
+            <div class="u-pull-left--lg">
+              <ul class="c-menu u-cf">
+                <li class="menu-item">
+                  <a href="./">Overview</a>
+                </li>
+                {{#eachRoot}}
+                <li class="menu-item">
+                  <a href="section-{{reference}}.html">{{header}}</a>
+                </li>
+                {{/eachRoot}}
+              </ul>
+            </div>
+          </nav>
+
+          <div class="u-pull-right u-hide--lg">
+            <button class="o-btn c-nav-toggle js-nav-toggle">
+              <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="c-main">
+
+        <section class="o-container c-section">
+
+          <div class="o-row">
+
+            <div class="o-col-xxs-12 u-center-block">
+
+              <div class="o-row">
+
+                {{#if homepage}}
+                {{else}}
+                <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
+
+                  <h5>In this section</h5>
+                  <ul class="o-list">
+                    {{#eachSection rootName}}
+                    {{#ifDepth 1}}
+                    {{else ifDepth 2}}
+                    <li>
+                      <a href="#section-{{reference}}">{{header}}</a>
+                    {{else ifDepth 3}}
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-{{reference}}">{{header}}</a>
+                        </li>
+                      </ul>
+                    {{/ifDepth}}
+                    {{/eachSection}}
+                  </ul>
+
+                </aside>
+                {{/if}}
+
+                <article class="{{#if homepage}}o-col-xxs-12{{else}}o-col-xxs-12 o-col-lg-9{{/if}} u-margin o-col-lg-first">
+
+                  {{#if homepage}}
+                  <section id="section-0" class="kss-section kss-overview">
+                    {{{homepage}}}
+                  </section>
+                  {{else}}
+                  {{#eachSection rootName}}
+                  <section id="section-{{reference}}" class="kss-section kss-depth-{{depth}} u-margin-top--double">
+                    {{#ifDepth 1}}
+                    <h1>{{header}}</h1>
+                    {{/ifDepth}}
+                    {{#ifDepth 2}}
+                    <h2>{{header}}</h2>
+                    {{/ifDepth}}
+                    {{#ifDepth 3}}
+                    <h3 class="u-margin--half">{{header}}</h3>
+                    {{/ifDepth}}
+                    {{!-- {{#if markup}} --}}
+                    {{#if description}}
+                    <div class="kss-description">
+                      {{{description}}}
+                    </div>
+                    {{/if}}
+                    {{#if markup}}
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                            {{{markup}}}
+                          </div>
+                        </div>
+                      </div>
+                      {{#eachModifier}}
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="o-card__title u-margin">
+                            <div class="kss-modifier-name"><strong>{{name}}</strong></div>
+                            <div class="kss-modifier-description">
+                              {{{description}}}
+                            </div>
+                          </div>
+                          <div class="iframify">
+{{{markup}}}
+                          </div>
+                        </div>
+                      </div>
+                      {{/eachModifier}}
+                      <div class="kss-markup">
+<pre><code class="language-html">{{markup}}
+</code></pre>
+                      </div>
+                    </div>
+                    {{/if}}
+                    {{!-- {{else}} --}}
+                    {{!-- {{#if description}}
+                      {{#ifDepth 1}}
+                      <div class="lead">
+                        {{{description}}}
+                      </div>
+                      <hr/>
+                      {{else}}
+                      <div class="asda">
+                        {{{description}}}
+                      </div>
+                      {{/ifDepth}}
+                    {{/if}} --}}
+                    {{!-- {{/if}} --}}
+                  </section>
+                  {{/eachSection}}
+                  {{/if}}
+
+                </article>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+  </body>
+</html>

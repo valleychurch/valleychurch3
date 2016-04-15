@@ -175,7 +175,7 @@ function checkNotifications() {
   try {
     var notificationData = JSON.parse( localStorage.getItem( 'valley.notification' ) );
     if ( notificationData !== null ) {
-      if ($('.c-notification').attr('id') !== notificationData.id) {
+      if ($('.c-notification')[0].attr('id') !== notificationData.id) {
         localStorage.removeItem( 'valley.notification' );
         attachNotifications();
       }
@@ -189,7 +189,7 @@ function checkNotifications() {
 
 // Attach the event for the click
 function attachNotifications() {
-  $('.c-notification')
+  $('.c-notification')[0]
     //.slideDown()
     .addClass('is-notification-active')
     .attr('aria-expanded', 'true');
@@ -197,12 +197,12 @@ function attachNotifications() {
 
   $('.js-notification-dismiss').on('click', function(e) {
     e.preventDefault();
-    $('.c-notification')
+    $('.c-notification')[0]
       .attr('aria-expanded', 'false')
       .removeClass('is-notification-active');
 
     var notificationDataToSet = {
-      id: $('.c-notification').attr('id'),
+      id: $('.c-notification')[0].attr('id'),
       hide: true,
     };
     localStorage.setItem( 'valley.notification', JSON.stringify( notificationDataToSet ) );

@@ -1,19 +1,22 @@
-// Card
-//
-// Used for displaying information
-//
-// Markup:
-//  <div class="o-card {{modifier_class}}">
-//    <div class="o-card__body">
-//      <h1 class="o-card__title">Card title</h1>
-//      <p class="o-card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//    </div>
-//  </div>
-//
-// .o-card--shadow - Card with a subtle shadow
-// .o-card--inlay - Card with a grey background (can be used like a well)
-//
-// Styleguide: 5.card
+/**
+ * Card
+ *
+ * Used for displaying information
+ *
+ * Markup:
+ *  <div class="o-card {{modifier_class}}">
+ *    <div class="o-card__body">
+ *      <h1 class="o-card__title">Card title</h1>
+ *      <p class="o-card__text u-margin--none">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+ *    </div>
+ *  </div>
+ *
+ * .o-card--shadow - Card with a subtle shadow
+ * .o-card--inlay - Card with a grey background (can be used like a well)
+ * .o-card--outline - Card with a subtle grey outline
+ *
+ * Styleguide: objects.card
+ */
 .o-card {
   display: block;
   position: relative;
@@ -37,38 +40,68 @@
   color: colour(black);
 }
 
-// Card overlay
-//
-// Alternate style for displaying information over an image
-//
-// Markup:
-//  <div class="o-card o-card--overlay">
-//    <figure class="c-featured">
-//      <picture>
-//        <!--[if IE 9]><video style="display: none;"><![endif]-->
-//        <source media="(min-width: 70rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-//        <source media="(min-width: 50rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-//        <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1-640x360.jpg">
-//        <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-//        <!--[if IE 9]></video><![endif]-->
-//        <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg" alt="Home" width="1280" height="720">
-//      </picture>
-//    </figure>
-//    <div class="o-card__overlay">
-//      <div class="o-card__overlay__middle">
-//        <h2 class="o-card__title">Senior <br class="u-show u-hide--sm"/>Pastors</h2>
-//        <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
-//          Ed &amp; Michele Carter are the Senior Pastors of Valley Church.
-//        </p>
-//        <a class="o-btn o-btn--ghost" href="https://valleychurch.eu/team">
-//          Read more
-//        </a>
-//      </div>
-//    </div>
-//  </div>
-//
-// Styleguide: 5.card.overlay
+/**
+ * Card overlay
+ *
+ * Alternate style for displaying information over an image
+ *
+ * Markup:
+ *  <div class="o-card o-card--overlay">
+ *    <figure class="c-featured">
+ *      <picture>
+ *        <!--[if IE 9]><video style="display: none;"><![endif]-->
+ *        <source media="(min-width: 70rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+ *        <source media="(min-width: 50rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+ *        <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1-640x360.jpg">
+ *        <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
+ *        <!--[if IE 9]></video><![endif]-->
+ *        <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg" alt="Home" width="1280" height="720">
+ *      </picture>
+ *    </figure>
+ *    <div class="o-card__overlay">
+ *      <div class="o-card__overlay__middle">
+ *        <h2 class="o-card__title">Senior <br class="u-show u-hide--sm"/>Pastors</h2>
+ *        <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
+ *          Ed &amp; Michele Carter are the Senior Pastors of Valley Church.
+ *        </p>
+ *        <a class="o-btn o-btn--ghost" href="https://valleychurch.eu/team">
+ *          Read more
+ *        </a>
+ *      </div>
+ *    </div>
+ *  </div>
+ *
+ * Styleguide: objects.card.overlay
+ */
 
+/**
+ * Card with image
+ *
+ * Alternative style for displaying a card with an image
+ *
+ * Markup:
+ * <div class="o-card o-card--shadow u-text-center">
+ *   <figure class="c-featured o-card__img  ">
+ *     <picture>
+ *       <source media="(min-width: 60rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit-640x360.jpg">
+ *       <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit.jpg">
+ *       <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit-640x360.jpg">
+ *       <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit.jpg" alt="Home" width="1280" height="720">
+ *     </picture>
+ *   </figure>
+ *   <div class="o-card__body">
+ *     <h2 class="h3 o-card__title">Plan a visit</h2>
+ *     <p class="o-card__text">
+ *       We&#039;re one church in many locations and we&#039;d love to see you this Sunday!
+ *     </p>
+ *     <a class="o-btn" href="https://valleychurch.eu/find">
+ *       Find a location
+ *     </a>
+ *   </div>
+ * </div>
+ *
+ * Styleguide: objects.card.image
+ */
 .o-card__overlay {
   position: absolute;
   bottom: 0;
@@ -119,6 +152,14 @@
 
 .o-card--inlay {
   background-color: greyscale(11);
+}
+
+.o-card--outline {
+  border: 1px solid greyscale(11);
+
+  & + & {
+    margin-top: -1px;
+  }
 }
 
 a.o-card {

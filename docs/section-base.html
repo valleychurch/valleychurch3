@@ -102,21 +102,94 @@
 
               <div class="o-row">
 
+                <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
 
-                <article class="o-col-xxs-12 u-margin o-col-lg-first">
+                  <h5>In this section</h5>
+                  <ul class="o-list">
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-base.typography.headings">Headings</a>
+                        </li>
+                      </ul>
+                                          <ul class="o-list">
+                        <li>
+                          <a href="#section-base.typography.display">Display headings</a>
+                        </li>
+                      </ul>
+                                      </ul>
 
-                  <section id="section-0" class="kss-section kss-overview">
-                     <h1 id="dev-guidelines">Dev guidelines</h1>
-<p>This documentation is meant to serve as a guide for how to develop well for the <a href="http://valleychurch.eu">valleychurch.eu</a> WordPress theme and other web properties.</p>
-<p>The theme is built using Sass (SCSS syntax) and Javascript, compiled with Grunt. Instructions on how to set up a local development environment are included below to get you up and running quickly.</p>
-<p>Development structure mostly follows guidance set out by <a href="http://codeguide.co/" target="_blank">@mdo&#39;s Code Guide</a> and <a href="https://speakerdeck.com/dafed/managing-css-projects-with-itcss" target="_blank">Harry Roberts&#39; ITCSS</a> so please read them both!</p>
-<h2 id="getting-started">Getting started</h2>
-<p>First of all, get a copy of the <a href="https://github.com/valleychurch/valleychurch3/"><code>valleychurch3</code></a> repo, either by:</p>
-<ul>
-<li>Downloading the <a href="https://github.com/valleychurch/valleychurch3/releases/latest">latest release zip</a> from GitHub; or</li>
-<li>Cloning the repo via command line: <code>git clone git://github.com/valleychurch/valleychurch3.git</code></li>
-</ul>
+                </aside>
 
+                <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
+
+                  <section id="section-base" class="kss-section kss-depth-1 u-margin-top--double">
+                    <h1>Base</h1>
+                    <div class="kss-description">
+                      <p>Unclassed HTML elements</p>
+
+                    </div>
+                  </section>
+                  <section id="section-base.typography.headings" class="kss-section kss-depth-3 u-margin-top--double">
+                    <h3 class="u-margin--half">Headings</h3>
+                    <div class="kss-description">
+                      <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available. <code>.h1</code> through <code>.h6</code>
+classes are also available, for when you want to match the font styling of a
+heading but still want your text to be displayed inline.</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre><code class="language-html">  &lt;h1&gt;Heading 1&lt;/h1&gt;
+  &lt;h2&gt;Heading 2&lt;/h2&gt;
+  &lt;h3&gt;Heading 3&lt;/h3&gt;
+  &lt;h4&gt;Heading 4&lt;/h4&gt;
+  &lt;h5&gt;Heading 5&lt;/h5&gt;
+  &lt;h6&gt;Heading 6&lt;/h6&gt;
+</code></pre>
+                      </div>
+                    </div>
+                  </section>
+                  <section id="section-base.typography.display" class="kss-section kss-depth-3 u-margin-top--double">
+                    <h3 class="u-margin--half">Display headings</h3>
+                    <div class="kss-description">
+                      <p>Extra large heading for special use cases</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <h1 class="exa">Exa size heading</h1>
+  <h2 class="peta">Peta size heading</h2>
+  <h3 class="tera">Tera size heading</h3>
+  <h4 class="giga">Giga size heading</h4>
+  <h5 class="mega">Mega size heading</h5>
+  <h6 class="kilo">Kilo size heading</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre><code class="language-html">  &lt;h1 class=&quot;exa&quot;&gt;Exa size heading&lt;/h1&gt;
+  &lt;h2 class=&quot;peta&quot;&gt;Peta size heading&lt;/h2&gt;
+  &lt;h3 class=&quot;tera&quot;&gt;Tera size heading&lt;/h3&gt;
+  &lt;h4 class=&quot;giga&quot;&gt;Giga size heading&lt;/h4&gt;
+  &lt;h5 class=&quot;mega&quot;&gt;Mega size heading&lt;/h5&gt;
+  &lt;h6 class=&quot;kilo&quot;&gt;Kilo size heading&lt;/h6&gt;
+</code></pre>
+                      </div>
+                    </div>
                   </section>
 
                 </article>

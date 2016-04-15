@@ -1,5 +1,4 @@
 # Dev guidelines
-
 This documentation is meant to serve as a guide for how to develop well for the <a href="http://valleychurch.eu">valleychurch.eu</a> WordPress theme and other web properties.
 
 The theme is built using Sass (SCSS syntax) and Javascript, compiled with Grunt. Instructions on how to set up a local development environment are included below to get you up and running quickly.

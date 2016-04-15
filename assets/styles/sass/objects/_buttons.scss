@@ -1,17 +1,21 @@
-// Buttons
-//
-// Button style for use across the site
-//
-// Styleguide: 5.buttons
+/**
+ * Buttons
+ *
+ * Button style for use across the site
+ *
+ * Styleguide: objects.buttons
+ */
 
-// Default button
-//
-// Default button style
-//
-// Markup:
-// <button class="o-btn">Click me!</button>
-//
-// Styleguide: 5.buttons.default
+/**
+ * Default button
+ *
+ * Default button style
+ *
+ * Markup:
+ * <a class="o-btn">Click me!</a>
+ *
+ * Styleguide: objects.buttons.default
+ */
 .o-btn,
 .o-btn:visited {
   // width: 100%;
@@ -52,14 +56,16 @@
   }
 }
 
-// Reset button
-//
-// Clear out all default styles
-//
-// Markup:
-// <button class="o-btn o-btn--reset">Click me!</button>
-//
-// Styleguide: 5.buttons.reset
+/**
+ * Reset button
+ *
+ * Clear out all default styles
+ *
+ * Markup:
+ * <a class="o-btn o-btn--reset">Click me!</a>
+ *
+ * Styleguide: objects.buttons.reset
+ */
 .o-btn--reset {
   width: auto;
   padding: 0;
@@ -68,14 +74,16 @@
   color: colour(black);
 }
 
-// Ghost button
-//
-// Transparent button for use on dark backgrounds
-//
-// Markup:
-// <button class="o-btn o-btn--ghost">Click me!</button>
-//
-// Styleguide: 5.buttons.ghost
+/**
+ * Ghost button
+ *
+ * Transparent button for use on dark backgrounds
+ *
+ * Markup:
+ * <a class="o-btn o-btn--ghost">Click me!</a>
+ *
+ * Styleguide: objects.buttons.ghost
+ */
 .o-btn--ghost {
   @include font-stack-alt;
   background-color: transparent;

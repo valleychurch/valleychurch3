@@ -1,3 +1,31 @@
+/**
+ * Typography
+ *
+ * Default styles for typography across the site
+ *
+ * Styleguide: base.typography
+ **/
+
+/**
+ * Headings
+ *
+ * All HTML headings, `<h1>` through `<h6>`, are available. `.h1` through `.h6`
+ * classes are also available, for when you want to match the font styling of a
+ * heading but still want your text to be displayed inline.
+ *
+ * Markup:
+ *   <h1>Heading 1</h1>
+ *   <h2>Heading 2</h2>
+ *   <h3>Heading 3</h3>
+ *   <h4>Heading 4</h4>
+ *   <h5>Heading 5</h5>
+ *   <h6>Heading 6</h6>
+ *
+ * Weight: 1
+ *
+ * Styleguide: base.typography.headings
+ */
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
 .exa, .peta, .tera, .giga, .mega, .kilo {
@@ -6,6 +34,24 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.25;
   letter-spacing: .5px;
 }
+
+/**
+ * Display headings
+ *
+ * Extra large heading for special use cases
+ *
+ * Markup:
+ *   <h1 class="exa">Exa size heading</h1>
+ *   <h2 class="peta">Peta size heading</h2>
+ *   <h3 class="tera">Tera size heading</h3>
+ *   <h4 class="giga">Giga size heading</h4>
+ *   <h5 class="mega">Mega size heading</h5>
+ *   <h6 class="kilo">Kilo size heading</h6>
+ *
+ * Weight: 2
+ *
+ * Styleguide: base.typography.display
+ */
 
 .exa {
   font-size: ms(10);

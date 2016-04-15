@@ -1,19 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>kss-node Styleguide</title>
-    <meta name="description" content="" />
-    <meta name="generator" content="kss-node" />
-    <link rel="stylesheet" href="public/kss.css" />
-    <link rel="stylesheet" href="../assets/styles/css/style.3.0.10.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" href="../assets/images/dist/touchicon.png">
+    <link rel="icon" href="../assets/images/dist/favicon.png">
+    <!--[if IE]><link rel="shortcut icon" href="../assets/images/dist/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->
+    <meta name="msapplication-TileImage" content="../assets/images/dist/tileicon.png">
+    <meta name="msapplication-TileColor" content="#b21e28">
+    <meta name="msapplication-navbutton-color" content="#b21e28">
+    <meta name="theme-color" content="#b21e28">
+
+    <title>Development Guidelines</title>
+
+    <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
+    <link rel="dns-prefetch" href="//use.typekit.net">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/css/style.3.0.11.min.css">
+
+
+    <!-- Load Typekit (EARLY!) -->
+    <script src="//use.typekit.net/jtz8aoh.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script src="../assets/scripts/dist/jquery.min.js"></script>
+    <script src="../assets/scripts/dist/script.3.0.11.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+
+    <!-- IE fixes -->
     <!--[if lt IE 9]>
-    <script src="public/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../assets/scripts/dist/respond.min.js"></script>
+    <script src="../assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
   </head>
-  <body id="kss-node">
+  <body>
     <div class="kss-wrapper">
       <div class="kss-sidebar">
         <div class="kss-sidebar-inner">
@@ -23,13 +50,13 @@
           <nav class="kss-nav">
             <ul class="kss-menu" data-kss-ref="2">
               <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
-              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Tools</span></a></li>
               <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Settings</span></a></li>
               <li class="kss-menu-item"><a href="section-3.html"><span class="kss-ref">3</span><span class="kss-name">Generic</span></a></li>
               <li class="kss-menu-item"><a href="section-4.html"><span class="kss-ref">4</span><span class="kss-name">Base</span></a></li>
               <li class="kss-menu-item"><a href="section-5.html"><span class="kss-ref">5</span><span class="kss-name">Objects</span></a></li>
               <li class="kss-menu-item"><a href="section-6.html"><span class="kss-ref">6</span><span class="kss-name">Components</span></a></li>
               <li class="kss-menu-item"><a href="section-7.html"><span class="kss-ref">7</span><span class="kss-name">Trumps</span></a></li>
+              <li class="kss-menu-item"><a href="section-tools.html"><span class="kss-ref">tools</span><span class="kss-name">Tools</span></a></li>
             </ul>
             <ul class="kss-menu-child">
             </ul>
@@ -51,12 +78,5 @@
         </footer>
       </div>
     </div>
-    <script src="public/kss.js"></script>
-    <script src="public/jquery-1.9.1.min.js"></script>
-    <!--[if gt IE 8]><!-->
-    <script src="public/highlight.pack.js"></script>
-    <!--<![endif]-->
-    <script src="public/main.js"></script>
-    
   </body>
 </html>

@@ -1,25 +1,49 @@
-// Flag
-//
-// Display the [flag object](http://csswizardry.com/2013/05/the-flag-object/)
-//
-// Markup:
-//  <div class="o-flag {{modifier_class}}">
-//    <div class="o-flag__fix">
-//      <figure class="c-avatar c-avatar--md">
-//        <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/10.jpg" alt="Michele Carter" width="150" height="150" class="photo" />
-//      </figure>
-//    </div>
-//    <div class="o-flag__flex">
-//      <p class="u-margin--none">
-//        Michele Carter
-//      </p>
-//    </div>
-//  </div>
-//
-// .o-flag--rev - Reverse the direction
-//
-// Styleguide: 5.flag
+/**
+ * Flag
+ *
+ * Display the [flag object](http://csswizardry.com/2013/05/the-flag-object/). Defaults to showing all content vertically aligned in the middle
+ *
+ * .o-flag--top - Align all content to the top
+ * .o-flag--bottom - Align all content to the bottom
+ *
+ * Markup:
+ *  <div class="o-flag {{modifier_class}}">
+ *    <div class="o-flag__fix">
+ *      <figure class="c-avatar c-avatar--md">
+ *        <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/3.jpg" alt="Dave Scholes" width="150" height="150" class="photo" />
+ *      </figure>
+ *    </div>
+ *    <div class="o-flag__flex">
+ *      <p class="u-margin--none">
+ *        Dave Scholes
+ *      </p>
+ *    </div>
+ *  </div>
+ *
+ * Styleguide: objects.flag
+ */
 
+/**
+ * Reverse flag
+ *
+ * Display the flag object in reverse
+ *
+ * Markup:
+ *  <div class="o-flag o-flag--reverse">
+ *    <div class="o-flag__flex">
+ *      <p class="u-margin--none">
+ *        Dave Scholes
+ *      </p>
+ *    </div>
+ *    <div class="o-flag__fix">
+ *      <figure class="c-avatar c-avatar--md">
+ *        <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/3.jpg" alt="Dave Scholes" width="150" height="150" class="photo" />
+ *      </figure>
+ *    </div>
+ *  </div>
+ *
+ * Styleguide: objects.flag.reverse
+ */
 .o-flag {
   display: table;
   width: 100%;

@@ -35,10 +35,10 @@ module.exports = function(grunt) {
 
     kss: {
       options: {
-        verbose: true,
-        template: 'template',
+        template: 'assets/template',
         homepage: 'styleguide.md',
         css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
+        js: ['../assets/scripts/dist/script.<%= pkg.version %>.min.js', '../assets/scripts/lib/iframify.js'],
       },
       dist: {
         src: ['assets/styles/sass'],
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 
     watch: {
       css: {
-        files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'template/*.html'],
+        files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
         tasks: ['sass', 'postcss', 'kss', 'notify:sass']
       },
       scripts: {
@@ -210,6 +210,7 @@ module.exports = function(grunt) {
     'postcss',
     'uglify',
     'imagemin',
+    'kss',
     'notify:local',
     'watch',
   ]);

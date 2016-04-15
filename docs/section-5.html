@@ -1,19 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>kss-node Styleguide</title>
-    <meta name="description" content="" />
-    <meta name="generator" content="kss-node" />
-    <link rel="stylesheet" href="public/kss.css" />
-    <link rel="stylesheet" href="../assets/styles/css/style.3.0.10.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" href="../assets/images/dist/touchicon.png">
+    <link rel="icon" href="../assets/images/dist/favicon.png">
+    <!--[if IE]><link rel="shortcut icon" href="../assets/images/dist/favicon.ico"><![endif]-->
+    <!-- or, set /favicon.ico for IE10 win -->
+    <meta name="msapplication-TileImage" content="../assets/images/dist/tileicon.png">
+    <meta name="msapplication-TileColor" content="#b21e28">
+    <meta name="msapplication-navbutton-color" content="#b21e28">
+    <meta name="theme-color" content="#b21e28">
+
+    <title>Development Guidelines</title>
+
+    <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
+    <link rel="dns-prefetch" href="//use.typekit.net">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    <link rel="stylesheet" href="../assets/styles/css/style.3.0.11.min.css">
+
+
+    <!-- Load Typekit (EARLY!) -->
+    <script src="//use.typekit.net/jtz8aoh.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script src="../assets/scripts/dist/jquery.min.js"></script>
+    <script src="../assets/scripts/dist/script.3.0.11.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+
+    <!-- IE fixes -->
     <!--[if lt IE 9]>
-    <script src="public/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../assets/scripts/dist/respond.min.js"></script>
+    <script src="../assets/scripts/dist/rem.min.js"></script>
     <![endif]-->
   </head>
-  <body id="kss-node">
+  <body>
     <div class="kss-wrapper">
       <div class="kss-sidebar">
         <div class="kss-sidebar-inner">
@@ -23,22 +50,17 @@
           <nav class="kss-nav">
             <ul class="kss-menu" data-kss-ref="5">
               <li class="kss-menu-item"><a href="./"><span class="kss-ref">0</span><span class="kss-name">Overview</span></a></li>
-              <li class="kss-menu-item"><a href="section-1.html"><span class="kss-ref">1</span><span class="kss-name">Tools</span></a></li>
-              <li class="kss-menu-item"><a href="section-2.html"><span class="kss-ref">2</span><span class="kss-name">Settings</span></a></li>
-              <li class="kss-menu-item"><a href="section-3.html"><span class="kss-ref">3</span><span class="kss-name">Generic</span></a></li>
-              <li class="kss-menu-item"><a href="section-4.html"><span class="kss-ref">4</span><span class="kss-name">Base</span></a></li>
-              <li class="kss-menu-item"><a href="section-5.html"><span class="kss-ref">5</span><span class="kss-name">Objects</span></a></li>
-              <li class="kss-menu-item"><a href="section-6.html"><span class="kss-ref">6</span><span class="kss-name">Components</span></a></li>
-              <li class="kss-menu-item"><a href="section-7.html"><span class="kss-ref">7</span><span class="kss-name">Trumps</span></a></li>
+              <li class="kss-menu-item"><a href="section-5.html"><span class="kss-ref">5</span><span class="kss-name">5</span></a></li>
+              <li class="kss-menu-item"><a href="section-6.html"><span class="kss-ref">6</span><span class="kss-name">6</span></a></li>
+              <li class="kss-menu-item"><a href="section-tools.html"><span class="kss-ref">tools</span><span class="kss-name">Tools</span></a></li>
+              <li class="kss-menu-item"><a href="section-settings.html"><span class="kss-ref">settings</span><span class="kss-name">Settings</span></a></li>
+              <li class="kss-menu-item"><a href="section-generic.html"><span class="kss-ref">generic</span><span class="kss-name">Generic</span></a></li>
+              <li class="kss-menu-item"><a href="section-base.html"><span class="kss-ref">base</span><span class="kss-name">Base</span></a></li>
+              <li class="kss-menu-item"><a href="section-objects.html"><span class="kss-ref">objects</span><span class="kss-name">Objects</span></a></li>
+              <li class="kss-menu-item"><a href="section-components.html"><span class="kss-ref">components</span><span class="kss-name">Components</span></a></li>
+              <li class="kss-menu-item"><a href="section-trumps.html"><span class="kss-ref">trumps</span><span class="kss-name">Trumps</span></a></li>
             </ul>
             <ul class="kss-menu-child">
-              <li class="kss-menu-item"><a href="#section-5.buttons"><span class="kss-ref">5.buttons</span><span class="kss-name">Buttons</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.buttons.default"><span class="kss-ref">5.buttons.default</span><span class="kss-name">Default button</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.buttons.ghost"><span class="kss-ref">5.buttons.ghost</span><span class="kss-name">Ghost button</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.buttons.reset"><span class="kss-ref">5.buttons.reset</span><span class="kss-name">Reset button</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.card"><span class="kss-ref">5.card</span><span class="kss-name">Card</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.card.overlay"><span class="kss-ref">5.card.overlay</span><span class="kss-name">Card overlay</span></a></li>
-              <li class="kss-menu-item"><a href="#section-5.flag"><span class="kss-ref">5.flag</span><span class="kss-name">Flag</span></a></li>
               <li class="kss-menu-item"><a href="#section-5.lists"><span class="kss-ref">5.lists</span><span class="kss-name">Lists</span></a></li>
             </ul>
           </nav>
@@ -47,252 +69,7 @@
       <div class="kss-content">
         <article class="kss-article">
           <section id="section-5" class="kss-section kss-depth-1">
-            <h1 class="kss-title"><span class="kss-ref">5</span> Objects</h1>
-            <div class="kss-description">
-              <p>Cosmetic-free design patterns</p>
-
-            </div>
-          </section>
-          <section id="section-5.buttons" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">5.buttons</span> Buttons</h1>
-            <div class="kss-description">
-              <p>Button style for use across the site</p>
-
-            </div>
-          </section>
-          <section id="section-5.buttons.default" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">5.buttons.default</span> Default button</h1>
-            <div class="kss-description">
-              <p>Default button style</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                  <button class="o-btn">Click me!</button>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html">&lt;button class=&quot;o-btn&quot;&gt;Click me!&lt;/button&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-5.buttons.ghost" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">5.buttons.ghost</span> Ghost button</h1>
-            <div class="kss-description">
-              <p>Transparent button for use on dark backgrounds</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                  <button class="o-btn o-btn--ghost">Click me!</button>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html">&lt;button class=&quot;o-btn o-btn--ghost&quot;&gt;Click me!&lt;/button&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-5.buttons.reset" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">5.buttons.reset</span> Reset button</h1>
-            <div class="kss-description">
-              <p>Clear out all default styles</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                  <button class="o-btn o-btn--reset">Click me!</button>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html">&lt;button class=&quot;o-btn o-btn--reset&quot;&gt;Click me!&lt;/button&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-5.card" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">5.card</span> Card</h1>
-            <div class="kss-description">
-              <p>Used for displaying information</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                   <div class="o-card [modifier class]">
-   <div class="o-card__body">
-     <h1 class="o-card__title">Card title</h1>
-     <p class="o-card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-modifier">
-                <div class="kss-modifier-head">
-                  <div class="kss-modifier-name">.o-card--shadow</div>
-                  <div class="kss-modifier-description">
-                    Card with a subtle shadow
-                  </div>
-                </div>
-                <div class="kss-modifier-example">
-                   <div class="o-card o-card--shadow">
-   <div class="o-card__body">
-     <h1 class="o-card__title">Card title</h1>
-     <p class="o-card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-modifier">
-                <div class="kss-modifier-head">
-                  <div class="kss-modifier-name">.o-card--inlay</div>
-                  <div class="kss-modifier-description">
-                    Card with a grey background (can be used like a well)
-                  </div>
-                </div>
-                <div class="kss-modifier-example">
-                   <div class="o-card o-card--inlay">
-   <div class="o-card__body">
-     <h1 class="o-card__title">Card title</h1>
-     <p class="o-card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html"> &lt;div class=&quot;o-card [modifier class]&quot;&gt;
-   &lt;div class=&quot;o-card__body&quot;&gt;
-     &lt;h1 class=&quot;o-card__title&quot;&gt;Card title&lt;/h1&gt;
-     &lt;p class=&quot;o-card__text&quot;&gt;Some quick example text to build on the card title and make up the bulk of the card&#x27;s content.&lt;/p&gt;
-   &lt;/div&gt;
- &lt;/div&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-5.card.overlay" class="kss-section kss-depth-3">
-            <h1 class="kss-title"><span class="kss-ref">5.card.overlay</span> Card overlay</h1>
-            <div class="kss-description">
-              <p>Alternate style for displaying information over an image</p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                   <div class="o-card o-card--overlay">
-   <figure class="c-featured">
-     <picture>
-       <!--[if IE 9]><video style="display: none;"><![endif]-->
-       <source media="(min-width: 70rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-       <source media="(min-width: 50rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-       <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1-640x360.jpg">
-       <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg">
-       <!--[if IE 9]></video><![endif]-->
-       <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg" alt="Home" width="1280" height="720">
-     </picture>
-   </figure>
-   <div class="o-card__overlay">
-     <div class="o-card__overlay__middle">
-       <h2 class="o-card__title">Senior <br class="u-show u-hide--sm"/>Pastors</h2>
-       <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
-         Ed &amp; Michele Carter are the Senior Pastors of Valley Church.
-       </p>
-       <a class="o-btn o-btn--ghost" href="https://valleychurch.eu/team">
-         Read more
-       </a>
-     </div>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html"> &lt;div class=&quot;o-card o-card--overlay&quot;&gt;
-   &lt;figure class=&quot;c-featured&quot;&gt;
-     &lt;picture&gt;
-       &lt;!--[if IE 9]&gt;&lt;video style=&quot;display: none;&quot;&gt;&lt;![endif]--&gt;
-       &lt;source media=&quot;(min-width: 70rem)&quot; srcset=&quot;https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg&quot;&gt;
-       &lt;source media=&quot;(min-width: 50rem)&quot; srcset=&quot;https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg&quot;&gt;
-       &lt;source media=&quot;(min-width: 40rem)&quot; srcset=&quot;https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1-640x360.jpg&quot;&gt;
-       &lt;source srcset=&quot;https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg&quot;&gt;
-       &lt;!--[if IE 9]&gt;&lt;/video&gt;&lt;![endif]--&gt;
-       &lt;img srcset=&quot;https://cdn.valleychurch.eu/wp-content/uploads/2011/07/pastors1.jpg&quot; alt=&quot;Home&quot; width=&quot;1280&quot; height=&quot;720&quot;&gt;
-     &lt;/picture&gt;
-   &lt;/figure&gt;
-   &lt;div class=&quot;o-card__overlay&quot;&gt;
-     &lt;div class=&quot;o-card__overlay__middle&quot;&gt;
-       &lt;h2 class=&quot;o-card__title&quot;&gt;Senior &lt;br class=&quot;u-show u-hide--sm&quot;/&gt;Pastors&lt;/h2&gt;
-       &lt;p class=&quot;o-card__text u-hide u-show--sm u-hide--md u-show--xl&quot;&gt;
-         Ed &amp;amp; Michele Carter are the Senior Pastors of Valley Church.
-       &lt;/p&gt;
-       &lt;a class=&quot;o-btn o-btn--ghost&quot; href=&quot;https://valleychurch.eu/team&quot;&gt;
-         Read more
-       &lt;/a&gt;
-     &lt;/div&gt;
-   &lt;/div&gt;
- &lt;/div&gt;</code></pre>
-              </div>
-            </div>
-          </section>
-          <section id="section-5.flag" class="kss-section kss-depth-2">
-            <h1 class="kss-title"><span class="kss-ref">5.flag</span> Flag</h1>
-            <div class="kss-description">
-              <p>Display the <a href="http://csswizardry.com/2013/05/the-flag-object/">flag object</a></p>
-
-            </div>
-            <div class="kss-modifier-block">
-              <div class="kss-modifier kss-modifier-original">
-                <div class="kss-modifier-example">
-                   <div class="o-flag [modifier class]">
-   <div class="o-flag__fix">
-     <figure class="c-avatar c-avatar--md">
-       <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/10.jpg" alt="Michele Carter" width="150" height="150" class="photo" />
-     </figure>
-   </div>
-   <div class="o-flag__flex">
-     <p class="u-margin--none">
-       Michele Carter
-     </p>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-modifier">
-                <div class="kss-modifier-head">
-                  <div class="kss-modifier-name">.o-flag--rev</div>
-                  <div class="kss-modifier-description">
-                    Reverse the direction
-                  </div>
-                </div>
-                <div class="kss-modifier-example">
-                   <div class="o-flag o-flag--rev">
-   <div class="o-flag__fix">
-     <figure class="c-avatar c-avatar--md">
-       <img src="https://cdn.valleychurch.eu/wp-content/uploads/userphoto/10.jpg" alt="Michele Carter" width="150" height="150" class="photo" />
-     </figure>
-   </div>
-   <div class="o-flag__flex">
-     <p class="u-margin--none">
-       Michele Carter
-     </p>
-   </div>
- </div>
-                </div>
-              </div>
-              <div class="kss-markup">
-                <pre><code class="lang-html"> &lt;div class=&quot;o-flag [modifier class]&quot;&gt;
-   &lt;div class=&quot;o-flag__fix&quot;&gt;
-     &lt;figure class=&quot;c-avatar c-avatar--md&quot;&gt;
-       &lt;img src=&quot;https://cdn.valleychurch.eu/wp-content/uploads/userphoto/10.jpg&quot; alt=&quot;Michele Carter&quot; width=&quot;150&quot; height=&quot;150&quot; class=&quot;photo&quot; /&gt;
-     &lt;/figure&gt;
-   &lt;/div&gt;
-   &lt;div class=&quot;o-flag__flex&quot;&gt;
-     &lt;p class=&quot;u-margin--none&quot;&gt;
-       Michele Carter
-     &lt;/p&gt;
-   &lt;/div&gt;
- &lt;/div&gt;</code></pre>
-              </div>
-            </div>
+            <h1 class="kss-title"><span class="kss-ref">5</span> 5</h1>
           </section>
           <section id="section-5.lists" class="kss-section kss-depth-2">
             <h1 class="kss-title"><span class="kss-ref">5.lists</span> Lists</h1>
@@ -340,12 +117,5 @@
         </footer>
       </div>
     </div>
-    <script src="public/kss.js"></script>
-    <script src="public/jquery-1.9.1.min.js"></script>
-    <!--[if gt IE 8]><!-->
-    <script src="public/highlight.pack.js"></script>
-    <!--<![endif]-->
-    <script src="public/main.js"></script>
-    
   </body>
 </html>
