@@ -15,8 +15,8 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
   ?>
 <figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
   <picture>
-    <?php if ( $img_slide_small ) { ?>
-    <source media="(min-width: 60rem)" srcset="<?= $img_slide_small[0]; ?>">
+    <?php if ( $img_slide_medium ) { ?>
+    <source media="(min-width: 60rem)" srcset="<?= $img_slide_medium[0]; ?>">
     <?php }
     if ( $img_slide_medium ) { ?>
     <source media="(min-width: 40rem)" srcset="<?= $img_slide_medium[0]; ?>">

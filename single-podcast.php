@@ -38,7 +38,11 @@
               </div>
               <div class="o-flag__flex">
                 <p class="u-margin--none u-line-height--small">
-                  <?php the_author(); ?>
+                  <?php if ( get_field( 'podcast_author' ) ) {
+                    the_field( 'podcast_author' );
+                  } else {
+                    the_author();
+                  } ?>
                 </p>
               </div>
             </div>
