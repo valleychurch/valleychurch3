@@ -45,6 +45,12 @@
     <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </div><![endif]-->
 
+    <?php if( $_SERVER['HTTP_HOST'] === "test.valleychurch.eu" ) { ?>
+    <div class="o-container o-container--full c-browse-happy u-text-center">
+      <p class="h2">Test environment</p>
+    </div>
+    <?php } ?>
+
     <div class="o-container o-container--page">
 
       <?php get_template_part( 'partials/notification' ); ?>
