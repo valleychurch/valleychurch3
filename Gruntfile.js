@@ -37,6 +37,7 @@ module.exports = function(grunt) {
       options: {
         template: 'assets/template',
         homepage: 'styleguide.md',
+        verbose: true,
         css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
         js: ['../assets/scripts/dist/script.<%= pkg.version %>.min.js', '../assets/scripts/lib/iframify.js'],
       },

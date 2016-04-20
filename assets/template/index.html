@@ -87,25 +87,28 @@
                 {{else}}
                 <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
 
-                  <h5>In this section</h5>
+                  <h5>{{header}}</h5>
                   <ul class="o-list">
                     {{#eachSection rootName}}
-                    {{#ifDepth 1}}
-                    {{else ifDepth 2}}
+                    {{#ifDepth 2}}
                     <li>
-                      <a href="#section-{{reference}}">{{header}}</a>
-                    {{else ifDepth 3}}
+                      <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
+                    {{/ifDepth}}
+                    {{#ifDepth 3}}
                       <ul class="o-list">
                         <li>
-                          <a href="#section-{{reference}}">{{header}}</a>
+                          <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
                         </li>
                       </ul>
+                    {{/ifDepth}}
+                    {{#ifDepth 2}}
+                    </li>
                     {{/ifDepth}}
                     {{/eachSection}}
                   </ul>
 
                 </aside>
-                {{/if}}
+                {{/if}} {{!-- homepage --}}
 
                 <article class="{{#if homepage}}o-col-xxs-12{{else}}o-col-xxs-12 o-col-lg-9{{/if}} u-margin o-col-lg-first">
 
@@ -115,7 +118,7 @@
                   </section>
                   {{else}}
                   {{#eachSection rootName}}
-                  <section id="section-{{reference}}" class="kss-section kss-depth-{{depth}} u-margin-top--double">
+                  <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
                     {{#ifDepth 1}}
                     <h1>{{header}}</h1>
                     {{/ifDepth}}
@@ -160,7 +163,7 @@
 </code></pre>
                       </div>
                     </div>
-                    {{/if}}
+                    {{/if}} {{!-- markup --}}
                     {{!-- {{else}} --}}
                     {{!-- {{#if description}}
                       {{#ifDepth 1}}
