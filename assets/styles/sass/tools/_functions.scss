@@ -55,7 +55,8 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
     @if type-of($current-property) == "string" {
       $shade-val: $current-property;
-    } @else if type-of($current-property) == "number" {
+    }
+    @else if type-of($current-property) == "number" {
       $alpha-val: $current-property;
     }
 
@@ -75,12 +76,14 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
     @if $name == white or $name == black {
         $rgb-val: map-get($VCcolours, $name);
-    } @else {
+    }
+    @else {
         $rgb-val: map-get(map-get($VCcolours, $name), $shade-val);
     }
 
     @return rgba($rgb-val, $alpha-val);
-  } @else {
+  }
+  @else {
     @warn "No global color called #{$name} found."
     + "Are you sure it's in `variables?`";
   }

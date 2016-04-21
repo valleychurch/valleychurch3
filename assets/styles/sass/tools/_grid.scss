@@ -5,10 +5,10 @@
 // Generate semantic grid columns with these mixins.
 
 @mixin make-container($gutter: $VCgrid-gutter) {
-  margin-left: auto;
   margin-right: auto;
-  padding-left:  ($gutter / 2);
+  margin-left: auto;
   padding-right: ($gutter / 2);
+  padding-left: ($gutter / 2);
   @if not $VCenable-flex {
     @include clearfix();
   }
@@ -18,18 +18,19 @@
   @if $VCenable-flex {
     display: flex;
     flex-wrap: wrap;
-  } @else {
+  }
+  @else {
     @include clearfix();
   }
-  margin-left:  ($gutter / -2);
   margin-right: ($gutter / -2);
+  margin-left: ($gutter / -2);
 }
 
 @mixin make-col($size, $columns: $VCgrid-columns, $gutter: $VCgrid-gutter) {
   position: relative;
   min-height: 1px;
   padding-right: ($gutter / 2);
-  padding-left:  ($gutter / 2);
+  padding-left: ($gutter / 2);
 
   @if $VCenable-flex {
     flex: 0 0 percentage($size / $columns);
@@ -37,7 +38,8 @@
     // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
     // do not appear to require this.
     max-width: percentage($size / $columns);
-  } @else {
+  }
+  @else {
     float: left;
     width: percentage($size / $columns);
   }
@@ -59,9 +61,11 @@
   // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
   @if $type == push {
     @include make-col-push($size, $columns);
-  } @else if $type == pull {
+  }
+  @else if $type == pull {
     @include make-col-pull($size, $columns);
-  } @else if $type == offset {
+  }
+  @else if $type == offset {
     @include make-col-offset($size, $columns);
   }
 }

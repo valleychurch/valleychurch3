@@ -60,9 +60,6 @@
                   <a href="./">Overview</a>
                 </li>
                 <li class="menu-item">
-                  <a href="section-js.html">Javascript</a>
-                </li>
-                <li class="menu-item">
                   <a href="section-tools.html">Tools</a>
                 </li>
                 <li class="menu-item">
@@ -114,6 +111,11 @@
                     </li>
                       <ul class="o-list">
                         <li>
+                          <a href="#section-base.typography.defaults" data-depth="3">Defaults</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
                           <a href="#section-base.typography.headings" data-depth="3">Headings</a>
                         </li>
                       </ul>
@@ -131,7 +133,7 @@
 
                   <section id="section-base" class="u-margin--double" data-depth="1">
                     <h1>Base</h1>
-                    <div class="kss-description">
+                    <div class="kss-description lead">
                       <p>Unclassed HTML elements</p>
 
                     </div>
@@ -144,6 +146,61 @@
 
                     </div>
  
+                  </section>
+                  <section id="section-base.typography.defaults" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Defaults</h3>
+                    <div class="kss-description">
+                      <p>By default, the base of the site is set to <code>1rem</code> (equivalent to <code>16px</code>) so
+we bump this up slightly to <code>17px</code> to give everything a bit more legibility.</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <h1>About</h1>
+  <p class="lead">With a call from <a href="#0">Psalm 78</a>, <a href="#0">
+  Senior Pastors Ed &amp; Michele Carter</a> launched Valley Church in April
+  2007.</p>
+  <p>Our desire is to empower you to fulfil all that God has for you and
+  called you to be. We believe that Church should be a home for everyone, no
+  matter who they are or where they’ve come from. We long to empower the new
+  generation to continually direct the future of the Church.</p>
+  <p>We have a number of teams that you can get involved with:</p>
+  <ul>
+    <li>VIP (hosting and hospitality)</li>
+    <li><a href="#0">Community Action Team</a></li>
+    <li><a href="#0">Valley Kids (2-11s)</a></li>
+    <li><a href="#0">Creative (worship)</a></li>
+    <li>Tech and production (sound, lighting and visuals)</li>
+    <li>Communications (design, print, video and web)</li>
+  </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">  &lt;h1&gt;About&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;With a call from &lt;a href=&quot;#0&quot;&gt;Psalm 78&lt;/a&gt;, &lt;a href=&quot;#0&quot;&gt;
+  Senior Pastors Ed &amp;amp; Michele Carter&lt;/a&gt; launched Valley Church in April
+  2007.&lt;/p&gt;
+  &lt;p&gt;Our desire is to empower you to fulfil all that God has for you and
+  called you to be. We believe that Church should be a home for everyone, no
+  matter who they are or where they’ve come from. We long to empower the new
+  generation to continually direct the future of the Church.&lt;/p&gt;
+  &lt;p&gt;We have a number of teams that you can get involved with:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;VIP (hosting and hospitality)&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;Community Action Team&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;Valley Kids (2-11s)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;Creative (worship)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Tech and production (sound, lighting and visuals)&lt;/li&gt;
+    &lt;li&gt;Communications (design, print, video and web)&lt;/li&gt;
+  &lt;/ul&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
                   </section>
                   <section id="section-base.typography.headings" class="u-margin--double" data-depth="3">
                     <h3 class="u-margin--half">Headings</h3>
@@ -167,7 +224,8 @@ heading but still want your text to be displayed inline.</p>
                         </div>
                       </div>
                       <div class="kss-markup">
-<pre><code class="language-html">  &lt;h1&gt;Heading 1&lt;/h1&gt;
+<pre>
+<code class="language-html">  &lt;h1&gt;Heading 1&lt;/h1&gt;
   &lt;h2&gt;Heading 2&lt;/h2&gt;
   &lt;h3&gt;Heading 3&lt;/h3&gt;
   &lt;h4&gt;Heading 4&lt;/h4&gt;
@@ -198,7 +256,8 @@ heading but still want your text to be displayed inline.</p>
                         </div>
                       </div>
                       <div class="kss-markup">
-<pre><code class="language-html">  &lt;h1 class=&quot;exa&quot;&gt;Exa size heading&lt;/h1&gt;
+<pre>
+<code class="language-html">  &lt;h1 class=&quot;exa&quot;&gt;Exa size heading&lt;/h1&gt;
   &lt;h2 class=&quot;peta&quot;&gt;Peta size heading&lt;/h2&gt;
   &lt;h3 class=&quot;tera&quot;&gt;Tera size heading&lt;/h3&gt;
   &lt;h4 class=&quot;giga&quot;&gt;Giga size heading&lt;/h4&gt;

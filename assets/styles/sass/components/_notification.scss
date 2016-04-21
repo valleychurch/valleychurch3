@@ -1,8 +1,8 @@
 .c-notification {
-  overflow: hidden;
   max-height: 0;
-  background-color: colour(red, dark);
+  overflow: hidden;
   color: white;
+  background-color: colour(red, dark);
   @include transition();
 
   .o-container {
@@ -33,10 +33,10 @@
 
 .c-notification__dismiss {
   font-size: 2rem;
-  line-height: 1;
-  text-decoration: none !important;
-  color: white;
   font-weight: 100;
+  line-height: 1;
+  color: white;
+  text-decoration: none !important;
 }
 
 .c-browse-happy {

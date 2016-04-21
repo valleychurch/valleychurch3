@@ -1,14 +1,11 @@
 .c-avatar {
   @include avatar-size;
-
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
   position: relative;
+  display: inline-block;
   margin-bottom: 0;
-
+  overflow: hidden;
   text-align: center;
-
+  vertical-align: middle;
   border-radius: 100%;
 
   &__img,
@@ -21,17 +18,15 @@
   }
 
   &:after {
-    content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-
-    border-radius: 100%;
-    //box-shadow: inset 0 0 0 1px colour(gray-light);
-
     pointer-events: none;
+    border-radius: 100%;
+    content: "";
+
   }
 
   &#{&}--no-img {
@@ -39,10 +34,10 @@
     border: 2px solid greyscale(5);
 
     &:after {
-      content: attr(data-initials);
       @include font-stack-alt;
-      box-shadow: none;
       color: white;
+      content: attr(data-initials);
+      box-shadow: none;
     }
 
     &.c-avatar--xs:after {

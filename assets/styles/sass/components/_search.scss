@@ -23,8 +23,8 @@
 
 .c-search__input {
   padding: .5rem 2rem .5rem .625rem !important;
-  color: colour(black);
   line-height: 1.35;
+  color: colour(black);
   border: 1px solid greyscale(9);
   @include transition();
 
@@ -42,7 +42,7 @@
         outline: none;
         //border-bottom-color: colour(white);
 
-        & + .c-search__button {
+        + .c-search__button {
           color: colour(white);
         }
       }
@@ -55,14 +55,14 @@
   top: 0;
   right: 0;
   bottom: 0;
-  min-width: 0;
   width: 39px;
   height: 39px;
+  min-width: 0;
   padding: 0;
   margin: 0;
-  background-color: transparent;
-  color: greyscale(5);
   line-height: 0;
+  color: greyscale(5);
+  background-color: transparent;
   border-width: 0;
   border-radius: 0 2px 2px 0;
   @include transition();

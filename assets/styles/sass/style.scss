@@ -1,14 +1,4 @@
 /**
- * Javascript
- *
- * JS
- *
- * Weight: -1
- *
- * Styleguide: js
- */
-
-/**
  * Tools
  *
  * Default mixins and functions
@@ -17,12 +7,11 @@
  *
  * Styleguide: tools
  */
-@import 'tools/functions';
-@import 'tools/mixins';
-@import 'tools/animations';
-@import 'tools/grid';
-@import 'tools/grid-framework';
-@import 'tools/modular-scale';
+@import "tools/functions";
+@import "tools/mixins";
+@import "tools/animations";
+@import "tools/grid";
+@import "tools/grid-framework";
 
 /**
  * Settings
@@ -33,8 +22,8 @@
  *
  * Styleguide: settings
  */
-@import 'settings/variables';
-@import 'settings/fonts';
+@import "settings/variables";
+@import "settings/fonts";
 
 /**
  * Generic
@@ -45,9 +34,9 @@
  *
  * Styleguide: generic
  */
-@import 'generic/normalize';
-@import 'generic/boxsizing';
-@import 'generic/shared';
+@import "generic/normalize";
+@import "generic/boxsizing";
+@import "generic/shared";
 
 /**
  * Base
@@ -58,12 +47,12 @@
  *
  * Styleguide: base
  */
-@import 'base/base';
-@import 'base/typography';
-@import 'base/links';
-@import 'base/definition-lists';
-@import 'base/tables';
-@import 'base/forms';
+@import "base/base";
+@import "base/typography";
+@import "base/links";
+@import "base/definition-lists";
+@import "base/tables";
+@import "base/forms";
 
 /**
  * Objects
@@ -74,13 +63,13 @@
  *
  * Styleguide: objects
  */
-@import 'objects/buttons';
-@import 'objects/card';
-@import 'objects/flag';
-@import 'objects/grid';
-@import 'objects/lists';
-@import 'objects/media';
-@import 'objects/ratio';
+@import "objects/buttons";
+@import "objects/card";
+@import "objects/flag";
+@import "objects/grid";
+@import "objects/lists";
+@import "objects/media";
+@import "objects/ratio";
 
 /**
  * Components
@@ -91,19 +80,19 @@
  *
  * Styleguide: components
  */
-@import 'components/avatar';
-@import 'components/banner';
-@import 'components/footer';
-@import 'components/header';
-@import 'components/main';
-@import 'components/map';
-@import 'components/navigation';
-@import 'components/notification';
-@import 'components/pagination';
-@import 'components/post';
-@import 'components/search';
-@import 'components/sharer';
-@import 'components/slider';
+@import "components/avatar";
+@import "components/banner";
+@import "components/footer";
+@import "components/header";
+@import "components/main";
+@import "components/map";
+@import "components/navigation";
+@import "components/notification";
+@import "components/pagination";
+@import "components/post";
+@import "components/search";
+@import "components/sharer";
+@import "components/slider";
 
 /**
  * Trumps
@@ -114,5 +103,5 @@
  *
  * Styleguide: trumps
  */
-@import 'trumps/utilities';
-@import 'trumps/trumps';
+@import "trumps/utilities";
+@import "trumps/trumps";

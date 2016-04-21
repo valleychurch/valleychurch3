@@ -1,12 +1,12 @@
 .c-banner {
-  display: table;
   position: relative;
+  display: table;
   width: 100%;
   height: 17rem; //Added so Firefox recognised min-height
   min-height: 17rem;
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   @include transition;
 
   @include breakpoint(sm) {
@@ -26,25 +26,25 @@
   }
 
   &::after {
-    content: "";
     position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
     background-color: greyscale(2, .85);
+    content: "";
   }
 
-  & > .o-container {
-    display: table-cell;
-    vertical-align: middle;
+  > .o-container {
     position: relative;
     z-index: 10;
+    display: table-cell;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+    vertical-align: middle;
 
     * {
       color: white;

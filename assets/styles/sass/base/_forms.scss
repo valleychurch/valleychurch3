@@ -17,13 +17,13 @@ input[type="date"],
 button,
 textarea,
 select {
-  padding: half($VCbase) three-quarters($VCbase);
-  box-sizing: border-box;
   display: block;
   width: 100%;
+  padding: half($VCbase) three-quarters($VCbase);
   line-height: normal;
   border: 1px solid greyscale(8);
   border-radius: 2px;
+  box-sizing: border-box;
 
   &:focus,
   &:active {

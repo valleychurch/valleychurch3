@@ -1,8 +1,8 @@
 .c-map {
   position: relative;
-  overflow: hidden;
   height: 0;
   padding-bottom: 75%;
+  overflow: hidden;
 
   @include breakpoint(sm) {
     padding-bottom: 60%;

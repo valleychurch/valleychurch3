@@ -24,8 +24,8 @@
   // left: 0;
   position: relative;
   z-index: 20;
-  background-color: grayscale(2);
   padding: .75rem;
+  background-color: grayscale(2);
 
   @include breakpoint(md) {
     padding: .5rem;
@@ -43,8 +43,8 @@
 
 .logo {
   position: relative;
-  display: inline-block;
   z-index: 10;
+  display: inline-block;
   line-height: 0;
   // padding: 0.75rem 0;
 
@@ -53,15 +53,15 @@
   }
 
   @include breakpoint(lg) {
-    padding: .8rem 0;
+    padding: .6875rem 0;
   }
 
   object,
   svg {
-    width: 201px;
-    height: 32px;
     position: relative;
     z-index: -1;
+    width: 201px;
+    height: 32px;
     pointer-events: none;
 
     // @include breakpoint(md) {

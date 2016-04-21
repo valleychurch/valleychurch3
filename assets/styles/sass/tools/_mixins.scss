@@ -25,8 +25,8 @@
 
   @if ($alternates) {
     .fontvariant & {
-      font-variant-alternates: styleset('ss04');
-      font-feature-settings: 'ss04';
+      font-variant-alternates: styleset("ss04");
+      font-feature-settings: "ss04";
 
       em {
         // font-variant-alternates: styleset('ss01'), styleset('ss03');
@@ -44,9 +44,19 @@
 
   @if ($alternates) {
     .fontvariant & {
-      font-variant-alternates: styleset('ss01'), styleset('ss03');
-      font-feature-settings: 'ss01', 'ss03';
+      font-variant-alternates: styleset("ss01"), styleset("ss03");
+      font-feature-settings: "ss01", "ss03";
     }
+  }
+}
+
+
+// Push in a pixel font size and get a rem one back
+@mixin font-size($px-value) {
+  font-size: ($px-value / $VCfont-size-unitless) + rem;
+
+  .lt-ie9 {
+    font-size: $px-value + px;
   }
 }
 
@@ -54,9 +64,9 @@
 // Clearfix
 @mixin clearfix() {
   &::after {
-    content: '';
     display: table;
     clear: both;
+    content: "";
   }
 }
 

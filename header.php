@@ -6,26 +6,41 @@
 <!--[if gt IE 8]><!--><html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
 
   <head>
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/dist/touchicon.png">
-    <link rel="icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/dist/favicon.png">
-    <!--[if IE]><link rel="shortcut icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/dist/favicon.ico"><![endif]-->
-    <!-- or, set /favicon.ico for IE10 win -->
-    <meta name="msapplication-TileImage" content="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/images/dist/tileicon.png">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-57x57.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-60x60.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-72x72.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-76x76.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-114x114.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-120x120.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-144x144.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-152x152.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-180x180.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-194x194.png?v=<?= VC_THEME_VERSION ?>" sizes="194x194">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-96x96.png?v=<?= VC_THEME_VERSION ?>" sizes="96x96">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
+    <link rel="manifest" href="/wp-content/themes/valleychurch3/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
+    <link rel="mask-icon" href="/wp-content/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
     <meta name="msapplication-TileColor" content="#b21e28">
-    <meta name="msapplication-navbutton-color" content="#b21e28">
+    <meta name="msapplication-TileImage" content="/wp-content/themes/valleychurch3/assets/favicons/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
     <meta name="theme-color" content="#b21e28">
 
+    <!-- Prefetch some DNS -->
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
+    <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Load Typekit (EARLY!) -->
+    <!-- Load Typekit ASAP -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 

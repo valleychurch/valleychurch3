@@ -25,14 +25,14 @@
 }
 
 .c-post-content {
-  max-width: 39rem;
+  max-width: 48rem;
 
   .no-flexbox & {
     float: none;
   }
 
   &--wide {
-    max-width: 50rem;
+    max-width: 60rem;
   }
 }
 

@@ -15,13 +15,13 @@
 }
 
 .o-container--sm {
-  max-width: map-get($VCbreakpoints, 'lg');
+  max-width: map-get($VCbreakpoints, "lg");
 }
 
 .o-container--page {
   @include box-shadow;
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 
 // Row

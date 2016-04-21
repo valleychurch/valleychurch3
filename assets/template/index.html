@@ -110,7 +110,7 @@
                 </aside>
                 {{/if}} {{!-- homepage --}}
 
-                <article class="{{#if homepage}}o-col-xxs-12{{else}}o-col-xxs-12 o-col-lg-9{{/if}} u-margin o-col-lg-first">
+                <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
 
                   {{#if homepage}}
                   <section id="section-0" class="kss-section kss-overview">
@@ -130,7 +130,7 @@
                     {{/ifDepth}}
                     {{!-- {{#if markup}} --}}
                     {{#if description}}
-                    <div class="kss-description">
+                    <div class="kss-description{{#ifDepth 1}} lead{{/ifDepth}}">
                       {{{description}}}
                     </div>
                     {{/if}}
@@ -159,7 +159,8 @@
                       </div>
                       {{/eachModifier}}
                       <div class="kss-markup">
-<pre><code class="language-html">{{markup}}
+<pre>
+<code class="language-html">{{markup}}
 </code></pre>
                       </div>
                     </div>

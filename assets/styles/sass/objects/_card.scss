@@ -18,8 +18,8 @@
  * Styleguide: objects.card
  */
 .o-card {
-  display: block;
   position: relative;
+  display: block;
   margin-bottom: $VCbase * 1.5;
   background: white;
 }
@@ -83,7 +83,7 @@
  * <div class="o-card o-card--shadow u-text-center">
  *   <figure class="c-featured o-card__img  ">
  *     <picture>
- *       <source media="(min-width: 60rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit-640x360.jpg">
+ *       <source media="(min-width: 60rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit.jpg">
  *       <source media="(min-width: 40rem)" srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit.jpg">
  *       <source srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit-640x360.jpg">
  *       <img srcset="https://cdn.valleychurch.eu/wp-content/uploads/2016/01/home-visit.jpg" alt="Home" width="1280" height="720">
@@ -104,11 +104,11 @@
  */
 .o-card__overlay {
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   left: 0;
-  padding: $VCbase * .75;
   z-index: 10;
+  padding: $VCbase * .75;
 
   @include breakpoint(sm) {
     padding: $VCbase;
@@ -132,17 +132,17 @@
 
 .o-card--overlay {
   &::after {
-    content: '';
     position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: greyscale(2, .8);
     z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: greyscale(2, .8);
+    content: "";
   }
 }
 

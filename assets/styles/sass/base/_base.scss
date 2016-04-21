@@ -1,18 +1,18 @@
 html {
   @include full-height;
-  font-size: 16px;
+  font-size: $VCfont-size;
 
-  @include breakpoint(xs) {
-    font-size: 17px;
-  }
+  // @include breakpoint(xs) {
+  //   font-size: 17px;
+  // }
 
-  @include breakpoint(md) {
-    font-size: 18px;
-  }
+  // @include breakpoint(md) {
+  //   font-size: 18px;
+  // }
 
-  @include breakpoint(lg) {
-    font-size: 19px;
-  }
+  // @include breakpoint(lg) {
+  //   font-size: 19px;
+  // }
 }
 
 body {
@@ -20,16 +20,17 @@ body {
   @include font-stack;
   @include transition;
   position: relative;
+  font-size: $VCbase;
   line-height: $VCline-height;
   color: colour(black);
 
   &.is-menu-active {
     position: fixed;
-    overflow: hidden;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    overflow: hidden;
 
     .csstransforms3d & {
       transform: translate3d(-15rem, 0, 0);

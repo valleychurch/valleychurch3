@@ -4,18 +4,18 @@
 
 .c-slides {
   position: relative;
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style-type: none;
   //@extend .u-cf;
 
   li {
-    -webkit-backface-visibility: hidden;
     position: absolute;
+    top: 0;
+    left: 0;
     display: none;
     width: 100%;
-    left: 0;
-    top: 0;
+    -webkit-backface-visibility: hidden;
 
     a {
       display: block;
@@ -29,10 +29,9 @@
   }
 
   img {
-    //@extend .left;
     display: block;
-    height: auto;
     width: 100%;
+    height: auto;
   }
 }
 
@@ -45,10 +44,10 @@
 
   .rslides_nav {
     position: absolute;
-    width: 20px;
-    height: 32px;
     bottom: .75rem;
     z-index: 10;
+    width: 20px;
+    height: 32px;
 
     object,
     svg {
@@ -85,23 +84,23 @@
 
   .rslides_tabs {
     position: absolute;
+    right: 0;
     bottom: $VCbase * .5;
     left: 0;
-    right: 0;
     z-index: 8;
+    width: 100%;
     padding: 0;
-    margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
+    margin-left: auto;
     text-align: center;
-    width: 100%;
 
     li {
+      display: inline-block;
       width: $VCbase * 1.5;
       height: $VCbase * 1.5;
-      text-align: center;
       margin-right: 6px;
-      display: inline-block;
+      text-align: center;
       @include box-shadow;
 
       @include breakpoint(md) {
@@ -122,8 +121,8 @@
       overflow: hidden;
       font-size: 0;
       line-height: 0;
-      border-radius: 50%;
       background-color: white;
+      border-radius: 50%;
 
       @include breakpoint(md) {
         width: $VCbase;

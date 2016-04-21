@@ -1,5 +1,6 @@
 // Reusables
-$VCfont-size:           18px;
+$VCfont-size:           16px;
+$VCfont-size-unitless:  16;
 $VCratio:               1.2;
 $VCbase:                1rem;
 $VCline-height:         1.618;
@@ -17,8 +18,8 @@ $VCgrid-columns:        12;
 
 // Breakpoints in em rather than rem as per
 // http://zellwk.com/blog/media-query-units/
-$VCmax-width:           80rem;
-$VCmax-width-alt:       80em;
+$VCmax-width:           90rem;
+$VCmax-width-alt:       90em;
 $VCbreakpoints: (
   xxs:                  0,
   xs:                   25em,

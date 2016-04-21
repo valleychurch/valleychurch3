@@ -18,41 +18,35 @@
  */
 .o-btn,
 .o-btn:visited {
-  // width: 100%;
   display: inline-block;
-  // white-space: nowrap;
-  vertical-align: middle;
-  touch-action: manipulation;
-  text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-
-  background-color: colour(red);
   padding: .25rem .5rem;
 
-  @include font-stack-alt;
-  color: white;
   font-size: ms(1);
+  @include font-stack-alt;
   font-weight: $VCfont-light;
-  text-align: center;
   letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: colour(red);
   border: 0;
-  //border: 1px solid colour(red, dark);
   border-radius: 4px;
+  user-select: none;
+  touch-action: manipulation;
+
   @include transition;
 
   &:hover,
   &:focus {
-    background-color: colour(red, dark);
-    //border-color: colour(red, x-dark);
     color: white;
+    background-color: colour(red, dark);
   }
 
   @include breakpoint(sm) {
-    //min-width: 8rem;
     font-size: ms(0);
-    //padding: 0.5rem 1rem;
   }
 }
 
@@ -86,14 +80,14 @@
  */
 .o-btn--ghost {
   @include font-stack-alt;
-  background-color: transparent;
   color: white;
+  background-color: transparent;
   border: 3px solid colour(white, .6);
 
   &:hover,
   &:focus {
+    color: white;
     background-color: transparent;
     border-color: colour(white, 1);
-    color: white;
   }
 }

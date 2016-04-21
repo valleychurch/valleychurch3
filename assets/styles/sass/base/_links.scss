@@ -1,6 +1,6 @@
 a {
-  @include transition('color');
-  text-decoration: none;
+  @include transition("color");
+  // text-decoration: none;
 
   &,
   &:active {
@@ -13,7 +13,7 @@ a {
   }
 
   &:visited {
-    color: colour(red, dark);
+    color: greyscale(5);
 
     &:focus,
     &:hover {
@@ -21,8 +21,8 @@ a {
     }
   }
 
-  .c-article &,
-  .c-footer & {
-    text-decoration: underline;
-  }
+  // .c-article &,
+  // .c-footer & {
+  //   text-decoration: underline;
+  // }
 }
