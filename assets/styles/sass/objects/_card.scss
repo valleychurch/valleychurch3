@@ -29,10 +29,10 @@
 }
 
 .o-card__body {
-  padding: $VCbase * .75;
+  padding: $VCbase;
 
   @include breakpoint(md) {
-    padding: $VCbase;
+    padding: $VCbase * 1.5;
   }
 }
 

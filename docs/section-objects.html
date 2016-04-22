@@ -49,7 +49,7 @@
 
       <header class="c-header u-clearfix">
         <div class="o-container o-container--full">
-          <a class="logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
+          <a class="c-logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
             <img src="../assets/images/dist/icon.svg" width="32" height="32">
           </a>
 
@@ -86,7 +86,8 @@
 
           <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
-              <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
+              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
             </button>
           </div>
         </div>
@@ -142,6 +143,11 @@
                     </li>
                       <ul class="o-list">
                         <li>
+                          <a href="#section-objects.flag.default" data-depth="3">Default flag</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
                           <a href="#section-objects.flag.reverse" data-depth="3">Reverse flag</a>
                         </li>
                       </ul>
@@ -151,6 +157,16 @@
                       <ul class="o-list">
                         <li>
                           <a href="#section-objects.lists.nested" data-depth="3">Nested lists</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-objects.lists.inline" data-depth="3">Inline list</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-objects.lists.breadcrumb" data-depth="3">Breadcrumb list</a>
                         </li>
                       </ul>
                   </ul>
@@ -230,13 +246,26 @@
                       <div class="o-card o-card--outline u-margin--none">
                         <div class="o-card__body">
                           <div class="iframify">
-                            <a class="o-btn o-btn--reset">Click me!</a>
+                             <a class="o-btn o-btn--reset [modifier class]">Click me!</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="o-card__title u-margin">
+                            <div class="kss-modifier-name"><strong>.o-btn--reset--alt</strong></div>
+                            <div class="kss-modifier-description">
+                              Alternative button with a light grey background
+                            </div>
+                          </div>
+                          <div class="iframify">
+ <a class="o-btn o-btn--reset o-btn--reset--alt">Click me!</a>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html">&lt;a class=&quot;o-btn o-btn--reset&quot;&gt;Click me!&lt;/a&gt;
+<code class="language-html"> &lt;a class=&quot;o-btn o-btn--reset [modifier class]&quot;&gt;Click me!&lt;/a&gt;
 </code></pre>
                       </div>
                     </div>
@@ -457,7 +486,16 @@
                   <section id="section-objects.flag" class="u-margin--double" data-depth="2">
                     <h2>Flag</h2>
                     <div class="kss-description">
-                      <p>Display the <a href="http://csswizardry.com/2013/05/the-flag-object/">flag object</a>. Defaults to showing all content vertically aligned in the middle</p>
+                      <p>Display the <a href="http://csswizardry.com/2013/05/the-flag-object/">flag object</a>.
+Defaults to showing all content vertically aligned in the middle.</p>
+
+                    </div>
+ 
+                  </section>
+                  <section id="section-objects.flag.default" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Default flag</h3>
+                    <div class="kss-description">
+                      <p>Basic flag object</p>
 
                     </div>
                     <div class="kss-modifier-block">
@@ -600,24 +638,7 @@
                       <div class="o-card o-card--outline u-margin--none">
                         <div class="o-card__body">
                           <div class="iframify">
-                             <ul class="o-list [modifier class]">
-   <li><a href="#0">List item 1</a></li>
-   <li><a href="#0">List item 2</a></li>
-   <li><a href="#0">List item 3</a></li>
- </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="o-card o-card--outline u-margin--none">
-                        <div class="o-card__body">
-                          <div class="o-card__title u-margin">
-                            <div class="kss-modifier-name"><strong>.o-list--inline</strong></div>
-                            <div class="kss-modifier-description">
-                              Display the list inline (like a top nav)
-                            </div>
-                          </div>
-                          <div class="iframify">
- <ul class="o-list o-list--inline">
+                             <ul class="o-list">
    <li><a href="#0">List item 1</a></li>
    <li><a href="#0">List item 2</a></li>
    <li><a href="#0">List item 3</a></li>
@@ -627,7 +648,7 @@
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html"> &lt;ul class=&quot;o-list [modifier class]&quot;&gt;
+<code class="language-html"> &lt;ul class=&quot;o-list&quot;&gt;
    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 1&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
    &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
@@ -687,6 +708,66 @@
        &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 3c&lt;/a&gt;&lt;/li&gt;
      &lt;/ul&gt;
    &lt;/li&gt;
+ &lt;/ul&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-objects.lists.inline" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Inline list</h3>
+                    <div class="kss-description">
+                      <p>Display the list inline (like a top nav)</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                             <ul class="o-list o-list--inline">
+   <li><a href="#0">List item 1</a></li>
+   <li><a href="#0">List item 2</a></li>
+   <li><a href="#0">List item 3</a></li>
+ </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html"> &lt;ul class=&quot;o-list o-list--inline&quot;&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-objects.lists.breadcrumb" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Breadcrumb list</h3>
+                    <div class="kss-description">
+                      <p>Display the list as breadcrumbs</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                             <ul class="o-list o-list--breadcrumbs">
+   <li><a href="#0">List item 1</a></li>
+   <li><a href="#0">List item 2</a></li>
+   <li class="is-active">List item 3</li>
+ </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html"> &lt;ul class=&quot;o-list o-list--breadcrumbs&quot;&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li class=&quot;is-active&quot;&gt;List item 3&lt;/li&gt;
  &lt;/ul&gt;
 </code></pre>
                       </div>

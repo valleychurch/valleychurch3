@@ -261,14 +261,16 @@
 }
 
 .c-nav-toggle {
-  padding: .5rem;
-  margin-top: -.275rem;
-  margin-bottom: 0;
+  padding: 9px 9px 10px;
+  margin: -3px 0 -4px;
   color: white;
   text-transform: uppercase;
   background-color: transparent;
   border: 0;
-  // @include font-stack-alt;
+
+  .fa {
+    vertical-align: -2px;
+  }
 
   &:hover,
   &:focus {
@@ -276,11 +278,11 @@
   }
 
   @include breakpoint(sm) {
-    margin-top: -.125rem;
+    // margin-top: -.125rem;
   }
 
   @include breakpoint(md) {
-    margin-top: .125rem;
+    margin: 2px 0 0;
   }
 }
 

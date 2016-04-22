@@ -49,7 +49,7 @@
 
       <header class="c-header u-clearfix">
         <div class="o-container o-container--full">
-          <a class="logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
+          <a class="c-logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
             <img src="../assets/images/dist/icon.svg" width="32" height="32">
           </a>
 
@@ -86,7 +86,8 @@
 
           <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
-              <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
+              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
             </button>
           </div>
         </div>
@@ -121,6 +122,11 @@
                       </ul>
                       <ul class="o-list">
                         <li>
+                          <a href="#section-base.typography.lead" data-depth="3">Lead paragraphs</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
                           <a href="#section-base.typography.display" data-depth="3">Display headings</a>
                         </li>
                       </ul>
@@ -151,7 +157,9 @@
                     <h3 class="u-margin--half">Defaults</h3>
                     <div class="kss-description">
                       <p>By default, the base of the site is set to <code>1rem</code> (equivalent to <code>16px</code>) so
-we bump this up slightly to <code>17px</code> to give everything a bit more legibility.</p>
+we bump this up slightly to <code>17px</code> on mobile and <code>19px</code> on desktop to give
+everything a bit more legibility. We also give some defaults to <code>ul</code>/<code>ol</code>
+elements to make them match.</p>
 
                     </div>
                     <div class="kss-modifier-block">
@@ -235,6 +243,15 @@ heading but still want your text to be displayed inline.</p>
                       </div>
                     </div>
                      
+                  </section>
+                  <section id="section-base.typography.lead" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Lead paragraphs</h3>
+                    <div class="kss-description">
+                      <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>19px</code> on
+mobile and <code>22px</code> on desktop.</p>
+
+                    </div>
+ 
                   </section>
                   <section id="section-base.typography.display" class="u-margin--double" data-depth="3">
                     <h3 class="u-margin--half">Display headings</h3>

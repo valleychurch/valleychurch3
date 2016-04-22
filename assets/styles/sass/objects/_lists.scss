@@ -4,13 +4,11 @@
  * Override default `ul` styling and remove bullets
  *
  * Markup:
- *  <ul class="o-list {{modifier_class}}">
+ *  <ul class="o-list">
  *    <li><a href="#0">List item 1</a></li>
  *    <li><a href="#0">List item 2</a></li>
  *    <li><a href="#0">List item 3</a></li>
  *  </ul>
- *
- * .o-list--inline - Display the list inline (like a top nav)
  *
  * Styleguide: objects.lists
  */
@@ -40,6 +38,8 @@
  *    </li>
  *  </ul>
  *
+ * Weight: 1
+ *
  * Styleguide: objects.lists.nested
  */
 .o-list {
@@ -60,8 +60,59 @@
   }
 }
 
+/**
+ * Inline list
+ *
+ * Display the list inline (like a top nav)
+ *
+ * Markup:
+ *  <ul class="o-list o-list--inline">
+ *    <li><a href="#0">List item 1</a></li>
+ *    <li><a href="#0">List item 2</a></li>
+ *    <li><a href="#0">List item 3</a></li>
+ *  </ul>
+ *
+ * Weight: 2
+ *
+ * Styleguide: objects.lists.inline
+ */
 .o-list--inline {
   li {
     display: inline-block;
+  }
+}
+
+/**
+ * Breadcrumb list
+ *
+ * Display the list as breadcrumbs
+ *
+ * Markup:
+ *  <ul class="o-list o-list--breadcrumbs">
+ *    <li><a href="#0">List item 1</a></li>
+ *    <li><a href="#0">List item 2</a></li>
+ *    <li class="is-active">List item 3</li>
+ *  </ul>
+ *
+ * Weight: 3
+ *
+ * Styleguide: objects.lists.breadcrumb
+ */
+.o-list--breadcrumbs {
+  li {
+    display: inline-block;
+
+    &:after {
+      display: inline;
+      margin: 0 .25rem 0 .5rem;
+      content: "/";
+    }
+
+    &.is-active {
+      &:after {
+        content: "";
+        display: none;
+      }
+    }
   }
 }

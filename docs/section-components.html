@@ -49,7 +49,7 @@
 
       <header class="c-header u-clearfix">
         <div class="o-container o-container--full">
-          <a class="logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
+          <a class="c-logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
             <img src="../assets/images/dist/icon.svg" width="32" height="32">
           </a>
 
@@ -86,7 +86,8 @@
 
           <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
-              <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
+              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
             </button>
           </div>
         </div>
@@ -115,6 +116,14 @@
                     <li>
                       <a href="#section-components.navigation" data-depth="2">Navigation</a>
                     </li>
+                    <li>
+                      <a href="#section-components.notifications" data-depth="2">Notifications</a>
+                    </li>
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-components.notifications.default" data-depth="3">Default notification</a>
+                        </li>
+                      </ul>
                   </ul>
 
                 </aside>
@@ -194,7 +203,7 @@
                           <div class="iframify">
                              <header class="c-header">
    <div class="o-container o-container--full">
-     <a class="logo u-pull-left" href="https://valleychurch.eu">
+     <a class="c-logo u-pull-left" href="https://valleychurch.eu">
        <img src="https://cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/logo.svg" width="201" height="32">
      </a>
    </div>
@@ -206,7 +215,7 @@
 <pre>
 <code class="language-html"> &lt;header class=&quot;c-header&quot;&gt;
    &lt;div class=&quot;o-container o-container--full&quot;&gt;
-     &lt;a class=&quot;logo u-pull-left&quot; href=&quot;https://valleychurch.eu&quot;&gt;
+     &lt;a class=&quot;c-logo u-pull-left&quot; href=&quot;https://valleychurch.eu&quot;&gt;
        &lt;img src=&quot;https://cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/logo.svg&quot; width=&quot;201&quot; height=&quot;32&quot;&gt;
      &lt;/a&gt;
    &lt;/div&gt;
@@ -387,6 +396,88 @@
      &lt;/nav&gt;
    &lt;/div&gt;
  &lt;/header&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-components.notifications" class="u-margin--double" data-depth="2">
+                    <h2>Notifications</h2>
+                    <div class="kss-description">
+                      <p>Show dismissable alert messages</p>
+
+                    </div>
+ 
+                  </section>
+                  <section id="section-components.notifications.default" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Default notification</h3>
+                    <div class="kss-description">
+                      <p>Standard notification</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                             <div class="c-notification is-notification-active [modifier class]" id="notification-1234" aria-expanded="true">
+   <div class="o-container">
+     <div class="o-flag o-flag--rev">
+       <div class="o-flag__flex">
+         This weekend is the last chance to get yourself booked in for <strong>Leadership Vision Night</strong> on Tuesday 1st March!
+       </div>
+       <div class="o-flag__fix">
+         <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
+           <i class="fa fa-times"></i>
+         </button>
+       </div>
+     </div>
+   </div>
+ </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="o-card__title u-margin">
+                            <div class="kss-modifier-name"><strong>.c-notification--alt</strong></div>
+                            <div class="kss-modifier-description">
+                              Alternative with yellow background
+                            </div>
+                          </div>
+                          <div class="iframify">
+ <div class="c-notification is-notification-active c-notification--alt" id="notification-1234" aria-expanded="true">
+   <div class="o-container">
+     <div class="o-flag o-flag--rev">
+       <div class="o-flag__flex">
+         This weekend is the last chance to get yourself booked in for <strong>Leadership Vision Night</strong> on Tuesday 1st March!
+       </div>
+       <div class="o-flag__fix">
+         <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
+           <i class="fa fa-times"></i>
+         </button>
+       </div>
+     </div>
+   </div>
+ </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html"> &lt;div class=&quot;c-notification is-notification-active [modifier class]&quot; id=&quot;notification-1234&quot; aria-expanded=&quot;true&quot;&gt;
+   &lt;div class=&quot;o-container&quot;&gt;
+     &lt;div class=&quot;o-flag o-flag--rev&quot;&gt;
+       &lt;div class=&quot;o-flag__flex&quot;&gt;
+         This weekend is the last chance to get yourself booked in for &lt;strong&gt;Leadership Vision Night&lt;/strong&gt; on Tuesday 1st March!
+       &lt;/div&gt;
+       &lt;div class=&quot;o-flag__fix&quot;&gt;
+         &lt;button aria-label=&quot;Dismiss notification&quot; class=&quot;o-btn o-btn--reset c-notification__dismiss js-notification-dismiss&quot;&gt;
+           &lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;
+         &lt;/button&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
 </code></pre>
                       </div>
                     </div>

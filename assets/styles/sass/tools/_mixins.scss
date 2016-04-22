@@ -50,6 +50,26 @@
   }
 }
 
+// Fancy link underlines
+@mixin fancyLinks($underlineColor, $bg) {
+  background-image: linear-gradient(to bottom, transparent 90%, $underlineColor 91%, $underlineColor 95.5%, transparent 95.5%);
+  text-decoration: none;
+  text-shadow: 0 .03em $bg,
+    0 -.03em $bg,
+    .06em 0 $bg,
+    0 -.06em $bg,
+    .03em 0 $bg,
+    -.03em 0 $bg,
+    .06em 0 $bg,
+    -.06em 0 $bg,
+    .09em 0 $bg,
+    -.09em 0 $bg,
+    .12em 0 $bg,
+    -.12em 0 $bg,
+    .15em 0 $bg,
+    -.15em 0 $bg;
+}
+
 
 // Push in a pixel font size and get a rem one back
 @mixin font-size($px-value) {

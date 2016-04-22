@@ -1,7 +1,16 @@
 /**
  * Flag
  *
- * Display the [flag object](http://csswizardry.com/2013/05/the-flag-object/). Defaults to showing all content vertically aligned in the middle
+ * Display the [flag object](http://csswizardry.com/2013/05/the-flag-object/).
+ * Defaults to showing all content vertically aligned in the middle.
+ *
+ * Styleguide: objects.flag
+ */
+
+/**
+ * Default flag
+ *
+ * Basic flag object
  *
  * .o-flag--top - Align all content to the top
  * .o-flag--bottom - Align all content to the bottom
@@ -20,7 +29,7 @@
  *    </div>
  *  </div>
  *
- * Styleguide: objects.flag
+ * Styleguide: objects.flag.default
  */
 
 /**

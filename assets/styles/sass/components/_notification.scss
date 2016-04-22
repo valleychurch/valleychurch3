@@ -1,3 +1,36 @@
+/**
+ * Notifications
+ *
+ * Show dismissable alert messages
+ *
+ * Styleguide: components.notifications
+ */
+
+/**
+ * Default notification
+ *
+ * Standard notification
+ *
+ * Markup:
+ *  <div class="c-notification is-notification-active {{modifier_class}}" id="notification-1234" aria-expanded="true">
+ *    <div class="o-container">
+ *      <div class="o-flag o-flag--rev">
+ *        <div class="o-flag__flex">
+ *          This weekend is the last chance to get yourself booked in for <strong>Leadership Vision Night</strong> on Tuesday 1st March!
+ *        </div>
+ *        <div class="o-flag__fix">
+ *          <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
+ *            <i class="fa fa-times"></i>
+ *          </button>
+ *        </div>
+ *      </div>
+ *    </div>
+ *  </div>
+ *
+ * .c-notification--alt - Alternative with yellow background
+ *
+ * Styleguide: components.notifications.default
+ */
 .c-notification {
   max-height: 0;
   overflow: hidden;
@@ -37,6 +70,15 @@
   line-height: 1;
   color: white;
   text-decoration: none !important;
+}
+
+.c-notification--alt {
+  color: colour(black);
+  background-color: colour(yellow);
+
+  .o-btn {
+    color: colour(black);
+  }
 }
 
 .c-browse-happy {

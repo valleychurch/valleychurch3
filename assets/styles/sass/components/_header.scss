@@ -6,7 +6,7 @@
  * Markup:
  *  <header class="c-header">
  *    <div class="o-container o-container--full">
- *      <a class="logo u-pull-left" href="https://valleychurch.eu">
+ *      <a class="c-logo u-pull-left" href="https://valleychurch.eu">
  *        <img src="https://cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/logo.svg" width="201" height="32">
  *      </a>
  *    </div>
@@ -15,13 +15,6 @@
  * Styleguide: components.header
  */
 .c-header {
-  // padding: 1em 0;
-  // background-color: colour(grey-xlight);
-  // background: linear-gradient( to bottom, rgba(25, 25, 25, 0.85), rgba(25, 25, 25, 0));
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // left: 0;
   position: relative;
   z-index: 20;
   padding: .75rem;
@@ -41,7 +34,7 @@
   }
 }
 
-.logo {
+.c-logo {
   position: relative;
   z-index: 10;
   display: inline-block;
@@ -56,21 +49,22 @@
     padding: .6875rem 0;
   }
 
-  object,
-  svg {
-    position: relative;
-    z-index: -1;
-    width: 201px;
-    height: 32px;
-    pointer-events: none;
+  // object,
+  // svg {
+  //   position: relative;
+  //   z-index: -1;
+  //   width: 32px;
+  //   height: 32px;
+  //   overflow: hidden;
+  //   pointer-events: none;
 
-    // @include breakpoint(md) {
-    //   width: 48px;
-    //   height: 48px;
-    // }
-  }
+  //   @include breakpoint(sm) {
+  //     width: 201px;
+  //     height: 32px;
+  //   }
+  // }
 
-  @include breakpoint(md) {
-    font-size: ms(1);
-  }
+  // @include breakpoint(md) {
+  //   font-size: ms(1);
+  // }
 }

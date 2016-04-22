@@ -10,7 +10,9 @@
  * Defaults
  *
  * By default, the base of the site is set to `1rem` (equivalent to `16px`) so
- * we bump this up slightly to `17px` to give everything a bit more legibility.
+ * we bump this up slightly to `17px` on mobile and `19px` on desktop to give
+ * everything a bit more legibility. We also give some defaults to `ul`/`ol`
+ * elements to make them match.
  *
  * Markup:
  *   <h1>About</h1>
@@ -37,7 +39,40 @@
  */
 p,
 ul, ol {
+  @include font-size(17);
+
+  @include breakpoint(md) {
+    @include font-size(19);
+  }
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0 0 $VCbase $VCbase * 1.5;
+
+  li {
+    padding-left: $VCbase * .25;
+  }
+}
+
+/**
+ * Lead paragraphs
+ *
+ * Using the class `.lead` you can bump up a paragraph's size to `19px` on
+ * mobile and `22px` on desktop.
+ *
+ * Weight: 2
+ *
+ * Styleguide: base.typography.lead
+ */
+.lead,
+.lede {
   @include font-size(19);
+
+  @include breakpoint(md) {
+    @include font-size(22);
+  }
 }
 
 /**
@@ -55,7 +90,7 @@ ul, ol {
  *   <h5>Heading 5</h5>
  *   <h6>Heading 6</h6>
  *
- * Weight: 1
+ * Weight: 2
  *
  * Styleguide: base.typography.headings
  */
@@ -66,6 +101,12 @@ h1, h2, h3, h4, h5, h6,
   @include font-stack-alt;
   font-weight: $VCfont-medium;
   line-height: 1.25;
+  // letter-spacing: .5px;
+}
+
+h5, .h5,
+h6, .h6 {
+  font-weight: $VCfont-normal;
   letter-spacing: .5px;
 }
 
@@ -82,74 +123,112 @@ h1, h2, h3, h4, h5, h6,
  *   <h5 class="mega">Mega size heading</h5>
  *   <h6 class="kilo">Kilo size heading</h6>
  *
- * Weight: 2
+ * Weight: 3
  *
  * Styleguide: base.typography.display
  */
-
 .exa {
-  @include font-size(80);
+  @include font-size(72);
+
+  @include breakpoint(md) {
+    @include font-size(80);
+  }
 }
 
 .peta {
-  @include font-size(72);
+  @include font-size(64);
+
+  @include breakpoint(md) {
+    @include font-size(72);
+  }
 }
 
 .tera {
-  @include font-size(64);
+  @include font-size(56);
+
+  @include breakpoint(md) {
+    @include font-size(64);
+  }
 }
 
 .giga {
-  @include font-size(56);
+  @include font-size(48);
+
+  @include breakpoint(md) {
+    @include font-size(56);
+  }
 }
 
 .mega {
-  @include font-size(48);
+  @include font-size(42);
+
+  @include breakpoint(md) {
+    @include font-size(48);
+  }
 }
 
 .kilo {
-  @include font-size(42);
+  @include font-size(36);
+
+  @include breakpoint(md) {
+    @include font-size(42);
+  }
 }
 
 h1,
 .h1 {
-  @include font-size(36);
+  @include font-size(32);
+
+  @include breakpoint(md) {
+    @include font-size(36);
+  }
 }
 
 h2,
 .h2 {
-  @include font-size(32);
+  @include font-size(26);
+
+  @include breakpoint(md) {
+    @include font-size(32);
+  }
 }
 
 h3,
 .h3 {
-  @include font-size(26);
+  @include font-size(22);
+
+  @include breakpoint(md) {
+    @include font-size(26);
+  }
 }
 
 h4,
 .h4 {
-  @include font-size(22);
+  @include font-size(18);
+
+  @include breakpoint(md) {
+    @include font-size(22);
+  }
 }
 
 h5,
 .h5 {
-  @include font-size(18);
+  @include font-size(16);
+
+  @include breakpoint(md) {
+    @include font-size(18);
+  }
 }
 
 h6,
 .h6 {
-  @include font-size(16);
-}
+  @include font-size(14);
 
-ul,
-ol {
-  padding: 0;
-  margin: 0 0 $VCbase $VCbase * 1.5;
-
-  li {
-    padding-left: $VCbase * .25;
+  @include breakpoint(md) {
+    @include font-size(16);
   }
 }
+
 
 hr {
   margin-bottom: $VCbase;
@@ -201,11 +280,6 @@ blockquote {
   }
 }
 
-.lead,
-.lede {
-  @include font-size(22);
-  // line-height: 1.25;
-}
 
 ::selection {
   color: white;
@@ -226,6 +300,7 @@ pre,
 samp {
   @include font-size(15);
   padding: 2px 4px;
+  word-wrap: break-word;
   background: grayscale(11);
   border-radius: 2px;
 }

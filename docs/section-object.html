@@ -60,6 +60,9 @@
                   <a href="./">Overview</a>
                 </li>
                 <li class="menu-item">
+                  <a href="section-object.html">object</a>
+                </li>
+                <li class="menu-item">
                   <a href="section-tools.html">Tools</a>
                 </li>
                 <li class="menu-item">
@@ -86,8 +89,7 @@
 
           <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
-              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
-              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+              <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
             </button>
           </div>
         </div>
@@ -107,6 +109,16 @@
 
                   <h5></h5>
                   <ul class="o-list">
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-object.lists.breadcrumb" data-depth="3">Breadcrumb list</a>
+                        </li>
+                      </ul>
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-object.lists.inline" data-depth="3">Inline list</a>
+                        </li>
+                      </ul>
                   </ul>
 
                 </aside>
@@ -114,13 +126,69 @@
 
                 <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
 
-                  <section id="section-trumps" class="u-margin--double" data-depth="1">
-                    <h1>Trumps</h1>
-                    <div class="kss-description lead">
-                      <p>Helpers and overrides</p>
+                  <section id="section-object" class="u-margin--double" data-depth="1">
+                    <h1>object</h1>
+ 
+                  </section>
+                  <section id="section-object.lists.breadcrumb" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Breadcrumb list</h3>
+                    <div class="kss-description">
+                      <p>Display the list as breadcrumbs</p>
 
                     </div>
- 
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                             <ul class="o-list o-list--breadcrumbs">
+   <li><a href="#0">List item 1</a></li>
+   <li><a href="#0">List item 2</a></li>
+   <li class="active"><a href="#0">List item 3</a></li>
+ </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html"> &lt;ul class=&quot;o-list o-list--breadcrumbs&quot;&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#0&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-object.lists.inline" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Inline list</h3>
+                    <div class="kss-description">
+                      <p>Display the list inline (like a top nav)</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                             <ul class="o-list o-list--inline">
+   <li><a href="#0">List item 1</a></li>
+   <li><a href="#0">List item 2</a></li>
+   <li><a href="#0">List item 3</a></li>
+ </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html"> &lt;ul class=&quot;o-list o-list--inline&quot;&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#0&quot;&gt;List item 3&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
                   </section>
 
                 </article>
