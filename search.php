@@ -8,7 +8,7 @@
 
       <div class="o-col-xxs-12 c-post-content u-center-block">
 
-        <h1>Search results for <?php the_search_query(); ?></h1>
+        <h1>Search results for <em><?php the_search_query(); ?></em></h1>
 
       </div>
 

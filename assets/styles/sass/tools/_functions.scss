@@ -94,6 +94,11 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
   @return $number / ($number * 0 + 1);
 }
 
+@function rem($size) {
+  $rem: $size / $VCfont-size;
+  @return #{$rem}rem;
+}
+
 // Mathematical functions
 @function quarter($n) {
   @return ($n / 4);

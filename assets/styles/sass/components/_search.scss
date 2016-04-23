@@ -17,12 +17,12 @@
   }
 
   .c-header & {
-    margin: .5rem 0;
+    margin: rem(9px) 0;
   }
 }
 
-.c-search__input {
-  padding: .5rem 2rem .5rem .625rem !important;
+input.c-search__input {
+  padding: rem(12px);
   line-height: 1.35;
   color: colour(black);
   border: 1px solid greyscale(9);
@@ -33,6 +33,7 @@
   }
 
   @include breakpoint(lg) {
+    padding: rem(9px) rem(9px) rem(7px);
     .c-navigation & {
       color: white;
       background-color: colour(black);
@@ -50,13 +51,13 @@
   }
 }
 
-.c-search__button {
+button.c-search__button {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 39px;
-  height: 39px;
+  width: 43px;
+  height: 43px;
   min-width: 0;
   padding: 0;
   margin: 0;
@@ -68,8 +69,8 @@
   @include transition();
 
   @include breakpoint(lg) {
-    width: 40px;
-    height: 42px;
+    width: 38px;
+    height: 37px;
 
     &:hover {
       color: colour(white);

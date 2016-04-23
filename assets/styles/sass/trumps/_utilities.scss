@@ -100,6 +100,8 @@
 .u-text-medium          { font-weight: $VCfont-medium; }
 .u-text-bold            { font-weight: $VCfont-bold; }
 
+.u-text-small           { @include font-size(15); }
+
 
 // Background colours
 @each $colour in map-keys($VCcolours) {
