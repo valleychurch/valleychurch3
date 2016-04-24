@@ -193,9 +193,9 @@ add_filter("mce_external_plugins", "add_typekit_tinymce");
  * Add custom login CSS
  */
 function add_custom_login() {
-  // echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/styles/css/wp-login.css?ver=' . VC_THEME_VERSION . '"/>';
+  echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/styles/css/login.' . VC_THEME_VERSION . '.min.css">';
 }
-// add_action('login_head', 'add_custom_login');
+add_action('login_head', 'add_custom_login');
 
 
 /**

@@ -1,0 +1,51 @@
+@import "tools/functions";
+@import "tools/mixins";
+
+@import "settings/variables";
+@import "settings/fonts";
+
+@import "generic/normalize";
+@import "generic/boxsizing";
+@import "generic/shared";
+
+@import "base/base";
+@import "base/typography";
+@import "base/links";
+@import "base/forms";
+
+@import "objects/buttons";
+
+body {
+  position: relative;
+  font-family: $VCfont-stack;
+  background-image: url("/wp-content/uploads/2012/08/hero-home.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.35);
+    content: "";
+  }
+}
+
+.login {
+  h1 {
+    a {
+      background-image: url("/wp-content/themes/valleychurch3/assets/images/dist/icon.svg");
+    }
+  }
+}
+
+.wp-core-ui .button {
+  @extend .o-btn;
+}

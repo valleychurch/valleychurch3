@@ -68,6 +68,7 @@ module.exports = function(grunt) {
           'style.css': 'assets/styles/sass/wp-style.scss',
           'assets/styles/css/style.<%= pkg.version %>.min.css': 'assets/styles/sass/style.scss',
           'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
+          'assets/styles/css/login.<%= pkg.version %>.min.css': 'assets/styles/sass/login.scss',
         }
       }
     },

@@ -27,7 +27,8 @@ select {
 
   &:focus,
   &:active {
-    outline-color: colour(red);
+    border-color: greyscale(8);
+    box-shadow: 0 0 2px colour(red);
   }
 
   @include breakpoint(md) {
