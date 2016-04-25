@@ -101,7 +101,6 @@
       height: $VCbase * 1.5;
       margin-right: 6px;
       text-align: center;
-      @include box-shadow;
 
       @include breakpoint(md) {
         width: $VCbase;
@@ -123,6 +122,7 @@
       line-height: 0;
       background-color: white;
       border-radius: 50%;
+      @include box-shadow($colour: rgba(0,0,0,.65));
 
       @include breakpoint(md) {
         width: $VCbase;

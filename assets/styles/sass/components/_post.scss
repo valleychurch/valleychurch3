@@ -25,7 +25,18 @@
 }
 
 .c-post-content {
-  max-width: 46rem;
+  > *,
+  > div.wpcf7 {
+    max-width: 46rem;
+    padding-right: $VCbase;
+    padding-left: $VCbase;
+  }
+
+  > img {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
 
   .no-flexbox & {
     float: none;

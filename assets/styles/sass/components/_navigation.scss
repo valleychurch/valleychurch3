@@ -186,7 +186,7 @@
       }
 
       @include breakpoint(lg) {
-        padding: rem(3px) rem(8px);
+        padding: rem(2px) rem(8px) rem(1px);
         color: greyscale(9);
         cursor: pointer;
       }
@@ -263,10 +263,10 @@
 
 .c-nav-toggle {
   padding: 9px 9px 10px;
-  margin: -3px 0 -4px;
+  margin: -5px 0 -7px;
   color: white;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: colour(black);;
   border: 0;
 
   .fa {
@@ -279,11 +279,13 @@
   }
 
   @include breakpoint(sm) {
-    // margin-top: -.125rem;
+    padding: 7px 9px 8px;
+    margin: -4px 0 -7px;
   }
 
   @include breakpoint(md) {
-    margin: 2px 0 0;
+    padding: 6px 9px 6px;
+    margin: 1px 0 -7px;
   }
 }
 

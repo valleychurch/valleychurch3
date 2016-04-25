@@ -193,9 +193,11 @@ add_filter("mce_external_plugins", "add_typekit_tinymce");
  * Add custom login CSS
  */
 function add_custom_login() {
-  echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/styles/css/login.' . VC_THEME_VERSION . '.min.css">';
+  echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/assets/styles/css/login.' . VC_THEME_VERSION . '.min.css">';
+  echo '<script src="//use.typekit.net/jtz8aoh.js"></script>';
+  echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
 }
-add_action('login_head', 'add_custom_login');
+add_action( 'login_head', 'add_custom_login' );
 
 
 /**
@@ -341,9 +343,18 @@ function featured_image_class($classes) {
     array_push( $classes, 'no-featured-image' );
   }
   return $classes;
-};
+}
 add_action( 'body_class', 'featured_image_class' );
 
+
+/**
+ * Remove `p` tags around images and IFRAME_REQUEST
+ */
+function filter_ptags_on_content($content) {
+  $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+  return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter( 'the_content', 'filter_ptags_on_content' );
 
 /**
  * Custom read more link

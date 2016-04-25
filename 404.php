@@ -6,7 +6,7 @@
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="o-col-xxs-12 c-post-content u-center-block">
+      <div class="c-post-content u-center-block">
 
         <h1>Sorry, we can't find the page you're looking for!</h1>
 

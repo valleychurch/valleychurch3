@@ -17,7 +17,7 @@
 
           <article class="o-row c-article u-margin">
 
-            <div class="o-col-xxs-12 c-post-content u-center-block">
+            <div class="c-post-content u-center-block">
               <h1>Dev guidelines v<?= VC_THEME_VERSION; ?></h1>
               <p class="lead">
                 This documentation is meant to serve as a guide for how to develop well for the <a href="http://valleychurch.eu">valleychurch.eu</a> WordPress theme and other web properties.

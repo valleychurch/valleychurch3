@@ -44,6 +44,11 @@ ul, ol {
   @include breakpoint(md) {
     @include font-size(19);
   }
+
+  & + .o-ratio,
+  & + img {
+    margin-bottom: $VCbase;
+  }
 }
 
 ul,
@@ -105,6 +110,12 @@ h1, h2, h3, h4, h5, h6,
 
   a {
     text-decoration: none;
+  }
+
+  @include breakpoint(md) {
+    p + & {
+      margin-top: $VCbase * 1.5;
+    }
   }
 }
 
