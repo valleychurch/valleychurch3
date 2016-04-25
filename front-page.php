@@ -187,7 +187,7 @@
       if ( have_posts() ) :
         while ( have_posts() ) :
           the_post(); ?>
-      <div class="o-col-xs-6 o-col-md-4 o-col-lg-3 <?php ( $i > 4 ) ? print "u-hide--lg" : ""; ?>">
+      <div class="o-col-xxs-12 o-col-xs-6 o-col-md-4 o-col-lg-3 <?php ( $i > 4 ) ? print "u-hide--lg" : ""; ?>">
         <?php get_template_part( 'partials/card', 'message' ); ?>
       </div>
       <?php

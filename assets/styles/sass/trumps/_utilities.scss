@@ -1,7 +1,7 @@
 // Clearfix
 .u-clearfix,
 .u-cf {
-  @include clearfix();
+  @include clearfix;
 }
 
 // Grid ordering
@@ -82,6 +82,7 @@
 
 
 //Line height
+.u-line-height--none  { line-height: 1; }
 .u-line-height--small { line-height: 1.2; }
 
 

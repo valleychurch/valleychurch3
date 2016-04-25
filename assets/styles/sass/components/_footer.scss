@@ -32,6 +32,7 @@
     &,
     &:active {
       color: colour(white);
+      // text-decoration: underline;
     }
 
     &:hover,
@@ -40,43 +41,7 @@
     }
   }
 
-
-
   .logo {
     padding: 0;
-  }
-}
-
-// .c-menu-footer {
-//   padding: 0;
-//   margin: 0;
-
-//   .menu-item {
-//     display: block;
-//     float: none !important;
-//     margin: 0 0 .25rem;
-
-//     &:hover {
-//       background-color: transparent;
-//     }
-
-//     a {
-//       padding: 0;
-//       letter-spacing: 0;
-//       text-transform: none;
-//     }
-//   }
-// }
-
-.c-footer__menu {
-  li {
-    @include breakpoint(md) {
-      display: inline-block;
-      margin-right: $VCbase * .5;
-    }
-
-    a {
-      text-decoration: underline;
-    }
   }
 }

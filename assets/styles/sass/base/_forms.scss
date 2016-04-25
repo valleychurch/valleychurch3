@@ -1,9 +1,11 @@
 label {
   display: block;
-  margin-bottom: quarter($VCbase);
+  margin-bottom: .125rem;
+  font-size: $VCbase;
 
   @include breakpoint(md) {
-    // font-size: ms(-1);
+    margin-bottom: .25rem;
+    @include font-size(17);
   }
 }
 
@@ -28,11 +30,8 @@ select {
   &:focus,
   &:active {
     border-color: greyscale(8);
-    box-shadow: 0 0 2px colour(red);
-  }
-
-  @include breakpoint(md) {
-    font-size: ms(-1);
+    outline-color: colour(red);
+    box-shadow: none;
   }
 }
 

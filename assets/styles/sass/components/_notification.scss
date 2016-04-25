@@ -82,8 +82,8 @@
 }
 
 .c-browse-happy {
-  padding-top: $VCbase;
-  padding-bottom: $VCbase;
+  padding-top: half($VCbase);
+  padding-bottom: half($VCbase);
   background-color: colour(yellow);
 
   p {

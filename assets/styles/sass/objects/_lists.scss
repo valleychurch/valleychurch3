@@ -51,7 +51,7 @@
     padding: 0;
 
     a {
-      text-decoration: none;
+      // text-decoration: none;
     }
   }
 
@@ -79,6 +79,7 @@
 .o-list--inline {
   li {
     display: inline-block;
+    margin-right: half($VCbase);
   }
 }
 

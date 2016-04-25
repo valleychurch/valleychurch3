@@ -12,15 +12,18 @@
  * Default button style
  *
  * Markup:
- * <a class="o-btn">Click me!</a>
+ * <a class="o-btn {{modifier_class}}">Click me!</a>
+ *
+ * .o-btn--large - Large button
+ * .o-btn--small - Small button
  *
  * Styleguide: objects.buttons.default
  */
 .o-btn,
 .o-btn:visited {
   display: inline-block;
-  padding: .25rem .5rem;
   height: auto;
+  padding: .25rem .75rem;
 
   @include font-stack-alt;
   @include font-size(17);
@@ -50,8 +53,24 @@
   }
 
   @include breakpoint(sm) {
-    // font-size: ms(0);
     @include font-size(18);
+  }
+}
+
+.o-btn--small {
+  @include font-size(13);
+
+  @include breakpoint(sm) {
+    @include font-size(14);
+  }
+}
+
+.o-btn--large {
+  padding: .5rem 1.5rem;
+  @include font-size(19);
+
+  @include breakpoint(sm) {
+    @include font-size(20);
   }
 }
 

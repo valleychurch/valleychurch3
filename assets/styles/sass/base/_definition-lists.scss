@@ -5,8 +5,4 @@ dt {
 dd {
   margin-left: 0;
   font-style: italic;
-
-  @include breakpoint(sm) {
-    font-size: ms(-1);
-  }
 }

@@ -6,8 +6,8 @@
  * Markup:
  *  <header class="c-header">
  *    <div class="o-container o-container--full">
- *      <a class="logo u-pull-left" href="https://valleychurch.eu">
- *        <img src="https://cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/logo.svg" width="201" height="32">
+ *      <a class="c-logo u-pull-left" href="https://valleychurch.eu">
+ *        <img src="https://cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/logo.svg" width="175" height="28">
  *      </a>
  *      <nav class="c-navigation u-hide u-show--lg">
  *        <div class="u-pull-left--lg">
@@ -198,7 +198,7 @@
         display: inline-block;
         padding-left: .5rem;
         font-family: "FontAwesome";
-        font-size: ms(-2);
+        @include font-size(13);
         line-height: 1.5;
         content: "\f08e";
       }
@@ -214,9 +214,9 @@
     }
 
     &.sub-title > a {
+      margin-bottom: -5px;
       @include font-size(13);
       color: greyscale(8);
-      margin-bottom: -5px;
 
       @include breakpoint(lg) {
         color: greyscale(5);
