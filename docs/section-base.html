@@ -117,31 +117,65 @@
 
                 <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
 
-                  <h5></h5>
+                  <h5>Base</h5>
                   <ul class="o-list">
+                    <!--  -->
+                    <li data-depth="2"><a href="#section-base.typography">Typography</a>
+                    <!-- 
                     <li>
                       <a href="#section-base.typography" data-depth="2">Typography</a>
                     </li>
-                      <ul class="o-list">
+                     -->
+                    <li data-depth="3"><a href="#section-base.typography.defaults">Defaults</a>
+                    <!--                       <ul class="o-list">
                         <li>
                           <a href="#section-base.typography.defaults" data-depth="3">Defaults</a>
                         </li>
                       </ul>
-                      <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.headings" data-depth="3">Headings</a>
-                        </li>
-                      </ul>
-                      <ul class="o-list">
+ -->
+                    <li data-depth="3"><a href="#section-base.typography.lead">Lead paragraphs</a>
+                    <!--                       <ul class="o-list">
                         <li>
                           <a href="#section-base.typography.lead" data-depth="3">Lead paragraphs</a>
                         </li>
                       </ul>
-                      <ul class="o-list">
+ -->
+                    <li data-depth="3"><a href="#section-base.typography.headings">Headings</a>
+                    <!--                       <ul class="o-list">
+                        <li>
+                          <a href="#section-base.typography.headings" data-depth="3">Headings</a>
+                        </li>
+                      </ul>
+ -->
+                    <li data-depth="3"><a href="#section-base.typography.display">Display headings</a>
+                    <!--                       <ul class="o-list">
                         <li>
                           <a href="#section-base.typography.display" data-depth="3">Display headings</a>
                         </li>
                       </ul>
+ -->
+                    <li data-depth="3"><a href="#section-base.typography.blockquote">Blockquotes</a>
+                    <!--                       <ul class="o-list">
+                        <li>
+                          <a href="#section-base.typography.blockquote" data-depth="3">Blockquotes</a>
+                        </li>
+                      </ul>
+ -->
+                    <li data-depth="4"><a href="#section-base.typography.blockquote.source">With source</a>
+                    <!--  -->
+                    <li data-depth="2"><a href="#section-base.forms">Forms</a>
+                    <!-- 
+                    <li>
+                      <a href="#section-base.forms" data-depth="2">Forms</a>
+                    </li>
+                     -->
+                    <li data-depth="3"><a href="#section-base.forms.default">Form defaults</a>
+                    <!--                       <ul class="o-list">
+                        <li>
+                          <a href="#section-base.forms.default" data-depth="3">Form defaults</a>
+                        </li>
+                      </ul>
+ -->
                   </ul>
 
                 </aside>
@@ -222,6 +256,33 @@ elements to make them match.</p>
                     </div>
                      
                   </section>
+                  <section id="section-base.typography.lead" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Lead paragraphs</h3>
+                    <div class="kss-description">
+                      <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>19px</code> on
+mobile and <code>22px</code> on desktop.</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <p class="lead">This is a lead paragraph that starts a page off with an
+  eye-catching intro sentence.</p>
+  <p>This is a smaller, normal paragraph that would continue the page.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">  &lt;p class=&quot;lead&quot;&gt;This is a lead paragraph that starts a page off with an
+  eye-catching intro sentence.&lt;/p&gt;
+  &lt;p&gt;This is a smaller, normal paragraph that would continue the page.&lt;/p&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
                   <section id="section-base.typography.headings" class="u-margin--double" data-depth="3">
                     <h3 class="u-margin--half">Headings</h3>
                     <div class="kss-description">
@@ -256,15 +317,6 @@ heading but still want your text to be displayed inline.</p>
                     </div>
                      
                   </section>
-                  <section id="section-base.typography.lead" class="u-margin--double" data-depth="3">
-                    <h3 class="u-margin--half">Lead paragraphs</h3>
-                    <div class="kss-description">
-                      <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>19px</code> on
-mobile and <code>22px</code> on desktop.</p>
-
-                    </div>
- 
-                  </section>
                   <section id="section-base.typography.display" class="u-margin--double" data-depth="3">
                     <h3 class="u-margin--half">Display headings</h3>
                     <div class="kss-description">
@@ -292,6 +344,168 @@ mobile and <code>22px</code> on desktop.</p>
   &lt;h4 class=&quot;giga&quot;&gt;Giga size heading&lt;/h4&gt;
   &lt;h5 class=&quot;mega&quot;&gt;Mega size heading&lt;/h5&gt;
   &lt;h6 class=&quot;kilo&quot;&gt;Kilo size heading&lt;/h6&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-base.typography.blockquote" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Blockquotes</h3>
+                    <div class="kss-description">
+                      <p>For quoting blocks of content from another source within your document. Wrap
+<code>&lt;blockquote&gt;</code> around any HTML as the quote.</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <blockquote>
+    <p>
+      Each of you should give what you have decided in your heart to give,
+      not reluctantly or under compulsion, for God loves a cheerful giver.
+    </p>
+  </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">  &lt;blockquote&gt;
+    &lt;p&gt;
+      Each of you should give what you have decided in your heart to give,
+      not reluctantly or under compulsion, for God loves a cheerful giver.
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-base.typography.blockquote.source" class="u-margin--double" data-depth="4">
+                    <div class="kss-description">
+                      <p>Add a <code>&lt;footer&gt;</code> for identifying the source.</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <blockquote>
+    <p>
+      Each of you should give what you have decided in your heart to give,
+      not reluctantly or under compulsion, for God loves a cheerful giver.
+    </p>
+    <footer>
+      &mdash;<a href="#0"><strong>2 Corinthians 9:7</strong></a>
+    </footer>
+  </blockquote>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">  &lt;blockquote&gt;
+    &lt;p&gt;
+      Each of you should give what you have decided in your heart to give,
+      not reluctantly or under compulsion, for God loves a cheerful giver.
+    &lt;/p&gt;
+    &lt;footer&gt;
+      &amp;mdash;&lt;a href=&quot;#0&quot;&gt;&lt;strong&gt;2 Corinthians 9:7&lt;/strong&gt;&lt;/a&gt;
+    &lt;/footer&gt;
+  &lt;/blockquote&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-base.forms" class="u-margin--double" data-depth="2">
+                    <h2>Forms</h2>
+ 
+                  </section>
+                  <section id="section-base.forms.default" class="u-margin--double" data-depth="3">
+                    <h3 class="u-margin--half">Form defaults</h3>
+                    <div class="kss-description">
+                      <p>Default styling for form inputs</p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                            <form>
+  <label for="exampleInputEmail1">Email address</label>
+  <input type="email" id="exampleInputEmail1" placeholder="Enter email">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" id="exampleInputPassword1" placeholder="Password">
+  <label for="exampleSelect1">Example select</label>
+  <select id="exampleSelect1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  <label for="exampleTextarea">Example textarea</label>
+  <textarea id="exampleTextarea" rows="3"></textarea>
+  <label for="exampleInputFile">File input</label>
+  <input type="file" id="exampleInputFile">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that—be sure to include why it's great
+  </label>
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+    Option three is disabled
+  </label>
+  <label>
+    <input type="checkbox"> Check me out
+  </label>
+  <button type="submit" class="o-btn o-btn--small">Submit</button>
+</form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">&lt;form&gt;
+  &lt;label for=&quot;exampleInputEmail1&quot;&gt;Email address&lt;/label&gt;
+  &lt;input type=&quot;email&quot; id=&quot;exampleInputEmail1&quot; placeholder=&quot;Enter email&quot;&gt;
+  &lt;label for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+  &lt;input type=&quot;password&quot; id=&quot;exampleInputPassword1&quot; placeholder=&quot;Password&quot;&gt;
+  &lt;label for=&quot;exampleSelect1&quot;&gt;Example select&lt;/label&gt;
+  &lt;select id=&quot;exampleSelect1&quot;&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;
+    &lt;option&gt;4&lt;/option&gt;
+    &lt;option&gt;5&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for=&quot;exampleTextarea&quot;&gt;Example textarea&lt;/label&gt;
+  &lt;textarea id=&quot;exampleTextarea&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+  &lt;label for=&quot;exampleInputFile&quot;&gt;File input&lt;/label&gt;
+  &lt;input type=&quot;file&quot; id=&quot;exampleInputFile&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; value=&quot;option1&quot; checked&gt;
+    Option one is this and that—be sure to include why it&#x27;s great
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios2&quot; value=&quot;option2&quot;&gt;
+    Option two can be something else and selecting it will deselect option one
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios3&quot; value=&quot;option3&quot; disabled&gt;
+    Option three is disabled
+  &lt;/label&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Check me out
+  &lt;/label&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;o-btn o-btn--small&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
 </code></pre>
                       </div>
                     </div>

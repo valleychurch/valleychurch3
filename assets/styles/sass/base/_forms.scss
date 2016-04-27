@@ -1,3 +1,55 @@
+/**
+ * Forms
+ *
+ * Weight: 1
+ *
+ * Styleguide: base.forms
+ */
+
+/**
+ * Form defaults
+ *
+ * Default styling for form inputs
+ *
+ * Markup:
+ * <form>
+ *   <label for="exampleInputEmail1">Email address</label>
+ *   <input type="email" id="exampleInputEmail1" placeholder="Enter email">
+ *   <label for="exampleInputPassword1">Password</label>
+ *   <input type="password" id="exampleInputPassword1" placeholder="Password">
+ *   <label for="exampleSelect1">Example select</label>
+ *   <select id="exampleSelect1">
+ *     <option>1</option>
+ *     <option>2</option>
+ *     <option>3</option>
+ *     <option>4</option>
+ *     <option>5</option>
+ *   </select>
+ *   <label for="exampleTextarea">Example textarea</label>
+ *   <textarea id="exampleTextarea" rows="3"></textarea>
+ *   <label for="exampleInputFile">File input</label>
+ *   <input type="file" id="exampleInputFile">
+ *   <label>
+ *     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+ *     Option one is this and that—be sure to include why it's great
+ *   </label>
+ *   <label>
+ *     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+ *     Option two can be something else and selecting it will deselect option one
+ *   </label>
+ *   <label>
+ *     <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+ *     Option three is disabled
+ *   </label>
+ *   <label>
+ *     <input type="checkbox"> Check me out
+ *   </label>
+ *   <button type="submit" class="o-btn o-btn--small">Submit</button>
+ * </form>
+ *
+ * Styleguide: base.forms.default
+ */
+
 label {
   display: block;
   margin-bottom: .125rem;

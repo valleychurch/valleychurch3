@@ -100,10 +100,18 @@
                 {{else}}
                 <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
 
+                  {{#eachSection rootName}}
+                  {{#ifDepth 1}}
                   <h5>{{header}}</h5>
+                  {{/ifDepth}}
+                  {{/eachSection}}
                   <ul class="o-list">
-                    {{#eachSection rootName}}
-                    {{#ifDepth 2}}
+                  {{#eachSection rootName}}
+                    {{#ifDepth 1}}
+                    {{else}}
+                    <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
+                    {{/ifDepth}}
+                    <!-- {{#ifDepth 2}}
                     <li>
                       <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
                     {{/ifDepth}}
@@ -116,8 +124,8 @@
                     {{/ifDepth}}
                     {{#ifDepth 2}}
                     </li>
-                    {{/ifDepth}}
-                    {{/eachSection}}
+                    {{/ifDepth}} -->
+                  {{/eachSection}}
                   </ul>
 
                 </aside>

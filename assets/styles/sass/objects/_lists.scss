@@ -53,6 +53,15 @@
     a {
       // text-decoration: none;
     }
+
+    // Extra classes for documentation
+    &[data-depth="3"] {
+      margin-left: $VCbase;
+    }
+
+    &[data-depth="4"] {
+      margin-left: double($VCbase);
+    }
   }
 
   & & {

@@ -3,6 +3,8 @@
  *
  * Default styles for typography across the site.
  *
+ * Weight: 0
+ *
  * Styleguide: base.typography
  */
 
@@ -45,8 +47,8 @@ ul, ol {
     @include font-size(19);
   }
 
-  & + .o-ratio,
-  & + img {
+  + .o-ratio,
+  + img {
     margin-bottom: $VCbase;
   }
 }
@@ -67,7 +69,12 @@ ol {
  * Using the class `.lead` you can bump up a paragraph's size to `19px` on
  * mobile and `22px` on desktop.
  *
- * Weight: 2
+ * Markup:
+ *   <p class="lead">This is a lead paragraph that starts a page off with an
+ *   eye-catching intro sentence.</p>
+ *   <p>This is a smaller, normal paragraph that would continue the page.</p>
+ *
+ * Weight: 1
  *
  * Styleguide: base.typography.lead
  */
@@ -256,6 +263,44 @@ small,
   @include font-size(15);
 }
 
+/**
+ * Blockquotes
+ *
+ * For quoting blocks of content from another source within your document. Wrap
+ * `<blockquote>` around any HTML as the quote.
+ *
+ * Markup:
+ *   <blockquote>
+ *     <p>
+ *       Each of you should give what you have decided in your heart to give,
+ *       not reluctantly or under compulsion, for God loves a cheerful giver.
+ *     </p>
+ *   </blockquote>
+ *
+ * Weight: 4
+ *
+ * Styleguide: base.typography.blockquote
+ */
+
+
+/**
+ * With source
+ *
+ * Add a `<footer>` for identifying the source.
+ *
+ * Markup:
+ *   <blockquote>
+ *     <p>
+ *       Each of you should give what you have decided in your heart to give,
+ *       not reluctantly or under compulsion, for God loves a cheerful giver.
+ *     </p>
+ *     <footer>
+ *       &mdash;<a href="#0"><strong>2 Corinthians 9:7</strong></a>
+ *     </footer>
+ *   </blockquote>
+ *
+ * Styleguide: base.typography.blockquote.source
+ */
 blockquote {
   position: relative;
   padding: $VCbase 0;
