@@ -112,7 +112,7 @@
     cursor: pointer;
 
     @include breakpoint(lg) {
-      background-color: colour(black);
+      background-color: $VCblack;
     }
 
     .sub-menu {
@@ -133,7 +133,7 @@
     text-transform: uppercase;
 
     &[href] {
-      color: colour(white);
+      color: $VCwhite;
     }
 
     @include breakpoint(lg) {
@@ -159,7 +159,7 @@
     position: absolute;
     display: none;
     width: 15rem;
-    background-color: colour(black);
+    background-color: $VCblack;
   }
 
   & & {
@@ -178,7 +178,7 @@
       @include font-size(17);
       font-weight: $VCfont-normal;
       letter-spacing: 0;
-      color: colour(white);
+      color: $VCwhite;
       text-transform: none;
 
       &:hover {
@@ -235,7 +235,7 @@
   height: 100%;
   padding: .5rem 1rem 1rem;
   overflow: auto;
-  background-color: colour(black);
+  background-color: $VCblack;
   -webkit-overflow-scrolling: touch;
 
   @include breakpoint(xs) {
@@ -266,7 +266,7 @@
   margin: -5px 0 -7px;
   color: white;
   text-transform: uppercase;
-  background-color: colour(black);;
+  background-color: $VCblack;;
   border: 0;
 
   .fa {
@@ -275,7 +275,7 @@
 
   &:hover,
   &:focus {
-    background-color: colour(black);
+    background-color: $VCblack;
   }
 
   @include breakpoint(sm) {
@@ -299,7 +299,7 @@
   display: none;
   width: 100%;
   height: 100%;
-  background-color: colour(black);
+  background-color: $VCblack;
   opacity: 0;
   @include transition();
 

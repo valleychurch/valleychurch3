@@ -53,7 +53,7 @@
 
       &:hover,
       &:focus {
-        color: colour(white);
+        color: $VCwhite;
       }
     }
   }
@@ -73,11 +73,11 @@
 }
 
 .c-notification--alt {
-  color: colour(black);
+  color: $VCblack;
   background-color: colour(yellow);
 
   .o-btn {
-    color: colour(black);
+    color: $VCblack;
   }
 }
 

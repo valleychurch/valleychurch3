@@ -1,3 +1,11 @@
+/**
+ * Variables
+ *
+ * Set up defaults for use across the site
+ *
+ * Styleguide: settings.variables
+ */
+
 // Reusables
 $VCfont-size:           16px;
 $VCfont-size-unitless:  16;
@@ -30,9 +38,6 @@ $VCbreakpoints: (
   max:                  $VCmax-width-alt
 );
 
-$VCcolour-percentage:   10%;
-$VCcolour-percentage-x: double($VCcolour-percentage);
-
 $VCtransition-timing:   150ms;
 $VCtransition-easing:   ease-in-out;
 
@@ -46,30 +51,32 @@ $VCenable-grid-classes: true;
 $VCfont-stack:          "LatoWeb", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
 
-// Colours
-$VCwhite:               #fff;
-$VCblack:               #000;
+/**
+ * Colours
+ *
+ * Set of brand colours
+ */
+$VCwhite:               shade(#fff, 10%);
+$VCblack:               tint(#000, 10%);
+$VCgrey:                mix($VCblack, $VCwhite, 50%);
 $VCred:                 #b21e28;    // Pantone 7621C
 $VCyellow:              #f4ca1a;    // Pantone 7504C
 
 $VCcolours: (
-  white:                darken($VCwhite, 10%),
-  black:                lighten($VCblack, 15%),
-
-  red: (
-    x-dark:             darken($VCred, $VCcolour-percentage-x),
-    dark:               darken($VCred, $VCcolour-percentage),
+  "red": (
+    x-dark:             shade($VCred, 20%),
+    dark:               mix($VCred, $VCgrey, 20%),
     base:               $VCred,
-    light:              lighten($VCred, $VCcolour-percentage),
-    x-light:            lighten($VCred, $VCcolour-percentage-x),
+    light:              tint($VCred, 20%),
+    x-light:            tint($VCred, 80%),
   ),
 
-  yellow: (
-    x-dark:             darken($VCyellow, $VCcolour-percentage-x),
-    dark:               darken($VCyellow, $VCcolour-percentage),
+  "yellow": (
+    x-dark:             shade($VCyellow, 20%),
+    dark:               mix($VCyellow, $VCgrey, 50%),
     base:               $VCyellow,
-    light:              lighten($VCyellow, $VCcolour-percentage),
-    x-light:            lighten($VCyellow, $VCcolour-percentage-x),
+    light:              tint($VCyellow, 20%),
+    x-light:            lighten($VCyellow, 80%),
   )
 );
 

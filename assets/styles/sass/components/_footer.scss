@@ -31,7 +31,7 @@
   a {
     &,
     &:active {
-      color: colour(white);
+      color: $VCwhite;
       // text-decoration: underline;
     }
 

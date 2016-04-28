@@ -15,7 +15,7 @@ ul.page-numbers {
     span {
       @extend .o-btn;
       @extend .o-btn--ghost;
-      color: colour(black);
+      color: $VCblack;
       border-color: greyscale(9);
 
       &.current {

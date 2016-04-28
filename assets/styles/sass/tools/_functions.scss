@@ -14,7 +14,9 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
     $grayscale-val: map-get($VCgrayscale-colours, $gradation);
     @return rgba($grayscale-val, $alpha-val);
-  } @else {
+  }
+
+  @else {
     @warn "No gradation of #{$gradation} found in $VCgrayscale-colours map.";
   }
 }
@@ -23,70 +25,18 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
   @return grayscale($args...);
 }
 
-//---------------------------
-//
-// The color function takes three arguments:
-//  REQUIRED: Color
-//    There are 7 colors (gray, blue, green, red, yellow, black, white).
-//  OPTIONAL: Shade
-//    Each color has 6 shades (x-dark, dark, base, medium, light, x-light).
-//  OPTIONAL: Opacity
-//    Each shade has 11 levels of opacity, ranging from 0.0 to 1.0 (transparent to opaque).
-//
-// Example: color(blue);
-// This will create a base blue that is fully opaque.
-//
-// Example 2: color(red, dark, 0.8);
-// This will create a dark red that is 80% opaque.
-//
-// Example 3: color(yellow, 0.6);
-// This will create a base yellow that is 60% opaque.
-//
-//---------------------------
-@function colour($name, $properties...) {
-  $n: length($properties);
-  $i: 1;
+@function colour($colour, $tone: "base") {
+  @return map-get(map-get($VCcolours, $colour), $tone);
+}
 
-  $shade-val: "base";
-  $alpha-val: 1;
+// Slightly lighten a color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
 
-  @while $i <= $n {
-    $current-property: (nth($properties, $i));
-
-    @if type-of($current-property) == "string" {
-      $shade-val: $current-property;
-    }
-    @else if type-of($current-property) == "number" {
-      $alpha-val: $current-property;
-    }
-
-    $i: $i + 1;
-  }
-
-  @if index($__shade-vals, $shade-val) == null {
-    @warn "Only the following shades are allowed: " + $__shade-vals;
-  }
-
-  @if index($__alpha-stops, $alpha-val) == null {
-    @error "Only alpha values in 0.05 increments are allowed";
-  }
-
-  @if map-has-key($VCcolours, $name) {
-    $rgb-val: ();
-
-    @if $name == white or $name == black {
-        $rgb-val: map-get($VCcolours, $name);
-    }
-    @else {
-        $rgb-val: map-get(map-get($VCcolours, $name), $shade-val);
-    }
-
-    @return rgba($rgb-val, $alpha-val);
-  }
-  @else {
-    @warn "No global color called #{$name} found."
-    + "Are you sure it's in `variables?`";
-  }
+// Slightly darken a color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
 }
 
 // Return a unitless number

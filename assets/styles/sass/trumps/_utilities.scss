@@ -88,7 +88,7 @@
 
 //Text colours
 @each $colour in map-keys($VCcolours) {
-  .u-text-#{"" + $colour}   { color: colour($colour); }
+  .u-text-#{$colour}   { color: colour($colour); }
 }
 
 .u-text-twitter,

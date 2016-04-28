@@ -24,7 +24,7 @@
 input.c-search__input {
   padding: rem(12px);
   line-height: 1.35;
-  color: colour(black);
+  color: $VCblack;
   border: 1px solid greyscale(9);
   @include transition();
 
@@ -36,15 +36,15 @@ input.c-search__input {
     padding: rem(9px) rem(9px) rem(7px);
     .c-navigation & {
       color: white;
-      background-color: colour(black);
+      background-color: $VCblack;
 
       &:hover,
       &:focus {
         outline: none;
-        //border-bottom-color: colour(white);
+        //border-bottom-color: $VCwhite;
 
         + .c-search__button {
-          color: colour(white);
+          color: $VCwhite;
         }
       }
     }
@@ -73,7 +73,7 @@ button.c-search__button {
     height: 37px;
 
     &:hover {
-      color: colour(white);
+      color: $VCwhite;
       background-color: transparent;
     }
   }

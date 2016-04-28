@@ -90,7 +90,7 @@
 .o-btn--reset {
   width: auto;
   margin: 0;
-  color: colour(black);
+  color: $VCblack;
   background-color: transparent;
 
   &--alt {
@@ -112,12 +112,12 @@
   @include font-stack-alt;
   color: white;
   background-color: transparent;
-  border: 3px solid colour(white, .6);
+  border: 3px solid rgba($VCwhite, .6);
 
   &:hover,
   &:focus {
     color: white;
     background-color: transparent;
-    border-color: colour(white, 1);
+    border-color: rgba($VCwhite, 1);
   }
 }

@@ -22,7 +22,7 @@ body {
   position: relative;
   font-size: $VCbase;
   line-height: $VCline-height;
-  color: colour(black);
+  color: $VCblack;
 
   &.is-menu-active {
     position: fixed;

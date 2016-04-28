@@ -62,7 +62,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          style: 'compact'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',

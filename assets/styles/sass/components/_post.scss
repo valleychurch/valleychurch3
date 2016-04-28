@@ -16,6 +16,10 @@
   background-color: greyscale(11);
 }
 
+@each $name, $colour in $VCcolours {
+  .c-section--#{$name}  { background-color: map-get($colour, base); }
+}
+
 .c-featured {
   picture,
   source,
@@ -34,8 +38,16 @@
 
   > img {
     width: 100%;
-    padding-right: 0;
-    padding-left: 0;
+
+    // WordPress built in images go full-width
+    &.alignleft,
+    &.alignright,
+    &.aligncenter,
+    &[class^="wp-image-"] {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   .no-flexbox & {
