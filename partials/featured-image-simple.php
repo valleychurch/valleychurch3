@@ -14,7 +14,7 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
   $img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
   $img_small = wp_get_attachment_image_src( $img_id, 'small' );
   ?>
-<figure class="c-featured <?php ( get_query_var( 'class' ) == true ) ? print get_query_var( 'class') : ""; ?> <?php ( get_query_var( 'margin' ) == true ) ? print "u-margin" : ""; ?> ">
+<figure class="c-featured <?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class') : ""; ?> <?= ( get_query_var( 'margin' ) == true ) ? "u-margin" : ""; ?> ">
   <picture>
     <?php if ( $img || $img_large || $img_medium || $img_small ) { ?>
     <!--[if IE 9]><video style="display: none;"><![endif]-->

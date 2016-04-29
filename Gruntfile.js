@@ -37,7 +37,8 @@ module.exports = function(grunt) {
       options: {
         template: 'assets/template',
         homepage: 'styleguide.md',
-        verbose: false,
+        verbose: true,
+        custom: ['Hide'],
         css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
         js: ['../assets/scripts/dist/script.<%= pkg.version %>.min.js', '../assets/scripts/lib/iframify.js'],
       },
@@ -62,7 +63,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compact'
+          style: 'compressed'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',

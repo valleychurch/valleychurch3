@@ -38,7 +38,7 @@
 
   vertical-align: middle;
   cursor: pointer;
-  background-color: colour(red);
+  background-color: colour("red");
   border: 0;
   border-radius: 4px;
   box-shadow: none;
@@ -50,7 +50,7 @@
   &:hover,
   &:focus {
     color: white;
-    background-color: colour(red, dark);
+    background-color: colour("red", dark);
   }
 
   @include breakpoint(sm) {

@@ -20,14 +20,14 @@ ul.page-numbers {
 
       &.current {
         color: white;
-        background-color: colour(red);
-        border-color: colour(red, dark);
+        background-color: colour("red");
+        border-color: colour("red", dark);
       }
 
       &:hover,
       &:focus {
-        background-color: colour(red, dark);
-        border-color: colour(red, dark);
+        background-color: colour("red", dark);
+        border-color: colour("red", dark);
       }
     }
   }

@@ -50,6 +50,7 @@
  * Styleguide: base.forms.default
  */
 
+%b-label,
 label {
   display: block;
   margin-bottom: .125rem;
@@ -61,6 +62,7 @@ label {
   }
 }
 
+%b-input,
 input[type="text"],
 input[type="search"],
 input[type="email"],
@@ -82,7 +84,7 @@ select {
   &:focus,
   &:active {
     border-color: greyscale(8);
-    outline-color: colour(red);
+    outline-color: colour("red");
     box-shadow: none;
   }
 }

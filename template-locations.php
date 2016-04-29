@@ -89,7 +89,7 @@ get_header();
 
         <div class="c-post-content u-center-block">
 
-          <h1 <?php ( get_field( 'hide_h1' ) == 1 ) ? print 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 
           <?php the_content(); ?>
 
@@ -116,7 +116,7 @@ get_header();
           ?>
           <div class="o-card__body">
             <?php $times = get_field( 'service_times' ); ?>
-            <h2 class="o-card__title <?php ( $times ) ? print "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
+            <h2 class="o-card__title <?= ( $times ) ? "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
             <?php if ( $times ) { ?>
             <h3 class="o-card__subtitle"><?php the_field( 'service_times' ); ?></h3>
             <?php } ?>

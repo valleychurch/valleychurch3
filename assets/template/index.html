@@ -174,16 +174,19 @@
                             </div>
                           </div>
                           <div class="iframify">
-{{{markup}}}
+                            {{{markup}}}
                           </div>
                         </div>
                       </div>
                       {{/eachModifier}}
+                      {{#if hide}}
+                      {{else}}
                       <div class="kss-markup">
 <pre>
 <code class="language-html">{{markup}}
 </code></pre>
                       </div>
+                      {{/if}}
                     </div>
                     {{/if}} {{!-- markup --}}
                     {{!-- {{else}} --}}

@@ -2,7 +2,7 @@
   <?php get_template_part( 'partials/featured-image-simple' ); ?>
   <div class="o-card__body">
     <div class="o-card__title">
-      <h3 class="h5 <?php ( get_the_terms( $post->ID, 'series' ) ) ? print "u-margin--half" : ""; ?>">
+      <h3 class="h5 <?= ( get_the_terms( $post->ID, 'series' ) ) ? "u-margin--half" : ""; ?>">
         <?= get_the_title(); ?>
       </h3>
       <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>

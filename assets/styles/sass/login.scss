@@ -34,15 +34,24 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    background: rgba(colour(red),.85);
+    background: rgba(colour("red"),.85);
     content: "";
   }
 }
 
 .login {
+  label {
+    @extend %b-label;
+  }
+
+  form .input,
+  input[type=text] {
+    @extend %b-input;
+  }
+
   h1 {
     a {
-      background-image: url("/wp-content/themes/valleychurch3/assets/images/dist/icon.svg");
+      background-image: url($VCasset-url + "/assets/images/dist/icon.svg");
     }
   }
 

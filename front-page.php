@@ -122,7 +122,7 @@
     <?php while ( have_rows( 'home_page_cards' ) ) :
       the_row(); ?>
 
-      <div class="<?php ($i > 1) ? print "o-col-xxs-12 o-col-sm-6 o-col-lg-4" : print "o-col-xxs-12 o-col-sm-12 o-col-lg-4"; ?>">
+      <div class="<?= ($i > 1) ? "o-col-xxs-12 o-col-sm-6 o-col-lg-4" : "o-col-xxs-12 o-col-sm-12 o-col-lg-4"; ?>">
         <div class="o-card u-text-center">
           <?php if ( get_sub_field( 'image' ) ) {
             set_query_var( 'image_id', get_sub_field( 'image' )["id"] );
@@ -187,7 +187,7 @@
       if ( have_posts() ) :
         while ( have_posts() ) :
           the_post(); ?>
-      <div class="o-col-xxs-12 o-col-xs-6 o-col-md-4 o-col-lg-3 <?php ( $i > 4 ) ? print "u-hide--lg" : ""; ?>">
+      <div class="o-col-xxs-12 o-col-xs-6 o-col-md-4 o-col-lg-3 <?= ( $i > 4 ) ? "u-hide--lg" : ""; ?>">
         <?php get_template_part( 'partials/card', 'message' ); ?>
       </div>
       <?php

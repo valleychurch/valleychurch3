@@ -30,6 +30,16 @@
   .o-row {
     @include make-row;
   }
+
+  .o-row--flush {
+    margin-right: 0;
+    margin-left: 0;
+
+    > div[class^="o-col"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
 }
 
 

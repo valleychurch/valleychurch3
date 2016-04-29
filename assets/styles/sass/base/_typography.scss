@@ -345,7 +345,7 @@ blockquote {
     display: block;
     width: $VCbase * 2;
     height: 1px;
-    background-color: colour(red);
+    background-color: colour("red");
     content: "";
   }
 
@@ -361,7 +361,7 @@ blockquote {
 
 ::selection {
   color: white;
-  background-color: colour(red, .75);
+  background-color: colour("red");
 }
 
 

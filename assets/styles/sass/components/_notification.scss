@@ -35,7 +35,7 @@
   max-height: 0;
   overflow: hidden;
   color: white;
-  background-color: colour(red, dark);
+  background-color: colour("red", dark);
   @include transition();
 
   .o-container {
@@ -74,7 +74,7 @@
 
 .c-notification--alt {
   color: $VCblack;
-  background-color: colour(yellow);
+  background-color: colour("yellow");
 
   .o-btn {
     color: $VCblack;
@@ -84,7 +84,7 @@
 .c-browse-happy {
   padding-top: half($VCbase);
   padding-bottom: half($VCbase);
-  background-color: colour(yellow);
+  background-color: colour("yellow");
 
   p {
     margin: 0;

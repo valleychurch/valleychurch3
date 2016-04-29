@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * Global variable for storing bits of information and resuables
  */
@@ -208,13 +207,9 @@ function attachNotifications() {
     localStorage.setItem( 'valley.notification', JSON.stringify( notificationDataToSet ) );
     valley.notificationActive = false;
   });
-};
+}
 
 function addTests() {
-  // Modernizr.addTest('objectfit', function() {
-  //   return !!('objectFit' in document.documentElement.style);
-  // });
-
   Modernizr.addTest('fontvariant', function() {
     var fontVariantLigatures = !!('fontVariantLigatures' in document.body.style);
     var fontFeatureSettings = !!('fontFeatureSettings' in document.body.style);
@@ -282,6 +277,7 @@ $(function() {
 
 $(window).load(function() {
   checkNotifications();
+  valley.css.loaded = true;
   valley.js.loaded = true;
 });
 

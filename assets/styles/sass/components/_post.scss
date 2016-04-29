@@ -3,21 +3,30 @@
   //margin-top: -$VCbase;
 
   @include breakpoint(md) {
-    padding: ($VCbase * 1.5) ($VCbase * 1.5) ($VCbase * .5);
+    padding: ($VCbase * 1.5) ($VCbase * 1.5) half($VCbase);
   }
 
   @include breakpoint(lg) {
-    padding: ($VCbase * 2) ($VCbase * 2) $VCbase;
+    padding: double($VCbase) double($VCbase) $VCbase;
+  }
+}
+
+.c-section--small {
+  padding: half($VCbase) half($VCbase) 0;
+  //margin-top: -$VCbase;
+
+  @include breakpoint(md) {
+    padding: three-quarters($VCbase) three-quarters($VCbase) third($VCbase);
+  }
+
+  @include breakpoint(lg) {
+    padding: $VCbase $VCbase half($VCbase);
   }
 }
 
 .c-section--gray,
 .c-section--grey {
   background-color: greyscale(11);
-}
-
-@each $name, $colour in $VCcolours {
-  .c-section--#{$name}  { background-color: map-get($colour, base); }
 }
 
 .c-featured {

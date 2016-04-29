@@ -42,6 +42,7 @@ $VCtransition-timing:   150ms;
 $VCtransition-easing:   ease-in-out;
 
 $VCcdn-url:             "//cdn.valleychurch.eu";
+$VCasset-url:           $VCcdn-url + "/wp-content/themes/valleychurch3/";
 
 // Flags
 $VCenable-flex:         true;
@@ -51,34 +52,153 @@ $VCenable-grid-classes: true;
 $VCfont-stack:          "LatoWeb", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
 
+$VCwhite:               shade(#fff, 5%);
+$VCblack:               tint(#000, 5%);
+$VCgrey:                mix(black, white);
+$VCred:                 #b21e28;    // Pantone 7621C
+$VCyellow:              #f4ca1a;    // Pantone 7504C
+$VCblue:                complement($VCred);
+
+$VCcolours: (
+  "red": (
+    darkest:            shade($VCred, 20%),
+    dark:               shade($VCred, 10%),
+    base:               $VCred,
+    light:              tint($VCred, 20%),
+    lightest:           tint($VCred, 80%),
+  ),
+
+  "yellow": (
+    darkest:            shade($VCyellow, 20%),
+    dark:               shade($VCyellow, 10%),
+    base:               $VCyellow,
+    light:              tint($VCyellow, 20%),
+    lightest:           tint($VCyellow, 80%),
+  ),
+
+  "blue": (
+    darkest:            shade($VCblue, 20%),
+    dark:               shade($VCblue, 10%),
+    base:               $VCblue,
+    light:              tint($VCblue, 20%),
+    lightest:           tint($VCblue, 80%),
+  ),
+);
 /**
  * Colours
  *
  * Set of brand colours
+ *
+ * Markup:
+ *   <div class="o-row o-row--flush">
+ *     <div class="o-col-xxs-12">
+ *       <div class="c-section u-background-white">
+ *         <p class="u-text-black">
+ *           $VCwhite
+ *         </p>
+ *       </div>
+ *     </div>
+ *     <div class="o-col-xxs-12">
+ *       <div class="c-section u-background-black">
+ *         <p class="u-text-white">
+ *           $VCblack
+ *         </p>
+ *       </div>
+ *     </div>
+ *     <div class="o-col-xxs-12">
+ *       <div class="c-section u-background-grey">
+ *         <p class="u-text-white">
+ *           $VCgrey
+ *         </p>
+ *       </div>
+ *     </div>
+ *     <div class="o-col-xxs-4">
+ *       <div class="c-section c-section--small u-background-red--darkest">
+ *         <p class="u-text-white u-margin--half">
+ *           Darkest
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-red--dark">
+ *         <p class="u-text-white u-margin--half">
+ *           Dark
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-red">
+ *         <p class="u-text-white u-margin--half">
+ *           $VCred
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-red--light">
+ *         <p class="u-text-white u-margin--half">
+ *           Light
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-red--lightest">
+ *         <p class="u-margin--half">
+ *           Lightest
+ *         </p>
+ *       </div>
+ *     </div>
+ *     <div class="o-col-xxs-4">
+ *       <div class="c-section c-section--small u-background-yellow--darkest">
+ *         <p class="u-text-white u-margin--half">
+ *           Darkest
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-yellow--dark">
+ *         <p class="u-text-white u-margin--half">
+ *           Dark
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-yellow">
+ *         <p class="u-margin--half">
+ *           $VCyellow
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-yellow--light">
+ *         <p class="u-margin--half">
+ *           Light
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-yellow--lightest">
+ *         <p class="u-margin--half">
+ *           Lightest
+ *         </p>
+ *       </div>
+ *     </div>
+ *     <div class="o-col-xxs-4">
+ *       <div class="c-section c-section--small u-background-blue--darkest">
+ *         <p class="u-text-white u-margin--half">
+ *           Darkest
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-blue--dark">
+ *         <p class="u-text-white u-margin--half">
+ *           Dark
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-blue">
+ *         <p class="u-text-white u-margin--half">
+ *           $VCblue
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-blue--light">
+ *         <p class="u-text-white u-margin--half">
+ *           Light
+ *         </p>
+ *       </div>
+ *       <div class="c-section c-section--small u-background-blue--lightest">
+ *         <p class="u-margin--half">
+ *           Lightest
+ *         </p>
+ *       </div>
+ *     </div>
+ *   </div>
+ *
+ * Hide: true
+ *
+ * Styleguide: settings.variables.colours
  */
-$VCwhite:               shade(#fff, 10%);
-$VCblack:               tint(#000, 10%);
-$VCgrey:                mix($VCblack, $VCwhite, 50%);
-$VCred:                 #b21e28;    // Pantone 7621C
-$VCyellow:              #f4ca1a;    // Pantone 7504C
-
-$VCcolours: (
-  "red": (
-    x-dark:             shade($VCred, 20%),
-    dark:               mix($VCred, $VCgrey, 20%),
-    base:               $VCred,
-    light:              tint($VCred, 20%),
-    x-light:            tint($VCred, 80%),
-  ),
-
-  "yellow": (
-    x-dark:             shade($VCyellow, 20%),
-    dark:               mix($VCyellow, $VCgrey, 50%),
-    base:               $VCyellow,
-    light:              tint($VCyellow, 20%),
-    x-light:            lighten($VCyellow, 80%),
-  )
-);
 
 // Taken from Scooter CSS
 // https://github.com/dropbox/scooter/blob/master/scss/variables/_colors.scss

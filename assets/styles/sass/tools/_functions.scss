@@ -54,6 +54,10 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
   @return ($n / 4);
 }
 
+@function third($n) {
+  @return ($n / 3);
+}
+
 @function half($n) {
   @return ($n / 2);
 }
@@ -64,6 +68,10 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
 @function double($n) {
   @return ($n * 2);
+}
+
+@function triple($n) {
+  @return ($n * 3);
 }
 
 @function quadruple($n) {

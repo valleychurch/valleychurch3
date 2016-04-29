@@ -8,7 +8,7 @@
 
       <div class="c-post-content u-center-block">
 
-        <h1 <?php ( get_field( 'hide_h1' ) == 1 ) ? print 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 
         <?php the_content(); ?>
 
@@ -28,7 +28,7 @@
     while ( have_rows( 'cards' ) ) {
       the_row(); ?>
 
-      <div class="<?php ( get_field( 'card_class' ) ) ? print get_field( 'card_class' ) : print "o-col-xxs-12 o-col-md-6"; ?>">
+      <div class="<?= ( get_field( 'card_class' ) ) ? $card_class : "o-col-xxs-12 o-col-md-6"; ?>">
         <div class="o-card u-text-center">
           <?php if ( get_sub_field( 'image' ) ) {
             set_query_var( 'image_id', get_sub_field( 'image' )["id"] );

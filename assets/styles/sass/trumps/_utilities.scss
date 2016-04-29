@@ -78,8 +78,6 @@
 .u-text-uppercase       { text-transform: uppercase; }
 .u-text-capitalize      { text-transform: capitalize; }
 
-.u-text-muted           { color: greyscale(5); }
-
 
 //Line height
 .u-line-height--none  { line-height: 1; }
@@ -87,8 +85,19 @@
 
 
 //Text colours
-@each $colour in map-keys($VCcolours) {
-  .u-text-#{$colour}   { color: colour($colour); }
+.u-text-white         { color: $VCwhite; }
+.u-text-black         { color: $VCblack; }
+.u-text-grey          { color: $VCgrey; }
+.u-text-muted           { color: greyscale(5); }
+
+@each $name, $colour in $VCcolours {
+  .u-text-#{$name}  { background-color: map-get($colour, base); }
+
+  @each $tone in map-keys(map-get($VCcolours, $name)) {
+    .u-text-#{$name}--#{$tone} {
+      background-color: map-get(map-get($VCcolours, $name), $tone);
+    }
+  }
 }
 
 .u-text-twitter,
@@ -101,12 +110,20 @@
 .u-text-medium          { font-weight: $VCfont-medium; }
 .u-text-bold            { font-weight: $VCfont-bold; }
 
-.u-text-small           { @include font-size(15); }
-
 
 // Background colours
-@each $colour in map-keys($VCcolours) {
-  .u-bg-#{"" + $colour}   { background-color: colour($colour); }
+.u-background-white         { background-color: $VCwhite; }
+.u-background-black         { background-color: $VCblack; }
+.u-background-grey          { background-color: $VCgrey; }
+
+@each $name, $colour in $VCcolours {
+  .u-background-#{$name}  { background-color: map-get($colour, base); }
+
+  @each $tone in map-keys(map-get($VCcolours, $name)) {
+    .u-background-#{$name}--#{$tone} {
+      background-color: map-get(map-get($VCcolours, $name), $tone);
+    }
+  }
 }
 
 
@@ -118,6 +135,7 @@
   &--quadruple { margin-bottom: quadruple($VCbase) !important; }
   &--double    { margin-bottom: double($VCbase) !important; }
   &--half      { margin-bottom: half($VCbase) !important; }
+  &--third     { margin-bottom: third($VCbase) !important; }
   &--quarter   { margin-bottom: quarter($VCbase) !important; }
   &--none      { margin-bottom: 0 !important; }
 }
@@ -128,6 +146,7 @@
   &--quadruple { margin-top: quadruple($VCbase) !important; }
   &--double    { margin-top: double($VCbase) !important; }
   &--half      { margin-top: half($VCbase) !important; }
+  &--third     { margin-top: third($VCbase) !important; }
   &--quarter   { margin-top: quarter($VCbase) !important; }
   &--none      { margin-top: 0 !important; }
 }
@@ -141,6 +160,7 @@
       &--quadruple { margin-bottom: quadruple($VCbase) !important; }
       &--double    { margin-bottom: double($VCbase) !important; }
       &--half      { margin-bottom: half($VCbase) !important; }
+      &--third     { margin-bottom: third($VCbase) !important; }
       &--quarter   { margin-bottom: quarter($VCbase) !important; }
       &--none      { margin-bottom: 0 !important; }
     }
@@ -151,6 +171,7 @@
       &--quadruple { margin-top: quadruple($VCbase) !important; }
       &--double    { margin-top: double($VCbase) !important; }
       &--half      { margin-top: half($VCbase) !important; }
+      &--third     { margin-top: third($VCbase) !important; }
       &--quarter   { margin-top: quarter($VCbase) !important; }
       &--none      { margin-top: 0 !important; }
     }

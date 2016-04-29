@@ -12,7 +12,7 @@ get_header(); ?>
 
       <div class="c-post-content u-center-block">
 
-        <h1 <?php ( get_field( 'hide_h1' ) == 1 ) ? print 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 
         <?php the_content(); ?>
 
