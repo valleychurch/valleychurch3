@@ -26,6 +26,12 @@
 
 a.o-card {
   text-decoration: none;
+
+  &--shadow {
+    &:hover {
+      @include box-shadow($colour: rgba(0,0,0,.25));
+    }
+  }
 }
 
 .o-card__img {
@@ -39,10 +45,12 @@ a.o-card {
     padding: $VCbase * 1.5;
   }
 
-  @include font-size(18);
+  .lead {
+    @include font-size(18);
 
-  @include breakpoint(md) {
-    @include font-size(20);
+    @include breakpoint(md) {
+      @include font-size(20);
+    }
   }
 }
 
@@ -169,13 +177,5 @@ a.o-card {
 
   & + & {
     margin-top: -1px;
-  }
-}
-
-a.o-card {
-  &--shadow {
-    &:hover {
-      @include box-shadow($colour: rgba(0,0,0,.25));
-    }
   }
 }
