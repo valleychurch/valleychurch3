@@ -4,7 +4,7 @@
   Description: WordPress theme for Valley Church
   Author: Valley Church Communcations Team
   Author URI: http://valleychurch.eu
-  Version: 3.1.0
+  Version: 3.1.1
   License: GNU General Public License v3.0
   License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -17,6 +17,7 @@
   Changelog
   =========
 
+  * v3.1.1 - Updated .u-text classes and .card p.lead sizing
   * v3.1.0 - BUMP to minor version. KSS documentation. Smaller base font size. Multiple CSS changes/tidyup
   * v3.0.11 - Using KSS to document styles
   * v3.0.10 - Not sure what changed in this version...

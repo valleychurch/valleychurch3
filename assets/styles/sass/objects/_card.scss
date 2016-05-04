@@ -38,6 +38,12 @@ a.o-card {
   @include breakpoint(md) {
     padding: $VCbase * 1.5;
   }
+
+  @include font-size(18);
+
+  @include breakpoint(md) {
+    @include font-size(20);
+  }
 }
 
 .o-card__text {

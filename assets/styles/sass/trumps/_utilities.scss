@@ -91,11 +91,11 @@
 .u-text-muted           { color: greyscale(5); }
 
 @each $name, $colour in $VCcolours {
-  .u-text-#{$name}  { background-color: map-get($colour, base); }
+  .u-text-#{$name}  { color: map-get($colour, base); }
 
   @each $tone in map-keys(map-get($VCcolours, $name)) {
     .u-text-#{$name}--#{$tone} {
-      background-color: map-get(map-get($VCcolours, $name), $tone);
+      color: map-get(map-get($VCcolours, $name), $tone);
     }
   }
 }
