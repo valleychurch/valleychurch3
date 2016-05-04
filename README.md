@@ -1,7 +1,8 @@
 # Valley Church WordPress theme
-## Version 3.1.1
+## Version 3.1.2
 
 ### Changelog
+* v3.1.2 - Added `.c-post-content--fixed` to allow Disqus to work
 * v3.1.1 - Updated .u-text classes and .card p.lead sizing
 * v3.1.0 - BUMP to minor version. KSS documentation. Smaller base font size. Multiple CSS changes/tidyup
 * v3.0.11 - Using [KSS](https://github.com/kss-node/grunt-kss) to document styles

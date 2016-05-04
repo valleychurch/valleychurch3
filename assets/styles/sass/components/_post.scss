@@ -38,6 +38,11 @@
 }
 
 .c-post-content {
+  &--fixed {
+    width: 100%;
+    max-width: 46rem;
+  }
+
   > *,
   > div.wpcf7 {
     max-width: 46rem;

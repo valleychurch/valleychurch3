@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.1.1' );
+define( 'VC_THEME_VERSION', '3.1.2' );
 
 
 /**

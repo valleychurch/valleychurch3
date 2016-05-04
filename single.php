@@ -38,7 +38,7 @@
 
     <div class="o-row">
 
-      <div class="c-post-content u-center-block">
+      <div class="c-post-content c-post-content--fixed u-center-block">
 
         <hr/>
 
