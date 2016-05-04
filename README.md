@@ -1,7 +1,8 @@
 # Valley Church WordPress theme
-## Version 3.0.11
+## Version 3.1.0
 
 ### Changelog
+* v3.1.0 - BUMP to minor version. KSS documentation. Smaller base font size. Multiple CSS changes/tidyup
 * v3.0.11 - Using [KSS](https://github.com/kss-node/grunt-kss) to document styles
 * v3.0.10 - Not sure what changed in this version...
 * v3.0.9 - Remove global.js

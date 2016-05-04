@@ -179,7 +179,7 @@ module.exports = function(grunt) {
       build: {
         options: {
           title: 'Site built (v<%= pkg.version %>)',
-          message: 'All files compiled and version number bumped, watching for changes'
+          message: 'All files compiled and version number bumped'
         }
       },
       sass: {
@@ -229,6 +229,7 @@ module.exports = function(grunt) {
     'postcss',
     'uglify',
     'imagemin',
+    'kss',
     'notify:build',
   ]);
 };
