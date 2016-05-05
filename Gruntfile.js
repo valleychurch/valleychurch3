@@ -2,12 +2,10 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-kss');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
@@ -137,37 +135,12 @@ module.exports = function(grunt) {
       },
     },
 
-    // criticalcss: {
-    //   dist: {
-    //     options: {
-    //       url: "https://valleychurch.eu",
-    //       outputfile: 'assets/styles/css/critical.<%= pkg.version %>.min.css',
-    //       filename: 'assets/styles/css/style.<%= pkg.version %>.min.css',
-    //       buffer: 1024*1024
-    //     }
-    //   }
-    // },
-
-    // cssmin: {
-    //   options: {
-    //     sourceMap: false,
-    //     sourceMapInlineSources: false,
-    //     roundingPrecision: -1
-    //   },
-    //   target: {
-    //     files: {
-    //       'assets/styles/css/critical.<%= pkg.version %>.min.css': 'assets/styles/css/critical.<%= pkg.version %>.min.css'
-    //     }
-    //   }
-    // },
-
     notify: {
       notify_hooks: {
         options: {
           enabled: true,
-          max_jshint_notifications: 5, // maximum number of notifications from jshint output
-          success: true, // whether successful grunt executions should be notified automatically
-          duration: 3 // the duration of notification in seconds, for `notify-send` only
+          success: true,
+          duration: 3
         }
       },
       local: {
@@ -202,11 +175,6 @@ module.exports = function(grunt) {
       },
     }
   });
-
-  // grunt.registerTask('styleguide', [
-  //   'notify:styleguide',
-  //   'watch:styleguide'
-  // ]);
 
   grunt.registerTask('local', [
     'sass',

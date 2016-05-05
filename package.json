@@ -16,13 +16,9 @@
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-criticalcss": "^0.6.1",
-    "grunt-dss": "^1.0.8",
-    "grunt-hologram": "0.0.7",
     "grunt-kss": "^4.1.0",
     "grunt-notify": "^0.4.3",
     "grunt-postcss": "^0.7.0",
-    "grunt-version": "^1.0.0",
-    "sassdown": "^0.2.7"
+    "grunt-version": "^1.0.0"
   }
 }
