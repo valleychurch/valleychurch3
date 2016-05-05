@@ -13,24 +13,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-57x57.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-60x60.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-72x72.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-76x76.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-114x114.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-120x120.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-144x144.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-152x152.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-180x180.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-194x194.png?v=<?= VC_THEME_VERSION ?>" sizes="194x194">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-96x96.png?v=<?= VC_THEME_VERSION ?>" sizes="96x96">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
-    <link rel="manifest" href="/wp-content/themes/valleychurch3/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="/wp-content/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png?v=<?= VC_THEME_VERSION ?>" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=<?= VC_THEME_VERSION ?>" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
+    <link rel="manifest" href="/manifest.json?v=<?= VC_THEME_VERSION ?>">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
     <meta name="msapplication-TileColor" content="#b21e28">
-    <meta name="msapplication-TileImage" content="/wp-content/themes/valleychurch3/assets/favicons/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
     <meta name="theme-color" content="#b21e28">
 
     <!-- Prefetch some DNS -->
@@ -67,9 +67,8 @@
       <div class="o-container o-container--full c-browse-happy u-text-center">
         <p>Test environment</p>
       </div>
-      <?php } ?>
-
-      <?php get_template_part( 'partials/notification' ); ?>
+      <?php }
+      get_template_part( 'partials/notification' ); ?>
 
       <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
