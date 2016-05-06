@@ -72,6 +72,12 @@ get_header(); ?>
     centreMap();
   }
 
+  function centreMap() {
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(mapCentre);
+    map.fitBounds(mapBounds);
+  }
+
   google.maps.event.addDomListener(window, 'load', initMap);
   google.maps.event.addDomListener(window, 'load', centreMap);
 
@@ -89,7 +95,7 @@ if (have_posts()) :
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="o-col-xxs-12 o-col-md-7 c-post-content u-center-block">
+      <div class="c-post-content u-center-block">
 
         <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
 

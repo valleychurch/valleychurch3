@@ -131,12 +131,6 @@ function storeCSS(c) {
   catch(e) {}
 }
 
-function centreMap() {
-  google.maps.event.trigger(map, 'resize');
-  map.setCenter(mapCentre);
-  map.fitBounds(mapBounds);
-}
-
 var googleActive = ( typeof google !== "undefined" ),
     map,
     mapOpts,
