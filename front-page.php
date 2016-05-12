@@ -30,15 +30,15 @@
     if ( have_posts() ) : ?>
   <section class="o-container c-section">
     <div class="o-row">
-      <div class="o-col-xxs-12 u-text-centre">
-        <h2>Locations</h2>
+      <div class="o-col-xxs-12 u-text-center">
+        <h2 class="kilo u-margin--half">Locations</h2>
         <p class="lead">We're one church in many locations and we'd love to see you this weekend!</p>
       </div>
     </div>
     <div class="o-row">
     <?php while ( have_posts() ) :
       the_post(); ?>
-      <div class="o-col-xxs-12 o-col-xs-6 o-col-md-3">
+      <div class="o-col-xxs-12 o-col-sm-6 o-col-md-4">
         <?php get_template_part( 'partials/card', 'location' ); ?>
       </div>
     <?php endwhile; ?>

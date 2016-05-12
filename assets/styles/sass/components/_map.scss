@@ -22,3 +22,10 @@
   width: 100%;
   height: 100%;
 }
+
+.c-map__btn {
+  position: absolute;
+  top: $VCbase;
+  left: $VCbase;
+  z-index: 100;
+}

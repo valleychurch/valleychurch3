@@ -253,7 +253,9 @@ function theme_files() {
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
-  if ( is_page( 'connect' ) ) { wp_enqueue_script( 'google-maps' ); }
+  if ( is_page( 'connect' ) || is_singular( 'location' ) ) {
+    wp_enqueue_script( 'google-maps' );
+  }
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'site' );
 };

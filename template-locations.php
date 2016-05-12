@@ -108,34 +108,7 @@ get_header();
     <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
       <div class="o-col-xxs-12 o-col-md-4">
-
-        <div class="o-card u-text-center">
-          <?php
-          set_query_var( 'class', 'o-card__img' );
-          get_template_part( 'partials/featured-image', 'slide' );
-          ?>
-          <div class="o-card__body">
-            <?php $times = get_field( 'service_times' ); ?>
-            <h2 class="o-card__title <?= ( $times ) ? "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
-            <?php if ( $times ) { ?>
-            <h3 class="o-card__subtitle"><?php the_field( 'service_times' ); ?></h3>
-            <?php } ?>
-            <div class="o-card__text">
-            <?php if ( get_field( 'address' ) ) { ?>
-            <p>
-            <?php if ( get_field( 'google_maps_link' ) ) { ?>
-              <a href="http://<?= get_field( 'google_maps_link' ); ?>" target="_blank">
-            <?php }
-            echo get_field( 'address' );
-            if ( get_field( 'google_maps_link' ) ) { ?>
-              </a>
-            <?php } ?>
-            </p>
-            <?php } ?>
-            </div>
-          </div>
-        </div>
-
+        <?php get_template_part( 'partials/card', 'location' ); ?>
       </div>
 
     <?php endwhile; ?>
