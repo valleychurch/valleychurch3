@@ -140,10 +140,89 @@ var googleActive = ( typeof google !== "undefined" ),
     mapBounds,
     mapLocations,
     mapInfoWindow,
-    mapMarker;
+    mapMarker,
+    mapMarkerIcon = "/wp-content/themes/valleychurch3/assets/images/dist/marker.png",
+    mapMarkerIconSmall = "/wp-content/themes/valleychurch3/assets/images/dist/marker-small.png";
 
 mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
 
+// Centre Google map
+function centreMap() {
+  google.maps.event.trigger(map, 'resize');
+  map.setCenter(mapCentre);
+  map.fitBounds(mapBounds);
+}
+
+// Initialise Google map
+function initMap(map_centre, zoom, auto_size, location_array, info_window_content, marker_click, scrollable) {
+  mapOpts = {
+    zoom: zoom,
+    center: map_centre,
+    rotateControl: false,
+    panControl: false,
+    mapTypeControl: false,
+    mapTypeControlOptions: {
+      myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    },
+    streetViewControl: false,
+    scrollwheel: scrollable,
+  };
+
+  map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
+
+  map.set('styles', mapStyle);
+
+  if ( info_window_content !== "" ) {
+    mapInfoWindow = new google.maps.InfoWindow({
+      content: 'Loading...'
+    });
+  }
+
+  if ( auto_size ) {
+    mapBounds = new google.maps.LatLngBounds();
+  }
+
+  mapLocations = location_array;
+
+  //Add marker and info window for each group
+  for (var i = 0; i < mapLocations.length; i++) {
+    var mapLoc = mapLocations[i];
+    mapMarker = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(mapLoc[0], mapLoc[1]),
+      title: mapLoc[2],
+      html: mapLoc[3],
+      url: mapLoc[4],
+      animation: google.maps.Animation.DROP,
+      icon: mapMarkerIconSmall,
+    });
+
+    if ( info_window_content !== "" ) {
+      google.maps.event.addListener(mapMarker, 'click', function() {
+        mapInfoWindow.setContent(info_window_content);
+        mapInfoWindow.open(map, this);
+      });
+    }
+
+    if ( marker_click ) {
+      google.maps.event.addListener(mapMarker, 'click', function() {
+        window.location.href = this.url;
+      });
+    }
+
+    if ( auto_size ) {
+      mapBounds.extend(new google.maps.LatLng(mapLoc[0], mapLoc[1]));
+    }
+  }
+
+  if ( auto_size ) {
+    map.fitBounds(mapBounds);
+  }
+
+  centreMap();
+
+  google.maps.event.addDomListener(window, 'resize', centreMap);
+}
 
 // Obligatory debounce function
 function debounce(func, wait, immediate) {

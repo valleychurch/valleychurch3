@@ -253,7 +253,7 @@ function theme_files() {
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
-  if ( is_page( 'connect' ) || is_singular( 'location' ) ) {
+  if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );
   }
   wp_enqueue_script( 'jquery' );
@@ -444,4 +444,95 @@ function remove_some_nodes_from_admin_top_bar_menu( $wp_admin_bar ) {
 }
 add_action( 'admin_bar_menu', 'remove_some_nodes_from_admin_top_bar_menu', 999 );
 
+/**
+ * Load map info
+ */
+function load_map( $map_centre = "mapCentre", $zoom = 9, $auto_size = true, $location_array, $info_window_content = "", $marker_click, $scrollable ) {
+?>
+<script>
+  var locationArray = [<?= $location_array; ?>];
+  initMap(<?= $map_centre ?>, <?= $zoom ?>, <?= (int)$auto_size ?>, locationArray, <?= $info_window_content ?>, <?= (int)$marker_click ?>, <?= (int)$scrollable ?>);
+</script>
+<?php
+}
+add_action( 'load_map', 'load_map' );
+
+/**
+ * Load connect groups using `load_map_info`
+ */
+function load_connect_groups() {
+  $location_array;
+  $info_window_content = '"<h3 class=\'h4 u-margin--half\'>" + this.title + "</h3>" + this.html';
+
+  $args =
+    array(
+      'post_type' => 'connect',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
+
+  $wp_query = new WP_Query( $args );
+  if ( $wp_query->have_posts() ) {
+    while ( $wp_query->have_posts() ) {
+      $wp_query->the_post();
+      $location_array .= "[" . get_field( 'cg_location' ) . ",'" . get_the_title() . "','" . get_the_content() . "',''],";
+    }
+  }
+
+  load_map( 'mapCentre', 9, true, $location_array, $info_window_content, false, true );
+}
+add_action( 'load_connect_groups', 'load_connect_groups' );
+
+/**
+ * Load locations map using `load_map_info`
+ */
+function load_locations() {
+  $location_array;
+
+  $args =
+    array(
+      'post_type' => 'location',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
+
+  $wp_query = new WP_Query( $args );
+  if ( $wp_query->have_posts() ) {
+    while ( $wp_query->have_posts() ) {
+      $wp_query->the_post();
+      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "'],";
+    }
+  }
+
+  load_map( 'mapCentre', 9, true, $location_array, "''", true, true );
+}
+add_action( 'load_locations', 'load_locations' );
+
+/**
+ * Load single location map using `load_map_info`
+ */
+function load_location() {
+  global $post;
+  $location_array;
+
+  $args =
+    array(
+      'post_type' => 'location',
+      'p' => $post->ID,
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
+
+  $wp_query = new WP_Query( $args );
+  if ( $wp_query->have_posts() ) {
+    while ( $wp_query->have_posts() ) {
+      $wp_query->the_post();
+      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "'],";
+      $map_centre = "new google.maps.LatLng(" . get_field( 'location' )['coordinates'] . ")";
+    }
+  }
+
+  load_map( $map_centre, 15, false, $location_array, "''", false, false );
+}
+add_action( 'load_location', 'load_location' );
 ?>

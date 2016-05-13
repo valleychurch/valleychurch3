@@ -5,79 +5,9 @@
 get_header();
 ?>
 
-<?php
-  $args =
-    array(
-      'post_type' => 'location',
-      'post_status' => 'publish',
-      'posts_per_page' => -1,
-    );
-
-  $locations = new WP_Query( $args );
-?>
-
-<script>
-  function initMap() {
-    mapOpts = {
-      zoom: 9,
-      center: mapCentre,
-      //mapTypeId: google.maps.MapTypeId.ROADMAP,
-      rotateControl: false,
-      panControl: false,
-      mapTypeControl: false,
-      mapTypeControlOptions: {
-        myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-      },
-      streetViewControl: false,
-      scrollwheel: false
-    };
-
-    map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
-
-    map.set('styles', mapStyle);
-
-    mapBounds = new google.maps.LatLngBounds();
-
-    mapLocations = [
-    <?php
-    $i = 0; if ( $locations->have_posts() ) : while ( $locations->have_posts() ) : $locations->the_post();
-    $info = get_the_content();
-    $location = get_field('location');
-    if ( $location ) {
-    ?>
-      ['<?php the_title(); ?>', <?= $location['lat']; ?>, <?= $location['lng']; ?>],
-    <?php
-    $i++;
-    }
-    endwhile;
-    endif;
-    wp_reset_query();
-    ?>
-    ];
-
-    for (var i = 0; i < mapLocations.length; i++) {
-      var mapLocation = mapLocations[i];
-      mapMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(mapLocation[1], mapLocation[2]),
-        map: map,
-        title: mapLocation[0]
-      });
-      mapBounds.extend(new google.maps.LatLng(mapLocation[1], mapLocation[2]));
-    }
-
-    map.fitBounds(mapBounds);
-    centreMap();
-  }
-
-  google.maps.event.addDomListener(window, 'load', initMap);
-  google.maps.event.addDomListener(window, 'load', centreMap);
-
-  google.maps.event.addDomListener(window, 'resize', centreMap);
-</script>
-
   <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
 
-    <div class="o-row c-map c-map--40">
+    <div class="c-map c-map--40">
       <div class="c-map__inner js-google-map"></div>
     </div>
 
@@ -99,8 +29,17 @@ get_header();
 
   </section>
 
-  <?php wp_reset_query(); ?>
-  <?php if ( $locations->have_posts() ) : ?>
+  <?php
+  wp_reset_query();
+  $args =
+    array(
+      'post_type' => 'location',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+    );
+
+  $locations = new WP_Query( $args );
+  if ( $locations->have_posts() ) : ?>
 
   <section class="o-container c-section c-section--grey">
 
@@ -119,4 +58,7 @@ get_header();
 
   </section>
 
-<?php get_footer(); ?>
+<?php
+add_action( 'wp_footer', 'load_locations', 50 );
+get_footer();
+?>
