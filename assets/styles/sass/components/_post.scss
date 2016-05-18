@@ -1,27 +1,32 @@
 .c-section {
-  padding: $VCbase $VCbase 0;
-  //margin-top: -$VCbase;
+  padding: $VCbase 0;
 
   @include breakpoint(md) {
-    padding: ($VCbase * 1.5) ($VCbase * 1.5) half($VCbase);
+    padding: ($VCbase * 1.5) 0;
   }
 
   @include breakpoint(lg) {
-    padding: double($VCbase) double($VCbase) $VCbase;
+    padding: double($VCbase) 0;
   }
 }
 
+.c-section--background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .c-section--small {
-  padding: half($VCbase) half($VCbase) 0;
-  //margin-top: -$VCbase;
+  // padding: half($VCbase) half($VCbase) 0;
+  // //margin-top: -$VCbase;
 
-  @include breakpoint(md) {
-    padding: three-quarters($VCbase) three-quarters($VCbase) third($VCbase);
-  }
+  // @include breakpoint(md) {
+  //   padding: three-quarters($VCbase) three-quarters($VCbase) third($VCbase);
+  // }
 
-  @include breakpoint(lg) {
-    padding: $VCbase $VCbase half($VCbase);
-  }
+  // @include breakpoint(lg) {
+  //   padding: $VCbase $VCbase half($VCbase);
+  // }
 }
 
 .c-section--gray,

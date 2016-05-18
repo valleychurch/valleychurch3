@@ -1,7 +1,7 @@
       </main>
 
       <footer class="c-footer u-clearfix">
-        <div class="o-container">
+        <div class="o-container o-container--full">
           <div class="o-row">
             <div class="o-col-xxs-12 o-col-sm-9 u-text-center--xxs u-text-left--sm">
               <ul class="o-list o-list--inline u-margin u-margin--sm--none">
@@ -19,7 +19,7 @@
         </div>
       </footer>
 
-    </div> <!-- .container -->
+    <!-- </div> --> <!-- .container -->
 
     <?php wp_footer(); ?>
 

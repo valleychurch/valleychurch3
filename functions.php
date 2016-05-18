@@ -52,7 +52,7 @@ function create_plural($name, $label = null, $nameplural, $labelplural) {
 /**
  * Create a custom post type
  */
-function create_custom_post_type_args( $name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null ) {
+function create_custom_post_type_args( $name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null, $publically_queryable = true ) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
   $singular = create_singular( $name, $label );
@@ -80,7 +80,8 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
     'menu_icon' =>              $icon,
     'hierarchical' =>           false,
     'capability_type' =>        'post',
-    'has_archive' =>            ( $name === "message" ? true : false )
+    'has_archive' =>            ( $name === "message" ? true : false ),
+    'publically_queryable' =>   $publically_queryable,
   );
   return $args;
 }
@@ -111,7 +112,7 @@ function create_custom_taxonomy_args( $name, $label = null ) {
     'public' =>                 true,
     'rewrite' => array(
       'slug' =>                 $name,
-      'with_front' =>           false
+      'with_front' =>           false,
     ),
   );
 
@@ -205,13 +206,13 @@ add_action( 'login_head', 'add_custom_login' );
  */
 function create_custom_post_types() {
   $supports_simple = array( 'title', 'thumbnail', 'author' );
-  register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null ) );                   //TODO: rename to 'event'
-  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple ) );   //TODO: rename to 'slide'
-  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null ) );                 //TODO: rename to 'message'
-  register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null ) );
-  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, null ) );
-  register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt', true, null ) );
-  register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning', true, null ) );
+  register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null, null, false ) );
+  register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple, false ) );
+  register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null, null, true ) );
+  register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null, null, false ) );
+  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, null, null, true ) );
+  register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt', true, null, null, false ) );
+  register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning', true, null, null, false ) );
 };
 add_action( 'init', 'create_custom_post_types' );
 
@@ -362,7 +363,7 @@ add_filter( 'the_content', 'filter_ptags_on_content' );
  * Custom read more link
  */
 function modify_read_more_link() {
-  return '<a class="o-btn c-more-link" href="' . get_permalink() . '">Read more</a>';
+  return '<a class="o-btn c-more-link" href="' . get_permalink() . '" role="button">Read more</a>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 

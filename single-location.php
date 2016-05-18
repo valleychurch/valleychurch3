@@ -20,7 +20,7 @@
 
   <div class="c-map c-map--40">
   <?php if ( get_field( 'google_maps_link' ) ) { ?>
-    <a class="o-btn c-map__btn" title="Get directions" href="<?= get_field( 'google_maps_link' ); ?>">
+    <a class="o-btn c-map__btn" title="Get directions" href="<?= get_field( 'google_maps_link' ); ?>" role="button">
       Get directions
     </a>
   <?php } ?>

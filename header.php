@@ -61,7 +61,7 @@
     </div><![endif]-->
 
 
-    <div class="o-container o-container--page">
+    <!-- <div class="o-container o-container--page"> -->
 
       <?php if( $_SERVER['HTTP_HOST'] === "test.valleychurch.eu" || $_SERVER['HTTP_HOST'] === "valley.dev" ) { ?>
       <div class="o-container o-container--full c-browse-happy u-text-center">

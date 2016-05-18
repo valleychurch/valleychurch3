@@ -52,7 +52,7 @@
   </head>
   <body>
 
-    <div class="o-container o-container--page">
+    <!-- <div class="o-container o-container--page"> -->
 
       <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
@@ -88,126 +88,130 @@
 
       <main class="c-main">
 
-        <section class="o-container c-section">
+        <section class="c-section">
 
-          <div class="o-row">
+          <div class="o-container">
 
-            <div class="o-col-xxs-12 u-center-block">
+            <div class="o-row">
 
-              <div class="o-row">
+              <div class="o-col-xxs-12 u-center-block">
 
-                {{#if homepage}}
-                {{else}}
-                <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
-
-                  {{#eachSection rootName}}
-                  {{#ifDepth 1}}
-                  <h5>{{header}}</h5>
-                  {{/ifDepth}}
-                  {{/eachSection}}
-                  <ul class="o-list">
-                  {{#eachSection rootName}}
-                    {{#ifDepth 1}}
-                    {{else}}
-                    <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
-                    {{/ifDepth}}
-                    <!-- {{#ifDepth 2}}
-                    <li>
-                      <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                    {{/ifDepth}}
-                    {{#ifDepth 3}}
-                      <ul class="o-list">
-                        <li>
-                          <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                        </li>
-                      </ul>
-                    {{/ifDepth}}
-                    {{#ifDepth 2}}
-                    </li>
-                    {{/ifDepth}} -->
-                  {{/eachSection}}
-                  </ul>
-
-                </aside>
-                {{/if}} {{!-- homepage --}}
-
-                <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
+                <div class="o-row">
 
                   {{#if homepage}}
-                  <section id="section-0" class="kss-section kss-overview">
-                    {{{homepage}}}
-                  </section>
                   {{else}}
-                  {{#eachSection rootName}}
-                  <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
+                  <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
+
+                    {{#eachSection rootName}}
                     {{#ifDepth 1}}
-                    <h1>{{header}}</h1>
+                    <h5>{{header}}</h5>
                     {{/ifDepth}}
-                    {{#ifDepth 2}}
-                    <h2>{{header}}</h2>
-                    {{/ifDepth}}
-                    {{#ifDepth 3}}
-                    <h3 class="u-margin--half">{{header}}</h3>
-                    {{/ifDepth}}
-                    {{!-- {{#if markup}} --}}
-                    {{#if description}}
-                    <div class="kss-description{{#ifDepth 1}} lead{{/ifDepth}}">
-                      {{{description}}}
-                    </div>
-                    {{/if}}
-                    {{#if markup}}
-                    <div class="kss-modifier-block">
-                      <div class="o-card o-card--outline u-margin--none">
-                        <div class="o-card__body">
-                          <div class="iframify">
-                            {{{markup}}}
-                          </div>
-                        </div>
-                      </div>
-                      {{#eachModifier}}
-                      <div class="o-card o-card--outline u-margin--none">
-                        <div class="o-card__body">
-                          <div class="o-card__title u-margin">
-                            <div class="kss-modifier-name"><strong>{{name}}</strong></div>
-                            <div class="kss-modifier-description">
-                              {{{description}}}
-                            </div>
-                          </div>
-                          <div class="iframify">
-                            {{{markup}}}
-                          </div>
-                        </div>
-                      </div>
-                      {{/eachModifier}}
-                      {{#if hide}}
+                    {{/eachSection}}
+                    <ul class="o-list">
+                    {{#eachSection rootName}}
+                      {{#ifDepth 1}}
                       {{else}}
-                      <div class="kss-markup">
-<pre>
-<code class="language-html">{{markup}}
-</code></pre>
+                      <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
+                      {{/ifDepth}}
+                      <!-- {{#ifDepth 2}}
+                      <li>
+                        <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
+                      {{/ifDepth}}
+                      {{#ifDepth 3}}
+                        <ul class="o-list">
+                          <li>
+                            <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
+                          </li>
+                        </ul>
+                      {{/ifDepth}}
+                      {{#ifDepth 2}}
+                      </li>
+                      {{/ifDepth}} -->
+                    {{/eachSection}}
+                    </ul>
+
+                  </aside>
+                  {{/if}} {{!-- homepage --}}
+
+                  <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
+
+                    {{#if homepage}}
+                    <section id="section-0" class="kss-section kss-overview">
+                      {{{homepage}}}
+                    </section>
+                    {{else}}
+                    {{#eachSection rootName}}
+                    <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
+                      {{#ifDepth 1}}
+                      <h1>{{header}}</h1>
+                      {{/ifDepth}}
+                      {{#ifDepth 2}}
+                      <h2>{{header}}</h2>
+                      {{/ifDepth}}
+                      {{#ifDepth 3}}
+                      <h3 class="u-margin--half">{{header}}</h3>
+                      {{/ifDepth}}
+                      {{!-- {{#if markup}} --}}
+                      {{#if description}}
+                      <div class="kss-description{{#ifDepth 1}} lead{{/ifDepth}}">
+                        {{{description}}}
                       </div>
                       {{/if}}
-                    </div>
-                    {{/if}} {{!-- markup --}}
-                    {{!-- {{else}} --}}
-                    {{!-- {{#if description}}
-                      {{#ifDepth 1}}
-                      <div class="lead">
-                        {{{description}}}
+                      {{#if markup}}
+                      <div class="kss-modifier-block">
+                        <div class="o-card o-card--outline u-margin--none">
+                          <div class="o-card__body">
+                            <div class="iframify">
+                              {{{markup}}}
+                            </div>
+                          </div>
+                        </div>
+                        {{#eachModifier}}
+                        <div class="o-card o-card--outline u-margin--none">
+                          <div class="o-card__body">
+                            <div class="o-card__title u-margin">
+                              <div class="kss-modifier-name"><strong>{{name}}</strong></div>
+                              <div class="kss-modifier-description">
+                                {{{description}}}
+                              </div>
+                            </div>
+                            <div class="iframify">
+                              {{{markup}}}
+                            </div>
+                          </div>
+                        </div>
+                        {{/eachModifier}}
+                        {{#if hide}}
+                        {{else}}
+                        <div class="kss-markup">
+  <pre>
+  <code class="language-html">{{markup}}
+  </code></pre>
+                        </div>
+                        {{/if}}
                       </div>
-                      <hr/>
-                      {{else}}
-                      <div class="asda">
-                        {{{description}}}
-                      </div>
-                      {{/ifDepth}}
-                    {{/if}} --}}
-                    {{!-- {{/if}} --}}
-                  </section>
-                  {{/eachSection}}
-                  {{/if}}
+                      {{/if}} {{!-- markup --}}
+                      {{!-- {{else}} --}}
+                      {{!-- {{#if description}}
+                        {{#ifDepth 1}}
+                        <div class="lead">
+                          {{{description}}}
+                        </div>
+                        <hr/>
+                        {{else}}
+                        <div class="asda">
+                          {{{description}}}
+                        </div>
+                        {{/ifDepth}}
+                      {{/if}} --}}
+                      {{!-- {{/if}} --}}
+                    </section>
+                    {{/eachSection}}
+                    {{/if}}
 
-                </article>
+                  </article>
+
+                </div>
 
               </div>
 
@@ -219,6 +223,6 @@
 
       </main>
 
-    </div>
+    <!-- </div> -->
   </body>
 </html>
