@@ -66,7 +66,7 @@ ol {
 /**
  * Lead paragraphs
  *
- * Using the class `.lead` you can bump up a paragraph's size to `19px` on
+ * Using the class `.lead` you can bump up a paragraph's size to `20px` on
  * mobile and `22px` on desktop.
  *
  * Markup:
@@ -80,7 +80,7 @@ ol {
  */
 .lead,
 .lede {
-  @include font-size(19);
+  @include font-size(20);
 
   @include breakpoint(md) {
     @include font-size(22);

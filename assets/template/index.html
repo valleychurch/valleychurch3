@@ -32,9 +32,16 @@
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
     {{{styles}}}
+    <style>
+      iframe {
+        border: 0;
+        /* margin: -8px; Cancel body margin of content */
+        width: 100%;
+      }
+    </style>
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
@@ -42,6 +49,19 @@
     <script src="../assets/scripts/dist/jquery.min.js"></script>
     {{{scripts}}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+    <script src="../assets/scripts/lib/iframify.js"></script>
+    <script>
+    $(function() {
+      "use strict";
+      var components = document.querySelectorAll('.iframify');
+      var iframes = Array.prototype.map.call(components, function (component) {
+        return iframify(component, {
+          metaViewport: '<meta name="viewport" content="width=device-width">',
+          sizingTimeout: 1000,
+        });
+      });
+    });
+    </script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>

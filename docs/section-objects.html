@@ -32,10 +32,17 @@
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
     <link rel="stylesheet" href="../assets/styles/css/style.3.1.3.min.css">
 
+    <style>
+      iframe {
+        border: 0;
+        /* margin: -8px; Cancel body margin of content */
+        width: 100%;
+      }
+    </style>
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
@@ -45,6 +52,19 @@
 <script src="../assets/scripts/lib/iframify.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+    <script src="../assets/scripts/lib/iframify.js"></script>
+    <script>
+    $(function() {
+      "use strict";
+      var components = document.querySelectorAll('.iframify');
+      var iframes = Array.prototype.map.call(components, function (component) {
+        return iframify(component, {
+          metaViewport: '<meta name="viewport" content="width=device-width">',
+          sizingTimeout: 1000,
+        });
+      });
+    });
+    </script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
@@ -301,15 +321,29 @@
                         <div class="o-card o-card--outline u-margin--none">
                           <div class="o-card__body">
                             <div class="iframify">
-                              <a class="o-btn o-btn--ghost" role="button">Click me!</a>
-<button class="o-btn o-btn--ghost">Click me!</button>
+                              <a class="o-btn o-btn--ghost [modifier class]" role="button">Click me!</a>
+<button class="o-btn o-btn--ghost [modifier class]">Click me!</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="o-card o-card--outline u-margin--none">
+                          <div class="o-card__body">
+                            <div class="o-card__title u-margin">
+                              <div class="kss-modifier-name"><strong>.o-btn--ghost--white</strong></div>
+                              <div class="kss-modifier-description">
+                                White variant for dark backgrounds
+                              </div>
+                            </div>
+                            <div class="iframify">
+                              <a class="o-btn o-btn--ghost o-btn--ghost--white" role="button">Click me!</a>
+<button class="o-btn o-btn--ghost o-btn--ghost--white">Click me!</button>
                             </div>
                           </div>
                         </div>
                         <div class="kss-markup">
   <pre>
-  <code class="language-html">&lt;a class=&quot;o-btn o-btn--ghost&quot; role=&quot;button&quot;&gt;Click me!&lt;/a&gt;
-&lt;button class=&quot;o-btn o-btn--ghost&quot;&gt;Click me!&lt;/button&gt;
+  <code class="language-html">&lt;a class=&quot;o-btn o-btn--ghost [modifier class]&quot; role=&quot;button&quot;&gt;Click me!&lt;/a&gt;
+&lt;button class=&quot;o-btn o-btn--ghost [modifier class]&quot;&gt;Click me!&lt;/button&gt;
   </code></pre>
                         </div>
                       </div>
@@ -525,7 +559,7 @@
        <p class="o-card__text u-hide u-show--sm u-hide--md u-show--xl">
          Ed &amp; Michele Carter are the Senior Pastors of Valley Church.
        </p>
-       <a class="o-btn o-btn--ghost" href="https://valleychurch.eu/team" role="button">
+       <a class="o-btn o-btn--ghost o-btn--ghost--white" href="https://valleychurch.eu/team" role="button">
          Read more
        </a>
      </div>
@@ -554,7 +588,7 @@
        &lt;p class=&quot;o-card__text u-hide u-show--sm u-hide--md u-show--xl&quot;&gt;
          Ed &amp;amp; Michele Carter are the Senior Pastors of Valley Church.
        &lt;/p&gt;
-       &lt;a class=&quot;o-btn o-btn--ghost&quot; href=&quot;https://valleychurch.eu/team&quot; role=&quot;button&quot;&gt;
+       &lt;a class=&quot;o-btn o-btn--ghost o-btn--ghost--white&quot; href=&quot;https://valleychurch.eu/team&quot; role=&quot;button&quot;&gt;
          Read more
        &lt;/a&gt;
      &lt;/div&gt;

@@ -29,6 +29,10 @@
 @if $VCenable-grid-classes {
   .o-row {
     @include make-row;
+
+    &--center {
+      justify-content: center;
+    }
   }
 
   .o-row--flush {
@@ -78,5 +82,9 @@
       .o-col-#{$breakpoint}-center { align-self: center; }
       .o-col-#{$breakpoint}-bottom { align-self: flex-end; }
     }
+  }
+
+  .o-col-center {
+    justify-content: center;
   }
 }

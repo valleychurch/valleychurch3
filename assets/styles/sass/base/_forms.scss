@@ -89,6 +89,11 @@ select {
   }
 }
 
+input[type="radio"],
+input[type="checkbox"] {
+  margin-bottom: half($VCbase);
+}
+
 input[type="search"] {
   appearance: none;
 }

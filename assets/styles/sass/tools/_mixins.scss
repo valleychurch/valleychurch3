@@ -148,6 +148,6 @@
   box-shadow: $x-spacing $y-spacing $blur $spread $colour;
 }
 
-@mixin text-shadow($x-spacing: 0, $y-spacing: 0, $blur: 0, $colour: black) {
+@mixin text-shadow($x-spacing: 0, $y-spacing: 0, $blur: 4px, $colour: $VCblack) {
   text-shadow: $x-spacing $y-spacing $blur $colour;
 }

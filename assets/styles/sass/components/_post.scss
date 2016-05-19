@@ -39,10 +39,18 @@
   source,
   img {
     width: 100%;
+
+    .objectfit & {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 
 .c-post-content {
+  width: 100%;
+  max-width: 60rem;
+
   &--fixed {
     width: 100%;
     max-width: 46rem;
@@ -53,20 +61,25 @@
     max-width: 46rem;
     padding-right: $VCbase;
     padding-left: $VCbase;
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  > img {
+  // WordPress built in images go full-width
+  img,
+  .alignleft,
+  .alignright,
+  .aligncenter,
+  [class^="wp-image-"] {
     width: 100%;
+    max-width: 60rem;
+    padding-right: 0;
+    padding-left: 0;
+  }
 
-    // WordPress built in images go full-width
-    &.alignleft,
-    &.alignright,
-    &.aligncenter,
-    &[class^="wp-image-"] {
-      width: 100%;
-      padding-right: 0;
-      padding-left: 0;
-    }
+  .o-ratio,
+  iframe {
+    max-width: 100%;
   }
 
   .no-flexbox & {

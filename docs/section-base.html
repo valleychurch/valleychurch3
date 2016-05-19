@@ -32,10 +32,17 @@
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
     <link rel="stylesheet" href="../assets/styles/css/style.3.1.3.min.css">
 
+    <style>
+      iframe {
+        border: 0;
+        /* margin: -8px; Cancel body margin of content */
+        width: 100%;
+      }
+    </style>
 
     <!-- Load Typekit (EARLY!) -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
@@ -45,6 +52,19 @@
 <script src="../assets/scripts/lib/iframify.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
+    <script src="../assets/scripts/lib/iframify.js"></script>
+    <script>
+    $(function() {
+      "use strict";
+      var components = document.querySelectorAll('.iframify');
+      var iframes = Array.prototype.map.call(components, function (component) {
+        return iframify(component, {
+          metaViewport: '<meta name="viewport" content="width=device-width">',
+          sizingTimeout: 1000,
+        });
+      });
+    });
+    </script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
@@ -261,7 +281,7 @@ elements to make them match.</p>
                     <section id="section-base.typography.lead" class="u-margin--double" data-depth="3">
                       <h3 class="u-margin--half">Lead paragraphs</h3>
                       <div class="kss-description">
-                        <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>19px</code> on
+                        <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>20px</code> on
 mobile and <code>22px</code> on desktop.</p>
 
                       </div>

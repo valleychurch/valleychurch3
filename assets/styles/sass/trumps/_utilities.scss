@@ -81,7 +81,7 @@
 
 //Line height
 .u-line-height--none  { line-height: 1; }
-.u-line-height--small { line-height: 1.2; }
+.u-line-height--small { line-height: 1.35; }
 
 
 //Text colours
@@ -105,16 +105,19 @@
   color: #55acee;
 }
 
+.u-text-shadow          { @include text-shadow; }
+
 .u-text-light           { font-weight: $VCfont-light; }
 .u-text-normal          { font-weight: $VCfont-normal; }
 .u-text-medium          { font-weight: $VCfont-medium; }
 .u-text-bold            { font-weight: $VCfont-bold; }
 
 
+
 // Background colours
-.u-background-white         { background-color: $VCwhite; }
-.u-background-black         { background-color: $VCblack; }
-.u-background-grey          { background-color: $VCgrey; }
+.u-background-white     { background-color: $VCwhite; }
+.u-background-black     { background-color: $VCblack; }
+.u-background-grey      { background-color: $VCgrey; }
 
 @each $name, $colour in $VCcolours {
   .u-background-#{$name}  { background-color: map-get($colour, base); }

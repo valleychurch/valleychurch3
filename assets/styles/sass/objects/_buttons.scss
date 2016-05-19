@@ -50,7 +50,8 @@
   @include transition;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:visited {
     color: white;
     background-color: colour("red", dark);
     border-color: colour("red", x-dark);
@@ -58,6 +59,10 @@
 
   @include breakpoint(sm) {
     @include font-size(18);
+  }
+
+  .o-btn-group & {
+    margin: 0 quarter($VCbase) half($VCbase);
   }
 }
 
@@ -92,25 +97,35 @@
  * Styleguide: objects.buttons.reset
  */
 .o-btn--reset {
-  width: auto;
-  margin: 0;
-  color: $VCblack;
-  background-color: transparent;
-  border-color: $VCblack;
+
+  &,
+  &:active {
+    width: auto;
+    margin: 0;
+    color: $VCblack;
+    background-color: transparent;
+    border-color: $VCblack;
+  }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:visited {
     color: $VCwhite;
     background-color: greyscale(3);
     // border-color: greyscale(10);
   }
 
   &--alt {
-    background-color: greyscale(11);
-    border-color: greyscale(8);
+
+    &,
+    &:active {
+      background-color: greyscale(11);
+      border-color: greyscale(8);
+    }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:visited {
       border-color: greyscale(3);
     }
   }
@@ -122,21 +137,53 @@
  * Transparent button for use on dark backgrounds
  *
  * Markup:
- * <a class="o-btn o-btn--ghost" role="button">Click me!</a>
- * <button class="o-btn o-btn--ghost">Click me!</button>
+ * <a class="o-btn o-btn--ghost {{modifier_class}}" role="button">Click me!</a>
+ * <button class="o-btn o-btn--ghost {{modifier_class}}">Click me!</button>
+ *
+ * .o-btn--ghost--white - White variant for dark backgrounds
  *
  * Styleguide: objects.buttons.ghost
  */
 .o-btn--ghost {
   @include font-stack-alt;
-  color: white;
+  color: $VCblack;
   background-color: transparent;
-  border: 3px solid rgba($VCwhite, .6);
+  border: 2px solid rgba($VCblack, .6);
 
   &:hover,
-  &:focus {
-    color: white;
+  &:focus,
+  &:visited {
+    color: $VCblack;
+    background-color: rgba($VCblack, .1);
+    border-color: rgba($VCblack, 1);
+  }
+
+  &--white {
+    color: $VCwhite;
     background-color: transparent;
-    border-color: rgba($VCwhite, 1);
+    border-color: rgba($VCwhite, .6);
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $VCwhite;
+      background-color: rgba($VCwhite, .1);
+      border-color: rgba($VCwhite, 1);
+    }
+  }
+}
+
+.o-btn-group {
+  .o-btn {
+    display: block;
+    width: 100%;
+    max-width: 18rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include breakpoint(sm) {
+      display: inline-block;
+      width: auto;
+    }
   }
 }

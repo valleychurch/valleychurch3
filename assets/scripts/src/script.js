@@ -331,7 +331,7 @@ function loadHomeSlider() {
 
 function responsiveIframes() {
   $('iframe').each(function(i, el) {
-    $(el).wrap('<div class="o-ratio"/>');
+    $(el).wrap('<div class="o-ratio u-margin--md--double"/>');
   });
 }
 
