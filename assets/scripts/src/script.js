@@ -3,7 +3,7 @@
  * Global variable for storing bits of information and resuables
  */
 var valley = {
-  version: '3.1.3',
+  version: '3.2.0',
   isModernBrowser: (
     'querySelector' in document
     && 'addEventListener' in window
@@ -335,17 +335,31 @@ function responsiveIframes() {
   });
 }
 
+function downArrows() {
+  $('.js-jump-down').on('click', function(e) {
+    e.preventDefault();
+    var parent = $(this).parent();
+
+    $('html, body').animate({
+      scrollTop: parent.next().offset().top
+    }, 1000);
+  });
+}
+
 $(function() {
   addTests();
   sideNav();
   checkSideNav();
   loadHomeSlider();
   responsiveIframes();
+  downArrows();
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 
   var doc = document.documentElement;
   doc.setAttribute('data-useragent', navigator.userAgent);
+
+
 });
 
 $(window).load(function() {

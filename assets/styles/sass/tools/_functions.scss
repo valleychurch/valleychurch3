@@ -50,6 +50,10 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 }
 
 // Mathematical functions
+@function divisor($n, $multiplier) {
+  @return ($n / $multiplier);
+}
+
 @function quarter($n) {
   @return ($n / 4);
 }
@@ -76,4 +80,8 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
 @function quadruple($n) {
   @return ($n * 4);
+}
+
+@function tuple($n, $multiplier) {
+  @return ($n * $multiplier);
 }

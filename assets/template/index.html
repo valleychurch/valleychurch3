@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-57x57.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-60x60.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-72x72.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-76x76.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-114x114.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-120x120.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-144x144.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-152x152.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-180x180.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-194x194.png?v=<?= VC_THEME_VERSION ?>" sizes="194x194">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-96x96.png?v=<?= VC_THEME_VERSION ?>" sizes="96x96">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
-    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
-    <link rel="manifest" href="/wp-content/themes/valleychurch3/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="/wp-content/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
+    <link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/wp-content/themes/valleychurch3/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/wp-content/themes/valleychurch3/assets/favicons/manifest.json">
+    <link rel="mask-icon" href="/wp-content/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg" color="#b21e28">
     <meta name="msapplication-TileColor" content="#b21e28">
-    <meta name="msapplication-TileImage" content="/wp-content/themes/valleychurch3/assets/favicons/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
+    <meta name="msapplication-TileImage" content="/wp-content/themes/valleychurch3/assets/favicons/mstile-144x144.png">
     <meta name="theme-color" content="#b21e28">
 
     <title>Development Guidelines</title>
@@ -51,16 +51,19 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
     <script src="../assets/scripts/lib/iframify.js"></script>
     <script>
-    $(function() {
-      "use strict";
-      var components = document.querySelectorAll('.iframify');
-      var iframes = Array.prototype.map.call(components, function (component) {
-        return iframify(component, {
-          metaViewport: '<meta name="viewport" content="width=device-width">',
-          sizingTimeout: 1000,
-        });
-      });
-    });
+    // $(function() {
+    //   "use strict";
+    //   var components = document.querySelectorAll('.iframify');
+    //   var iframes = Array.prototype.map.call(components, function (component) {
+    //     return iframify(component, {
+    //       metaViewport: '<meta name=\"viewport\" content=\"width=device-width\">',
+    //       //scripts: '<scr' + 'ipt src=\"//use.typekit.net/jtz8aoh.js\"><\/scr' + 'ipt>' + '<scr' + 'ipt>try{Typekit.load({ async: true });}catch(e){}<\/scr' + 'ipt>',
+    //       htmlAttr: { class: 'no-height' },
+    //       bodyAttr: { class: 'no-height' },
+    //       sizingTimeout: 1000,
+    //     });
+    //   });
+    // });
     </script>
 
     <!-- IE fixes -->
@@ -72,166 +75,162 @@
   </head>
   <body>
 
-    <!-- <div class="o-container o-container--page"> -->
+    <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
-      <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+    <header class="c-header u-clearfix">
+      <div class="o-container o-container--full">
+        <a class="c-logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
+          <img src="../assets/images/dist/icon.svg" width="28" height="28" alt="Valley Church">
+        </a>
 
-      <header class="c-header u-clearfix">
-        <div class="o-container o-container--full">
-          <a class="c-logo u-pull-left" href="/wp-content/themes/valleychurch3/docs">
-            <img src="../assets/images/dist/icon.svg" width="28" height="28">
-          </a>
-
-          <nav class="c-navigation u-cf">
-            <div class="u-pull-left--lg">
-              <ul class="c-menu u-cf">
-                <li class="menu-item">
-                  <a href="./">Overview</a>
-                </li>
-                {{#eachRoot}}
-                <li class="menu-item">
-                  <a href="section-{{reference}}.html">{{header}}</a>
-                </li>
-                {{/eachRoot}}
-              </ul>
-            </div>
-          </nav>
-
-          <div class="u-pull-right u-hide--lg">
-            <button class="o-btn c-nav-toggle js-nav-toggle">
-              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
-              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
-            </button>
+        <nav class="c-navigation u-cf">
+          <div class="u-pull-left--lg">
+            <ul class="c-menu u-cf">
+              <li class="menu-item">
+                <a href="./">Overview</a>
+              </li>
+              {{#eachRoot}}
+              <li class="menu-item">
+                <a href="section-{{reference}}.html">{{header}}</a>
+              </li>
+              {{/eachRoot}}
+            </ul>
           </div>
+        </nav>
+
+        <div class="u-pull-right u-hide--lg">
+          <button class="o-btn c-nav-toggle js-nav-toggle">
+            <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
+            Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+          </button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="c-main">
+    <main class="c-main">
 
-        <section class="c-section">
+      <section class="c-section">
 
-          <div class="o-container">
+        <div class="o-container">
 
-            <div class="o-row">
+          <div class="o-row">
 
-              <div class="o-col-xxs-12 u-center-block">
+            <div class="o-col-xxs-12 u-center-block">
 
-                <div class="o-row">
+              <div class="o-row">
+
+                {{#if homepage}}
+                {{else}}
+                <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
+
+                  {{#eachSection rootName}}
+                  {{#ifDepth 1}}
+                  <h5>{{header}}</h5>
+                  {{/ifDepth}}
+                  {{/eachSection}}
+                  <ul class="o-list">
+                  {{#eachSection rootName}}
+                    {{#ifDepth 1}}
+                    {{else}}
+                    <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
+                    {{/ifDepth}}
+                    <!-- {{#ifDepth 2}}
+                    <li>
+                      <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
+                    {{/ifDepth}}
+                    {{#ifDepth 3}}
+                      <ul class="o-list">
+                        <li>
+                          <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
+                        </li>
+                      </ul>
+                    {{/ifDepth}}
+                    {{#ifDepth 2}}
+                    </li>
+                    {{/ifDepth}} -->
+                  {{/eachSection}}
+                  </ul>
+
+                </aside>
+                {{/if}} {{!-- homepage --}}
+
+                <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
 
                   {{#if homepage}}
+                  <section id="section-0" class="kss-section kss-overview">
+                    {{{homepage}}}
+                  </section>
                   {{else}}
-                  <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
-
-                    {{#eachSection rootName}}
+                  {{#eachSection rootName}}
+                  <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
                     {{#ifDepth 1}}
-                    <h5>{{header}}</h5>
+                    <h1>{{header}}</h1>
                     {{/ifDepth}}
-                    {{/eachSection}}
-                    <ul class="o-list">
-                    {{#eachSection rootName}}
-                      {{#ifDepth 1}}
+                    {{#ifDepth 2}}
+                    <h2>{{header}}</h2>
+                    {{/ifDepth}}
+                    {{#ifDepth 3}}
+                    <h3 class="u-margin--half">{{header}}</h3>
+                    {{/ifDepth}}
+                    {{!-- {{#if markup}} --}}
+                    {{#if description}}
+                    <div class="kss-description{{#ifDepth 1}} lead{{/ifDepth}}">
+                      {{{description}}}
+                    </div>
+                    {{/if}}
+                    {{#if markup}}
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                            {{{markup}}}
+                          </div>
+                        </div>
+                      </div>
+                      {{#eachModifier}}
+                      <div class="o-card o-card--outline u-margin--none">
+                        <div class="o-card__body">
+                          <div class="o-card__title u-margin">
+                            <div class="kss-modifier-name"><strong>{{name}}</strong></div>
+                            <div class="kss-modifier-description">
+                              {{{description}}}
+                            </div>
+                          </div>
+                          <div class="iframify">
+                            {{{markup}}}
+                          </div>
+                        </div>
+                      </div>
+                      {{/eachModifier}}
+                      {{#if hide}}
                       {{else}}
-                      <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
-                      {{/ifDepth}}
-                      <!-- {{#ifDepth 2}}
-                      <li>
-                        <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                      {{/ifDepth}}
-                      {{#ifDepth 3}}
-                        <ul class="o-list">
-                          <li>
-                            <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                          </li>
-                        </ul>
-                      {{/ifDepth}}
-                      {{#ifDepth 2}}
-                      </li>
-                      {{/ifDepth}} -->
-                    {{/eachSection}}
-                    </ul>
-
-                  </aside>
-                  {{/if}} {{!-- homepage --}}
-
-                  <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
-
-                    {{#if homepage}}
-                    <section id="section-0" class="kss-section kss-overview">
-                      {{{homepage}}}
-                    </section>
-                    {{else}}
-                    {{#eachSection rootName}}
-                    <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
-                      {{#ifDepth 1}}
-                      <h1>{{header}}</h1>
-                      {{/ifDepth}}
-                      {{#ifDepth 2}}
-                      <h2>{{header}}</h2>
-                      {{/ifDepth}}
-                      {{#ifDepth 3}}
-                      <h3 class="u-margin--half">{{header}}</h3>
-                      {{/ifDepth}}
-                      {{!-- {{#if markup}} --}}
-                      {{#if description}}
-                      <div class="kss-description{{#ifDepth 1}} lead{{/ifDepth}}">
-                        {{{description}}}
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">{{markup}}
+</code></pre>
                       </div>
                       {{/if}}
-                      {{#if markup}}
-                      <div class="kss-modifier-block">
-                        <div class="o-card o-card--outline u-margin--none">
-                          <div class="o-card__body">
-                            <div class="iframify">
-                              {{{markup}}}
-                            </div>
-                          </div>
-                        </div>
-                        {{#eachModifier}}
-                        <div class="o-card o-card--outline u-margin--none">
-                          <div class="o-card__body">
-                            <div class="o-card__title u-margin">
-                              <div class="kss-modifier-name"><strong>{{name}}</strong></div>
-                              <div class="kss-modifier-description">
-                                {{{description}}}
-                              </div>
-                            </div>
-                            <div class="iframify">
-                              {{{markup}}}
-                            </div>
-                          </div>
-                        </div>
-                        {{/eachModifier}}
-                        {{#if hide}}
-                        {{else}}
-                        <div class="kss-markup">
-  <pre>
-  <code class="language-html">{{markup}}
-  </code></pre>
-                        </div>
-                        {{/if}}
+                    </div>
+                    {{/if}} {{!-- markup --}}
+                    {{!-- {{else}} --}}
+                    {{!-- {{#if description}}
+                      {{#ifDepth 1}}
+                      <div class="lead">
+                        {{{description}}}
                       </div>
-                      {{/if}} {{!-- markup --}}
-                      {{!-- {{else}} --}}
-                      {{!-- {{#if description}}
-                        {{#ifDepth 1}}
-                        <div class="lead">
-                          {{{description}}}
-                        </div>
-                        <hr/>
-                        {{else}}
-                        <div class="asda">
-                          {{{description}}}
-                        </div>
-                        {{/ifDepth}}
-                      {{/if}} --}}
-                      {{!-- {{/if}} --}}
-                    </section>
-                    {{/eachSection}}
-                    {{/if}}
+                      <hr/>
+                      {{else}}
+                      <div class="asda">
+                        {{{description}}}
+                      </div>
+                      {{/ifDepth}}
+                    {{/if}} --}}
+                    {{!-- {{/if}} --}}
+                  </section>
+                  {{/eachSection}}
+                  {{/if}}
 
-                  </article>
-
-                </div>
+                </article>
 
               </div>
 
@@ -239,10 +238,11 @@
 
           </div>
 
-        </section>
+        </div>
 
-      </main>
+      </section>
 
-    <!-- </div> -->
+    </main>
+
   </body>
 </html>

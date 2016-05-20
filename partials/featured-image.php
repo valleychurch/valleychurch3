@@ -37,9 +37,9 @@ if ( ( ( is_single() || is_page() ) && has_post_thumbnail() ) || $img_id ) {
 
   <!-- TODO: Add featured image captions for blog posts -->
   <?php //if ( get_post( $attachment_id )->post_excerpt !== "" ) { ?>
-  <!-- <figcaption class="o-container c-featured__caption">
+  <!-- <figcaption class="o-container c-featured__caption">-->
     <?php //echo get_post( $attachment_id )->post_excerpt; ?>
-  </figcaption> -->
+  <!-- </figcaption> -->
   <?php //} ?>
 
 </figure>

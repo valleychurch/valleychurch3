@@ -121,9 +121,12 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: true,
+      },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
-        tasks: ['sass', 'postcss', 'kss', 'notify:sass']
+        tasks: ['sass', 'postcss', 'kss', 'notify:sass'],
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],

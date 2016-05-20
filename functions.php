@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.1.3' );
+define( 'VC_THEME_VERSION', '3.2.0' );
 
 
 /**
@@ -210,7 +210,7 @@ function create_custom_post_types() {
   register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple, false ) );
   register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null, null, true ) );
   register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null, null, false ) );
-  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, null, null, true ) );
+  register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, ['slug' => 'locations', 'with_front' => false], null, true ) );
   register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Staff Member', 'dashicons-id-alt', true, null, null, false ) );
   register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning', true, null, null, false ) );
 };
@@ -240,10 +240,10 @@ function theme_files() {
   remove_action( 'wp_head', 'wp_generator' );                           // WP version
 
   // Register our CSS
-  wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', null, null );
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', ['font-awesome'], null );
+  //wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', null, null );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
 
-  wp_enqueue_style( 'font-awesome' );
+  //wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
 
   // Remove built in jQuery
@@ -252,11 +252,13 @@ function theme_files() {
   // Register our scripts
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js', null, null, false );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
+  wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );
   }
+  wp_enqueue_script( 'font-awesome' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'site' );
 };

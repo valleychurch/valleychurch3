@@ -8,8 +8,8 @@
 ?>
 
   <!-- Section: Welcome -->
-  <section class="c-banner c-banner--red" style="background-image:url('<?= $featured; ?>');">
-    <div class="o-container u-text-center">
+  <section class="c-section c-section--hero c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured; ?>');">
+    <div class="o-container u-text-center u-text-white">
     <?php if ( !empty( get_the_content() ) ) {
       the_content();
     } else { ?>
@@ -17,6 +17,7 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
+    <a href="#0" class="fa fa-3x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a>
   </section>
   <!-- Section: Welcome -->
 
@@ -31,14 +32,14 @@
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
   <!-- Section: Locations -->
-  <section class="c-section c-section--background" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-visit.jpg');">
+  <section class="c-section c-section--home" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Locations</h2>
         </div>
-        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small">We're one church in many locations and we'd love to see you this weekend!</p>
+        <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
+          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We're one church in many locations and we'd love to see you this weekend!</p>
         </div>
       </div>
       <div class="o-row o-row--center">
@@ -146,7 +147,7 @@
   <!-- Section: Church Life -->
 
   <!-- Section: Vision -->
-  <section class="c-banner" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
+  <!-- <section class="c-banner" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
     <div class="o-container u-text-center">
       <div class="o-container">
         <p class="kilo">
@@ -155,18 +156,34 @@
         <a class="o-btn o-btn--ghost o-btn--ghost--white" href="/about" role="button">Read more about our vision</a>
       </div>
     </div>
+  </section> -->
+  <section class="c-section c-section--home c-section--overlay" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
+    <div class="o-container">
+      <div class="o-row u-text-center">
+        <div class="o-col-xxs-12 o-col-md-11 o-col-lg-10 u-center-block">
+          <p class="h1 u-text-white u-margin--double">
+            <em>"We're not keeping this to ourselves, we're passing it along to the next generation<span class="u-hide u-show--sm">&mdash;God's fame and fortune, the marvelous things He has done.</span>"</em>
+          </p>
+        </div>
+      </div>
+      <div class="o-row o-row--center">
+        <div class="o-col-xxs-12 o-col-center o-btn-group">
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/about" role="button">Read more about our vision</a>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- Section: Vision -->
 
   <!-- Section: Next Steps -->
-  <section class="c-section c-section--background" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
+  <section class="c-section c-section--home" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Next Steps</h2>
         </div>
-        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small">We believe in empowering people to be all God has called them to be so want you to take the best next step possible!</p>
+        <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
+          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We believe in empowering people to be all God has called them to be&mdash;what could your next step be?</p>
         </div>
       </div>
       <div class="o-row o-row--center">
@@ -249,14 +266,14 @@
   <!-- Section: Watch & Read -->
 
   <!-- Section: People Matter -->
-  <section class="c-section c-section--background" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-people-matter.jpg');">
+  <section class="c-section c-section--home" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-people-matter.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">People Matter</h2>
         </div>
-        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small">We believe that all people matter and that the Church can make a real difference for everyone regardless of who they are, what they've done, or where they're from.</p>
+        <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
+          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We believe that all people matter and that the Church can make a real difference for everyone regardless of who they are, what they've done, or where they're from.</p>
         </div>
       </div>
       <div class="o-row o-row--center">

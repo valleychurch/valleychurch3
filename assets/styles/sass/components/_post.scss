@@ -1,39 +1,3 @@
-.c-section {
-  padding: $VCbase 0;
-
-  @include breakpoint(md) {
-    padding: ($VCbase * 1.5) 0;
-  }
-
-  @include breakpoint(lg) {
-    padding: double($VCbase) 0;
-  }
-}
-
-.c-section--background {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.c-section--small {
-  // padding: half($VCbase) half($VCbase) 0;
-  // //margin-top: -$VCbase;
-
-  // @include breakpoint(md) {
-  //   padding: three-quarters($VCbase) three-quarters($VCbase) third($VCbase);
-  // }
-
-  // @include breakpoint(lg) {
-  //   padding: $VCbase $VCbase half($VCbase);
-  // }
-}
-
-.c-section--gray,
-.c-section--grey {
-  background-color: greyscale(11);
-}
-
 .c-featured {
   picture,
   source,

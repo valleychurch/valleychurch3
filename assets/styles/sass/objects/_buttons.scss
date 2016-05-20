@@ -1,7 +1,9 @@
 /**
  * Buttons
  *
- * Button style for use across the site
+ * Branded button styling for use everywhere! We get very specific about what
+ * can and can't be a button, so only `<a role="button">`, `<button>` and
+ * `<input type="submit">` can use the `.o-btn` class.
  *
  * Styleguide: objects.buttons
  */
@@ -20,8 +22,7 @@
  *
  * Styleguide: objects.buttons.default
  */
-.o-btn,
-.o-btn:visited {
+.o-btn {
   display: inline-block;
   width: auto;
   height: auto;
@@ -63,6 +64,10 @@
 
   .o-btn-group & {
     margin: 0 quarter($VCbase) half($VCbase);
+
+    // @include breakpoint(md) {
+    //   margin: 0 half($VCbase) $VCbase;
+    // }
   }
 }
 
@@ -97,15 +102,11 @@
  * Styleguide: objects.buttons.reset
  */
 .o-btn--reset {
-
-  &,
-  &:active {
-    width: auto;
-    margin: 0;
-    color: $VCblack;
-    background-color: transparent;
-    border-color: $VCblack;
-  }
+  width: auto;
+  margin: 0;
+  color: $VCblack;
+  background-color: transparent;
+  border-color: $VCblack;
 
   &:hover,
   &:focus,
@@ -116,12 +117,8 @@
   }
 
   &--alt {
-
-    &,
-    &:active {
-      background-color: greyscale(11);
-      border-color: greyscale(8);
-    }
+    background-color: greyscale(11);
+    border-color: greyscale(8);
 
     &:hover,
     &:focus,
@@ -154,7 +151,7 @@
   &:focus,
   &:visited {
     color: $VCblack;
-    background-color: rgba($VCblack, .1);
+    background-color: rgba($VCwhite, .2);
     border-color: rgba($VCblack, 1);
   }
 
@@ -167,7 +164,7 @@
     &:focus,
     &:visited {
       color: $VCwhite;
-      background-color: rgba($VCwhite, .1);
+      background-color: rgba($VCblack, .2);
       border-color: rgba($VCwhite, 1);
     }
   }
@@ -177,13 +174,13 @@
   .o-btn {
     display: block;
     width: 100%;
-    max-width: 18rem;
+    max-width: 19rem;
     margin-right: auto;
     margin-left: auto;
 
     @include breakpoint(sm) {
       display: inline-block;
-      width: auto;
+      // width: auto;
     }
   }
 }

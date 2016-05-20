@@ -29,7 +29,7 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
   </section>
 
-  <section class="o-container c-section c-section--grey">
+  <section class="o-container c-section u-background-grey">
 
     <div class="o-row">
       <div class="c-post-content--wide u-center-block">

@@ -1,0 +1,117 @@
+.c-section {
+  position: relative;
+  display: table;
+  width: 100%;
+  padding: $VCbase 0;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include breakpoint(md) {
+    padding: tuple($VCbase, 1.5) 0;
+  }
+
+  @include breakpoint(lg) {
+    padding: double($VCbase) 0;
+  }
+
+  @include breakpoint(xl) {
+    padding: triple($VCbase) 0;
+  }
+
+  > .o-container {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.c-section__arrow {
+  position: absolute;
+  bottom: half($VCbase);
+  left: 50%;
+  z-index: 100;
+  margin-left: half(-48px);
+  color: white;
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
+}
+
+.c-section--hero {
+  height: 70vh;
+  max-height: 35rem;
+}
+
+.c-section--banner {
+  height: 17rem; //TODO: Switch to vh units
+  min-height: 17rem;
+  padding: 0;
+
+  @include breakpoint(sm) {
+    min-height: 20rem;
+  }
+
+  @include breakpoint(md) {
+    min-height: 25rem;
+  }
+
+  @include breakpoint(lg) {
+    min-height: 30rem;
+  }
+
+  @include breakpoint(xl) {
+    min-height: 35rem;
+  }
+}
+
+.c-section--home {
+  padding: triple($VCbase) 0;
+
+  @include breakpoint(md) {
+    padding: quadruple($VCbase) 0;
+  }
+
+  @include breakpoint(lg) {
+    padding: tuple($VCbase, 6) 0;
+  }
+
+  @include breakpoint(xl) {
+    padding: tuple($VCbase, 8) 0;
+  }
+}
+
+.c-section--overlay {
+  .o-container {
+    z-index: 10;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: greyscale(2, .85);
+    content: "";
+  }
+}
+
+.c-section--overlay--red {
+  &::after {
+    background-color: rgba(colour("red"),.85);
+  }
+}
+
+
+.c-section--gray,
+.c-section--grey {
+  background-color: greyscale(11);
+}

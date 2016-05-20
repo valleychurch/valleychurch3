@@ -18,7 +18,7 @@
 
   <?php if ( have_posts() ) : ?>
 
-  <section class="o-container c-section c-section--grey">
+  <section class="o-container c-section u-background-grey">
 
     <div class="o-row">
     <?php while ( have_posts() ) : the_post(); ?>

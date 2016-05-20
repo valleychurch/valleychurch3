@@ -18,11 +18,11 @@
   max-width: map-get($VCbreakpoints, "lg");
 }
 
-.o-container--page {
-  @include box-shadow;
-  padding-right: 0;
-  padding-left: 0;
-}
+// .o-container--page {
+//   @include box-shadow;
+//   padding-right: 0;
+//   padding-left: 0;
+// }
 
 // Row
 // Rows contain and clear the floats of your columns.
@@ -86,5 +86,6 @@
 
   .o-col-center {
     justify-content: center;
+    text-align: center;
   }
 }
