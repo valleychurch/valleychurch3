@@ -63,11 +63,19 @@
   }
 
   .o-btn-group & {
-    margin: 0 quarter($VCbase) half($VCbase);
+    display: block;
+    width: 100%;
+    max-width: 19rem;
+    margin-right: auto;
+    margin-bottom: $VCbase;
+    margin-left: auto;
 
-    // @include breakpoint(md) {
-    //   margin: 0 half($VCbase) $VCbase;
-    // }
+    @include breakpoint(md) {
+      display: inline-block;
+      margin-right: quarter($VCbase);
+      margin-bottom: tuple($VCbase, .75);
+      margin-left: quarter($VCbase);
+    }
   }
 }
 
@@ -166,21 +174,6 @@
       color: $VCwhite;
       background-color: rgba($VCblack, .2);
       border-color: rgba($VCwhite, 1);
-    }
-  }
-}
-
-.o-btn-group {
-  .o-btn {
-    display: block;
-    width: 100%;
-    max-width: 19rem;
-    margin-right: auto;
-    margin-left: auto;
-
-    @include breakpoint(sm) {
-      display: inline-block;
-      // width: auto;
     }
   }
 }

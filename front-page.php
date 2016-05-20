@@ -17,7 +17,7 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
-    <a href="#0" class="fa fa-3x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a>
+    <a href="#0" class="fa fa-5x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a>
   </section>
   <!-- Section: Welcome -->
 
@@ -39,11 +39,13 @@
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Locations</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We're one church in many locations and we'd love to see you this weekend!</p>
+          <p class="lead u-text-white u-text-shadow u-margin--double u-margin--md--quadruple">
+            We're one church in many locations and we'd love to see you this weekend!
+          </p>
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
         <?php while ( have_posts() ) :
           the_post(); ?>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="<?= get_permalink(); ?>" role="button"><?= the_title(); ?></a>
@@ -70,9 +72,9 @@
 
         $wp_query = new WP_Query( $args );
         if ( have_posts() ) : ?>
-        <div class="o-col-xxs-12 o-col-md-6">
+        <div class="o-col-xxs-12 o-col-lg-6">
           <div class="c-slide-container">
-            <ul class="c-slides u-margin u-margin-md--none u-cf">
+            <ul class="c-slides u-margin u-margin--lg--none u-cf">
             <?php while ( have_posts() ) :
               the_post();
               if ( has_post_thumbnail() ) :
@@ -114,8 +116,8 @@
       <?php else : endif; ?>
       <?php wp_reset_query(); ?>
       <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
-        <div class="o-col-xxs-12 o-col-md-6">
-          <div class="o-card o-card--overlay">
+        <div class="o-col-xxs-12 o-col-lg-6">
+          <div class="o-card o-card--overlay u-margin--lg--none">
             <?php if ( get_field( 'image' ) ) {
               set_query_var( 'image_id', get_field('image')["id"] );
               get_template_part( 'partials/featured-image', 'simple' );
@@ -162,12 +164,12 @@
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12 o-col-md-11 o-col-lg-10 u-center-block">
           <p class="h1 u-text-white u-margin--double">
-            <em>"We're not keeping this to ourselves, we're passing it along to the next generation<span class="u-hide u-show--sm">&mdash;God's fame and fortune, the marvelous things He has done.</span>"</em>
+            <em>"We're not keeping this to ourselves, we're passing it along to the next generation<span class="u-hide u-show-inline--sm">&mdash;God's fame and fortune, the marvelous things He has done.</span>"</em>
           </p>
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-center">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/about" role="button">Read more about our vision</a>
         </div>
       </div>
@@ -183,11 +185,13 @@
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Next Steps</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We believe in empowering people to be all God has called them to be&mdash;what could your next step be?</p>
+          <p class="lead u-text-white u-text-shadow u-margin--double u-margin--md--quadruple">
+            We believe in empowering people to be all God has called them to be&mdash;what could your next step be?
+          </p>
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect" role="button">Connect Groups</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering" role="button">Volunteering</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving" role="button">Giving</a>
@@ -203,10 +207,17 @@
   <!-- Section: Watch & Read -->
   <section class="c-section">
     <div class="o-container">
-      <div class="o-row">
+      <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
-          <h2><a href="/messages">Messages</a></h2>
+          <h2 class="kilo u-margin--half"><a href="/messages">Messages</a></h2>
         </div>
+        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
+          <p class="lead u-margin u-margin--md--double">
+            Catch up with recent podcasts from our <a href="/team">Senior Pastors Ed &amp; Michele</a> as well as other in-house and visiting speakers
+          </p>
+        </div>
+      </div>
+      <div class="o-row">
         <?php
         $i = 1;
         $args =
@@ -221,7 +232,7 @@
         if ( have_posts() ) :
           while ( have_posts() ) :
             the_post(); ?>
-        <div class="o-col-xxs-12 o-col-xs-6 o-col-md-3 o-col-lg-3 <?= ( $i > 2 ) ? "u-hide--xs u-show--md" : ""; ?>">
+        <div class="o-col-xxs-12 o-col-xs-6 o-col-lg-3 <?= ( $i > 2 ) ? "u-hide--xs u-show--lg" : ""; ?>">
           <?php get_template_part( 'partials/card', 'message' ); ?>
         </div>
         <?php
@@ -237,10 +248,17 @@
 
   <section class="c-section">
     <div class="o-container">
-      <div class="o-row">
+      <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
-          <h2><a href="/blog">Most Recent</a></h2>
+          <h2 class="kilo u-margin--half"><a href="/messages">Recent Blogs</a></h2>
         </div>
+        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
+          <p class="lead u-margin u-margin--md--double">
+            Check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
+          </p>
+        </div>
+      </div>
+      <div class="o-row">
         <?php
         $args =
           array(
@@ -273,11 +291,13 @@
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">People Matter</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-text-white u-line-height--small u-margin--double u-margin--md--quadruple">We believe that all people matter and that the Church can make a real difference for everyone regardless of who they are, what they've done, or where they're from.</p>
+          <p class="lead u-text-white u-text-shadow u-margin--double u-margin--md--quadruple">
+            We believe that all people matter and that the Church can make a real difference for everyone regardless of who they are, what they've done, or where they're from
+          </p>
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/peoplematter" role="button">People Matter</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/community" role="button">Community Action Team</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/visionrescue" role="button">Vision Rescue</a>

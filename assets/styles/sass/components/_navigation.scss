@@ -92,7 +92,7 @@
   list-style-type: none;
 
   @include breakpoint(lg) {
-    padding-left: 1rem;
+    padding-left: half($VCbase);
   }
 }
 
@@ -139,7 +139,7 @@
     @include breakpoint(lg) {
       padding: 1rem .5rem;
       letter-spacing: .5px;
-      color: greyscale(8);
+      color: greyscale(10);
       text-transform: none;
       @include font-size(14);
 

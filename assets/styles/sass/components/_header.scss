@@ -15,10 +15,23 @@
  * Styleguide: components.header
  */
 .c-header {
-  position: relative;
-  z-index: 20;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  width: 100%;
   padding: .75rem;
-  background-color: grayscale(2);
+  background-color: transparent;
+  @include transition(background-color);
+
+  .is-menu-active {
+    height: 100%;
+  }
+
+  &.is-visible {
+    background-color: grayscale(2);
+  }
 
   @include breakpoint(md) {
     padding: .5rem;

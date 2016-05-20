@@ -1,6 +1,6 @@
 .c-section {
   position: relative;
-  display: table;
+  // display: table;
   width: 100%;
   padding: $VCbase 0;
 
@@ -22,54 +22,55 @@
 
   > .o-container {
     position: relative;
-    display: table-cell;
-    vertical-align: middle;
   }
 }
 
 .c-section__arrow {
   position: absolute;
-  bottom: half($VCbase);
+  bottom: tuple($VCbase, .75);
   left: 50%;
-  z-index: 100;
-  margin-left: half(-48px);
-  color: white;
+  z-index: 20;
+  margin-left: half(-80px);
+  color: $VCwhite;
   text-decoration: none;
+  opacity: .75;
+  @include transition;
 
   &:visited {
-    color: white;
+    color: $VCwhite;
+  }
+
+  &:hover,
+  &:focus {
+    bottom: half($VCbase);
+    color: $VCwhite;
+    opacity: 1;
   }
 }
 
 .c-section--hero {
+  display: table;
   height: 70vh;
-  max-height: 35rem;
-}
+  max-height: 45rem;
 
-.c-section--banner {
-  height: 17rem; //TODO: Switch to vh units
-  min-height: 17rem;
-  padding: 0;
-
-  @include breakpoint(sm) {
-    min-height: 20rem;
-  }
-
-  @include breakpoint(md) {
-    min-height: 25rem;
-  }
-
-  @include breakpoint(lg) {
-    min-height: 30rem;
-  }
-
-  @include breakpoint(xl) {
-    min-height: 35rem;
+  > .o-container {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
   }
 }
 
 .c-section--home {
+  display: table;
+  height: 70vh;
+  max-height: 35rem;
   padding: triple($VCbase) 0;
+
+  > .o-container {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+  }
 
   @include breakpoint(md) {
     padding: quadruple($VCbase) 0;

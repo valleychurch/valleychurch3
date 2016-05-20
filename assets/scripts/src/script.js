@@ -341,9 +341,20 @@ function downArrows() {
     var parent = $(this).parent();
 
     $('html, body').animate({
-      scrollTop: parent.next().offset().top
+      scrollTop: ( parent.next().offset().top - $('.c-header').height() )
     }, 1000);
   });
+}
+
+function checkHeaderPosition() {
+  var scroll = $(window).scrollTop();
+  var header = $('.c-header');
+  if (scroll > 150 && !header.hasClass('is-visible')) {
+    header.addClass('is-visible');
+  }
+  if (scroll < 150 && header.hasClass('is-visible')) {
+    header.removeClass('is-visible');
+  }
 }
 
 $(function() {
@@ -370,4 +381,8 @@ $(window).load(function() {
 
 $(window).resize(function() {
   debounce(checkSideNav(), 250);
+});
+
+$(window).scroll(function() {
+  debounce(checkHeaderPosition(), 500);
 });

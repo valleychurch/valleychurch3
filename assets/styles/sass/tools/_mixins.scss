@@ -136,7 +136,7 @@
 
 // Default transition
 @mixin transition($property: all, $timing: $VCtransition-timing, $easing: $VCtransition-easing) {
-  transform: translateZ(0);
+  // transform: translateZ(0);
   // backface-visibility: hidden;
   // perspective: 1000;
 
@@ -148,6 +148,6 @@
   box-shadow: $x-spacing $y-spacing $blur $spread $colour;
 }
 
-@mixin text-shadow($x-spacing: 0, $y-spacing: 0, $blur: 4px, $colour: $VCblack) {
+@mixin text-shadow($x-spacing: 0, $y-spacing: 0, $blur: 10px, $colour: $VCblack) {
   text-shadow: $x-spacing $y-spacing $blur $colour;
 }
