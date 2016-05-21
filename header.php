@@ -91,8 +91,7 @@
           </nav>
           <div class="u-pull-right u-hide--lg">
             <button class="o-btn c-nav-toggle js-nav-toggle">
-              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
-              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
+              <i class="fa fa-lg fa-bars"></i>
             </button>
           </div>
         </div>

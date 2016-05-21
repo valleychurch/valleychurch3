@@ -50,14 +50,19 @@
 
 .c-section--hero {
   display: table;
-  height: 70vh;
-  max-height: 45rem;
+  height: calc(100vh - 150px);
+  // max-height: 45rem;
+
+  @include breakpoint(lg) {
+    height: calc(100vh - 200px);
+  }
 
   > .o-container {
     position: relative;
     display: table-cell;
     vertical-align: middle;
   }
+
 }
 
 .c-section--home {

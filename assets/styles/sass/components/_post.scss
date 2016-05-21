@@ -29,6 +29,11 @@
     margin-left: auto;
   }
 
+  > ul,
+  > ol {
+    padding-left: tuple($VCbase, 2.5);
+  }
+
   // WordPress built in images go full-width
   img,
   .alignleft,

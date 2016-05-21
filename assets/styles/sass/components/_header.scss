@@ -23,25 +23,46 @@
   width: 100%;
   padding: .75rem;
   background-color: transparent;
-  @include transition(background-color);
+  @include transition(background, 500ms);
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: triple(-$VCbase);
+    left: 0;
+    z-index: -1;
+    display: block;
+    background: linear-gradient(to bottom, rgba($VCblack, .6) 0%, rgba($VCblack, 0) 100%);
+    content: "";
+    opacity: 1;
+    @include transition(all, 500ms);
+  }
 
   .is-menu-active {
     height: 100%;
   }
 
   &.is-visible {
-    background-color: grayscale(2);
+    background-color: greyscale(2);
+
+    &::before {
+      bottom: 0;
+      opacity: 0;
+    }
   }
 
   @include breakpoint(md) {
-    padding: .5rem;
+    // padding: .5rem;
   }
 
   @include breakpoint(lg) {
-    padding: 0 1rem;
+    padding: divisor($VCbase, 8) $VCbase;
   }
 
   .o-container {
+    position: relative;
+    z-index: 10;
     padding-right: 0;
     padding-left: 0;
   }
@@ -51,15 +72,25 @@
   position: relative;
   z-index: 10;
   display: inline-block;
+  width: double($VCbase);
+  height: double($VCbase);
+  // padding: rem(3px) 0;
   line-height: 0;
-  padding: rem(3px) 0;
+
+  @include breakpoint(sm) {
+    width: rem(42px);
+    height: rem(42px);
+  }
 
   @include breakpoint(md) {
-    padding: rem(7px) 0;
+    // padding: rem(7px) 0;
   }
 
   @include breakpoint(lg) {
-    padding: rem(13px) 0;
+    // padding: rem(13px) 0;
+    width: double($VCbase);
+    height: double($VCbase);
+    margin: rem(11px) 0;
   }
 
   // object,

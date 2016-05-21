@@ -30,12 +30,12 @@ $VCmax-width:           90rem;
 $VCmax-width-alt:       90em;
 $VCbreakpoints: (
   xxs:                  0,
-  xs:                   25em,
-  sm:                   40em,
-  md:                   50em,
-  lg:                   60em,
-  xl:                   70em,
-  max:                  $VCmax-width-alt
+  xs:                   25em,               //400px
+  sm:                   40em,               //640px
+  md:                   50em,               //800px
+  lg:                   60em,               //960px
+  xl:                   70em,               //1120px
+  max:                  $VCmax-width-alt    //1440px
 );
 
 $VCtransition-timing:   150ms;

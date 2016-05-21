@@ -152,27 +152,27 @@
 .o-btn--ghost {
   @include font-stack-alt;
   color: $VCblack;
-  background-color: transparent;
+  background-color: rgba($VCwhite, .2);
   border: 2px solid rgba($VCblack, .6);
 
   &:hover,
   &:focus,
   &:visited {
     color: $VCblack;
-    background-color: rgba($VCwhite, .2);
+    background-color: rgba($VCwhite, .5);
     border-color: rgba($VCblack, 1);
   }
 
   &--white {
     color: $VCwhite;
-    background-color: transparent;
+    background-color: rgba($VCblack, .2);
     border-color: rgba($VCwhite, .6);
 
     &:hover,
     &:focus,
     &:visited {
       color: $VCwhite;
-      background-color: rgba($VCblack, .2);
+      background-color: rgba($VCblack, .5);
       border-color: rgba($VCwhite, 1);
     }
   }
