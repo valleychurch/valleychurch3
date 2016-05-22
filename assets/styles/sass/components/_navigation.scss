@@ -142,11 +142,14 @@
       color: greyscale(10);
       text-transform: none;
       @include font-size(14);
-      @include text-shadow(0, 0, 3px);
-      @include transition(text-shadow);
 
-      .is-visible & {
-        @include text-shadow(0, 0, 0);
+      body.home & {
+        @include text-shadow(0, 0, 3px);
+        @include transition(text-shadow);
+
+        .is-visible & {
+          @include text-shadow(0, 0, 0);
+        }
       }
 
       &:hover {

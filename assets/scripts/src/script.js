@@ -349,11 +349,15 @@ function downArrows() {
 function checkHeaderPosition() {
   var scroll = $(window).scrollTop();
   var header = $('.c-header');
-  if (scroll > 150 && !header.hasClass('is-visible')) {
-    header.addClass('is-visible');
-  }
-  if (scroll < 150 && header.hasClass('is-visible')) {
-    header.removeClass('is-visible');
+  var body = $('body');
+
+  if (body.hasClass('home')) {
+    if (scroll > 150 && !header.hasClass('is-visible')) {
+      header.addClass('is-visible');
+    }
+    if (scroll < 150 && header.hasClass('is-visible')) {
+      header.removeClass('is-visible');
+    }
   }
 }
 
@@ -364,6 +368,7 @@ $(function() {
   loadHomeSlider();
   responsiveIframes();
   downArrows();
+  checkHeaderPosition();
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 

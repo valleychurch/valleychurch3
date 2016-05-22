@@ -22,34 +22,38 @@
   z-index: 50;
   width: 100%;
   padding: .75rem;
-  background-color: transparent;
-  @include transition(background, 500ms);
+  background-color: greyscale(2);
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: triple(-$VCbase);
-    left: 0;
-    z-index: -1;
-    display: block;
-    background: linear-gradient(to bottom, rgba($VCblack, .6) 0%, rgba($VCblack, 0) 100%);
-    content: "";
-    opacity: 1;
-    @include transition(all, 500ms);
+  body.home & {
+    background-color: transparent;
+    @include transition(background, 500ms);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: triple(-$VCbase);
+      left: 0;
+      z-index: -1;
+      display: block;
+      background: linear-gradient(to bottom, rgba($VCblack, .6) 0%, rgba($VCblack, 0) 100%);
+      content: "";
+      opacity: 1;
+      @include transition(all, 500ms);
+    }
+
+    &.is-visible {
+      background-color: greyscale(2);
+
+      &::before {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
   }
 
   .is-menu-active {
     height: 100%;
-  }
-
-  &.is-visible {
-    background-color: greyscale(2);
-
-    &::before {
-      bottom: 0;
-      opacity: 0;
-    }
   }
 
   @include breakpoint(md) {
