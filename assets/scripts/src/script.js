@@ -351,12 +351,12 @@ function checkHeaderPosition() {
   var header = $('.c-header');
   var body = $('body');
 
-  if (body.hasClass('home')) {
-    if (scroll > 150 && !header.hasClass('is-visible')) {
-      header.addClass('is-visible');
+  if ( body.hasClass( 'home' ) ) {
+    if ( scroll > 150 && !header.hasClass( 'is-visible' ) ) {
+      header.addClass( 'is-visible' );
     }
-    if (scroll < 150 && header.hasClass('is-visible')) {
-      header.removeClass('is-visible');
+    if ( scroll < 150 && header.hasClass( 'is-visible' ) ) {
+      header.removeClass( 'is-visible' );
     }
   }
 }

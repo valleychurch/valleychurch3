@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <section class="c-section c-section--hero">
+    <?php get_template_part( 'partials/hero', 'banner' ); ?>
+  </section>
 
   <section class="o-container c-section">
 

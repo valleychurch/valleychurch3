@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  set_query_var( 'class', 'c-featured' );
+  get_template_part( 'partials/hero', 'banner' );
+  ?>
 
   <section class="o-container c-section">
 

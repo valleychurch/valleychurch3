@@ -8,17 +8,24 @@ if (have_posts()) :
   while (have_posts()) :
     the_post(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  set_query_var( 'class', 'c-featured' );
+  get_template_part( 'partials/hero', 'banner' );
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+        <div class="c-post-content u-center-block">
 
-        <?php the_content(); ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+
+          <?php the_content(); ?>
+
+        </div>
 
       </div>
 

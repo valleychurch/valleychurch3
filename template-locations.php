@@ -13,9 +13,11 @@ get_header();
 
   </div>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
+
+      <div class="o-row">
 
         <div class="c-post-content u-center-block">
 
@@ -24,6 +26,8 @@ get_header();
           <?php the_content(); ?>
 
         </div>
+
+      </div>
 
     </article>
 
@@ -41,22 +45,25 @@ get_header();
   $locations = new WP_Query( $args );
   if ( $locations->have_posts() ) : ?>
 
-  <section class="o-container c-section u-background-grey">
+  <section class="c-section u-background-grey--10">
 
-    <div class="o-row">
-    <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
+    <div class="o-container">
 
-      <div class="o-col-xxs-12 o-col-md-4">
-        <?php get_template_part( 'partials/card', 'location' ); ?>
+      <div class="o-row">
+      <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
+
+        <div class="o-col-xxs-12 o-col-md-4">
+          <?php get_template_part( 'partials/card', 'location' ); ?>
+        </div>
+
+      <?php endwhile; ?>
       </div>
-
-    <?php endwhile; ?>
 
     </div>
 
-  <?php else : endif; ?>
-
   </section>
+
+  <?php else : endif; ?>
 
 <?php
 add_action( 'wp_footer', 'load_locations', 50 );

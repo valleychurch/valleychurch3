@@ -45,13 +45,13 @@ a.o-card {
     padding: $VCbase * 1.5;
   }
 
-  .lead {
-    @include font-size(18);
+  // .lead {
+  //   @include font-size(18);
 
-    @include breakpoint(md) {
-      @include font-size(20);
-    }
-  }
+  //   @include breakpoint(md) {
+  //     @include font-size(20);
+  //   }
+  // }
 }
 
 .o-card__text {

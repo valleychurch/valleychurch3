@@ -1,5 +1,6 @@
 <a class="o-card o-card--shadow" href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>">
-  <?php get_template_part( 'partials/featured-image-simple' ); ?>
+  <?php set_query_var( 'class', 'o-card__img' ); ?>
+  <?php get_template_part( 'partials/hero' ); ?>
   <div class="o-card__body">
     <div class="o-card__title">
       <h3 class="h5 <?= ( get_the_terms( $post->ID, 'series' ) ) ? "u-margin--half" : ""; ?>">

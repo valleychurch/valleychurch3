@@ -63,20 +63,25 @@
   }
 
   .o-btn-group & {
-    display: block;
-    width: 100%;
     max-width: 19rem;
+    min-width: 100%;
     margin-right: auto;
     margin-bottom: $VCbase;
     margin-left: auto;
 
     @include breakpoint(md) {
-      display: inline-block;
+      max-width: auto;
+      min-width: 25%;
       margin-right: quarter($VCbase);
       margin-bottom: tuple($VCbase, .75);
       margin-left: quarter($VCbase);
     }
   }
+}
+
+.o-btn-group {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .o-btn--small {

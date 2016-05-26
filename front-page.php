@@ -19,7 +19,6 @@
     </div>
     <a href="#0" class="fa fa-5x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a>
   </section>
-  <!-- Section: Welcome -->
 
   <?php
     $args =
@@ -32,7 +31,7 @@
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
   <!-- Section: Locations -->
-  <section class="c-section c-section--home" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-visit.jpg');">
+  <section class="c-section c-section--hero" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -54,7 +53,6 @@
       </div>
     </div>
   </section>
-  <!-- Section: Locations -->
   <?php endif; ?>
   <?php wp_reset_query(); ?>
 
@@ -120,7 +118,8 @@
           <div class="o-card o-card--overlay u-margin--lg--none">
             <?php if ( get_field( 'image' ) ) {
               set_query_var( 'image_id', get_field('image')["id"] );
-              get_template_part( 'partials/featured-image', 'simple' );
+              set_query_var( 'class', 'o-card__img' );
+              get_template_part( 'partials/hero' );
             }
             ?>
             <div class="o-card__overlay">
@@ -146,20 +145,9 @@
       </div>
     </div>
   </section>
-  <!-- Section: Church Life -->
 
   <!-- Section: Vision -->
-  <!-- <section class="c-banner" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
-    <div class="o-container u-text-center">
-      <div class="o-container">
-        <p class="kilo">
-          <em>"We're not keeping this to ourselves, we're passing it along to the next generation&mdash;God's fame and fortune, the marvelous things He has done."</em>
-        </p>
-        <a class="o-btn o-btn--ghost o-btn--ghost--white" href="/about" role="button">Read more about our vision</a>
-      </div>
-    </div>
-  </section> -->
-  <section class="c-section c-section--home c-section--overlay" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
+  <section class="c-section c-section--hero c-section--overlay" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12 o-col-md-11 o-col-lg-10 u-center-block">
@@ -175,10 +163,9 @@
       </div>
     </div>
   </section>
-  <!-- Section: Vision -->
 
   <!-- Section: Next Steps -->
-  <section class="c-section c-section--home" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
+  <section class="c-section c-section--hero" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -198,13 +185,14 @@
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/teamnights" role="button">Team Nights</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy" role="button">Valley Academy</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin" role="button">Year-In Programme</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney" role="button">CAP Money Course</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/marriagecourse" role="button">Marriage Course</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- Section: Next Steps -->
 
-  <!-- Section: Watch & Read -->
+  <!-- Section: Messages -->
   <section class="c-section">
     <div class="o-container">
       <div class="o-row u-text-center">
@@ -246,6 +234,7 @@
     </div>
   </section>
 
+  <!-- Recent Blogs -->
   <section class="c-section">
     <div class="o-container">
       <div class="o-row u-text-center">
@@ -281,10 +270,9 @@
       </div>
     </div>
   </section>
-  <!-- Section: Watch & Read -->
 
   <!-- Section: People Matter -->
-  <section class="c-section c-section--home" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-people-matter.jpg');">
+  <section class="c-section c-section--hero" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-people-matter.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -306,7 +294,5 @@
       </div>
     </div>
   </section>
-  <!-- Section: People Matter -->
-
 
   <?php get_footer(); ?>

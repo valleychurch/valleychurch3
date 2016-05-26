@@ -1,5 +1,6 @@
 <div class="o-card o-card--shadow">
-  <?php get_template_part( 'partials/featured-image-slide' ); ?>
+  <?php set_query_var( 'class', 'o-card__img' ); ?>
+  <?php get_template_part( 'partials/hero', 'slide' ); ?>
   <div class="o-card__body">
     <h2 class="o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin--none' : '' ?>">
       <!-- <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>"> -->

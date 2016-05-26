@@ -1,5 +1,6 @@
 <div class="o-card o-card--shadow">
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php set_query_var( 'class', 'o-card__img' ); ?>
+  <?php get_template_part( 'partials/hero' ); ?>
   <div class="o-card__body">
     <h3 class="h1 o-card__title">
       <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>">

@@ -12,9 +12,9 @@
  * Defaults
  *
  * By default, the base of the site is set to `1rem` (equivalent to `16px`) so
- * we bump this up slightly to `17px` on mobile and `19px` on desktop to give
- * everything a bit more legibility. We also give some defaults to `ul`/`ol`
- * elements to make them match.
+ * we bump this up slightly to `17px` on mobile, `19px` on tablet and `20px` on
+ * desktop to give everything a bit more legibility. We also give some defaults
+ * to `ul`/`ol` elements to make them match.
  *
  * Markup:
  *   <h1>About</h1>
@@ -47,6 +47,10 @@ ul, ol {
     @include font-size(19);
   }
 
+  @include breakpoint(lg) {
+    @include font-size(20);
+  }
+
   + .o-ratio,
   + img {
     margin-bottom: $VCbase;
@@ -67,7 +71,7 @@ ol {
  * Lead paragraphs
  *
  * Using the class `.lead` you can bump up a paragraph's size to `20px` on
- * mobile and `22px` on desktop.
+ * mobile, `23px` on tablet and `24px` on desktop.
  *
  * Markup:
  *   <p class="lead">This is a lead paragraph that starts a page off with an
@@ -83,7 +87,11 @@ ol {
   @include font-size(20);
 
   @include breakpoint(md) {
-    @include font-size(22);
+    @include font-size(23);
+  }
+
+  @include breakpoint(lg) {
+    @include font-size(24);
   }
 }
 
@@ -134,7 +142,7 @@ h1, h2, h3, h4, h5, h6,
 h5, .h5,
 h6, .h6 {
   font-weight: $VCfont-normal;
-  letter-spacing: .5px;
+  letter-spacing: .25px;
 }
 
 /**
@@ -261,6 +269,14 @@ hr {
   margin-bottom: $VCbase;
   border: 0;
   border-top: 1px solid greyscale(8);
+
+  &.alt {
+    width: triple($VCbase);
+
+    &--red {
+      border-color: colour("red");
+    }
+  }
 }
 
 small,
@@ -300,7 +316,7 @@ small,
  *       not reluctantly or under compulsion, for God loves a cheerful giver.
  *     </p>
  *     <footer>
- *       &mdash;<a href="#0"><strong>2 Corinthians 9:7</strong></a>
+ *       <a href="#0">2 Corinthians 9:7</a>
  *     </footer>
  *   </blockquote>
  *
@@ -320,9 +336,11 @@ blockquote {
 
   p {
     margin-bottom: 0;
+    @include font-stack-alt;
     @include font-size(22);
-    font-style: italic;
-    color: greyscale(4);
+    font-weight: $VCfont-medium;
+    // font-style: italic;
+    color: greyscale(3);
 
     @include breakpoint(sm) {
       @include font-size(24);
@@ -335,8 +353,11 @@ blockquote {
 
   footer {
     display: block;
+    margin-top: half($VCbase);
+    @include font-stack-alt;
     @include font-size(18);
-    font-style: italic;
+    font-weight: $VCfont-normal;
+    // font-style: italic;
 
     @include breakpoint(md) {
       @include font-size(20);
@@ -346,10 +367,10 @@ blockquote {
   &:before,
   &:after {
     position: absolute;
-    left: $VCbase;
+    // left: $VCbase;
     display: block;
-    width: $VCbase * 2;
-    height: 1px;
+    width: triple($VCbase);
+    height: 2px;
     background-color: colour("red");
     content: "";
   }
@@ -381,7 +402,7 @@ code,
 kbd,
 pre,
 samp {
-  @include font-size(15);
+  @include font-size(16);
   padding: 2px 4px;
   word-wrap: break-word;
   background: grayscale(11);

@@ -129,6 +129,10 @@
   }
 }
 
+@each $name, $colour in $VCgrayscale-colours {
+  .u-background-grey--#{$name}  { background-color: $colour; }
+}
+
 
 //Margins
 .u-margin,
