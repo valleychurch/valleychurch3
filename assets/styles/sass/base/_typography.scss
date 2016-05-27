@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6,
   }
 
   @include breakpoint(md) {
-    p + & {
+    .c-post-content p + & {
       margin-top: $VCbase * 1.5;
     }
   }

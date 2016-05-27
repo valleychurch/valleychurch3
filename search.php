@@ -18,7 +18,7 @@
 
   <?php if ( have_posts() ) : ?>
 
-  <section class="c-section u-background-grey--10">
+  <section class="c-section u-background-grey--11">
 
     <div class="o-container">
 

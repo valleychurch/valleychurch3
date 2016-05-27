@@ -117,14 +117,6 @@
   font-size: round($s * .4);
   line-height: ($s - 4px);
   font-weight: $VCfont-bold;
-
-  // @if($s < 32px) {
-  //     font-weight: 700;
-  // } @else if($s >= 48px) {
-  //     font-weight: 400;
-  // } @else {
-  //     font-weight: 600;
-  // }
 }
 
 
@@ -136,10 +128,6 @@
 
 // Default transition
 @mixin transition($property: all, $timing: $VCtransition-timing, $easing: $VCtransition-easing) {
-  // transform: translateZ(0);
-  // backface-visibility: hidden;
-  // perspective: 1000;
-
   transition: $property $timing $easing;
 }
 

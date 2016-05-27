@@ -8,7 +8,7 @@
 ?>
 
   <!-- Section: Welcome -->
-  <section class="c-section c-section--hero c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured; ?>');">
+  <section class="c-section c-section--hero c-section--top c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured; ?>');">
     <div class="o-container u-text-center u-text-white">
     <?php if ( !empty( get_the_content() ) ) {
       the_content();
@@ -17,7 +17,7 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
-    <a href="#0" class="fa fa-5x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a>
+    <!-- <a href="#0" class="fa fa-5x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a> -->
   </section>
 
   <?php
@@ -239,11 +239,11 @@
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
-          <h2 class="kilo u-margin--half"><a href="/messages">Recent Blogs</a></h2>
+          <h2 class="kilo u-margin--half"><a href="/blog">Recent Blogs</a></h2>
         </div>
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-margin u-margin--md--double">
-            Check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
+            We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
           </p>
         </div>
       </div>
@@ -253,7 +253,7 @@
           array(
             'post_type' => 'post',
             'post_status' => 'publish',
-            'posts_per_page' => 2
+            'posts_per_page' => 3
           );
         $i = 1;
 
@@ -261,12 +261,14 @@
         if ( have_posts() ) :
           while ( have_posts() ) :
             the_post(); ?>
-        <div class="o-col-xxs-12 o-col-sm-6 <?= ( $i == 2 ) ? "u-hide u-show--sm" : ""; ?>">
+          <div class="o-col-xxs-12 o-col-sm-4">
           <?php get_template_part( 'partials/card', 'blog' ); ?>
-        </div>
-        <?php $i++; ?>
-        <?php endwhile; else : endif; ?>
-        <?php wp_reset_query(); ?>
+          </div>
+          <?php
+          $i++;
+          endwhile;
+        else : endif;
+        wp_reset_query(); ?>
       </div>
     </div>
   </section>

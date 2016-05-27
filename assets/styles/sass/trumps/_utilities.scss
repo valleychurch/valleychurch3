@@ -15,6 +15,12 @@
   }
 }
 
+.u-flex-top       { align-items: flex-start; }
+.u-flex-bottom    { align-items: flex-end; }
+.u-flex-center    { align-items: center; }
+.u-flex-stretch   { align-items: stretch; }
+.u-flex-baseline  { align-items: baseline; }
+
 // Floats
 .u-pull-left {
   @include pull-left;

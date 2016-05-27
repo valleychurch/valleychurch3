@@ -54,13 +54,19 @@
 
   @include breakpoint(lg) {
     height: calc(100vh - 300px);
-    max-height: 65vh;
+    // max-height: 65vh;
   }
 
   > .o-container {
     position: relative;
     display: table-cell;
     vertical-align: middle;
+
+    > .o-row {
+      max-width: $VCmax-width;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   .c-section__img {
@@ -81,11 +87,27 @@
   }
 
   @include breakpoint(lg) {
-    padding: tuple($VCbase, 6) 0;
+    padding: tuple($VCbase, 5) 0;
   }
 
   @include breakpoint(xl) {
-    padding: tuple($VCbase, 8) 0;
+    padding: tuple($VCbase, 6) 0;
+  }
+}
+
+.c-section--top {
+  max-height: 60vh;
+
+  > .o-container {
+    padding-top: 1rem;
+  }
+
+  @include breakpoint(md) {
+    max-height: 50vh;
+  }
+
+  @include breakpoint(lg) {
+    max-height: 40vh;
   }
 }
 

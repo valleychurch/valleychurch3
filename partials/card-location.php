@@ -2,7 +2,7 @@
   <?php set_query_var( 'class', 'o-card__img' ); ?>
   <?php get_template_part( 'partials/hero', 'slide' ); ?>
   <div class="o-card__body u-text-center">
-    <h2 class="o-card__title <?= ( get_field( 'service_times' ) ) ? "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
+    <h2 class="h3 o-card__title <?= ( get_field( 'service_times' ) ) ? "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
     <?php if ( get_field( 'service_times' ) ) { ?>
     <h3 class="h4 o-card__subtitle"><?php the_field( 'service_times' ); ?></h3>
     <?php } ?>
