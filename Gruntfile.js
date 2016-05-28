@@ -128,10 +128,6 @@ module.exports = function(grunt) {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
         tasks: ['sass', 'postcss', 'kss', 'notify:sass'],
       },
-      cssmin: {
-        files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md'],
-        tasks: ['sass', 'postcss', 'notify:sass'],
-      },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
         tasks: ['uglify', 'notify:scripts']

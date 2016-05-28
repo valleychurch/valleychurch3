@@ -13,7 +13,7 @@ $paged = get_query_var( 'paged', 1 );
           <h1 class="kilo u-margin--half">Recent Blogs</h1>
         </div>
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-margin u-margin--md--double">
+          <p class="lead u-margin--none">
             We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
           </p>
         </div>

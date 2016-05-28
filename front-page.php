@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-xl-10 o-col-center o-btn-group">
         <?php while ( have_posts() ) :
           the_post(); ?>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="<?= get_permalink(); ?>" role="button"><?= the_title(); ?></a>
@@ -178,7 +178,7 @@
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-xl-10 o-col-center o-btn-group">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect" role="button">Connect Groups</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering" role="button">Volunteering</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving" role="button">Giving</a>
@@ -287,7 +287,7 @@
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-xxs-12 o-col-md-10 o-col-center o-btn-group">
+        <div class="o-col-xxs-12 o-col-xl-10 o-col-center o-btn-group">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/peoplematter" role="button">People Matter</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/community" role="button">Community Action Team</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/visionrescue" role="button">Vision Rescue</a>

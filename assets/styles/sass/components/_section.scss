@@ -54,7 +54,6 @@
 
   @include breakpoint(lg) {
     height: calc(100vh - 300px);
-    // max-height: 65vh;
   }
 
   > .o-container {
@@ -102,13 +101,17 @@
     padding-top: 1rem;
   }
 
-  @include breakpoint(md) {
-    max-height: 50vh;
+  @include breakpoint(sm) {
+    max-height: 55vh;
   }
 
-  @include breakpoint(lg) {
-    max-height: 40vh;
-  }
+  // @include breakpoint(md) {
+  //   max-height: 50vh;
+  // }
+
+  // @include breakpoint(lg) {
+  //   max-height: 40vh;
+  // }
 }
 
 .c-section--overlay {
