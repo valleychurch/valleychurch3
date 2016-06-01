@@ -19,6 +19,7 @@
  *
  * .o-btn--large - Large button
  * .o-btn--small - Small button
+ * .o-btn--xsmall - Extra small button
  *
  * Styleguide: objects.buttons.default
  */
@@ -98,6 +99,15 @@
 
   @include breakpoint(sm) {
     @include font-size(14);
+  }
+}
+
+.o-btn--xsmall {
+  padding: .25rem half(.75rem);
+  @include font-size(11);
+
+  @include breakpoint(sm) {
+    @include font-size(12);
   }
 }
 

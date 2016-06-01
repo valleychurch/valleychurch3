@@ -23,7 +23,7 @@ get_header();
         </div>
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-margin u-margin--md--double">
-            <?php the_content(); ?>
+            <?= get_the_content(); ?>
           </p>
         </div>
       </div>
@@ -43,17 +43,17 @@ get_header();
 
   $locations = new WP_Query( $args );
   if ( $locations->have_posts() ) : ?>
-
   <section class="c-section u-background-grey--11">
 
     <div class="o-container">
 
       <div class="o-row">
+
       <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
-        <div class="o-col-xxs-12 o-col-md-4">
-          <?php get_template_part( 'partials/card', 'location' ); ?>
-        </div>
+      <div class="o-col-xxs-12 o-col-md-4">
+        <?php get_template_part( 'partials/card', 'location' ); ?>
+      </div>
 
       <?php endwhile; ?>
       </div>

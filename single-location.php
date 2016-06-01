@@ -9,9 +9,12 @@
 
     <article <?php post_class( 'o-row c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="c-post-content u-center-block u-text-center">
 
         <h1><?php the_title(); ?></h1>
+        <a class="o-btn o-btn--ghost o-btn--xsmall js-set-location" href="#" data-location-id="<?= $post->ID ?>" data-location-name="<?= get_the_title(); ?>">
+          Set as my main location
+        </a>
 
         <?php the_content(); ?>
 

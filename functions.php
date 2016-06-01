@@ -538,4 +538,15 @@ function load_location() {
   load_map( $map_centre, 15, false, $location_array, "''", false, false );
 }
 add_action( 'load_location', 'load_location' );
+
+function set_main_location() {
+  global $wpdb, $post;
+
+  $location = $_POST['location'];
+
+  if ( $location !== null ) {
+
+  }
+}
+
 ?>

@@ -147,10 +147,12 @@ var googleActive = ( typeof google !== "undefined" ),
 mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
 
 // Centre Google map
-function centreMap() {
+function centreMap(auto_size) {
   google.maps.event.trigger(map, 'resize');
   map.setCenter(mapCentre);
-  map.fitBounds(mapBounds);
+  if ( auto_size === 1 ) {
+    map.fitBounds(mapBounds);
+  }
 }
 
 // Initialise Google map
@@ -178,7 +180,7 @@ function initMap(map_centre, zoom, auto_size, location_array, info_window_conten
     });
   }
 
-  if ( auto_size ) {
+  if ( auto_size === 1 ) {
     mapBounds = new google.maps.LatLngBounds();
   }
 
@@ -204,22 +206,22 @@ function initMap(map_centre, zoom, auto_size, location_array, info_window_conten
       });
     }
 
-    if ( marker_click ) {
+    if ( marker_click === 1 ) {
       google.maps.event.addListener(mapMarker, 'click', function() {
         window.location.href = this.url;
       });
     }
 
-    if ( auto_size ) {
+    if ( auto_size === 1 ) {
       mapBounds.extend(new google.maps.LatLng(mapLoc[0], mapLoc[1]));
     }
   }
 
-  if ( auto_size ) {
+  if ( auto_size === 1 ) {
     map.fitBounds(mapBounds);
   }
 
-  centreMap();
+  centreMap(auto_size);
 
   google.maps.event.addDomListener(window, 'resize', centreMap);
 }
@@ -361,6 +363,55 @@ function checkHeaderPosition() {
   }
 }
 
+function setMainLocation() {
+  $('.js-set-location').on('click', function(e) {
+    e.preventDefault();
+    var id = $(this).data('location-id');
+    var name = $(this).data('location-name');
+    console.log(id);
+    console.log(name);
+
+    Cookies.set('vc_location_id', id);
+    Cookies.set('vc_location_name', name);
+
+    $(this)
+      .removeClass('js-set-location')
+      .addClass('js-remove-location')
+      .text('Remove as my main location');
+
+    removeMainLocation();
+  });
+}
+
+function removeMainLocation() {
+  $('.js-remove-location').on('click', function(e) {
+    e.preventDefault();
+
+    Cookies.remove('vc_location_id');
+    Cookies.remove('vc_location_name');
+
+    $(this)
+      .removeClass('js-remove-location')
+      .addClass('js-add-location')
+      .text('Set as my main location');
+
+    setMainLocation();
+  });
+}
+
+function checkMainLocation() {
+  if ( $('.js-set-location').length !== 0 ) {
+    if (typeof Cookies.get('vc-location-id') !== "undefined" && typeof Cookies.get('vc-location-name') !== "undefined") {
+      if ( Cookies.get('vc-location-id') === $(this).data('location-id') && Cookies.get('vc-location-name') === $(this).data('location-name') ) {
+        $(this)
+          .removeClass('js-set-location')
+          .addClass('js-remove-location')
+          .text('Remove as my main location');
+      }
+    }
+  }
+}
+
 $(function() {
   addTests();
   sideNav();
@@ -369,13 +420,13 @@ $(function() {
   responsiveIframes();
   downArrows();
   checkHeaderPosition();
+  setMainLocation();
+  removeMainLocation();
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 
   var doc = document.documentElement;
   doc.setAttribute('data-useragent', navigator.userAgent);
-
-
 });
 
 $(window).load(function() {

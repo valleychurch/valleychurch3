@@ -18,7 +18,7 @@ get_header(); ?>
           <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
         </div>
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <?php the_content(); ?>
+          <?= get_the_content(); ?>
         </div>
       </div>
 
@@ -26,26 +26,28 @@ get_header(); ?>
 
   </section>
 
+<?php
+  $args =
+    array(
+      'post_type' => 'events',
+      'post_status' => 'publish',
+      'posts_per_page' => 12
+    );
+
+  $wp_query = new WP_Query( $args );
+  if ( have_posts() ) : ?>
   <section class="c-section u-background-grey--11">
 
     <div class="o-container">
 
       <div class="o-row">
-        <div class="c-post-content--wide u-center-block">
-        <?php
-          $args =
-            array(
-              'post_type' => 'events',
-              'post_status' => 'publish',
-              'posts_per_page' => -1
-            );
 
-          $wp_query = new WP_Query( $args );
-          if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
 
-          <div class="o-col-xxs-12">
-            <?php get_template_part( 'partials/card', 'event' ); ?>
-          </div>
+        <div class="o-col-xxs-12 o-col-md-4">
+          <?php get_template_part( 'partials/card', 'event' ); ?>
+        </div>
+
         <?php
         endwhile;
         get_template_part( 'partials/pagination' );
@@ -53,7 +55,7 @@ get_header(); ?>
           get_template_part( 'no-content-found' );
         endif;
         ?>
-        </div>
+
       </div>
 
     </div>

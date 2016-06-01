@@ -80,6 +80,7 @@ module.exports = function(grunt) {
         files: {
           'assets/scripts/dist/script.<%= pkg.version %>.min.js':
             [
+              'assets/scripts/lib/js.cookie.js',
               'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
