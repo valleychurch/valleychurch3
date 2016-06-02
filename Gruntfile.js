@@ -80,7 +80,6 @@ module.exports = function(grunt) {
         files: {
           'assets/scripts/dist/script.<%= pkg.version %>.min.js':
             [
-              'assets/scripts/lib/js.cookie.js',
               'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
@@ -90,6 +89,7 @@ module.exports = function(grunt) {
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
+          'assets/scripts/dist/cookie.min.js' : 'assets/scripts/lib/js.cookie.js',
         }
       }
     },
@@ -168,7 +168,7 @@ module.exports = function(grunt) {
       scripts: {
         options: {
           title: 'Scripts compiled',
-          message: 'Javascript files compiled, watching for changes'
+          message: 'JavaScript files compiled, watching for changes'
         }
       },
       images: {

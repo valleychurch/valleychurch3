@@ -3,9 +3,7 @@
   <?php get_template_part( 'partials/hero', 'slide' ); ?>
   <div class="o-card__body u-text-center">
     <h2 class="h3 o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin--half' : 'u-margin--none' ?>">
-      <!-- <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>"> -->
-        <?php the_title(); ?>
-      <!-- </a> -->
+      <?php the_title(); ?>
     </h2>
     <?php if ( get_field( 'event_date' ) ) { ?>
     <h3 class="h4 o-card__subtitle u-margin--none u-text-black">

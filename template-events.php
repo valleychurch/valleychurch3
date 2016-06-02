@@ -27,34 +27,45 @@ get_header(); ?>
   </section>
 
 <?php
-  $args =
+  $myLocation = isset( $_COOKIE['vc_location_id'] ) ? $_COOKIE['vc_location_id'] : 0;
+  $locationArgs =
     array(
-      'post_type' => 'events',
+      'post_type' => 'location',
       'post_status' => 'publish',
-      'posts_per_page' => 12
+      'posts_per_page' => -1,
     );
+  $locations = get_posts( $locationArgs ); ?>
 
-  $wp_query = new WP_Query( $args );
-  if ( have_posts() ) : ?>
   <section class="c-section u-background-grey--11">
 
     <div class="o-container">
-
-      <div class="o-row">
-
-        <?php while ( have_posts() ) : the_post(); ?>
-
-        <div class="o-col-xxs-12 o-col-md-4">
-          <?php get_template_part( 'partials/card', 'event' ); ?>
+      <div class="o-row o-row--center">
+        <div class="o-col-xxs-12 o-col-md-3">
+          <label for="location-select">Location</label>
+          <select id="location-select">
+            <option value="0"<?= ( $myLocation == 0 ) ? " selected" : ""; ?>>--All--</option>
+            <?php foreach ( $locations as $location ) { ?>
+            <option value="<?= $location->ID; ?>"<?= ( $myLocation == $location->ID ) ? " selected" : ""; ?>>
+              <?= $location->post_title; ?>
+            </option>
+            <?php } ?>
+          </select>
         </div>
+        <div class="o-col-xxs-12 o-col-md-3">
+          <label>&nbsp;</label>
+          <a href="#" class="o-btn js-search-events" role="button">
+            Search
+          </a>
+          <a href="#" class="o-btn o-btn--reset js-reset-events" role="button">
+            Reset
+          </a>
+        </div>
+      </div>
+    </div>
 
-        <?php
-        endwhile;
-        get_template_part( 'partials/pagination' );
-        else :
-          get_template_part( 'no-content-found' );
-        endif;
-        ?>
+    <div class="o-container">
+
+      <div class="o-row o-row--center js-events-container">
 
       </div>
 

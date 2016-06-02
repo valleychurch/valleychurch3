@@ -253,13 +253,15 @@ function theme_files() {
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCsaESemSF6YjvYG4Vrz9bDerYZaD3f2i4', null, null, false );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
   wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true );
+  wp_register_script( 'cookie', get_template_directory_uri() . '/assets/scripts/dist/cookie.min.js', null, null, true );
   wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );
   }
-  wp_enqueue_script( 'font-awesome' );
   wp_enqueue_script( 'jquery' );
+  wp_enqueue_script( 'font-awesome' );
+  wp_enqueue_script( 'cookie' );
   wp_enqueue_script( 'site' );
 };
 add_action( 'wp_enqueue_scripts', 'theme_files' );
@@ -539,14 +541,57 @@ function load_location() {
 }
 add_action( 'load_location', 'load_location' );
 
-function set_main_location() {
-  global $wpdb, $post;
+/**
+ * AJAX load events for /events page
+ */
+function load_events() {
+  $args;
+  $location = ( isset( $_POST['location'] ) ? $_POST['location'] : 0 );
+  $current_page = ( isset( $_POST['paged'] ) ? $_POST['paged'] : 1 );
+  $tax_query = array();
+  $meta_query = array();
 
-  $location = $_POST['location'];
-
-  if ( $location !== null ) {
-
+  if ( isset( $location ) && $location != 0 ) {
+    $tax_query[] =
+      array(
+        'taxonomy'  => 'location',
+        'field'     => 'term_id',
+        'terms'     => $location,
+        'operator'  => 'IN',
+      );
   }
+
+  $args =
+    array(
+      'post_type'       => 'events',
+      'post_status'     => 'publish',
+      'posts_per_page'  => 12,
+      'paged'           => $current_page,
+      'tax_query'       => $tax_query,
+    );
+
+  $query = new WP_Query( $args );
+
+  if ( $query->have_posts() ) :
+    while ( $query->have_posts() ) :
+      $query->the_post(); ?>
+
+    <div class="o-col-xxs-12 o-col-md-4">
+      <?php get_template_part( 'partials/card', 'event' ); ?>
+    </div>
+
+  <?php
+    endwhile;
+  get_template_part( 'partials/pagination' );
+  else:
+    get_template_part( 'partials/no-content-found' );
+  endif;
+
+  wp_die();
+  wp_reset_query();
+  wp_reset_postdata();
 }
+add_action( 'wp_ajax_load_events', 'load_events' );
+add_action( 'wp_ajax_nopriv_load_events', 'load_events' );
 
 ?>

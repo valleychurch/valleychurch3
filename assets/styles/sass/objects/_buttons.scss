@@ -136,25 +136,28 @@
 .o-btn--reset {
   width: auto;
   margin: 0;
-  color: $VCblack;
-  background-color: transparent;
-  border-color: $VCblack;
 
-  &:hover,
-  &:focus,
+  &,
   &:visited {
-    color: $VCwhite;
-    background-color: greyscale(3);
-    // border-color: greyscale(10);
+    color: $VCblack;
+    background-color: transparent;
+    border-color: $VCblack;
+
+    &:hover,
+    &:focus {
+      color: $VCwhite;
+      background-color: greyscale(3);
+      // border-color: greyscale(10);
+    }
   }
 
-  &--alt {
+  &--alt,
+  &--alt:visited {
     background-color: greyscale(11);
     border-color: greyscale(8);
 
     &:hover,
-    &:focus,
-    &:visited {
+    &:focus {
       border-color: greyscale(3);
     }
   }

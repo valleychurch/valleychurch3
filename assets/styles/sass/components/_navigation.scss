@@ -109,7 +109,7 @@
   }
 
   &:hover {
-    cursor: pointer;
+    cursor: default;
 
     @include breakpoint(lg) {
       background-color: $VCblack;
@@ -128,13 +128,17 @@
     @include font-size(15);
     font-weight: 300;
     letter-spacing: 1px;
-    color: greyscale(7);
+    color: greyscale(5);
     text-decoration: none;
     text-transform: uppercase;
 
-    // &[href] {
-    //   color: $VCwhite;
-    // }
+    &[href] {
+      color: greyscale(9);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     @include breakpoint(lg) {
       padding: 1rem .5rem;

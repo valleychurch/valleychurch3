@@ -368,11 +368,9 @@ function setMainLocation() {
     e.preventDefault();
     var id = $(this).data('location-id');
     var name = $(this).data('location-name');
-    console.log(id);
-    console.log(name);
 
-    Cookies.set('vc_location_id', id);
-    Cookies.set('vc_location_name', name);
+    Cookies.set('vc_location_id', id, { expires: 365 });
+    Cookies.set('vc_location_name', name, { expires: 365 });
 
     $(this)
       .removeClass('js-set-location')
@@ -392,7 +390,7 @@ function removeMainLocation() {
 
     $(this)
       .removeClass('js-remove-location')
-      .addClass('js-add-location')
+      .addClass('js-set-location')
       .text('Set as my main location');
 
     setMainLocation();
@@ -401,14 +399,50 @@ function removeMainLocation() {
 
 function checkMainLocation() {
   if ( $('.js-set-location').length !== 0 ) {
-    if (typeof Cookies.get('vc-location-id') !== "undefined" && typeof Cookies.get('vc-location-name') !== "undefined") {
-      if ( Cookies.get('vc-location-id') === $(this).data('location-id') && Cookies.get('vc-location-name') === $(this).data('location-name') ) {
-        $(this)
+    var $this = $('.js-set-location');
+    var id = parseInt($this.data('location-id'));
+    var name = $this.data('location-name');
+
+    if (typeof Cookies.get('vc_location_id') !== "undefined" && typeof Cookies.get('vc_location_name') !== "undefined") {
+      if ( Cookies.get('vc_location_id') == id && Cookies.get('vc_location_name') == name ) {
+        $this
           .removeClass('js-set-location')
           .addClass('js-remove-location')
           .text('Remove as my main location');
+
+        removeMainLocation();
       }
     }
+  }
+}
+
+function loadEvents() {
+  $('.js-search-events').on('click', function(e) {
+    e.preventDefault();
+    searchEvents(1);
+  });
+
+  $('.js-reset-events').on('click', function(e) {
+    e.preventDefault();
+    $('select#location-select').val(0);
+    searchEvents(1);
+  });
+}
+
+function searchEvents(paged) {
+  if ( $('.js-events-container').length !== 0 ) {
+    var data = {
+      'action': 'load_events',
+      'location': $('select#location-select').val(),
+      'paged': ( paged ? paged : 1 ),
+    };
+
+    $.post(ajaxurl, data, function(response, status) {
+      console.log(status);
+      if ( status === "success" ) {
+        $('.js-events-container').html(response);
+      }
+    });
   }
 }
 
@@ -422,6 +456,10 @@ $(function() {
   checkHeaderPosition();
   setMainLocation();
   removeMainLocation();
+  checkMainLocation();
+  loadEvents();
+  searchEvents();
+
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;
 
