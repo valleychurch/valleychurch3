@@ -156,8 +156,12 @@
         }
       }
 
-      &:hover {
-        color: white;
+      &[href] {
+        color: greyscale(10);
+
+        &:hover {
+          color: white;
+        }
       }
     }
   }

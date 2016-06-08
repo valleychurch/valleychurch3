@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
   <?php
-  set_query_var( 'class', 'c-featured' );
+  set_query_var( 'figure', true );
   get_template_part( 'partials/hero', 'banner' );
   ?>
 
