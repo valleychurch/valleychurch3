@@ -541,57 +541,5 @@ function load_location() {
 }
 add_action( 'load_location', 'load_location' );
 
-/**
- * AJAX load events for /events page
- */
-function load_events() {
-  $args;
-  $location = ( isset( $_POST['location'] ) ? $_POST['location'] : 0 );
-  $current_page = ( isset( $_POST['paged'] ) ? $_POST['paged'] : 1 );
-  $tax_query = array();
-  $meta_query = array();
-
-  if ( isset( $location ) && $location != 0 ) {
-    $tax_query[] =
-      array(
-        'taxonomy'  => 'location',
-        'field'     => 'term_id',
-        'terms'     => $location,
-        'operator'  => 'IN',
-      );
-  }
-
-  $args =
-    array(
-      'post_type'       => 'events',
-      'post_status'     => 'publish',
-      'posts_per_page'  => 12,
-      'paged'           => $current_page,
-      'tax_query'       => $tax_query,
-    );
-
-  $query = new WP_Query( $args );
-
-  if ( $query->have_posts() ) :
-    while ( $query->have_posts() ) :
-      $query->the_post(); ?>
-
-    <div class="o-col-xxs-12 o-col-md-4">
-      <?php get_template_part( 'partials/card', 'event' ); ?>
-    </div>
-
-  <?php
-    endwhile;
-  get_template_part( 'partials/pagination' );
-  else:
-    get_template_part( 'partials/no-content-found' );
-  endif;
-
-  wp_die();
-  wp_reset_query();
-  wp_reset_postdata();
-}
-add_action( 'wp_ajax_load_events', 'load_events' );
-add_action( 'wp_ajax_nopriv_load_events', 'load_events' );
 
 ?>

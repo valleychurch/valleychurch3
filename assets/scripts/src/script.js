@@ -417,16 +417,16 @@ function checkMainLocation() {
 }
 
 function loadEvents() {
-  $('.js-search-events').on('click', function(e) {
-    e.preventDefault();
-    searchEvents(1);
-  });
+  // $('.js-search-events').on('click', function(e) {
+  //   e.preventDefault();
+  //   searchEvents(1);
+  // });
 
-  $('.js-reset-events').on('click', function(e) {
-    e.preventDefault();
-    $('select#location-select').val(0);
-    searchEvents(1);
-  });
+  // $('.js-reset-events').on('click', function(e) {
+  //   e.preventDefault();
+  //   $('select#location-select').val(0);
+  //   searchEvents(1);
+  // });
 }
 
 function searchEvents(paged) {
