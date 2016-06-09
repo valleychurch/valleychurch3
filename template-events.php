@@ -27,27 +27,28 @@ get_header(); ?>
   </section>
 
 <?php
-  $myLocation = isset( $_COOKIE['vc_location_id'] ) ? $_COOKIE['vc_location_id'] : 0;
-  $locationArgs =
+  $my_location = isset( $_COOKIE['vc_location_id'] ) ? $_COOKIE['vc_location_id'] : 0;
+  $query_location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : 0 );
+  $location_args =
     array(
       'post_type' => 'location',
       'post_status' => 'publish',
       'posts_per_page' => -1,
     );
-  $locations = get_posts( $locationArgs ); ?>
+  $locations = get_posts( $location_args ); ?>
 
   <section class="c-section u-background-grey--11">
 
     <form name="events-search" method="GET" action="<?php echo get_permalink(); ?>">
 
       <div class="o-container">
-        <div class="o-row o-row--center">
+        <div class="o-row o-row--center u-margin">
           <div class="o-col-xxs-12 o-col-md-2">
             <label for="location-select">Location</label>
             <select name="locationid" id="location-select">
-              <option value="0"<?= ( $myLocation == 0 ) ? " selected" : ""; ?>>--All--</option>
+              <option value="0"<?= ( $query_location == 0 ) ? "selected" : ( ( $my_location == 0 ) ? " selected" : "" ); ?>>--All--</option>
               <?php foreach ( $locations as $location ) { ?>
-              <option value="<?= $location->ID; ?>"<?= ( $myLocation == $location->ID ) ? " selected" : ""; ?>>
+              <option value="<?= $location->ID; ?>"<?= ( $query_location == $location->ID ) ? "selected" : ( ( $my_location == $location->ID ) ? " selected" : "" ); ?>>
                 <?= $location->post_title; ?>
               </option>
               <?php } ?>
@@ -76,17 +77,16 @@ get_header(); ?>
         <?php
           $tax_query = [];
           $meta_query = [];
-          $location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : 0 );
           $current_page = get_query_var( 'paged',  1 );
           $datefrom = ( isset( $_GET['datefrom'] ) ? $_GET['datefrom'] : date("Y-m-d") );
           $dateto = ( isset( $_GET['dateto'] ) ? $_GET['dateto'] : date("Y-m-d", strtotime("+2 months") ) );
 
-          if ( isset( $location ) && $location != 0 ) {
+          if ( isset( $query_location ) && $query_location != 0 ) {
             $tax_query[] =
               array(
                 'taxonomy'  => 'location',
                 'field'     => 'term_id',
-                'terms'     => $location,
+                'terms'     => $query_location,
                 'operator'  => 'IN',
               );
           }
