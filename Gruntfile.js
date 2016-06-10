@@ -86,6 +86,14 @@ module.exports = function(grunt) {
               'assets/scripts/lib/responsiveslides.js',
               'assets/scripts/src/script.js'
             ],
+          'assets/scripts/dist/script.rewrite.<%= pkg.version %>.min.js':
+            [
+              'assets/scripts/lib/modernizr.js',
+              'assets/scripts/lib/fastclick.js',
+              'assets/scripts/lib/picturefill.js',
+              'assets/scripts/lib/responsiveslides.js',
+              'assets/scripts/src/script.rewrite.js'
+            ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
@@ -106,6 +114,12 @@ module.exports = function(grunt) {
           prefix: 'version: \''
         },
         src: [ 'assets/scripts/src/script.js' ]
+      },
+      jsnew: {
+        options: {
+          prefix: 'Version: \''
+        },
+        src: [ 'assets/scripts/src/script.rewrite.js' ]
       },
       sass: {
         options: {

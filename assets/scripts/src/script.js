@@ -416,35 +416,35 @@ function checkMainLocation() {
   }
 }
 
-function loadEvents() {
-  // $('.js-search-events').on('click', function(e) {
-  //   e.preventDefault();
-  //   searchEvents(1);
-  // });
+// function loadEvents() {
+//   $('.js-search-events').on('click', function(e) {
+//     e.preventDefault();
+//     searchEvents(1);
+//   });
 
-  // $('.js-reset-events').on('click', function(e) {
-  //   e.preventDefault();
-  //   $('select#location-select').val(0);
-  //   searchEvents(1);
-  // });
-}
+//   $('.js-reset-events').on('click', function(e) {
+//     e.preventDefault();
+//     $('select#location-select').val(0);
+//     searchEvents(1);
+//   });
+// }
 
-function searchEvents(paged) {
-  if ( $('.js-events-container').length !== 0 ) {
-    var data = {
-      'action': 'load_events',
-      'location': $('select#location-select').val(),
-      'paged': ( paged ? paged : 1 ),
-    };
+// function searchEvents(paged) {
+//   if ( $('.js-events-container').length !== 0 ) {
+//     var data = {
+//       'action': 'load_events',
+//       'location': $('select#location-select').val(),
+//       'paged': ( paged ? paged : 1 ),
+//     };
 
-    $.post(ajaxurl, data, function(response, status) {
-      console.log(status);
-      if ( status === "success" ) {
-        $('.js-events-container').html(response);
-      }
-    });
-  }
-}
+//     $.post(ajaxurl, data, function(response, status) {
+//       console.log(status);
+//       if ( status === "success" ) {
+//         $('.js-events-container').html(response);
+//       }
+//     });
+//   }
+// }
 
 $(function() {
   addTests();
@@ -457,8 +457,8 @@ $(function() {
   setMainLocation();
   removeMainLocation();
   checkMainLocation();
-  loadEvents();
-  searchEvents();
+  // loadEvents();
+  // searchEvents();
 
   valley.supports.objectFit = Modernizr.objectfit;
   valley.supports.fontVariantLigatures = Modernizr.fontvariant;

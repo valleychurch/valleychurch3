@@ -128,10 +128,41 @@ function has_gravatar( $email_address ) {
   return preg_match( '|200|', $headers[0] ) ? true : false;
 }
 
+/**
+ * Blur an image
+ */
+function blur_image( $filename, $upload_dir ) {
+  $original_image_path = trailingslashit( $upload_dir['path'] ) . $filename;
+
+  $image_resource = new Imagick( $original_image_path );
+  $image_resource->gaussianBlurImage( 10, 100 ); // See: http://phpimagick.com/Imagick/gaussianBlurImage
+
+  return save_blurred_image( $image_resource, $original_image_path );
+}
+
+
+/**
+ * Save a blurred image to WordPress' media library
+ */
+function save_blurred_image( $image_resource, $original_image_path ) {
+  $image_data = pathinfo( $original_image_path );
+  $new_filename = $image_data['filename'] . '-blurred.' . $image_data['extension'];
+
+  $blurred_image_path = str_replace($image_data['basename'], $new_filename, $original_image_path);
+
+  if ( !$image_resource->writeImage( $blurred_image_path ) )
+    return $image_data['basename'];
+
+  unlink( $original_image_path );
+
+  return $new_filename;
+}
+
 
 /**
  * Add things to WordPress
  */
+
 
 /**
  * Compress jpg images to 82% quality (match WordPress 4.5 default)
@@ -150,6 +181,23 @@ add_image_size( 'banner', 2000, 800, true );        // Featured image banner ful
 add_image_size( 'banner-medium', 1280, 608, true ); // Featured image banner medium
 add_image_size( 'banner-small', 640, 360, true );   // Featured image banner small
 
+add_image_size( 'banner-blur', 1280, 720, true );   // Featured image banner medium blurred
+
+/**
+ * Generate a blurred image
+ * @link https://codeable.io/community/how-to-watermark-wordpress-images-with-imagemagick/
+ * @link ttps://blog.noort.be/2014/07/15/imagemagick-on-iis-pain.html
+ */
+function generate_blurred_image( $meta ) {
+  $time = substr( $meta['file'], 0, 7); // Extract the date in form "2015/04"
+  $upload_dir = wp_upload_dir( $time ); // Get the "proper" upload dir
+
+  $filename = $meta['sizes']['banner-blur']['file'];
+  $meta['sizes']['banner-blur']['file'] = blur_image( $filename, $upload_dir );
+
+  return $meta;
+}
+add_filter( 'wp_generate_attachment_metadata', 'generate_blurred_image' );
 
 /**
  * Add custom menu support and register a menu
@@ -161,24 +209,20 @@ function register_custom_menu() {
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
 
-
 /**
  * Add WordPress 3.6 HTML5 markup
  */
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-
 
 /**
  * Add WordPress 4.4 custom title tag
  */
 add_theme_support( 'title-tag' );
 
-
 /**
  * Add editor stylesheet to TinyMCE
  */
 add_editor_style( 'assets/styles/css/editor-style.' . VC_THEME_VERSION . '.css' ); //defaults to editor-style.css
-
 
 /**
  * Add Typekit to TinyMCE
@@ -189,7 +233,6 @@ function add_typekit_tinymce( $plugin_array ) {
 }
 add_filter("mce_external_plugins", "add_typekit_tinymce");
 
-
 /**
  * Add custom login CSS
  */
@@ -199,7 +242,6 @@ function add_custom_login() {
   echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
 }
 add_action( 'login_head', 'add_custom_login' );
-
 
 /**
  * Create custom post types
@@ -216,7 +258,6 @@ function create_custom_post_types() {
 };
 add_action( 'init', 'create_custom_post_types' );
 
-
 /**
  * Create custom taxonomies
  */
@@ -225,7 +266,6 @@ function create_custom_taxonomies() {
   register_taxonomy( 'location_type', 'location', create_custom_taxonomy_args( 'type', 'Location Type' ) );
 };
 add_action( 'init', 'create_custom_taxonomies' );
-
 
 /**
  * Enqueue styles and scripts
@@ -266,7 +306,6 @@ function theme_files() {
 };
 add_action( 'wp_enqueue_scripts', 'theme_files' );
 
-
 /**
  * Add `async` and `defer` attributes to some built in WP scripts
  */
@@ -285,7 +324,6 @@ function add_defer_attribute( $tag ) {
   return $tag;
 }
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
-
 
 /**
  * Remove `ver` querystring
@@ -326,7 +364,6 @@ function loadCSSAsync() { ?>
 }
 // add_action( 'wp_head', 'loadCSSAsync', 30 );
 
-
 /**
  * Include noscript CSS in the footer
  */
@@ -337,7 +374,6 @@ function loadCSSFallback() { ?>
   </noscript>-->
 <?php }
 // add_action( 'wp_footer', 'loadCSSFallback', 30 );
-
 
 /**
  * Add class to `body` if there's a featured image
@@ -353,9 +389,8 @@ function featured_image_class($classes) {
 }
 add_action( 'body_class', 'featured_image_class' );
 
-
 /**
- * Remove `p` tags around images and IFRAME_REQUEST
+ * Remove `p` tags around images and iframes
  */
 function filter_ptags_on_content($content) {
   $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
@@ -371,45 +406,37 @@ function modify_read_more_link() {
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
-
 /**
  * Add social media links to profile
  */
 function add_contact_methods( $contactmethods ) {
   // Add Twitter
-  if ( !isset( $contactmethods['twitter'] ) ) {
+  if ( !isset( $contactmethods['twitter'] ) )
     $contactmethods['twitter'] = 'Twitter';
-  }
 
   // Add Facebook
-  if ( !isset( $contactmethods['facebook'] ) ) {
+  if ( !isset( $contactmethods['facebook'] ) )
     $contactmethods['facebook'] = 'Facebook';
-  }
 
   // Add Instagram
-  if ( !isset( $contactmethods['instagram'] ) ) {
+  if ( !isset( $contactmethods['instagram'] ) )
     $contactmethods['instagram'] = 'Instagram';
-  }
 
   // Remove Yahoo IM
-  if ( isset( $contactmethods['yim'] ) ) {
+  if ( isset( $contactmethods['yim'] ) )
     unset( $contactmethods['yim'] );
-  }
 
   // Remove AIM
-  if ( isset( $contactmethods['aim'] ) ) {
+  if ( isset( $contactmethods['aim'] ) )
     unset( $contactmethods['aim'] );
-  }
 
   // Remove Jabber
-  if ( isset( $contactmethods['jabber'] ) ) {
+  if ( isset( $contactmethods['jabber'] ) )
     unset( $contactmethods['jabber'] );
-  }
 
   return $contactmethods;
 }
 add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
-
 
 /**
  * Remove WP emoji
@@ -428,7 +455,6 @@ function disable_wp_emojicons() {
   add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
 }
 add_action( 'init', 'disable_wp_emojicons' );
-
 
 /**
  * Remove WP emoji from TinyMCE

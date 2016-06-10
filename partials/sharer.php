@@ -1,7 +1,14 @@
 <div class="c-sharer">
-  <p class="lead">
+  <hr/>
+  <p class="u-margin--half">
     Share this!
-    <a href="https://twitter.com/intent/tweet?text=Check out <?= the_title() ?> at Valley Church! <?= the_permalink(); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+  </p>
+  <p>
+    <a class="o-btn" href="https://twitter.com/intent/tweet?text=Check out <?= the_title() ?> at Valley Church! <?= the_permalink(); ?>" target="_blank">
+      <i class="fa fa-fw fa-twitter u-text-white"></i> Twitter
+    </a>
+    <a class="o-btn" href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>" target="_blank">
+      <i class="fa fa-fw fa-facebook-official u-text-white"></i> Facebook
+    </a>
   </p>
 </div>

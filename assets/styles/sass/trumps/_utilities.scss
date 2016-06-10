@@ -86,14 +86,28 @@
 
 
 //Line height
-.u-line-height--none  { line-height: 1; }
-.u-line-height--small { line-height: 1.35; }
+.u-line-height--none    { line-height: 1; }
+.u-line-height--small   { line-height: 1.35; }
 
+//Brand colours
+.u-text-twitter,
+.fa-twitter,
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.u-text-facebook,
+.fa-facebook,
+.fa-facebook-official,
+.fa-facebook-square {
+  color: #3b5998;
+}
 
 //Text colours
-.u-text-white         { color: $VCwhite; }
-.u-text-black         { color: $VCblack; }
-.u-text-grey          { color: $VCgrey; }
+//Below `Brand colours` so these take priority
+.u-text-white           { color: $VCwhite; }
+.u-text-black           { color: $VCblack; }
+.u-text-grey            { color: $VCgrey; }
 .u-text-muted           { color: greyscale(5); }
 
 @each $name, $colour in $VCcolours {
@@ -106,10 +120,6 @@
   }
 }
 
-.u-text-twitter,
-.fa-twitter {
-  color: #55acee;
-}
 
 .u-text-shadow          { @include text-shadow; }
 
