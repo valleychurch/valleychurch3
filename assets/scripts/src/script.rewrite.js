@@ -140,11 +140,11 @@ var Valley = (function() {
         if ( notificationData !== null ) {
           if ($('.c-notification').first().attr('id') !== notificationData.id) {
             localStorage.removeItem( 'valley.notification' );
-            Valley.AttachNotifications;
+            Valley.AttachNotifications();
           }
         }
         else {
-          Valley.AttachNotifications;
+          Valley.AttachNotifications();
         }
       }
       catch( e ) { console.log("Error: " + e.message); }
@@ -258,7 +258,7 @@ var Valley = (function() {
           .addClass('js-remove-location')
           .text('Remove as my main location');
 
-        Valley.RemoveMainLocation;
+        Valley.RemoveMainLocation();
       });
     },
 
@@ -274,7 +274,7 @@ var Valley = (function() {
           .addClass('js-set-location')
           .text('Set as my main location');
 
-        Valley.SetMainLocation;
+        Valley.SetMainLocation();
       });
     },
 
@@ -291,7 +291,7 @@ var Valley = (function() {
               .addClass('js-remove-location')
               .text('Remove as my main location');
 
-            Valley.RemoveMainLocation;
+            Valley.RemoveMainLocation();
           }
         }
       }
@@ -323,9 +323,9 @@ $(function() {
 });
 
 $(window).resize(function() {
-  debounce(Valley.CheckSideNav, 250);
+  debounce(Valley.CheckSideNav(), 250);
 });
 
 $(window).scroll(function() {
-  debounce(Valley.CheckHeaderPosition, 500);
+  debounce(Valley.CheckHeaderPosition(), 500);
 });
