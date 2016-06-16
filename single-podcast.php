@@ -2,10 +2,12 @@
 
   <?php
   $message_id = $post->ID;
-  $messages_page_id = get_page_by_path( '/messages' );
-  set_query_var( 'class', 'c-featured' );
-  set_query_var( 'page_id', $messages_page_id->ID );
-  get_template_part( 'partials/hero', 'banner' );
+  $messages_page = get_page_by_path( '/messages' );
+  if ( has_post_thumbnail( $messages_page->ID ) ) {
+    set_query_var( 'class', 'c-featured' );
+    set_query_var( 'page_id', $messages_page->ID );
+    get_template_part( 'partials/hero', 'banner' );
+  }
   ?>
 
   <section class="c-section">

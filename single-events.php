@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
   <?php
-  set_query_var( 'figure', true );
-  get_template_part( 'partials/hero', 'banner' );
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
   ?>
 
   <section class="o-container c-section">

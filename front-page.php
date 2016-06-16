@@ -31,7 +31,7 @@
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
   <!-- Section: Locations -->
-  <section class="c-section c-section--hero" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-visit.jpg');">
+  <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -243,7 +243,7 @@
         </div>
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-margin u-margin--md--double">
-            We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
+            We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team
           </p>
         </div>
       </div>
@@ -274,7 +274,7 @@
   </section>
 
   <!-- Section: People Matter -->
-  <section class="c-section c-section--hero" style="background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/home-people-matter.jpg');">
+  <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-people-matter.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -282,7 +282,7 @@
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-text-white u-text-shadow u-margin--double u-margin--md--quadruple">
-            We believe that all people matter and that the Church can make a real difference for everyone regardless of who they are, what they've done, or where they're from
+            We believe that people matter and that the Church can make a real difference for everyone&mdash;regardless of who they are, what they've done, or where they're from
           </p>
         </div>
       </div>

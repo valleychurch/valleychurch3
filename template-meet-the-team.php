@@ -5,8 +5,10 @@
 get_header(); ?>
 
   <?php
-  set_query_var( 'class', 'c-featured' );
-  get_template_part( 'partials/hero', 'banner' );
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'class', 'c-featured' );
+    get_template_part( 'partials/hero', 'banner' );
+  }
   ?>
 
   <section class="c-section">
