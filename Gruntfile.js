@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     kss: {
       options: {
         template: 'assets/template',
-        homepage: 'styleguide.md',
+        homepage: 'index.md',
         verbose: true,
         custom: ['Hide'],
         css: '../assets/styles/css/style.<%= pkg.version %>.min.css',

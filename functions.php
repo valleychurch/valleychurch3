@@ -294,7 +294,7 @@ function theme_files() {
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
   wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true );
   wp_register_script( 'cookie', get_template_directory_uri() . '/assets/scripts/dist/cookie.min.js', null, null, true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.rewrite.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );

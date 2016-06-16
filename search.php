@@ -2,13 +2,17 @@
 
   <?php //get_template_part( 'partials/featured-image' ); ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1>Search results for <em><?php the_search_query(); ?></em></h1>
+        <div class="c-post-content u-center-block">
+
+          <h1>Showing search results for <em><?php the_search_query(); ?></em></h1>
+
+        </div>
 
       </div>
 

@@ -4,7 +4,7 @@ var googleActive = ( typeof google !== "undefined" ),
     map,
     mapOpts,
     mapStyle,
-    mapCentre = ( googleActive ) ? new google.maps.LatLng(53.733241, -2.662240) : "",
+    mapCentre = ( googleActive === true ) ? new google.maps.LatLng(53.733241, -2.662240) : "",
     mapBounds,
     mapLocations,
     mapInfoWindow,
@@ -23,6 +23,7 @@ var Valley = (function() {
   var win = window;
   var nav = navigator;
   var body = $('body');
+  var header = $('.c-header');
 
   return {
 
@@ -51,73 +52,75 @@ var Valley = (function() {
      * Initialise the Google Map
      */
     InitMap: function(map_centre, zoom, auto_size, location_array, info_window_content, marker_click, scrollable) {
-      mapOpts = {
-        zoom: zoom,
-        center: map_centre,
-        rotateControl: false,
-        panControl: false,
-        mapTypeControl: false,
-        mapTypeControlOptions: {
-          myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-        },
-        streetViewControl: false,
-        scrollwheel: scrollable,
-      };
+      if ( googleActive === true ) {
+        mapOpts = {
+          zoom: zoom,
+          center: map_centre,
+          rotateControl: false,
+          panControl: false,
+          mapTypeControl: false,
+          mapTypeControlOptions: {
+            myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+          },
+          streetViewControl: false,
+          scrollwheel: scrollable,
+        };
 
-      map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
+        map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
 
-      map.set('styles', mapStyle);
-
-      if ( info_window_content !== "" ) {
-        mapInfoWindow = new google.maps.InfoWindow({
-          content: 'Loading...'
-        });
-      }
-
-      if ( auto_size === 1 ) {
-        mapBounds = new google.maps.LatLngBounds();
-      }
-
-      mapLocations = location_array;
-
-      //Add marker and info window for each group
-      for (var i = 0; i < mapLocations.length; i++) {
-        var mapLoc = mapLocations[i];
-        mapMarker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(mapLoc[0], mapLoc[1]),
-          title: mapLoc[2],
-          html: mapLoc[3],
-          url: mapLoc[4],
-          animation: google.maps.Animation.DROP,
-          icon: mapMarkerIconSmall,
-        });
+        map.set('styles', mapStyle);
 
         if ( info_window_content !== "" ) {
-          google.maps.event.addListener(mapMarker, 'click', function() {
-            mapInfoWindow.setContent(info_window_content);
-            mapInfoWindow.open(map, this);
-          });
-        }
-
-        if ( marker_click === 1 ) {
-          google.maps.event.addListener(mapMarker, 'click', function() {
-            win.location.href = this.url;
+          mapInfoWindow = new google.maps.InfoWindow({
+            content: 'Loading...'
           });
         }
 
         if ( auto_size === 1 ) {
-          mapBounds.extend(new google.maps.LatLng(mapLoc[0], mapLoc[1]));
+          mapBounds = new google.maps.LatLngBounds();
         }
+
+        mapLocations = location_array;
+
+        //Add marker and info window for each group
+        for (var i = 0; i < mapLocations.length; i++) {
+          var mapLoc = mapLocations[i];
+          mapMarker = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(mapLoc[0], mapLoc[1]),
+            title: mapLoc[2],
+            html: mapLoc[3],
+            url: mapLoc[4],
+            animation: google.maps.Animation.DROP,
+            icon: mapMarkerIconSmall,
+          });
+
+          if ( info_window_content !== "" ) {
+            google.maps.event.addListener(mapMarker, 'click', function() {
+              mapInfoWindow.setContent(info_window_content);
+              mapInfoWindow.open(map, this);
+            });
+          }
+
+          if ( marker_click === 1 ) {
+            google.maps.event.addListener(mapMarker, 'click', function() {
+              win.location.href = this.url;
+            });
+          }
+
+          if ( auto_size === 1 ) {
+            mapBounds.extend(new google.maps.LatLng(mapLoc[0], mapLoc[1]));
+          }
+        }
+
+        if ( auto_size === 1 ) {
+          map.fitBounds(mapBounds);
+        }
+
+        Valley.CentreMap(auto_size);
+
+        google.maps.event.addDomListener(win, 'resize', Valley.CentreMap);
       }
-
-      if ( auto_size === 1 ) {
-        map.fitBounds(mapBounds);
-      }
-
-      Valley.CentreMap(auto_size);
-
-      google.maps.event.addDomListener(win, 'resize', Valley.CentreMap);
     },
 
     /**
@@ -223,14 +226,13 @@ var Valley = (function() {
         var parent = $(this).parent();
 
         $('html, body').animate({
-          scrollTop: ( parent.next().offset().top - $('.c-header').height() )
+          scrollTop: ( parent.next().offset().top - header.height() )
         }, 1000);
       });
     },
 
     CheckHeaderPosition: function() {
       var scroll = $(win).scrollTop();
-      var header = $('.c-header');
 
       if ( body.hasClass( 'home' ) ) {
         if ( scroll > 150 && !header.hasClass( 'is-visible' ) ) {
