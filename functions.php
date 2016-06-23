@@ -482,7 +482,7 @@ function load_map( $map_centre = "mapCentre", $zoom = 9, $auto_size = true, $loc
 ?>
 <script>
   var locationArray = [<?= $location_array; ?>];
-  initMap(<?= $map_centre ?>, <?= $zoom ?>, <?= (int)$auto_size ?>, locationArray, <?= $info_window_content ?>, <?= (int)$marker_click ?>, <?= (int)$scrollable ?>);
+  Valley.InitMap(<?= $map_centre ?>, <?= $zoom ?>, <?= (int)$auto_size ?>, locationArray, <?= $info_window_content ?>, <?= (int)$marker_click ?>, <?= (int)$scrollable ?>);
 </script>
 <?php
 }
@@ -558,7 +558,7 @@ function load_location() {
   if ( $wp_query->have_posts() ) {
     while ( $wp_query->have_posts() ) {
       $wp_query->the_post();
-      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "'],";
+      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "']";
       $map_centre = "new google.maps.LatLng(" . get_field( 'location' )['coordinates'] . ")";
     }
   }

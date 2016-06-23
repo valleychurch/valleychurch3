@@ -41,11 +41,13 @@ var Valley = (function() {
       Valley.InitSideNav();
       Valley.ModernizrTest();
       Valley.Slider();
-      Valley.InitMap();
       Valley.CheckNotifications();
       Valley.ResponsiveIframes();
       Valley.DownArrows();
       Valley.CheckHeaderPosition();
+      Valley.SetMainLocation();
+      Valley.RemoveMainLocation();
+      Valley.CheckMainLocation();
     },
 
     /**
@@ -81,6 +83,7 @@ var Valley = (function() {
         }
 
         mapLocations = location_array;
+        console.log(mapLocations);
 
         //Add marker and info window for each group
         for (var i = 0; i < mapLocations.length; i++) {

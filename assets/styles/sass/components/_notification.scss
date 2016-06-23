@@ -40,7 +40,11 @@
 
   .o-container {
     position: relative;
-    padding: 1rem;
+    padding: three-quarters($VCbase);
+
+    @include breakpoint(lg) {
+      padding: $VCbase;
+    }
   }
 
   p {
@@ -49,7 +53,7 @@
 
     a {
       color: white;
-      border-bottom: 1px solid;
+      // border-bottom: 1px solid;
 
       &:hover,
       &:focus {
@@ -62,14 +66,26 @@
     max-height: 1000px;
     overflow: hidden;
   }
+
+  .o-flag__fix {
+    padding-right: 0;
+  }
 }
 
 .c-notification__dismiss {
+  padding: 0;
+  margin: 0;
   font-size: 2rem;
   font-weight: 100;
-  line-height: 1;
+  line-height: 0;
   color: white;
   text-decoration: none !important;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    background-color: colour("red", dark);
+  }
 }
 
 .c-notification--alt {

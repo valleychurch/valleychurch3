@@ -20,7 +20,7 @@
       </footer>
 
     <!-- </div> --> <!-- .container -->
-    <?php if( $_SERVER['HTTP_HOST'] === "valley.dev" ) {
+    <?php if( $_SERVER['HTTP_HOST'] === "valley.dev" || $_SERVER['HTTP_HOST'] === "lanpc130" ) {
       $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://'; ?>
     <script src="<?= $protocol . $_SERVER['HTTP_HOST']; ?>:35729/livereload.js"></script>
     <?php } ?>

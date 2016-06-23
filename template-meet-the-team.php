@@ -40,7 +40,8 @@ get_header(); ?>
 
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
-    <div class="o-row">
+      <div class="o-container">
+        <div class="o-row">
     <?php while( have_posts() ) : the_post(); ?>
       <div class="o-col-xxs-12 o-col-lg-10 u-center-block">
         <div class="o-row u-margin--double">
@@ -67,7 +68,7 @@ get_header(); ?>
               the_row(); ?>
           <p class="u-margin--half">
             <a href="http://twitter.com/<?= get_sub_field( 'twitter_handle' ); ?>" target="_blank">
-              <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
+              <i class="fa fa-lg fa-fw fa-twitter"></i>Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
             </a>
           </p>
           <?php }
@@ -77,7 +78,8 @@ get_header(); ?>
         </div>
       </div>
     <?php endwhile; ?>
-    </div>
+        </div>
+      </div>
     <?php else: endif; ?>
   </section>
 

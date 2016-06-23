@@ -62,16 +62,13 @@
 
     <!-- <div class="o-container o-container--page"> -->
 
-      <?php //if( $_SERVER['HTTP_HOST'] === "test.valleychurch.eu" || $_SERVER['HTTP_HOST'] === "valley.dev" ) { ?>
-      <!--<div class="o-container o-container--full c-browse-happy u-text-center">
-        <p>Test environment</p>
-      </div>-->
-      <?php //}
-      get_template_part( 'partials/notification' ); ?>
 
       <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
       <header class="c-header u-clearfix">
+
+        <?php get_template_part( 'partials/notification' ); ?>
+
         <div class="o-container o-container--full">
 
           <?php get_template_part( 'partials/logo' ); ?>

@@ -30,33 +30,46 @@ get_header(); ?>
 
 <?php
   $my_location = isset( $_COOKIE['vc_location_id'] ) ? $_COOKIE['vc_location_id'] : 0;
-  $query_location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : 0 );
+  $query_location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : null );
   $location_args =
     array(
       'post_type' => 'location',
       'post_status' => 'publish',
       'posts_per_page' => -1,
     );
-  $locations = get_posts( $location_args ); ?>
+  $locations = get_posts( $location_args );
+  // if ( $my_location != 0 && !isset( $query_location ) ) {
+  //   if ( !headers_sent() ) {
+  //     header('Location: ?locationid=' . $my_location );
+  //     die();
+  //   } else {
+  //     echo '<script type="text/javascript">';
+  //     echo 'window.location.href="?locationid=' . $my_location . '";';
+  //     echo '</script>';
+  //   }
+  // }
+?>
 
   <section class="c-section u-background-grey--11">
 
     <form name="events-search" method="GET" action="<?php echo get_permalink(); ?>">
 
       <div class="o-container">
-        <div class="o-row o-row--center u-margin">
-          <div class="o-col-xxs-12 o-col-md-2">
-            <label for="location-select">Location</label>
-            <select name="locationid" id="location-select">
-              <option value="0"<?= ( $query_location == 0 ) ? "selected" : ( ( $my_location == 0 ) ? " selected" : "" ); ?>>--All--</option>
+        <div class="o-row u-margin">
+          <div class="o-col-xxs-12 u-text-center">
+            <p>Show me events at:</p>
+            <div class="u-text-center">
+              <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0" role="button">
+                All locations
+              </a>
               <?php foreach ( $locations as $location ) { ?>
-              <option value="<?= $location->ID; ?>"<?= ( $query_location == $location->ID ) ? "selected" : ( ( $my_location == $location->ID ) ? " selected" : "" ); ?>>
-                <?= $location->post_title; ?>
-              </option>
+              <a class="o-btn o-btn--ghost <?= ( $query_location == $location->ID ) ? "is-active" : ""; ?>" href="?locationid=<?= $location->ID ?>" role="button">
+                <?= $location->post_title ?>
+              </a>
               <?php } ?>
-            </select>
+            </div>
           </div>
-          <div class="o-col-xxs-12 o-col-md-2">
+          <!-- <div class="o-col-xxs-12 o-col-md-2">
             <label for="date-from">From</label>
             <input type="date" name="datefrom" id="date-from" min="<?= date( "Y-m-d" ); ?>" max="<?= date( "Y-m-d", strtotime("+1 years")); ?>" value="<?= date( "Y-m-d" ); ?>">
           </div>
@@ -68,7 +81,7 @@ get_header(); ?>
             <label>&nbsp;</label>
             <input type="submit" class="o-btn js-search-events" value="Search">
             <input type="reset" class="o-btn o-btn--reset js-reset-events" value="Reset">
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -80,8 +93,8 @@ get_header(); ?>
           $tax_query = [];
           $meta_query = [];
           $current_page = get_query_var( 'paged',  1 );
-          $datefrom = ( isset( $_GET['datefrom'] ) ? $_GET['datefrom'] : date("Y-m-d") );
-          $dateto = ( isset( $_GET['dateto'] ) ? $_GET['dateto'] : date("Y-m-d", strtotime("+2 months") ) );
+          // $datefrom = ( isset( $_GET['datefrom'] ) ? $_GET['datefrom'] : date("Y-m-d") );
+          // $dateto = ( isset( $_GET['dateto'] ) ? $_GET['dateto'] : date("Y-m-d", strtotime("+2 months") ) );
 
           if ( isset( $query_location ) && $query_location != 0 ) {
             $tax_query[] =
@@ -93,20 +106,20 @@ get_header(); ?>
               );
           }
 
-          $meta_query[] =
-            array(
-              'relation'  => 'AND',
-              array(
-                'key'     => 'datetime_start',
-                'value'   => strtotime( $datefrom ),
-                'compare' => '>='
-              ),
-              array(
-                'key'     => 'datetime_end',
-                'value'   => strtotime( $dateto ),
-                'compare' => '<='
-              )
-            );
+          // $meta_query[] =
+          //   array(
+          //     'relation'  => 'AND',
+          //     array(
+          //       'key'     => 'datetime_start',
+          //       'value'   => strtotime( $datefrom ),
+          //       'compare' => '>='
+          //     ),
+          //     array(
+          //       'key'     => 'datetime_start',
+          //       'value'   => strtotime( $dateto ),
+          //       'compare' => '<='
+          //     )
+          //   );
 
           $args =
             array(
@@ -119,6 +132,9 @@ get_header(); ?>
             );
 
           $wp_query = new WP_Query( $args );
+          // echo '<pre>';
+          // print_r($wp_query);
+          // echo '</pre>';
 
           if ( $wp_query->have_posts() ) :
             while ( $wp_query->have_posts() ) :
