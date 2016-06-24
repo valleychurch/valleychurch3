@@ -37,7 +37,7 @@ get_header();
   $args =
     array(
       'post_type' => 'location',
-      'post_status' => 'publish',
+      'post_status' => array( 'publish', 'private' ),
       'posts_per_page' => -1,
     );
 
@@ -47,7 +47,7 @@ get_header();
 
     <div class="o-container">
 
-      <div class="o-row">
+      <div class="o-row o-row--center">
 
       <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 

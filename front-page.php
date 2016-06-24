@@ -24,18 +24,18 @@
     $args =
       array(
         'post_type' => 'location',
-        'post_status' => 'publish',
+        'post_status' => array( 'publish', 'private' ),
         'posts_per_page' => -1
       );
 
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
-  <!-- Section: Locations -->
+  <!-- Section: Services -->
   <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
-          <h2 class="kilo u-margin--half u-text-white u-text-shadow">Locations</h2>
+          <h2 class="kilo u-margin--half u-text-white u-text-shadow">Services</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-text-white u-text-shadow u-margin--double u-margin--md--quadruple">
@@ -64,7 +64,7 @@
         $args =
           array(
             'post_type' => 'slider',
-            'post_status' => 'publish',
+            'post_status' => array( 'publish', 'private' ),
             'posts_per_page' => -1
           );
 
@@ -211,7 +211,7 @@
         $args =
           array(
             'post_type' => 'podcast',
-            'post_status' => 'publish',
+            'post_status' => array( 'publish', 'private' ),
             'posts_per_page' => 4
           );
 
@@ -252,7 +252,7 @@
         $args =
           array(
             'post_type' => 'post',
-            'post_status' => 'publish',
+            'post_status' => array( 'publish', 'private' ),
             'posts_per_page' => 3
           );
         $i = 1;

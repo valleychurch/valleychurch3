@@ -34,7 +34,7 @@ get_header(); ?>
     $args =
       array(
         'post_type' => 'staff',
-        'post_status' => 'publish',
+        'post_status' => array( 'publish', 'private' ),
         'posts_per_page' => -1
       );
 

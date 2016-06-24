@@ -22,6 +22,8 @@ var Valley = (function() {
   var doc = document;
   var win = window;
   var nav = navigator;
+  var $doc = $(doc);
+  var $win = $(win);
   var body = $('body');
   var header = $('.c-header');
 
@@ -235,7 +237,7 @@ var Valley = (function() {
     },
 
     CheckHeaderPosition: function() {
-      var scroll = $(win).scrollTop();
+      var scroll = $win.scrollTop();
 
       if ( body.hasClass( 'home' ) ) {
         if ( scroll > 150 && !header.hasClass( 'is-visible' ) ) {

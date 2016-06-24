@@ -44,7 +44,7 @@ $paged = get_query_var( 'paged', 1 );
         $args =
           array(
             'post_type' => 'podcast',
-            'post_status' => 'publish',
+            'post_status' => array( 'publish', 'private' ),
             'paged' => $paged,
             'posts_per_page' => 12
           );

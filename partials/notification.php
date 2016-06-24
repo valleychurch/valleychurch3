@@ -2,8 +2,8 @@
   $args =
     array(
       'post_type' => 'notification',
+      'post_status' => array( 'publish', 'private' ),
       'showposts' => 1,
-      'post_status' => 'publish'
     );
 
   $notification = new WP_Query( $args );

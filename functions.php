@@ -498,7 +498,7 @@ function load_connect_groups() {
   $args =
     array(
       'post_type' => 'connect',
-      'post_status' => 'publish',
+      'post_status' => array( 'publish', 'private' ),
       'posts_per_page' => -1,
     );
 
@@ -523,7 +523,7 @@ function load_locations() {
   $args =
     array(
       'post_type' => 'location',
-      'post_status' => 'publish',
+      'post_status' => array( 'publish', 'private' ),
       'posts_per_page' => -1,
     );
 
@@ -550,7 +550,7 @@ function load_location() {
     array(
       'post_type' => 'location',
       'p' => $post->ID,
-      'post_status' => 'publish',
+      'post_status' => array( 'publish', 'private' ),
       'posts_per_page' => -1,
     );
 
