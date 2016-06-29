@@ -121,7 +121,6 @@ h1, h2, h3, h4, h5, h6,
   @include font-stack-alt;
   font-weight: $VCfont-medium;
   line-height: 1.25;
-  // letter-spacing: .5px;
 
   a {
     text-decoration: none;
@@ -409,10 +408,10 @@ samp {
   border-radius: 2px;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
-  // line-height: 1.25 !important;
-}
+// code[class*="language-"],
+// pre[class*="language-"] {
+//   line-height: 1.25 !important;
+// }
 
 :not(pre)>code[class*=language-],
 pre[class*=language-] {

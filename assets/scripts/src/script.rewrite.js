@@ -24,8 +24,8 @@ var Valley = (function() {
   var nav = navigator;
   var $doc = $(doc);
   var $win = $(win);
-  var body = $('body');
-  var header = $('.c-header');
+  var $body = $('body');
+  var $header = $('.c-header');
 
   return {
 
@@ -85,7 +85,7 @@ var Valley = (function() {
         }
 
         mapLocations = location_array;
-        console.log(mapLocations);
+        // console.log(mapLocations);
 
         //Add marker and info window for each group
         for (var i = 0; i < mapLocations.length; i++) {
@@ -207,14 +207,14 @@ var Valley = (function() {
     InitSideNav: function() {
       $('.js-nav-toggle').on('click', function(e) {
         e.preventDefault();
-        $('body').toggleClass('is-menu-active');
+        $body.toggleClass('is-menu-active');
       });
     },
 
     CheckSideNav: function() {
       if (Modernizr.mq('(min-width: 60em)')) {
-        if ($('body').hasClass('is-menu-active')) {
-          $('body').removeClass('is-menu-active');
+        if ($body.hasClass('is-menu-active')) {
+          $body.removeClass('is-menu-active');
         }
       }
     },
@@ -231,7 +231,7 @@ var Valley = (function() {
         var parent = $(this).parent();
 
         $('html, body').animate({
-          scrollTop: ( parent.next().offset().top - header.height() )
+          scrollTop: ( parent.next().offset().top - $header.height() )
         }, 1000);
       });
     },
@@ -239,12 +239,12 @@ var Valley = (function() {
     CheckHeaderPosition: function() {
       var scroll = $win.scrollTop();
 
-      if ( body.hasClass( 'home' ) ) {
-        if ( scroll > 150 && !header.hasClass( 'is-visible' ) ) {
-          header.addClass( 'is-visible' );
+      if ( $body.hasClass( 'home' ) ) {
+        if ( scroll > 150 && !$header.hasClass( 'is-visible' ) ) {
+          $header.addClass( 'is-visible' );
         }
-        if ( scroll < 150 && header.hasClass( 'is-visible' ) ) {
-          header.removeClass( 'is-visible' );
+        if ( scroll < 150 && $header.hasClass( 'is-visible' ) ) {
+          $header.removeClass( 'is-visible' );
         }
       }
     },
@@ -290,7 +290,7 @@ var Valley = (function() {
         var name = $this.data('location-name');
 
         if (typeof Cookies.get('vc_location_id') !== "undefined" && typeof Cookies.get('vc_location_name') !== "undefined") {
-          if ( Cookies.get('vc_location_id') == id && Cookies.get('vc_location_name') == name ) {
+          if ( Cookies.get('vc_location_id') === String(id) && Cookies.get('vc_location_name') === String(name) ) {
             $this
               .removeClass('js-set-location')
               .addClass('js-remove-location')

@@ -60,38 +60,35 @@
     <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </div><![endif]-->
 
-    <!-- <div class="o-container o-container--page"> -->
+    <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
+    <header class="c-header u-clearfix">
 
-      <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+      <?php get_template_part( 'partials/notification' ); ?>
 
-      <header class="c-header u-clearfix">
+      <div class="o-container o-container--full">
 
-        <?php get_template_part( 'partials/notification' ); ?>
+        <?php get_template_part( 'partials/logo' ); ?>
 
-        <div class="o-container o-container--full">
-
-          <?php get_template_part( 'partials/logo' ); ?>
-
-          <nav class="c-navigation u-cf">
-            <div class="u-pull-right--lg u-margin u-margin--lg--none">
-              <?php get_search_form(); ?>
-            </div>
-            <div class="u-pull-left--lg">
-              <?php wp_nav_menu( array(
-                'theme_location' => 'Nav v2',
-                'menu' => 'Nav v2',
-                'container' => false,
-                'menu_class' => 'c-menu u-cf'
-              ) ); ?>
-            </div>
-          </nav>
-          <div class="u-pull-right u-hide--lg">
-            <button class="o-btn c-nav-toggle js-nav-toggle">
-              <i class="fa fa-lg fa-bars"></i>
-            </button>
+        <nav class="c-navigation u-cf">
+          <div class="u-pull-right--lg u-margin u-margin--lg--none">
+            <?php get_search_form(); ?>
           </div>
+          <div class="u-pull-left--lg">
+            <?php wp_nav_menu( array(
+              'theme_location' => 'Nav v2',
+              'menu' => 'Nav v2',
+              'container' => false,
+              'menu_class' => 'c-menu u-cf'
+            ) ); ?>
+          </div>
+        </nav>
+        <div class="u-pull-right u-hide--lg">
+          <button class="o-btn c-nav-toggle js-nav-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+          </button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="c-main">
+    <main class="c-main">
