@@ -37,6 +37,27 @@
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
+<?php
+if ( is_singular() ) {
+  if ( have_rows( 'meta_tags' ) ) { ?>
+    <!-- Add some prefetches/prerenders from the CMS -->
+<?php
+    while ( have_rows( 'meta_tags' ) ) {
+      the_row();
+?>
+    <link rel="<?= get_sub_field( 'prefetch_type' ) ?>" href="<?= get_sub_field( 'resource_url' ) ?>">
+<?php
+    }
+  }
+}
+if ( is_home() || is_page('messages') ) {
+  $next = get_next_posts_link();
+?>
+    <!-- Add some prefetches/prerenders from the CMS -->
+    <link rel="prefetch" href="<?= get_next_posts_page_link() ?>">
+    <link rel="prerender" href="<?= get_next_posts_page_link() ?>">
+<?php } ?>
+
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
