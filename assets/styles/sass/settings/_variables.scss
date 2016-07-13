@@ -51,6 +51,8 @@ $VCenable-grid-classes: true;
 // Typography
 $VCfont-stack:          "LatoWeb", "Open Sans", "Helvetica Neue", Arial, sans-serif;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
+$VCfont-stack-sys:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$VCfont-stack-system:   $VCfont-stack-sys;
 
 $VCwhite:               shade(#fff, 5%);
 $VCblack:               tint(#000, 5%);
