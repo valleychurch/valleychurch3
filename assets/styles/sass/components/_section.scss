@@ -49,11 +49,11 @@
 
 .c-section--hero {
   display: table;
-  height: calc(100vh - 200px);
-  padding: triple($VCbase) 0;
+  min-height: 65vh;
+  padding: double($VCbase) 0;
 
   @include breakpoint(lg) {
-    height: calc(100vh - 300px);
+    // height: calc(100vh - 300px);
   }
 
   > .o-container {
@@ -95,7 +95,7 @@
 }
 
 .c-section--top {
-  max-height: 60vh;
+  // max-height: 60vh;
 
   > .o-container {
     padding-top: 1rem;

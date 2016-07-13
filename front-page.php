@@ -115,7 +115,7 @@
       <?php wp_reset_query(); ?>
       <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
         <div class="o-col-xxs-12 o-col-lg-6">
-          <div class="o-card o-card--overlay u-margin--lg--none">
+          <div class="o-card o-card--overlay u-margin--none">
             <?php if ( get_field( 'image' ) ) {
               set_query_var( 'image_id', get_field('image')["id"] );
               set_query_var( 'class', 'o-card__img' );
@@ -193,7 +193,7 @@
   </section>
 
   <!-- Section: Messages -->
-  <section class="c-section">
+  <section class="c-section c-section--hero">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
@@ -234,8 +234,8 @@
     </div>
   </section>
 
-  <!-- Recent Blogs -->
-  <section class="c-section">
+  <!-- Section: Recent Blogs -->
+  <section class="c-section c-section--hero">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-xxs-12">
