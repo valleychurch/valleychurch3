@@ -567,5 +567,16 @@ function load_location() {
 }
 add_action( 'load_location', 'load_location' );
 
+/**
+ * Add ACF options page under Locations CPT
+ */
+if ( function_exists( 'acf_add_options_sub_page' ) ) {
+  $args = array(
+    'page_title'  => 'Location Settings',
+    'parent'      => 'edit.php?post_type=location',
+    'capability'  => 'manage_options'
+  );
+  acf_add_options_sub_page( $args );
+}
 
 ?>

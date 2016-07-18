@@ -1,6 +1,6 @@
     </main>
 
-    <footer class="c-footer u-clearfix">
+    <footer class="c-footer u-cf">
       <div class="o-container o-container--full">
         <div class="o-row">
           <div class="o-col-xxs-12 o-col-sm-9 u-text-center--xxs u-text-left--sm">
@@ -12,7 +12,7 @@
           </div>
           <div class="o-col-xxs-12 o-col-sm-3 u-text-center--xxs u-text-right--sm">
             <ul class="o-list o-list--inline u-margin u-margin--sm--none">
-              <li class="small">&copy; <?= date( 'Y' ); ?> <?= bloginfo( 'name' ); ?></li>
+              <li class="small">&copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?></li>
             </ul>
           </div>
         </div>

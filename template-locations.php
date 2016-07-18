@@ -5,12 +5,8 @@
 get_header();
 ?>
 
-  <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
-
-    <div class="c-map c-map--40">
-      <div class="c-map__inner js-google-map"></div>
-    </div>
-
+  <div class="c-map c-map--40">
+    <div class="c-map__inner js-google-map"></div>
   </div>
 
   <section class="c-section">

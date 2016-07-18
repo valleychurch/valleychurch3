@@ -1,8 +1,5 @@
 // Clearfix
-.u-clearfix,
-.u-cf {
-  @include clearfix;
-}
+.u-cf                   { @include clearfix; }
 
 // Grid ordering
 @each $breakpoint in map-keys($VCbreakpoints) {
@@ -15,20 +12,15 @@
   }
 }
 
-.u-flex-top       { align-items: flex-start; }
-.u-flex-bottom    { align-items: flex-end; }
-.u-flex-center    { align-items: center; }
-.u-flex-stretch   { align-items: stretch; }
-.u-flex-baseline  { align-items: baseline; }
+.u-flex-top             { align-items: flex-start; }
+.u-flex-bottom          { align-items: flex-end; }
+.u-flex-center          { align-items: center; }
+.u-flex-stretch         { align-items: stretch; }
+.u-flex-baseline        { align-items: baseline; }
 
 // Floats
-.u-pull-left {
-  @include pull-left;
-}
-
-.u-pull-right {
-  @include pull-right;
-}
+.u-pull-left            { @include pull-left; }
+.u-pull-right           { @include pull-right; }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
@@ -38,9 +30,7 @@
 }
 
 // Displays
-.u-center-block {
-  @include center-block;
-}
+.u-center-block         { @include center-block; }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
@@ -127,7 +117,6 @@
 .u-text-normal          { font-weight: $VCfont-normal; }
 .u-text-medium          { font-weight: $VCfont-medium; }
 .u-text-bold            { font-weight: $VCfont-bold; }
-
 
 
 // Background colours

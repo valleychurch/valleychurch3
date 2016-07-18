@@ -28,10 +28,10 @@
     <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
     <link rel="icon" type="image/png" href="/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
     <link rel="manifest" href="/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
-    <meta name="msapplication-TileColor" content="#b21e28">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
+    <meta name="msapplication-TileColor" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
-    <meta name="theme-color" content="#b21e28">
+    <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
 
     <!-- Prefetch some DNS -->
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
@@ -83,7 +83,7 @@ if ( is_home() || is_page('messages') ) {
 
     <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
-    <header class="c-header u-clearfix">
+    <header class="c-header u-cf">
 
       <?php get_template_part( 'partials/notification' ); ?>
 
