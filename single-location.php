@@ -95,6 +95,47 @@
     <div class="c-map__inner js-google-map"></div>
   </div>
 
+  <?php
+  $args = array(
+    'post_type' => 'post',
+    'post_status' => array( 'publish', 'private' ),
+    'posts_per_page' => 3,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'location',
+        'field' => 'slug',
+        'terms' => $post->slug
+      )
+    )
+  );
+  $posts = new WP_Query( $args );
+  if ( $posts->have_posts() ) : ?>
+  <section class="o-container c-section">
+
+    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+
+      <div class="c-post-content u-center-block u-text-center">
+
+        <h4 class="h2">Recent Blogs</h4>
+      </div>
+
+    </article>
+
+    <div class="o-row">
+  <?php
+    while ( $posts->have_posts() ) :
+      $posts->the_post();
+  ?>
+      <div class="o-col-xxs-12 o-col-sm-4">
+        <?php get_template_part( 'partials/card', 'blog' ); ?>
+      </div>
+  <?php endwhile; ?>
+    </div>
+
+  </section>
+  <?php else: endif;
+  wp_reset_query(); ?>
+
 <?php
 add_action( 'wp_footer', 'load_location', 50 );
 get_footer();

@@ -255,7 +255,6 @@
             'post_status' => array( 'publish', 'private' ),
             'posts_per_page' => 3
           );
-        $i = 1;
 
         $wp_query = new WP_Query( $args );
         if ( have_posts() ) :
@@ -265,7 +264,6 @@
           <?php get_template_part( 'partials/card', 'blog' ); ?>
           </div>
           <?php
-          $i++;
           endwhile;
         else : endif;
         wp_reset_query(); ?>
