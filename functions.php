@@ -339,7 +339,7 @@ add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
  * Try and load CSS ajax in the header (if it's not already come from localStorage)
  */
 function loadCSSAsync() { ?>
-  <!--<script>
+  <script>
     <?= file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
     if (!valley.css.loaded) {
       if (valley.isModernBrowser) {
@@ -572,7 +572,7 @@ add_action( 'load_location', 'load_location' );
  */
 if ( function_exists( 'acf_add_options_sub_page' ) ) {
   $args = array(
-    'page_title'  => 'Location Settings',
+    'title'       => 'Location Settings',
     'parent'      => 'edit.php?post_type=location',
     'capability'  => 'manage_options'
   );

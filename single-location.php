@@ -47,28 +47,28 @@
         <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
           <h3 class="u-margin--half">Contact</h3>
           <?php if ( get_field( 'phone_number' ) ) { ?>
-            <p><strong>Phone:</strong> <?= get_field( 'phone_number' ); ?>
+            <p><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
           <?php } ?>
           <?php if ( get_field( 'email_address' ) ) { ?>
-            <p><strong>Email:</strong> <?= get_field( 'email_address' ); ?>
+            <p><strong>Email:</strong> <a href="mailto:<?= get_field( 'email_address' ); ?>"><?= get_field( 'email_address' ); ?></a></p>
           <?php } ?>
         <?php } ?>
 
         <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
           <h3 class="u-margin--half">Follow us on social media</h3>
           <?php if ( get_field( 'social_twitter' ) ) { ?>
-          <a href="<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter">
-            <i class="fa fa-twitter fa-fw u-text-white">Twitter
+          <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter">
+            <i class="fa fa-twitter fa-fw u-text-white"></i>Twitter
           </a>
           <?php } ?>
           <?php if ( get_field( 'social_facebook' ) ) { ?>
-          <a href="<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook">
-            <i class="fa fa-facebook fa-fw u-text-white">Facebook
+          <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook">
+            <i class="fa fa-facebook-official fa-fw u-text-white"></i>Facebook
           </a>
           <?php } ?>
           <?php if ( get_field( 'social_instagram' ) ) { ?>
-          <a href="<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram">
-            <i class="fa fa-instagram fa-fw u-text-white">Instagram
+          <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram">
+            <i class="fa fa-instagram fa-fw u-text-white"></i>Instagram
           </a>
           <?php } ?>
         <?php } ?>
@@ -79,7 +79,7 @@
 
         <h2>Where do I go when I get there?</h2>
         <?php
-        echo get_field( 'location_get_there', 'location' );
+        echo get_field( 'location_get_there', 'location-settings' );
         if ( get_field( 'get_there' ) ) {
           echo get_field( 'get_there' );
         }
@@ -87,7 +87,7 @@
 
         <h2>What do you do for kids and youth?</h2>
         <?php
-        echo get_field( 'location_kids_youth', 'location' );
+        echo get_field( 'location_kids_youth', 'location-settings' );
         if ( get_field( 'kids_youth' ) ) {
           echo get_field( 'kids_youth' );
         }
@@ -95,7 +95,7 @@
 
         <h2>What happens during the service?</h2>
         <?php
-        echo get_field( 'location_service', 'location' );
+        echo get_field( 'location_service', 'location-settings' );
         if ( get_field( 'service' ) ) {
           echo get_field( 'service' );
         }
