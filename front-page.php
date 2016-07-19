@@ -25,7 +25,14 @@
       array(
         'post_type' => 'location',
         'post_status' => array( 'publish', 'private' ),
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'meta_query' = array(
+          array(
+            'key'       => 'hide_on_homepage',
+            'value'     => '1',
+            'compare'   => '!='
+          )
+        )
       );
 
     $wp_query = new WP_Query( $args );
@@ -87,9 +94,6 @@
                   <?php if ( $img_banner_small || $img_banner_medium ) { ?>
                   <!--[if IE 9]><video style="display: none;"><![endif]-->
                   <?php }
-                  //if ( $img_banner_medium ) { ?>
-                  <!-- <source media="(min-width: 60rem)" srcset="<?= $img_banner_medium[0]; ?>"> -->
-                  <?php //}
                   if ( $img_banner_medium ) { ?>
                   <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
                   <?php }
@@ -168,7 +172,7 @@
   <section class="c-section c-section--hero" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-xxs-12">
+        <div class="o-col-xxs-12">github
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Next Steps</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">

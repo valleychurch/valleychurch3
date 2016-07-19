@@ -33,22 +33,43 @@
       <div class="o-col-xxs-12 o-col-md-4 u-grid-1--md">
 
         <?php if ( get_field( 'address' ) ) { ?>
-          <h3>Address</h3>
-          <p><?= get_field( 'address' ); ?></p>
+          <h3 class="u-margin--half">Address</h3>
+          <address>
+            <?= get_field( 'address' ); ?>
+          </address>
         <?php } ?>
 
         <?php if ( get_field( 'service_times' ) ) { ?>
-          <h3>Service times</h3>
+          <h3 class="u-margin--half">Service times</h3>
           <p><?= get_field( 'service_times' ); ?></p>
         <?php } ?>
 
         <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
-          <h3>Contact</h3>
+          <h3 class="u-margin--half">Contact</h3>
           <?php if ( get_field( 'phone_number' ) ) { ?>
             <p><strong>Phone:</strong> <?= get_field( 'phone_number' ); ?>
           <?php } ?>
           <?php if ( get_field( 'email_address' ) ) { ?>
-            <p><strong>Phone:</strong> <?= get_field( 'email_address' ); ?>
+            <p><strong>Email:</strong> <?= get_field( 'email_address' ); ?>
+          <?php } ?>
+        <?php } ?>
+
+        <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
+          <h3 class="u-margin--half">Follow us on social media</h3>
+          <?php if ( get_field( 'social_twitter' ) ) { ?>
+          <a href="<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter">
+            <i class="fa fa-twitter fa-fw u-text-white">Twitter
+          </a>
+          <?php } ?>
+          <?php if ( get_field( 'social_facebook' ) ) { ?>
+          <a href="<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook">
+            <i class="fa fa-facebook fa-fw u-text-white">Facebook
+          </a>
+          <?php } ?>
+          <?php if ( get_field( 'social_instagram' ) ) { ?>
+          <a href="<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram">
+            <i class="fa fa-instagram fa-fw u-text-white">Instagram
+          </a>
           <?php } ?>
         <?php } ?>
 
