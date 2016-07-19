@@ -7,27 +7,31 @@
   }
   ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1 class="<?= ( get_field( 'hide_h1' ) == 1 ) ? 'u-hidden' : '' ?> <?= ( get_field( 'event_date' ) ) ? 'u-margin--half' : 'u-margin--none' ?>"><?php the_title(); ?></h1>
+        <div class="c-post-content u-center-block">
 
-        <?php if ( get_field( 'event_date' ) ) { ?>
-        <h2 class="h3">
-          <?php if ( get_field( 'event_time' ) ) {
-            echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
-          } else {
-            the_field( 'event_date' );
-          } ?>
-        </h2>
-        <?php } ?>
+          <h1 class="<?= ( get_field( 'hide_h1' ) == 1 ) ? 'u-hidden' : '' ?> <?= ( get_field( 'event_date' ) ) ? 'u-margin--half' : 'u-margin--none' ?>"><?php the_title(); ?></h1>
 
-        <?php the_content(); ?>
+          <?php if ( get_field( 'event_date' ) ) { ?>
+          <h2 class="h3">
+            <?php if ( get_field( 'event_time' ) ) {
+              echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
+            } else {
+              the_field( 'event_date' );
+            } ?>
+          </h2>
+          <?php } ?>
 
-        <?php get_template_part( 'partials/sharer' ); ?>
+          <?php the_content(); ?>
+
+          <?php get_template_part( 'partials/sharer' ); ?>
+
+        </div>
 
       </div>
 

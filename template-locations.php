@@ -14,14 +14,17 @@ get_header();
     <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
       <div class="o-row u-text-center">
+
         <div class="o-col-xxs-12">
           <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
         </div>
+
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-margin u-margin--md--double">
             <?= get_the_content(); ?>
           </p>
         </div>
+
       </div>
 
     </article>

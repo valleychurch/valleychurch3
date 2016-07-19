@@ -9,14 +9,17 @@ $paged = get_query_var( 'paged', 1 );
     <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
       <div class="o-row u-text-center">
+
         <div class="o-col-xxs-12">
           <h1 class="kilo u-margin--half">Recent Blogs</h1>
         </div>
+
         <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
           <p class="lead u-margin--none">
             We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team.
           </p>
         </div>
+
       </div>
 
     </article>
