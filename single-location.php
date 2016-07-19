@@ -79,7 +79,7 @@
 
         <h2>Where do I go when I get there?</h2>
         <?php
-        echo get_field( 'location_get_there', 'location-settings' );
+        echo get_field( 'location_get_there', 'option' );
         if ( get_field( 'get_there' ) ) {
           echo get_field( 'get_there' );
         }
@@ -87,7 +87,7 @@
 
         <h2>What do you do for kids and youth?</h2>
         <?php
-        echo get_field( 'location_kids_youth', 'location-settings' );
+        echo get_field( 'location_kids_youth', 'option' );
         if ( get_field( 'kids_youth' ) ) {
           echo get_field( 'kids_youth' );
         }
@@ -95,7 +95,7 @@
 
         <h2>What happens during the service?</h2>
         <?php
-        echo get_field( 'location_service', 'location-settings' );
+        echo get_field( 'location_service', 'option' );
         if ( get_field( 'service' ) ) {
           echo get_field( 'service' );
         }
@@ -109,7 +109,7 @@
 
   <div class="c-map c-map--40">
   <?php if ( get_field( 'google_maps_link' ) ) { ?>
-    <a class="o-btn c-map__btn" title="Get directions" href="<?= get_field( 'google_maps_link' ); ?>" role="button">
+    <a class="o-btn c-map__btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
       Get directions
     </a>
   <?php } ?>
