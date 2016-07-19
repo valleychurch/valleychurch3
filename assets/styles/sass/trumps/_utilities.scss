@@ -83,31 +83,34 @@
 .u-text-twitter,
 .fa-twitter,
 .fa-twitter-square {
-  color: #55acee;
+  color: $VCtwitter;
 }
 
 .u-background-twitter {
-  background-color: #55acee;
+  background-color: $VCtwitter;
+  border-color: shade($VCtwitter, 10%);
 }
 
 .u-text-facebook,
 .fa-facebook,
 .fa-facebook-official,
 .fa-facebook-square {
-  color: #3b5998;
+  color: $VCfacebook;
 }
 
 .u-background-facebook {
-  background-color: #3b5998;
+  background-color: $VCfacebook;
+  border-color: shade($VCfacebook, 10%);
 }
 
 .u-text-instagram,
 .fa-instagram {
-  color: #405de6;
+  color: $VCinstagram;
 }
 
 .u-background-instagram {
-  background-color: #405de6;
+  background-color: $VCinstagram;
+  border-color: shade($VCinstagram, 10%);
 }
 
 //Text colours

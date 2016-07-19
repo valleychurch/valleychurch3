@@ -61,6 +61,10 @@ $VCred:                 #b21e28;    // Pantone 7621C
 $VCyellow:              #f4ca1a;    // Pantone 7504C
 $VCblue:                complement($VCred);
 
+$VCtwitter:             #55acee;
+$VCfacebook:            #3b5998;
+$VCinstagram:           #405de6;
+
 $VCcolours: (
   "red": (
     darkest:            shade($VCred, 20%),
