@@ -7,18 +7,22 @@
   }
   ?>
 
-  <section class="o-container c-section u-background-grey--11">
+  <section class="c-section u-background-grey--11">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block u-text-center">
+      <div class="o-row">
 
-        <h1><?php the_title(); ?></h1>
-        <a class="o-btn o-btn--ghost o-btn--xsmall js-set-location" href="#" data-location-id="<?= $post->ID ?>" data-location-name="<?= get_the_title(); ?>">
-          Set as my main location
-        </a>
+        <div class="c-post-content u-center-block u-text-center">
 
-        <?php the_content(); ?>
+          <h1><?php the_title(); ?></h1>
+          <a class="o-btn o-btn--ghost o-btn--xsmall js-set-location" href="#" data-location-id="<?= $post->ID ?>" data-location-name="<?= get_the_title(); ?>">
+            Set as my main location
+          </a>
+
+          <?php the_content(); ?>
+
+        </div>
 
       </div>
 
@@ -26,80 +30,84 @@
 
   </section>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article class="o-row c-article u-margin">
+    <article class="o-container c-article u-margin">
 
-      <div class="o-col-xxs-12 o-col-md-4 u-grid-1--md">
+      <div class="o-row">
 
-        <?php if ( get_field( 'address' ) ) { ?>
-          <h3 class="u-margin--half">Address</h3>
-          <address>
-            <?= get_field( 'address' ); ?>
-          </address>
-        <?php } ?>
+        <div class="o-col-xxs-12 o-col-md-4 u-grid-1--md">
 
-        <?php if ( get_field( 'service_times' ) ) { ?>
-          <h3 class="u-margin--half">Service times</h3>
-          <p><?= get_field( 'service_times' ); ?></p>
-        <?php } ?>
-
-        <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
-          <h3 class="u-margin--half">Contact</h3>
-          <?php if ( get_field( 'phone_number' ) ) { ?>
-            <p><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
+          <?php if ( get_field( 'address' ) ) { ?>
+            <h3 class="u-margin--half">Address</h3>
+            <address>
+              <?= get_field( 'address' ); ?>
+            </address>
           <?php } ?>
-          <?php if ( get_field( 'email_address' ) ) { ?>
-            <p><strong>Email:</strong> <a href="mailto:<?= get_field( 'email_address' ); ?>"><?= get_field( 'email_address' ); ?></a></p>
+
+          <?php if ( get_field( 'service_times' ) ) { ?>
+            <h3 class="u-margin--half">Service times</h3>
+            <p><?= get_field( 'service_times' ); ?></p>
           <?php } ?>
-        <?php } ?>
 
-        <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
-          <h3 class="u-margin--half">Follow us on social media</h3>
-          <?php if ( get_field( 'social_twitter' ) ) { ?>
-          <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter">
-            <i class="fa fa-twitter fa-fw u-text-white"></i>Twitter
-          </a>
+          <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
+            <h3 class="u-margin--half">Contact</h3>
+            <?php if ( get_field( 'phone_number' ) ) { ?>
+              <p><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
+            <?php } ?>
+            <?php if ( get_field( 'email_address' ) ) { ?>
+              <p><strong>Email:</strong> <a href="mailto:<?= get_field( 'email_address' ); ?>"><?= get_field( 'email_address' ); ?></a></p>
+            <?php } ?>
           <?php } ?>
-          <?php if ( get_field( 'social_facebook' ) ) { ?>
-          <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook">
-            <i class="fa fa-facebook-official fa-fw u-text-white"></i>Facebook
-          </a>
+
+          <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
+            <h3 class="u-margin--half">Follow us on social media</h3>
+            <?php if ( get_field( 'social_twitter' ) ) { ?>
+            <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter">
+              <i class="fa fa-twitter fa-fw u-text-white"></i>Twitter
+            </a>
+            <?php } ?>
+            <?php if ( get_field( 'social_facebook' ) ) { ?>
+            <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook">
+              <i class="fa fa-facebook-official fa-fw u-text-white"></i>Facebook
+            </a>
+            <?php } ?>
+            <?php if ( get_field( 'social_instagram' ) ) { ?>
+            <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram">
+              <i class="fa fa-instagram fa-fw u-text-white"></i>Instagram
+            </a>
+            <?php } ?>
           <?php } ?>
-          <?php if ( get_field( 'social_instagram' ) ) { ?>
-          <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram">
-            <i class="fa fa-instagram fa-fw u-text-white"></i>Instagram
-          </a>
-          <?php } ?>
-        <?php } ?>
 
-      </div>
+        </div>
 
-      <div class="o-col-xxs-12 o-col-md-8 u-grid-0--md">
+        <div class="o-col-xxs-12 o-col-md-8 u-grid-0--md">
 
-        <h2>Where do I go when I get there?</h2>
-        <?php
-        echo get_field( 'location_get_there', 'option' );
-        if ( get_field( 'get_there' ) ) {
-          echo get_field( 'get_there' );
-        }
-        ?>
+          <h2>Where do I go when I get there?</h2>
+          <?php
+          echo get_field( 'location_get_there', 'option' );
+          if ( get_field( 'get_there' ) ) {
+            echo get_field( 'get_there' );
+          }
+          ?>
 
-        <h2>What do you do for kids and youth?</h2>
-        <?php
-        echo get_field( 'location_kids_youth', 'option' );
-        if ( get_field( 'kids_youth' ) ) {
-          echo get_field( 'kids_youth' );
-        }
-        ?>
+          <h2>What do you do for kids and youth?</h2>
+          <?php
+          echo get_field( 'location_kids_youth', 'option' );
+          if ( get_field( 'kids_youth' ) ) {
+            echo get_field( 'kids_youth' );
+          }
+          ?>
 
-        <h2>What happens during the service?</h2>
-        <?php
-        echo get_field( 'location_service', 'option' );
-        if ( get_field( 'service' ) ) {
-          echo get_field( 'service' );
-        }
-        ?>
+          <h2>What happens during the service?</h2>
+          <?php
+          echo get_field( 'location_service', 'option' );
+          if ( get_field( 'service' ) ) {
+            echo get_field( 'service' );
+          }
+          ?>
+
+        </div>
 
       </div>
 
