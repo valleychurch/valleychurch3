@@ -13,13 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
-    <link rel="manifest" href="/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
-    <link rel="shortcut icon" href="/favicon.ico?v=<?= VC_THEME_VERSION ?>">
-    <meta name="msapplication-config" content="/browserconfig.xml?v=<?= VC_THEME_VERSION ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= get_template_directory_uri(); ?>/assets/favicons/apple-touch-icon.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
+    <link rel="manifest" href="<?= get_template_directory_uri(); ?>/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
+    <link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
+    <link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon.ico?v=<?= VC_THEME_VERSION ?>">
+    <meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/assets/favicons/browserconfig.xml?v=<?= VC_THEME_VERSION ?>">
     <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
 
     <!-- Prefetch some DNS -->
