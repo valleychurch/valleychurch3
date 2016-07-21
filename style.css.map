@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA;;;;;;;;;;;;;;;;;EAiBE,ACjBF;;;;;;;;;;;;;;;;;;;;;EAqBE",
+"mappings": "AAAA;;;;;;;;;;;;;;;;;;;EAmBE,ACnBF;;;;;;;;;;;;;;;;;;;;;EAqBE",
 "sources": ["assets/styles/sass/_theme-info.scss","assets/styles/sass/_changelog.scss"],
 "names": [],
 "file": "style.css"
