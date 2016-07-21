@@ -16,47 +16,39 @@
 
       <div class="o-row">
 
-        <div class="o-col-xxs-12">
+        <div class="o-col-xxs-8 o-col-md-4 o-col-lg-3 u-center-block--xxs">
 
-          <div class="o-row">
+          <?php
+          set_query_var( 'page_id', $message_id );
+          set_query_var( 'margin', true );
+          get_template_part( 'partials/hero' );
+          ?>
 
-            <div class="o-col-xxs-8 o-col-md-4 o-col-lg-3 u-center-block--xxs">
+        </div>
 
-              <?php
-              set_query_var( 'page_id', $message_id );
-              set_query_var( 'margin', true );
-              get_template_part( 'partials/hero' );
-              ?>
+        <div class="o-col-xxs-12 o-col-md-8 o-col-lg-9">
 
+          <h1><?php the_title(); ?></h1>
+          <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
+          <h2><?= get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
+          <?php } ?>
+
+          <div class="o-flag u-margin--double">
+            <div class="o-flag__fix">
+              <?php get_template_part( 'partials/avatar' ); ?>
             </div>
-
-            <div class="o-col-xxs-12 o-col-md-8 o-col-lg-9">
-
-              <h1><?php the_title(); ?></h1>
-              <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
-              <h2><?= get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
-              <?php } ?>
-
-              <div class="o-flag u-margin--double">
-                <div class="o-flag__fix">
-                  <?php get_template_part( 'partials/avatar' ); ?>
-                </div>
-                <div class="o-flag__flex">
-                  <p class="u-margin--none u-line-height--small">
-                    <?php if ( get_field( 'podcast_author' ) ) {
-                      the_field( 'podcast_author' );
-                    } else {
-                      the_author();
-                    } ?>
-                  </p>
-                </div>
-              </div>
-
-              <?php the_content(); ?>
-
+            <div class="o-flag__flex">
+              <p class="u-margin--none u-line-height--small">
+                <?php if ( get_field( 'podcast_author' ) ) {
+                  the_field( 'podcast_author' );
+                } else {
+                  the_author();
+                } ?>
+              </p>
             </div>
-
           </div>
+
+          <?php the_content(); ?>
 
         </div>
 

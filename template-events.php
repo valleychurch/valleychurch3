@@ -38,16 +38,6 @@ get_header(); ?>
       'posts_per_page' => -1,
     );
   $locations = get_posts( $location_args );
-  // if ( $my_location != 0 && !isset( $query_location ) ) {
-  //   if ( !headers_sent() ) {
-  //     header('Location: ?locationid=' . $my_location );
-  //     die();
-  //   } else {
-  //     echo '<script type="text/javascript">';
-  //     echo 'window.location.href="?locationid=' . $my_location . '";';
-  //     echo '</script>';
-  //   }
-  // }
 ?>
 
   <section class="c-section u-background-grey--11">
@@ -69,19 +59,6 @@ get_header(); ?>
               <?php } ?>
             </div>
           </div>
-          <!-- <div class="o-col-xxs-12 o-col-md-2">
-            <label for="date-from">From</label>
-            <input type="date" name="datefrom" id="date-from" min="<?= date( "Y-m-d" ); ?>" max="<?= date( "Y-m-d", strtotime("+1 years")); ?>" value="<?= date( "Y-m-d" ); ?>">
-          </div>
-          <div class="o-col-xxs-12 o-col-md-2">
-            <label for="date-to">To</label>
-            <input type="date" name="dateto" id="date-to" min="<?= date( "Y-m-d" ); ?>" max="<?= date( "Y-m-d", strtotime("+1 years")); ?>" value="<?= date( "Y-m-d", strtotime("+2 months") ); ?>">
-          </div>
-          <div class="o-col-xxs-12 o-col-md-2">
-            <label>&nbsp;</label>
-            <input type="submit" class="o-btn js-search-events" value="Search">
-            <input type="reset" class="o-btn o-btn--reset js-reset-events" value="Reset">
-          </div> -->
         </div>
       </div>
 
@@ -93,8 +70,6 @@ get_header(); ?>
           $tax_query = [];
           $meta_query = [];
           $current_page = get_query_var( 'paged',  1 );
-          // $datefrom = ( isset( $_GET['datefrom'] ) ? $_GET['datefrom'] : date("Y-m-d") );
-          // $dateto = ( isset( $_GET['dateto'] ) ? $_GET['dateto'] : date("Y-m-d", strtotime("+2 months") ) );
 
           if ( isset( $query_location ) && $query_location != 0 ) {
             $tax_query[] =
@@ -105,21 +80,6 @@ get_header(); ?>
                 'operator'  => 'IN',
               );
           }
-
-          // $meta_query[] =
-          //   array(
-          //     'relation'  => 'AND',
-          //     array(
-          //       'key'     => 'datetime_start',
-          //       'value'   => strtotime( $datefrom ),
-          //       'compare' => '>='
-          //     ),
-          //     array(
-          //       'key'     => 'datetime_start',
-          //       'value'   => strtotime( $dateto ),
-          //       'compare' => '<='
-          //     )
-          //   );
 
           $args =
             array(
@@ -132,9 +92,6 @@ get_header(); ?>
             );
 
           $wp_query = new WP_Query( $args );
-          // echo '<pre>';
-          // print_r($wp_query);
-          // echo '</pre>';
 
           if ( $wp_query->have_posts() ) :
             while ( $wp_query->have_posts() ) :

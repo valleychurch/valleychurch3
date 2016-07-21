@@ -1,5 +1,5 @@
 # Valley Church WordPress theme
-## Version 3.2.0
+## Version 3.2.0dev
 
 ### Changelog
 * v3.2.0 - Style and script rewrite! Lots has changed. All new 'section' classes. New location pages.
