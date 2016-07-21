@@ -197,7 +197,7 @@ function generate_blurred_image( $meta ) {
 
   return $meta;
 }
-add_filter( 'wp_generate_attachment_metadata', 'generate_blurred_image' );
+//add_filter( 'wp_generate_attachment_metadata', 'generate_blurred_image' );
 
 /**
  * Add custom menu support and register a menu
