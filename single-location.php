@@ -36,7 +36,35 @@
 
       <div class="o-row">
 
-        <div class="o-col-xxs-12 o-col-md-4 u-grid-1--md">
+        <div class="o-col-xxs-12 o-col-md-8">
+
+          <h2>Where do I go when I get there?</h2>
+          <?php
+          echo get_field( 'location_get_there', 'option' );
+          if ( get_field( 'get_there' ) ) {
+            echo get_field( 'get_there' );
+          }
+          ?>
+
+          <h2>What do you do for kids and youth?</h2>
+          <?php
+          echo get_field( 'location_kids_youth', 'option' );
+          if ( get_field( 'kids_youth' ) ) {
+            echo get_field( 'kids_youth' );
+          }
+          ?>
+
+          <h2>What happens during the service?</h2>
+          <?php
+          echo get_field( 'location_service', 'option' );
+          if ( get_field( 'service' ) ) {
+            echo get_field( 'service' );
+          }
+          ?>
+
+        </div>
+
+        <div class="o-col-xxs-12 o-col-md-4">
 
           <?php if ( get_field( 'address' ) ) { ?>
             <h3 class="u-margin--half">Address</h3>
@@ -78,34 +106,6 @@
             </a>
             <?php } ?>
           <?php } ?>
-
-        </div>
-
-        <div class="o-col-xxs-12 o-col-md-8 u-grid-0--md">
-
-          <h2>Where do I go when I get there?</h2>
-          <?php
-          echo get_field( 'location_get_there', 'option' );
-          if ( get_field( 'get_there' ) ) {
-            echo get_field( 'get_there' );
-          }
-          ?>
-
-          <h2>What do you do for kids and youth?</h2>
-          <?php
-          echo get_field( 'location_kids_youth', 'option' );
-          if ( get_field( 'kids_youth' ) ) {
-            echo get_field( 'kids_youth' );
-          }
-          ?>
-
-          <h2>What happens during the service?</h2>
-          <?php
-          echo get_field( 'location_service', 'option' );
-          if ( get_field( 'service' ) ) {
-            echo get_field( 'service' );
-          }
-          ?>
 
         </div>
 
