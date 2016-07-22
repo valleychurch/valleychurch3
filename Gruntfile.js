@@ -95,6 +95,7 @@ module.exports = function(grunt) {
               'assets/scripts/src/script.rewrite.js'
             ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
+          'assets/scripts/dist/jquery.migrate.min.js': 'assets/scripts/lib/jquery.migrate.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
           'assets/scripts/dist/cookie.min.js' : 'assets/scripts/lib/js.cookie.js',
