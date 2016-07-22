@@ -15,7 +15,11 @@
 
         <div class="c-post-content u-center-block">
 
-          <h1><?php the_title(); ?></h1>
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <?php } ?>
 
           <div class="o-flag u-margin--double">
             <div class="o-flag__fix">

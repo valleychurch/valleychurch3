@@ -211,6 +211,58 @@
 }
 
 
+//Padding
+.u-padding,
+.u-padding-bottom {
+  padding-bottom: $VCbase;
+
+  &--quadruple { padding-bottom: quadruple($VCbase) !important; }
+  &--double    { padding-bottom: double($VCbase) !important; }
+  &--half      { padding-bottom: half($VCbase) !important; }
+  &--third     { padding-bottom: third($VCbase) !important; }
+  &--quarter   { padding-bottom: quarter($VCbase) !important; }
+  &--none      { padding-bottom: 0 !important; }
+}
+
+.u-padding-top {
+  padding-top: $VCbase;
+
+  &--quadruple { padding-top: quadruple($VCbase) !important; }
+  &--double    { padding-top: double($VCbase) !important; }
+  &--half      { padding-top: half($VCbase) !important; }
+  &--third     { padding-top: third($VCbase) !important; }
+  &--quarter   { padding-top: quarter($VCbase) !important; }
+  &--none      { padding-top: 0 !important; }
+}
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-padding--#{$breakpoint},
+    .u-padding-bottom--#{$breakpoint} {
+      padding-bottom: $VCbase;
+
+      &--quadruple { padding-bottom: quadruple($VCbase) !important; }
+      &--double    { padding-bottom: double($VCbase) !important; }
+      &--half      { padding-bottom: half($VCbase) !important; }
+      &--third     { padding-bottom: third($VCbase) !important; }
+      &--quarter   { padding-bottom: quarter($VCbase) !important; }
+      &--none      { padding-bottom: 0 !important; }
+    }
+
+    .u-padding-top--#{$breakpoint} {
+      padding-top: $VCbase;
+
+      &--quadruple { padding-top: quadruple($VCbase) !important; }
+      &--double    { padding-top: double($VCbase) !important; }
+      &--half      { padding-top: half($VCbase) !important; }
+      &--third     { padding-top: third($VCbase) !important; }
+      &--quarter   { padding-top: quarter($VCbase) !important; }
+      &--none      { padding-top: 0 !important; }
+    }
+  }
+}
+
+
 //Visually hidden
 .u-hidden {
   position: absolute;

@@ -86,8 +86,8 @@ if ( is_home() || is_page('messages') ) {
           </div>
           <div class="u-pull-left--lg">
             <?php wp_nav_menu( array(
-              'theme_location' => 'Nav v2',
-              'menu' => 'Nav v2',
+              'theme_location' => 'Main Menu',
+              'menu' => 'Main Menu',
               'container' => false,
               'menu_class' => 'c-menu u-cf'
             ) ); ?>

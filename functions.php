@@ -18,7 +18,7 @@ define( 'VC_THEME_VERSION', '3.2.0dev' );
  *
  * @return bool
  */
-function check_plural($string) {
+function check_plural( $string ) {
   return ( substr( $string, -1 ) == 's' );
 }
 
@@ -31,7 +31,7 @@ function check_plural($string) {
  * @return string
  *
  */
-function create_singular($name, $label = null) {
+function create_singular( $name, $label = null ) {
   return ( ( $label != null ) ? ( $label ) : ( ucwords( $name ) ) );
 }
 
@@ -45,7 +45,7 @@ function create_singular($name, $label = null) {
  *
  * @return string
  */
-function create_plural($name, $label = null, $nameplural, $labelplural) {
+function create_plural( $name, $label = null, $nameplural, $labelplural ) {
   return ( ( $label != null ) ?( $labelplural ? $label : $label . 's' ) : ( $nameplural ? ucwords( $name ) : ucwords( $name ) . 's' ) );
 }
 
@@ -205,7 +205,14 @@ function generate_blurred_image( $meta ) {
 add_theme_support( 'menus' );
 
 function register_custom_menu() {
-  register_nav_menu( 'primary', 'Nav v2' );
+  register_nav_menu( 'main-menu', 'Main Menu' );
+  register_nav_menu( 'footer-new-here', 'Footer "New Here?"' );
+  register_nav_menu( 'footer-services', 'Footer "Services"' );
+  register_nav_menu( 'footer-church-life', 'Footer "Church Life"' );
+  register_nav_menu( 'footer-watch-read', 'Footer "Watch & Read"' );
+  register_nav_menu( 'footer-get-involved', 'Footer "Get Involved"' );
+  register_nav_menu( 'footer-people-matter', 'Footer "People Matter"' );
+  register_nav_menu( 'footer-venue-hire', 'Footer "Venue Hire"' );
 }
 add_action( 'after_setup_theme', 'register_custom_menu' );
 
@@ -586,13 +593,13 @@ add_action( 'load_location', 'load_location' );
 /**
  * Add ACF options page under Locations CPT
  */
-if ( function_exists( 'acf_add_options_sub_page' ) ) {
-  $args = array(
-    'title'       => 'Location Settings',
-    'parent'      => 'edit.php?post_type=location',
-    'capability'  => 'manage_options'
-  );
-  acf_add_options_sub_page( $args );
-}
+// if ( function_exists( 'acf_add_options_sub_page' ) ) {
+//   $args = array(
+//     'title'       => 'Location Settings',
+//     'parent'      => 'edit.php?post_type=location',
+//     'capability'  => 'manage_options'
+//   );
+//   acf_add_options_sub_page( $args );
+// }
 
 ?>

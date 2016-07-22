@@ -47,6 +47,10 @@
     padding-left: 0;
   }
 
+  img.ajax-loader {
+    width: auto;
+  }
+
   .o-ratio,
   iframe {
     max-width: 100%;
@@ -54,10 +58,6 @@
 
   .no-flexbox & {
     float: none;
-  }
-
-  &--wide {
-    max-width: 60rem;
   }
 }
 

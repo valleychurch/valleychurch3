@@ -15,12 +15,15 @@
 
         <div class="c-post-content u-center-block u-text-center">
 
-          <h1><?php the_title(); ?></h1>
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <?php } ?>
           <a class="o-btn o-btn--ghost o-btn--xsmall js-set-location" href="#" data-location-id="<?= $post->ID ?>" data-location-name="<?= get_the_title(); ?>">
             Set as my main location
           </a>
 
-          <?php the_content(); ?>
 
         </div>
 
@@ -38,29 +41,7 @@
 
         <div class="o-col-xxs-12 o-col-md-8">
 
-          <h2>Where do I go when I get there?</h2>
-          <?php
-          echo get_field( 'location_get_there', 'option' );
-          if ( get_field( 'get_there' ) ) {
-            echo get_field( 'get_there' );
-          }
-          ?>
-
-          <h2>What do you do for kids and youth?</h2>
-          <?php
-          echo get_field( 'location_kids_youth', 'option' );
-          if ( get_field( 'kids_youth' ) ) {
-            echo get_field( 'kids_youth' );
-          }
-          ?>
-
-          <h2>What happens during the service?</h2>
-          <?php
-          echo get_field( 'location_service', 'option' );
-          if ( get_field( 'service' ) ) {
-            echo get_field( 'service' );
-          }
-          ?>
+          <?php the_content(); ?>
 
         </div>
 

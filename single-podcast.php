@@ -28,7 +28,11 @@
 
         <div class="o-col-xxs-12 o-col-md-8 o-col-lg-9">
 
-          <h1><?php the_title(); ?></h1>
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <?php } ?>
           <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
           <h2><?= get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
           <?php } ?>
