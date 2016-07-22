@@ -404,6 +404,7 @@ add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
 
 /**
  * Add custom post type options to a select menu
+ * http://www.mattross.io/2014/08/25/programmatic-selectable-recipients-with-pipes-in-wpcf7/
  */
 function dynamic_select_list( $tag, $unused ) {
   $options = (array)$tag['options'];
@@ -414,6 +415,14 @@ function dynamic_select_list( $tag, $unused ) {
 
   if ( !isset( $term ) )
     return $tag;
+
+  $befores = $tag['pipes']->collect_befores();
+  $afters = $tag['pipes']->collect_afters();
+
+  $pipes_new = array();
+  for( $i = 0; $i < count($befores); $i++ ) {
+    $pipes_new[] = $befores[$i] . '|' . $afters[$i];
+  }
 
   $args = array (
     'posts_per_page' => -1,
@@ -426,10 +435,19 @@ function dynamic_select_list( $tag, $unused ) {
     return $tag;
 
   foreach ( $cpts as $cpt ) {
-    $tag['raw_values'][] = $cpt->post_title;
-    $tag['values'][] = $cpt->post_title;
-    $tag['labels'][] = $cpt->post_title;
+    $id = $cpt->ID;
+    $title = $cpt->post_title;
+    $email = get_field( 'email_address', $id );
+
+    $tag['raw_values'][] = $id;
+    $tag['values'][] = $id;
+    $tag['labels'][] = $title;
+    if ( $email != null ) {
+      $pipes_new[] = $title . '|' . $email;
+    }
   }
+
+  $tag['pipes'] = new WPCF7_Pipes( $pipes_new );
 
   return $tag;
 }
