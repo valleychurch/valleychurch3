@@ -32,16 +32,19 @@
     &,
     &:active {
       color: $VCwhite;
-      // text-decoration: underline;
+      text-decoration: none;
     }
 
     &:hover,
     &:focus {
       color: white;
+      text-decoration: underline;
     }
   }
 
-  .logo {
-    padding: 0;
+  .c-logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
   }
 }
