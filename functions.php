@@ -403,32 +403,37 @@ add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
 
 
 /**
- * Add connect groups to a select menu
+ * Add custom post type options to a select menu
  */
-function add_locations_to_contact_form( $tag, $unused ) {
-  if ( $tag['name'] != 'locations' )
+function dynamic_select_list( $tag, $unused ) {
+  $options = (array)$tag['options'];
+
+  foreach( $options as $option )
+    if ( preg_match( '%^posttype:([-0-9a-zA-Z_]+)$%', $option, $matches ) )
+      $term = $matches[1];
+
+  if ( !isset( $term ) )
     return $tag;
 
   $args = array (
     'posts_per_page' => -1,
-    'post_type' => 'location',
+    'post_type' => $term
   );
 
-  $locations = get_posts( $args );
+  $cpts = get_posts( $args );
 
-  if ( !$locations )
+  if ( !$cpts )
     return $tag;
 
-  foreach ( $locations as $loc ) {
-    var_dump($tag);
-    $tag['raw_values'][] = $loc->post_title;
-    $tag['values'][] = $loc->post_title;
-    $tag['labels'][] = $loc->post_title;
-    $tag['pipes']->pipes[] = array ( 'before' => $loc->post_title, 'after' => $loc->post_title );
+  foreach ( $cpts as $cpt ) {
+    $tag['raw_values'][] = $cpt->post_name;
+    $tag['values'][] = $cpt->post_name;
+    $tag['labels'][] = $cpt->post_name;
   }
+
   return $tag;
 }
-add_filter( 'wpcf7_form_tag', 'add_locations_to_contact_form', 10, 2);
+add_filter( 'wpcf7_form_tag', 'dynamic_select_list', 10, 2 );
 
 
 /**
