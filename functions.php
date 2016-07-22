@@ -426,9 +426,9 @@ function dynamic_select_list( $tag, $unused ) {
     return $tag;
 
   foreach ( $cpts as $cpt ) {
-    $tag['raw_values'][] = $cpt->post_name;
-    $tag['values'][] = $cpt->post_name;
-    $tag['labels'][] = $cpt->post_name;
+    $tag['raw_values'][] = $cpt->post_title;
+    $tag['values'][] = $cpt->post_title;
+    $tag['labels'][] = $cpt->post_title;
   }
 
   return $tag;
