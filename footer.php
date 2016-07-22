@@ -49,14 +49,16 @@
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-new-here',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
 
                 <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Services</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-services',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
               </div>
 
@@ -65,7 +67,8 @@
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-church-life',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
               </div>
 
@@ -74,14 +77,16 @@
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-watch-read',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
 
                 <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Get Involved</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-get-involved',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
               </div>
 
@@ -90,14 +95,16 @@
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-people-matter',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
 
                 <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Venue Hire</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-venue-hire',
                   'container' => false,
-                  'menu_class' => 'o-list small u-margin'
+                  'menu_class' => 'o-list small u-margin',
+                  'fallback_cb' => false
                 ) ); ?>
               </div>
             </div>
