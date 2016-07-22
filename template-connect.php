@@ -35,12 +35,12 @@ if (have_posts()) :
 
   </section>
 
-  <div class="c-map c-map--40">
+  <!-- <div class="c-map c-map--40">
     <div class="c-map__inner js-google-map"></div>
-  </div>
+  </div> -->
 
 <?php
 endwhile; else : endif; wp_reset_query();
-add_action( 'wp_footer', 'load_connect_groups', 50 );
+// add_action( 'wp_footer', 'load_connect_groups', 50 );
 get_footer();
 ?>
