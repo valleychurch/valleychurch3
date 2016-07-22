@@ -337,45 +337,6 @@ function _remove_script_version( $src ){
 add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
-/**
- * Try and load CSS ajax in the header (if it's not already come from localStorage)
- */
-function loadCSSAsync() { ?>
-  <script>
-    <?= file_get_contents( get_template_directory_uri() . '/assets/scripts/dist/global.min.js' ); ?>
-    if (!valley.css.loaded) {
-      if (valley.isModernBrowser) {
-        loadCSSWithAjax('<?= get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>', true);
-      } else {
-        loadCSSWithLink('<?= get_template_directory_uri() . "/assets/styles/css/style.min.css"; ?>');
-      }
-    }
-
-    if (!valley.fontAwesome.loaded) {
-      if (valley.isModernBrowser) {
-        loadCSSWithAjax('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', false);
-      }
-      else {
-        loadCSSWithLink('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css');
-      }
-    }
-  </script>
-  <script src="//use.typekit.net/jtz8aoh.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>-->
-<?php
-}
-// add_action( 'wp_head', 'loadCSSAsync', 30 );
-
-/**
- * Include noscript CSS in the footer
- */
-function loadCSSFallback() { ?>
-  <!--<noscript>
-    <link href="<?= get_template_directory_uri() . '/assets/styles/css/style.min.css'; ?>" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  </noscript>-->
-<?php }
-// add_action( 'wp_footer', 'loadCSSFallback', 30 );
 
 /**
  * Add class to `body` if there's a featured image
@@ -439,6 +400,36 @@ function add_contact_methods( $contactmethods ) {
   return $contactmethods;
 }
 add_filter( 'user_contactmethods', 'add_contact_methods', 10, 1 );
+
+
+/**
+ * Add connect groups to a select menu
+ */
+function add_locations_to_contact_form( $tag, $unused ) {
+  if ( $tag['name'] != 'locations' )
+    return $tag;
+
+  $args = array (
+    'posts_per_page' => -1,
+    'post_type' => 'location',
+  );
+
+  $locations = get_posts( $args );
+
+  if ( !$locations )
+    return $tag;
+
+  foreach ( $locations as $loc ) {
+    var_dump($tag);
+    $tag['raw_values'][] = $loc->post_title;
+    $tag['values'][] = $loc->post_title;
+    $tag['labels'][] = $loc->post_title;
+    $tag['pipes']->pipes[] = array ( 'before' => $loc->post_title, 'after' => $loc->post_title );
+  }
+  return $tag;
+}
+add_filter( 'wpcf7_form_tag', 'add_locations_to_contact_form', 10, 2);
+
 
 /**
  * Remove WP emoji
