@@ -586,7 +586,7 @@ function load_location() {
     }
   }
 
-  load_map( $map_centre, 15, false, $location_array, "''", false, false );
+  load_map( $map_centre, 15, true, $location_array, "''", false, false );
 }
 add_action( 'load_location', 'load_location' );
 

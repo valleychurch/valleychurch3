@@ -124,7 +124,7 @@ var Valley = (function() {
 
         Valley.CentreMap(auto_size);
 
-        google.maps.event.addDomListener(win, 'resize', Valley.CentreMap);
+        google.maps.event.addDomListener(win, 'resize', Valley.CentreMap(auto_size));
       }
     },
 
