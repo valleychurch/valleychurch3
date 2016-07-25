@@ -554,7 +554,7 @@ function load_locations() {
   if ( $wp_query->have_posts() ) {
     while ( $wp_query->have_posts() ) {
       $wp_query->the_post();
-      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "'],";
+      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','','" . get_permalink() . "'],";
     }
   }
 
@@ -581,7 +581,7 @@ function load_location() {
   if ( $wp_query->have_posts() ) {
     while ( $wp_query->have_posts() ) {
       $wp_query->the_post();
-      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','" . get_the_content() . "','" . get_permalink() . "']";
+      $location_array .= "[" . get_field( 'location' )['coordinates'] . ",'" . get_the_title() . "','','" . get_permalink() . "']";
       $map_centre = "new google.maps.LatLng(" . get_field( 'location' )['coordinates'] . ")";
     }
   }

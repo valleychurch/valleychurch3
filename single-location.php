@@ -47,11 +47,20 @@
 
         <div class="o-col-xxs-12 o-col-md-4">
 
+          <hr class="u-hide--md" />
+
           <?php if ( get_field( 'address' ) ) { ?>
             <h3 class="u-margin--half">Address</h3>
             <address>
-              <?= get_field( 'address' ); ?>
+              <p class="lead">
+                <?= get_field( 'address' ); ?>
+              </p>
             </address>
+            <?php if ( get_field( 'google_maps_link' ) ) { ?>
+              <a class="o-btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
+                Get directions
+              </a>
+            <?php } ?>
           <?php } ?>
 
           <?php if ( get_field( 'service_times' ) ) { ?>
@@ -96,6 +105,7 @@
 
   </section>
 
+  <?php if ( get_field( 'location' ) ) { ?>
   <div class="c-map c-map--40">
   <?php if ( get_field( 'google_maps_link' ) ) { ?>
     <a class="o-btn c-map__btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
@@ -104,6 +114,7 @@
   <?php } ?>
     <div class="c-map__inner js-google-map"></div>
   </div>
+  <?php } ?>
 
   <?php
   $args = array(
@@ -147,6 +158,8 @@
   wp_reset_query(); ?>
 
 <?php
-add_action( 'wp_footer', 'load_location', 50 );
+if ( get_field( 'location' ) ) {
+  add_action( 'wp_footer', 'load_location', 50 );
+}
 get_footer();
 ?>
