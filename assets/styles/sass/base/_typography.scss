@@ -126,8 +126,10 @@ h1, h2, h3, h4, h5, h6,
     text-decoration: none;
   }
 
-  @include breakpoint(md) {
-    .c-post-content p + & {
+  .c-post-content p + & {
+    margin-top: $VCbase;
+
+    @include breakpoint(md) {
       margin-top: $VCbase * 1.5;
     }
   }
@@ -381,6 +383,13 @@ blockquote {
   &:after {
     bottom: 0;
   }
+}
+
+/**
+ * Addresses
+ */
+address {
+  font-style: normal;
 }
 
 
