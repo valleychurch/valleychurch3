@@ -1,4 +1,4 @@
-<article class="o-card o-card--shadow">
+<article <?= post_class("o-card o-card--shadow") ?>>
   <a href="<?= get_permalink(); ?>">
   <?php set_query_var( 'class', 'o-card__img' ); ?>
   <?php get_template_part( 'partials/hero' ); ?>

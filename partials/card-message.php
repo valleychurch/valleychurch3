@@ -1,7 +1,9 @@
-<article>
+<article <?= post_class() ?>>
   <a class="o-card o-card--shadow" href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>">
-    <?php set_query_var( 'class', 'o-card__img' ); ?>
-    <?php get_template_part( 'partials/hero' ); ?>
+    <?php
+    set_query_var( 'class', 'o-card__img' );
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero' ); ?>
     <div class="o-card__body">
       <p class="small u-text-muted u-margin--quarter">
         <?= get_the_content(); ?>
