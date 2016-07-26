@@ -22,7 +22,7 @@
           <?php } ?>
 
           <?php if ( get_field( 'event_date' ) ) { ?>
-          <h2 class="h3" <?= ( get_field( 'event_start_datetime' ) ? "itemprop='" . date( 'c', get_field( 'event_start_datetime' ) ) . "'" : "" ); ?>>
+          <h2 class="h3" <?= ( get_field( 'event_start_datetime' ) ? 'itemprop="startDate" content="' . date( 'c', get_field( 'event_start_datetime' ) ) . '"' : "" ); ?>>
             <?php if ( get_field( 'event_time' ) ) {
               echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
             } else {
