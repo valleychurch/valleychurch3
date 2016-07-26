@@ -23,18 +23,27 @@
       <div class="o-container u-padding-top u-padding-bottom">
         <div class="o-row">
 
-          <div class="o-col-xxs-12 o-col-lg-3 u-text-center--xxs u-text-left--lg u-grid-1--xxs u-grid-0--lg u-margin">
+          <div class="o-col-xxs-12 o-col-lg-3 u-text-center--xxs u-text-left--lg u-grid-1--xxs u-grid-0--lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
             <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" class="u-margin c-logo">
-            <p class="small u-text-muted u-line-height--small">
-              Fourfields<br/>
-              Bamber Bridge<br/>
-              Preston<br/>
-              Lancashire<br/>
-              PR5 6GS
+            <p class="u-hidden" itemprop="name"><?= bloginfo( 'name' ); ?></p>
+            <p class="small u-text-muted u-line-height--small" itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
+              <span itemprop="streetAddress">
+                Fourfields<br/>
+                Bamber Bridge<br/>
+              </span>
+              <span itemprop="addressLocality">
+                Preston<br/>
+              </span>
+              <span itemprop="addressRegion">
+                Lancashire<br/>
+              </span>
+              <span itemprop="postalCode">
+                PR5 6GS
+              </span>
             </p>
             <p class="small">
-              <i class="fa fa-fw fa-phone"></i> <a href="tel:+441772696717">01772 696717</a><br/>
-              <i class="fa fa-fw fa-envelope"></i> <a href="mailto:general@valleychurch.eu">general@valleychurch.eu</a>
+              <i class="fa fa-fw fa-phone"></i> <a href="tel:01772696717" itemscope itemprop="telephone">01772 696717</a><br/>
+              <i class="fa fa-fw fa-envelope"></i> <a href="mailto:general@valleychurch.eu" itemscope itemprop="email">general@valleychurch.eu</a>
             <p>
               <a href="https://twitter.com/valley_church" target="_blank"><i class="fa fa-lg u-text-white fa-twitter"></i></a>&nbsp;
               <a href="https://facebook.com/wearevalleychurch" target="_blank"><i class="fa fa-lg u-text-white fa-facebook-official"></i></a>&nbsp;
@@ -42,7 +51,7 @@
             </p>
           </div>
 
-          <div class="o-col-xxs-12 o-col-lg-9 u-grid-0--xxs u-grid-1--lg u-margin">
+          <div class="o-col-xxs-12 o-col-lg-9 u-grid-0--xxs u-grid-1--lg u-margin u-hide u-show--sm">
             <div class="o-row">
               <div class="o-col-xxs-12 o-col-xs-6 o-col-sm-3">
                 <h6 class="u-text-muted u-margin--quarter u-text-uppercase">New Here?</h6>
