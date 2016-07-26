@@ -114,7 +114,7 @@
 
         <div class="row">
           <p class="small u-text-muted u-text-center--xs u-text-left--lg">
-            &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. Valley is a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
+            &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. We're a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
               target="_blank">Registered Charity No. 1125080</a>. <a href="/privacy">Privacy &amp; Cookie Policy</a>.
           </p>
         </div>

@@ -17,23 +17,26 @@
  * to `ul`/`ol` elements to make them match.
  *
  * Markup:
- *   <h1>About</h1>
- *   <p class="lead">With a call from <a href="#0">Psalm 78</a>, <a href="#0">
- *   Senior Pastors Ed &amp; Michele Carter</a> launched Valley Church in April
- *   2007.</p>
- *   <p>Our desire is to empower you to fulfil all that God has for you and
- *   called you to be. We believe that Church should be a home for everyone, no
- *   matter who they are or where they’ve come from. We long to empower the new
- *   generation to continually direct the future of the Church.</p>
+ *   <h1>Volunteering</h1>
+ *   <p class="lead">We believe that the church is the body of Christ and we all
+ *   have an important part to play.</p>
+ *   <p>Whether you&#8217;re great at looking after children, love making people
+ *   feel at home, or simply just want to do whatever you can, we want to help
+ *   you get the most out of your God-given skills and talents!</p>
  *   <p>We have a number of teams that you can get involved with:</p>
  *   <ul>
- *     <li>VIP (hosting and hospitality)</li>
- *     <li><a href="#0">Community Action Team</a></li>
- *     <li><a href="#0">Valley Kids (2-11s)</a></li>
- *     <li><a href="#0">Creative (worship)</a></li>
- *     <li>Tech and production (sound, lighting and visuals)</li>
+ *     <li>Hosting (new volunteers start here!)</li>]
+ *     <li>Hospitality (new volunteers start here!)</li>
+ *     <li><a href="/community">Community Action Team</a></li>
+ *     <li><a href="/kids">Valley Kids (1 and walking&ndash;11s)</a></li>
+ *     <li><a href="/creative">Creative (worship)</a></li>
+ *     <li>Production (sound, lighting and visuals)</li>
  *     <li>Communications (design, print, video and web)</li>
  *   </ul>
+ *   <p>If you want to volunteer, use our
+ *   <a href="http://volunteer.valleychurch.eu" target="_blank">online volunteer application form</a>,
+ *   fill out a details card on Sunday or talk to one of our team for more
+ *   information.</p>
  *
  * Weight: 0
  *
@@ -103,12 +106,14 @@ ol {
  * heading but still want your text to be displayed inline.
  *
  * Markup:
- *   <h1>Heading 1</h1>
- *   <h2>Heading 2</h2>
- *   <h3>Heading 3</h3>
- *   <h4>Heading 4</h4>
- *   <h5>Heading 5</h5>
- *   <h6>Heading 6</h6>
+ *   <h1 class="{{modifier_class}}">Heading 1</h1>
+ *   <h2 class="{{modifier_class}}">Heading 2</h2>
+ *   <h3 class="{{modifier_class}}">Heading 3</h3>
+ *   <h4 class="{{modifier_class}}">Heading 4</h4>
+ *   <h5 class="{{modifier_class}}">Heading 5</h5>
+ *   <h6 class="{{modifier_class}}">Heading 6</h6>
+ *
+ * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
  *
  * Weight: 2
  *

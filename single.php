@@ -7,7 +7,7 @@
   }
   ?>
 
-  <section class=" c-section">
+  <section class="c-section">
 
     <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
