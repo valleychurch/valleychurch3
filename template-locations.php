@@ -42,6 +42,13 @@ get_header();
       'post_type' => 'location',
       'post_status' => array( 'publish', 'private' ),
       'posts_per_page' => -1,
+      'meta_query' => array(
+        array(
+          'key'       => 'hide_on_homepage',
+          'value'     => '1',
+          'compare'   => '!='
+        )
+      )
     );
 
   $locations = new WP_Query( $args );
