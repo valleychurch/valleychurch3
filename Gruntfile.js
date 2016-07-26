@@ -51,6 +51,7 @@ module.exports = function(grunt) {
         map: true,
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('cssnano')(),
         ]
       },
       dist: {
@@ -84,6 +85,7 @@ module.exports = function(grunt) {
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
+              'assets/scripts/lib/js.cookie.js',
               'assets/scripts/src/script.js'
             ],
           'assets/scripts/dist/script.rewrite.<%= pkg.version %>.min.js':
@@ -92,13 +94,12 @@ module.exports = function(grunt) {
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
               'assets/scripts/lib/responsiveslides.js',
+              'assets/scripts/lib/js.cookie.js',
               'assets/scripts/src/script.rewrite.js'
             ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
-          'assets/scripts/dist/jquery.migrate.min.js': 'assets/scripts/lib/jquery.migrate.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
-          'assets/scripts/dist/cookie.min.js' : 'assets/scripts/lib/js.cookie.js',
         }
       }
     },

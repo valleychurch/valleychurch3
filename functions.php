@@ -287,10 +287,8 @@ function theme_files() {
   remove_action( 'wp_head', 'wp_generator' );                           // WP version
 
   // Register our CSS
-  //wp_register_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css', null, null );
   wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
 
-  //wp_enqueue_style( 'font-awesome' );
   wp_enqueue_style( 'site' );
 
   // Remove built in jQuery
@@ -298,19 +296,15 @@ function theme_files() {
 
   // Register our scripts
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCsaESemSF6YjvYG4Vrz9bDerYZaD3f2i4', null, null, false );
-  wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true );
+  wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true ); /* Edit at cdn.fontawesome.com */
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
-  wp_register_script( 'jquery-migrate', get_template_directory_uri() . '/assets/scripts/dist/jquery.migrate.min.js', null, null, true );
-  wp_register_script( 'cookie', get_template_directory_uri() . '/assets/scripts/dist/cookie.min.js', null, null, true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.rewrite.' . VC_THEME_VERSION . '.min.js', [ 'jquery', 'cookie' ], null, true );
+  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.rewrite.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );
   }
   wp_enqueue_script( 'font-awesome' );
   wp_enqueue_script( 'jquery' );
-  wp_enqueue_script( 'jquery-migrate' );
-  wp_enqueue_script( 'cookie' );
   wp_enqueue_script( 'site' );
 };
 add_action( 'wp_enqueue_scripts', 'theme_files' );
@@ -586,7 +580,7 @@ function load_location() {
     }
   }
 
-  load_map( $map_centre, 15, true, $location_array, "''", false, false );
+  load_map( $map_centre, 15, false, $location_array, "''", false, false );
 }
 add_action( 'load_location', 'load_location' );
 

@@ -33,7 +33,7 @@
 
           <?php the_content(); ?>
 
-          <?php get_template_part( 'partials/sharer' ); ?>
+          <?php //get_template_part( 'partials/sharer' ); ?>
 
         </div>
 
