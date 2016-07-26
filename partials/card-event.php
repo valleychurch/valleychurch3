@@ -7,7 +7,7 @@
         <?php the_title(); ?>
       </h2>
       <?php if ( get_field( 'event_date' ) ) { ?>
-      <h3 class="h4 o-card__subtitle u-margin--none u-text-black">
+      <h3 class="h4 o-card__subtitle u-margin--none u-text-black" <?= ( get_field( 'event_start_datetime' ) ? "itemprop='" . date( 'c', get_field( 'event_start_datetime' ) ) . "'" : "" ); ?>>
         <?php if ( get_field( 'event_time' ) ) {
           echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
         } else {
