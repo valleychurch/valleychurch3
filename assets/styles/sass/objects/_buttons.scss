@@ -1,9 +1,7 @@
 /**
  * Buttons
  *
- * Branded button styling for use everywhere! We get very specific about what
- * can and can't be a button, so only `<a role="button">`, `<button>` and
- * `<input type="submit">` can use the `.o-btn` class.
+ * Branded button styling for use everywhere!
  *
  * Styleguide: objects.buttons
  */
@@ -11,14 +9,12 @@
 /**
  * Default button
  *
- * Default button style. Notice that a normal `a` tag (without `role="button"`)
- * doesn't become a button.
+ * Default button style
  *
  * Markup:
  * <a class="o-btn {{modifier_class}}" role="button">a[role="button"]</a>
  * <button class="o-btn {{modifier_class}}">button</button>
  * <input type="submit" class="o-btn {{modifier_class}}" value='input[type="submit"]'>
- * <a class="o-btn {{modifier_class}}">a</a>
  *
  * .o-btn--large - Large button
  * .o-btn--small - Small button
@@ -26,75 +22,72 @@
  *
  * Styleguide: objects.buttons.default
  */
-a[role="button"],
-button,
-input[type="submit"] {
-  &.o-btn {
-    display: inline-block;
-    width: auto;
-    height: auto;
-    padding: quarter($VCbase) three-quarters($VCbase);
-    margin: 0 0 quarter($VCbase);
+&.o-btn {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: quarter($VCbase) three-quarters($VCbase);
+  margin: 0 0 quarter($VCbase);
 
-    @include font-stack-alt;
-    @include font-size(17);
-    font-weight: $VCfont-light;
-    line-height: $VCline-height;
-    letter-spacing: .5px;
+  @include font-stack-alt;
+  @include font-size(17);
+  font-weight: $VCfont-light;
+  line-height: $VCline-height;
+  letter-spacing: .5px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: colour("red");
+  border: 1px solid colour("red", dark);
+  border-radius: 4px;
+  box-shadow: none;
+  user-select: none;
+  touch-action: manipulation;
+
+  @include transition;
+
+  &:hover,
+  &:focus,
+  &:visited {
     color: white;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: none;
+    background-color: colour("red", dark);
+    border-color: colour("red", x-dark);
+  }
 
-    vertical-align: middle;
-    cursor: pointer;
-    background-color: colour("red");
-    border: 1px solid colour("red", dark);
-    border-radius: 4px;
-    box-shadow: none;
-    user-select: none;
-    touch-action: manipulation;
+  @include breakpoint(sm) {
+    @include font-size(18);
+  }
 
-    @include transition;
+  .o-btn-group & {
+    max-width: 19rem;
+    min-width: 100%;
+    margin-right: auto;
+    margin-bottom: half($VCbase);
+    margin-left: auto;
 
-    &:hover,
-    &:focus,
-    &:visited {
-      color: white;
-      background-color: colour("red", dark);
-      border-color: colour("red", x-dark);
+    @include breakpoint(md) {
+      display: inline-flex;
+      flex: 0 0 (100% / 3);
+      max-width: 100%;
+      min-width: (100% / 3);
+      margin-right: quarter($VCbase);
+      margin-bottom: tuple($VCbase, .75);
+      margin-left: quarter($VCbase);
     }
 
-    @include breakpoint(sm) {
-      @include font-size(18);
-    }
-
-    .o-btn-group & {
-      max-width: 19rem;
-      min-width: 100%;
-      margin-right: auto;
-      margin-bottom: half($VCbase);
-      margin-left: auto;
-
-      @include breakpoint(md) {
-        display: inline-flex;
-        flex: 0 0 (100% / 3);
-        max-width: 100%;
-        min-width: (100% / 3);
-        margin-right: quarter($VCbase);
-        margin-bottom: tuple($VCbase, .75);
-        margin-left: quarter($VCbase);
-      }
-
-      @include breakpoint(lg) {
-        align-items: center;
-        flex: 0 0 32%;
-        justify-content: center;
-        min-width: 32%;
-      }
+    @include breakpoint(lg) {
+      align-items: center;
+      flex: 0 0 32%;
+      justify-content: center;
+      min-width: 32%;
     }
   }
 }
+
 
 .o-btn-group {
   display: flex;

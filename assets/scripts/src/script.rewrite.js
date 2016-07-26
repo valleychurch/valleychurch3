@@ -57,6 +57,7 @@ var Valley = (function() {
      */
     InitMap: function(map_centre, zoom, auto_size, location_array, info_window_content, marker_click, scrollable) {
       if ( googleActive === true ) {
+        mapCentre = map_centre;
         mapOpts = {
           zoom: zoom,
           center: map_centre,
@@ -85,7 +86,7 @@ var Valley = (function() {
         }
 
         mapLocations = location_array;
-        // console.log(mapLocations);
+        console.log(mapLocations);
 
         //Add marker and info window for each group
         for (var i = 0; i < mapLocations.length; i++) {
