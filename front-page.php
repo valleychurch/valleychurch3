@@ -17,7 +17,6 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
-    <!-- <a href="#0" class="fa fa-5x fa-fw fa-angle-down c-section__arrow js-jump-down" aria-hidden="true"></a> -->
   </section>
 
   <?php
@@ -162,7 +161,7 @@
       </div>
       <div class="o-row o-row--center">
         <div class="o-col-xxs-12 o-col-center">
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/about" role="button">Read more about our vision</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/vision" role="button">Read more about our vision</a>
         </div>
       </div>
     </div>
@@ -172,7 +171,7 @@
   <section class="c-section c-section--hero" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-xxs-12">github
+        <div class="o-col-xxs-12">
           <h2 class="kilo u-margin--half u-text-white u-text-shadow">Next Steps</h2>
         </div>
         <div class="o-col-xxs-11 o-col-sm-8 o-col-md-7 u-center-block">
@@ -190,7 +189,6 @@
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy" role="button">Valley Academy</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin" role="button">Year-In Programme</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney" role="button">CAP Money Course</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/marriagecourse" role="button">Marriage Course</a>
         </div>
       </div>
     </div>

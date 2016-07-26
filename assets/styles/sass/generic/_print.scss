@@ -76,4 +76,9 @@
   /**
    * Start custom styles here
    */
+  .c-header,
+  .c-footer,
+  .c-featured {
+    display: none;
+  }
 }

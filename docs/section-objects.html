@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/manifest.json">
-    <link rel="mask-icon" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg" color="#b21e28">
-    <link rel="shortcut icon" href="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/favicon.ico">
-    <meta name="msapplication-config" content="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/favicons/browserconfig.xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/manifest.json">
+    <link rel="mask-icon" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/safari-pinned-tab.svg" color="#b21e28">
+    <link rel="shortcut icon" href="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/favicon.ico">
+    <meta name="msapplication-config" content="//cdn.valleychurch.eu/wp-conntent/themes/valleychurch3/assets/favicons/browserconfig.xml">
     <meta name="theme-color" content="#b21e28">
 
     <title>Valley Church Styleguide</title>
@@ -241,15 +241,18 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                   <section id="section-objects.buttons.default" class="u-margin--double" data-depth="3">
                     <h3 class="u-margin--half">Default button</h3>
                     <div class="kss-description">
-                      <p>Default button style</p>
+                      <p>Default button style. Notice that a normal <code>a</code> tag (without <code>role=&quot;button&quot;</code>)
+doesn&#39;t become a button.</p>
 
                     </div>
                     <div class="kss-modifier-block">
                       <div class="o-card o-card--outline u-margin--none">
                         <div class="o-card__body">
                           <div class="iframify">
-                            <a class="o-btn [modifier class]" role="button">Click me!</a>
-<button class="o-btn [modifier class]">Click me!</button>
+                            <a class="o-btn [modifier class]" role="button">a[role="button"]</a>
+<button class="o-btn [modifier class]">button</button>
+<input type="submit" class="o-btn [modifier class]" value='input[type="submit"]'>
+<a class="o-btn [modifier class]">a</a>
                           </div>
                         </div>
                       </div>
@@ -262,8 +265,10 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                             </div>
                           </div>
                           <div class="iframify">
-                            <a class="o-btn o-btn--large" role="button">Click me!</a>
-<button class="o-btn o-btn--large">Click me!</button>
+                            <a class="o-btn o-btn--large" role="button">a[role="button"]</a>
+<button class="o-btn o-btn--large">button</button>
+<input type="submit" class="o-btn o-btn--large" value='input[type="submit"]'>
+<a class="o-btn o-btn--large">a</a>
                           </div>
                         </div>
                       </div>
@@ -276,8 +281,10 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                             </div>
                           </div>
                           <div class="iframify">
-                            <a class="o-btn o-btn--small" role="button">Click me!</a>
-<button class="o-btn o-btn--small">Click me!</button>
+                            <a class="o-btn o-btn--small" role="button">a[role="button"]</a>
+<button class="o-btn o-btn--small">button</button>
+<input type="submit" class="o-btn o-btn--small" value='input[type="submit"]'>
+<a class="o-btn o-btn--small">a</a>
                           </div>
                         </div>
                       </div>
@@ -290,15 +297,19 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                             </div>
                           </div>
                           <div class="iframify">
-                            <a class="o-btn o-btn--xsmall" role="button">Click me!</a>
-<button class="o-btn o-btn--xsmall">Click me!</button>
+                            <a class="o-btn o-btn--xsmall" role="button">a[role="button"]</a>
+<button class="o-btn o-btn--xsmall">button</button>
+<input type="submit" class="o-btn o-btn--xsmall" value='input[type="submit"]'>
+<a class="o-btn o-btn--xsmall">a</a>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html">&lt;a class=&quot;o-btn [modifier class]&quot; role=&quot;button&quot;&gt;Click me!&lt;/a&gt;
-&lt;button class=&quot;o-btn [modifier class]&quot;&gt;Click me!&lt;/button&gt;
+<code class="language-html">&lt;a class=&quot;o-btn [modifier class]&quot; role=&quot;button&quot;&gt;a[role=&quot;button&quot;]&lt;/a&gt;
+&lt;button class=&quot;o-btn [modifier class]&quot;&gt;button&lt;/button&gt;
+&lt;input type=&quot;submit&quot; class=&quot;o-btn [modifier class]&quot; value=&#x27;input[type=&quot;submit&quot;]&#x27;&gt;
+&lt;a class=&quot;o-btn [modifier class]&quot;&gt;a&lt;/a&gt;
 </code></pre>
                       </div>
                     </div>
@@ -314,8 +325,9 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                       <div class="o-card o-card--outline u-margin--none">
                         <div class="o-card__body">
                           <div class="iframify">
-                            <a class="o-btn o-btn--ghost [modifier class]" role="button">Click me!</a>
-<button class="o-btn o-btn--ghost [modifier class]">Click me!</button>
+                             <a class="o-btn o-btn--ghost [modifier class]" role="button">a[role="button"]</a>
+ <button class="o-btn o-btn--ghost [modifier class]">button</button>
+ <input type="submit" class="o-btn o-btn--ghost [modifier class]" value='input[type="submit"]'>
                           </div>
                         </div>
                       </div>
@@ -328,15 +340,17 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                             </div>
                           </div>
                           <div class="iframify">
-                            <a class="o-btn o-btn--ghost o-btn--ghost--white" role="button">Click me!</a>
-<button class="o-btn o-btn--ghost o-btn--ghost--white">Click me!</button>
+                             <a class="o-btn o-btn--ghost o-btn--ghost--white" role="button">a[role="button"]</a>
+ <button class="o-btn o-btn--ghost o-btn--ghost--white">button</button>
+ <input type="submit" class="o-btn o-btn--ghost o-btn--ghost--white" value='input[type="submit"]'>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html">&lt;a class=&quot;o-btn o-btn--ghost [modifier class]&quot; role=&quot;button&quot;&gt;Click me!&lt;/a&gt;
-&lt;button class=&quot;o-btn o-btn--ghost [modifier class]&quot;&gt;Click me!&lt;/button&gt;
+<code class="language-html"> &lt;a class=&quot;o-btn o-btn--ghost [modifier class]&quot; role=&quot;button&quot;&gt;a[role=&quot;button&quot;]&lt;/a&gt;
+ &lt;button class=&quot;o-btn o-btn--ghost [modifier class]&quot;&gt;button&lt;/button&gt;
+ &lt;input type=&quot;submit&quot; class=&quot;o-btn o-btn--ghost [modifier class]&quot; value=&#x27;input[type=&quot;submit&quot;]&#x27;&gt;
 </code></pre>
                       </div>
                     </div>
@@ -352,8 +366,10 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                       <div class="o-card o-card--outline u-margin--none">
                         <div class="o-card__body">
                           <div class="iframify">
-                             <a class="o-btn o-btn--reset [modifier class]" role="button">Click me!</a>
- <button class="o-btn o-btn--reset [modifier class]">Click me!</button>
+                            *
+ <a class="o-btn o-btn--reset [modifier class]" role="button">a[role="button"]</a>
+ <button class="o-btn o-btn--reset [modifier class]">button</button>
+ <input type="submit" class="o-btn o-btn--reset [modifier class]" value='input[type="submit"]'>
                           </div>
                         </div>
                       </div>
@@ -366,15 +382,19 @@ can and can&#39;t be a button, so only <code>&lt;a role=&quot;button&quot;&gt;</
                             </div>
                           </div>
                           <div class="iframify">
-                             <a class="o-btn o-btn--reset o-btn--reset--alt" role="button">Click me!</a>
- <button class="o-btn o-btn--reset o-btn--reset--alt">Click me!</button>
+                            *
+ <a class="o-btn o-btn--reset o-btn--reset--alt" role="button">a[role="button"]</a>
+ <button class="o-btn o-btn--reset o-btn--reset--alt">button</button>
+ <input type="submit" class="o-btn o-btn--reset o-btn--reset--alt" value='input[type="submit"]'>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html"> &lt;a class=&quot;o-btn o-btn--reset [modifier class]&quot; role=&quot;button&quot;&gt;Click me!&lt;/a&gt;
- &lt;button class=&quot;o-btn o-btn--reset [modifier class]&quot;&gt;Click me!&lt;/button&gt;
+<code class="language-html">*
+ &lt;a class=&quot;o-btn o-btn--reset [modifier class]&quot; role=&quot;button&quot;&gt;a[role=&quot;button&quot;]&lt;/a&gt;
+ &lt;button class=&quot;o-btn o-btn--reset [modifier class]&quot;&gt;button&lt;/button&gt;
+ &lt;input type=&quot;submit&quot; class=&quot;o-btn o-btn--reset [modifier class]&quot; value=&#x27;input[type=&quot;submit&quot;]&#x27;&gt;
 </code></pre>
                       </div>
                     </div>

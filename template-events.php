@@ -46,7 +46,7 @@ get_header(); ?>
 
   <section class="c-section u-background-grey--11">
 
-    <form name="events-search" method="GET" action="<?php echo get_permalink(); ?>">
+    <form name="events-search" method="GET" action="<?= get_permalink(); ?>">
 
       <div class="o-container">
         <div class="o-row u-margin">
@@ -91,8 +91,8 @@ get_header(); ?>
               'post_status'     => 'publish',
               'posts_per_page'  => 12,
               'paged'           => $current_page,
-              'meta_query'      => $meta_query,
               'tax_query'       => $tax_query,
+              'meta_query'      => $meta_query,
             );
 
           $wp_query = new WP_Query( $args );

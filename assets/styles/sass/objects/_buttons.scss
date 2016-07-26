@@ -11,11 +11,14 @@
 /**
  * Default button
  *
- * Default button style
+ * Default button style. Notice that a normal `a` tag (without `role="button"`)
+ * doesn't become a button.
  *
  * Markup:
- * <a class="o-btn {{modifier_class}}" role="button">Click me!</a>
- * <button class="o-btn {{modifier_class}}">Click me!</button>
+ * <a class="o-btn {{modifier_class}}" role="button">a[role="button"]</a>
+ * <button class="o-btn {{modifier_class}}">button</button>
+ * <input type="submit" class="o-btn {{modifier_class}}" value='input[type="submit"]'>
+ * <a class="o-btn {{modifier_class}}">a</a>
  *
  * .o-btn--large - Large button
  * .o-btn--small - Small button
@@ -23,68 +26,72 @@
  *
  * Styleguide: objects.buttons.default
  */
-.o-btn {
-  display: inline-block;
-  width: auto;
-  height: auto;
-  padding: quarter($VCbase) three-quarters($VCbase);
-  margin: 0 0 quarter($VCbase);
+a[role="button"],
+button,
+input[type="submit"] {
+  &.o-btn {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: quarter($VCbase) three-quarters($VCbase);
+    margin: 0 0 quarter($VCbase);
 
-  @include font-stack-alt;
-  @include font-size(17);
-  font-weight: $VCfont-light;
-  line-height: $VCline-height;
-  letter-spacing: .5px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: none;
-
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: colour("red");
-  border: 1px solid colour("red", dark);
-  border-radius: 4px;
-  box-shadow: none;
-  user-select: none;
-  touch-action: manipulation;
-
-  @include transition;
-
-  &:hover,
-  &:focus,
-  &:visited {
+    @include font-stack-alt;
+    @include font-size(17);
+    font-weight: $VCfont-light;
+    line-height: $VCline-height;
+    letter-spacing: .5px;
     color: white;
-    background-color: colour("red", dark);
-    border-color: colour("red", x-dark);
-  }
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
 
-  @include breakpoint(sm) {
-    @include font-size(18);
-  }
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: colour("red");
+    border: 1px solid colour("red", dark);
+    border-radius: 4px;
+    box-shadow: none;
+    user-select: none;
+    touch-action: manipulation;
 
-  .o-btn-group & {
-    max-width: 19rem;
-    min-width: 100%;
-    margin-right: auto;
-    margin-bottom: half($VCbase);
-    margin-left: auto;
+    @include transition;
 
-    @include breakpoint(md) {
-      display: inline-flex;
-      flex: 0 0 (100% / 3);
-      max-width: 100%;
-      min-width: (100% / 3);
-      margin-right: quarter($VCbase);
-      margin-bottom: tuple($VCbase, .75);
-      margin-left: quarter($VCbase);
+    &:hover,
+    &:focus,
+    &:visited {
+      color: white;
+      background-color: colour("red", dark);
+      border-color: colour("red", x-dark);
     }
 
-    @include breakpoint(lg) {
-      align-items: center;
-      flex: 0 0 32%;
-      justify-content: center;
-      min-width: 32%;
+    @include breakpoint(sm) {
+      @include font-size(18);
+    }
+
+    .o-btn-group & {
+      max-width: 19rem;
+      min-width: 100%;
+      margin-right: auto;
+      margin-bottom: half($VCbase);
+      margin-left: auto;
+
+      @include breakpoint(md) {
+        display: inline-flex;
+        flex: 0 0 (100% / 3);
+        max-width: 100%;
+        min-width: (100% / 3);
+        margin-right: quarter($VCbase);
+        margin-bottom: tuple($VCbase, .75);
+        margin-left: quarter($VCbase);
+      }
+
+      @include breakpoint(lg) {
+        align-items: center;
+        flex: 0 0 32%;
+        justify-content: center;
+        min-width: 32%;
+      }
     }
   }
 }
@@ -112,7 +119,7 @@
 }
 
 .o-btn--large {
-  padding: .5rem 1.25rem;
+  padding: half($VCbase) tuple($VCbase, 1.25);
   @include font-size(20);
 
   @include breakpoint(sm) {
@@ -125,9 +132,10 @@
  *
  * Clear out all default styles
  *
- * Markup:
- *  <a class="o-btn o-btn--reset {{modifier_class}}" role="button">Click me!</a>
- *  <button class="o-btn o-btn--reset {{modifier_class}}">Click me!</button>
+ * Markup: *
+ *  <a class="o-btn o-btn--reset {{modifier_class}}" role="button">a[role="button"]</a>
+ *  <button class="o-btn o-btn--reset {{modifier_class}}">button</button>
+ *  <input type="submit" class="o-btn o-btn--reset {{modifier_class}}" value='input[type="submit"]'>
  *
  * .o-btn--reset--alt - Alternative button with a light grey background
  *
@@ -169,8 +177,9 @@
  * Transparent button for use on dark backgrounds
  *
  * Markup:
- * <a class="o-btn o-btn--ghost {{modifier_class}}" role="button">Click me!</a>
- * <button class="o-btn o-btn--ghost {{modifier_class}}">Click me!</button>
+ *  <a class="o-btn o-btn--ghost {{modifier_class}}" role="button">a[role="button"]</a>
+ *  <button class="o-btn o-btn--ghost {{modifier_class}}">button</button>
+ *  <input type="submit" class="o-btn o-btn--ghost {{modifier_class}}" value='input[type="submit"]'>
  *
  * .o-btn--ghost--white - White variant for dark backgrounds
  *

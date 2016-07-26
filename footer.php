@@ -115,13 +115,13 @@
         <div class="row">
           <p class="small u-text-muted u-text-center--xs u-text-left--lg">
             &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. Valley is a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
-              target="_blank">Registered Charity No. 1125080</a>. Read our <a href="/privacy">Privacy &amp; Cookie Policy</a>.
+              target="_blank">Registered Charity No. 1125080</a>. <a href="/privacy">Privacy &amp; Cookie Policy</a>.
           </p>
         </div>
       </div>
     </footer>
 
-    <?php if( $_SERVER['HTTP_HOST'] === "valley.dev" || $_SERVER['HTTP_HOST'] === "lanpc130" ) {
+    <?php if ( $_SERVER['HTTP_HOST'] === "valley.dev" ) {
       $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://'; ?>
     <script src="<?= $protocol . $_SERVER['HTTP_HOST']; ?>:35729/livereload.js"></script>
     <?php } ?>
