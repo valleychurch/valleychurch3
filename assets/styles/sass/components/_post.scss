@@ -4,12 +4,6 @@
   img {
     width: 100%;
   }
-
-//     .objectfit & {
-//       object-fit: cover;
-//       object-position: center;
-//     }
-//   }
 }
 
 .c-post-content {
@@ -67,30 +61,30 @@
   }
 }
 
-article.podcast {
-  .c-featured {
-    position: relative;
+// article.podcast {
+//   .c-featured {
+//     position: relative;
 
-    &::before {
-      content: "\f144";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      display: inline-block;
-      font-family: "FontAwesome";
-      font-size: 10rem;
-      z-index: 10;
-      line-height: 1;
-      color: rgba(0,0,0,.35);
-      transition: color 250ms ease-in-out;
-    }
+//     &::before {
+//       content: "\f144";
+//       position: absolute;
+//       left: 50%;
+//       top: 50%;
+//       transform: translateX(-50%) translateY(-50%);
+//       display: inline-block;
+//       font-family: "FontAwesome";
+//       font-size: 10rem;
+//       z-index: 10;
+//       line-height: 1;
+//       color: rgba(0,0,0,.35);
+//       transition: color 250ms ease-in-out;
+//     }
 
-    &:hover::before {
-      color: rgba(0,0,0,.5);
-    }
-  }
-}
+//     &:hover::before {
+//       color: rgba(0,0,0,.5);
+//     }
+//   }
+// }
 
 .powerpress_player {
   margin-bottom: $VCbase;
