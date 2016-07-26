@@ -42,8 +42,8 @@
               </span>
             </p>
             <p class="small">
-              <i class="fa fa-fw fa-phone"></i> <a href="tel:01772696717" itemprop="telephone">01772 696717</a><br/>
-              <i class="fa fa-fw fa-envelope"></i> <a href="mailto:general@valleychurch.eu" itemprop="email">general@valleychurch.eu</a>
+              <i class="fa fa-fw fa-phone"></i> <span itemprop="telephone" content="+441772696717"><a href="tel:01772696717">01772 696717</a></span><br/>
+              <i class="fa fa-fw fa-envelope"></i> <span itemprop="email"><a href="mailto:general@valleychurch.eu">general@valleychurch.eu</a></span>
             <p>
               <a href="https://twitter.com/valley_church" target="_blank"><i class="fa fa-lg u-text-white fa-twitter"></i></a>&nbsp;
               <a href="https://facebook.com/wearevalleychurch" target="_blank"><i class="fa fa-lg u-text-white fa-facebook-official"></i></a>&nbsp;
