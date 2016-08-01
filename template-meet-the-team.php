@@ -61,19 +61,26 @@ get_header(); ?>
           <div class="o-col-xxs-12">
         <?php }
           if ( get_field( 'job_title' ) ) { ?>
-            <h2 class="u-margin--none"><?php the_title(); ?></h2>
+            <h2 class="u-margin--half"><?php the_title(); ?></h2>
             <h3><?php the_field( 'job_title' ); ?></h3>
           <?php } else { ?>
             <h2><?php the_title(); ?></h2>
           <?php }
           the_content();
-          if ( have_rows( 'twitter' ) ) {
-            while ( have_rows( 'twitter' ) ) {
+          if ( have_rows( 'social_media' ) ) {
+            while ( have_rows( 'social_media' ) ) {
               the_row(); ?>
           <p class="u-margin--half">
-            <a href="http://twitter.com/<?= get_sub_field( 'twitter_handle' ); ?>" target="_blank">
-              <i class="fa fa-lg fa-fw fa-twitter"></i>Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
+            <?php if ( get_sub_field( 'social_network' ) == "Twitter" ) { ?>
+            <a href="http://twitter.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
+              <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'name' ); ?> on Twitter
             </a>
+            <?php } ?>
+            <?php if ( get_sub_field( 'social_network' ) == "Instagram" ) { ?>
+            <a href="http://instagram.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
+              <i class="fa fa-lg fa-fw fa-instagram"></i> Follow <?php the_sub_field( 'name' ); ?> on Instagram
+            </a>
+            <?php } ?>
           </p>
           <?php }
           }

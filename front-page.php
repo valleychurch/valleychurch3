@@ -83,29 +83,13 @@
               the_post();
               if ( has_post_thumbnail() ) :
                 $img_id = get_post_thumbnail_id( $post->ID );
-                $img_banner = wp_get_attachment_image_src( $img_id, 'slide' );
-                $img_banner_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
-                $img_banner_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
+                $img = wp_get_attachment_image_src( $img_id, 'slide' );
+                $img_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
+                $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
             ?>
               <li class="o-slide">
                 <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
-                <picture>
-                  <?php if ( $img_banner_small || $img_banner_medium ) { ?>
-                  <!--[if IE 9]><video style="display: none;"><![endif]-->
-                  <?php }
-                  if ( $img_banner_medium ) { ?>
-                  <source media="(min-width: 40rem)" srcset="<?= $img_banner_medium[0]; ?>">
-                  <?php }
-                  if ( $img_banner_small ) { ?>
-                  <source srcset="<?= $img_banner_small[0]; ?>">
-                  <?php }
-                  if ( $img_banner_small || $img_banner_medium ) { ?>
-                  <!--[if IE 9]></video><![endif]-->
-                  <?php }
-                  if ( $img_banner_small ) { ?>
-                  <img srcset="<?= $img_banner_small[0]; ?>" alt="<?php the_title(); ?>" width="<?= $img_banner_small[1]; ?>" height="<?= $img_banner_small[2]; ?>">
-                  <?php } ?>
-                </picture>
+                <img srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>">
                 <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
               </li>
             <?php endif;

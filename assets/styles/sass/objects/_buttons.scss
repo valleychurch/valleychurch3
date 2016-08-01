@@ -94,20 +94,20 @@
   flex-wrap: wrap;
 }
 
-.o-btn--small {
-  @include font-size(14);
-
-  @include breakpoint(sm) {
-    @include font-size(15);
-  }
-}
-
 .o-btn--xsmall {
   padding: quarter($VCbase) half(three-quarters($VCbase));
   @include font-size(13);
 
   @include breakpoint(sm) {
     @include font-size(14);
+  }
+}
+
+.o-btn--small {
+  @include font-size(14);
+
+  @include breakpoint(sm) {
+    @include font-size(15);
   }
 }
 

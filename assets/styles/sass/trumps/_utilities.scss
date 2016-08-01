@@ -89,6 +89,15 @@
 .u-background-twitter {
   background-color: $VCtwitter;
   border-color: shade($VCtwitter, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCtwitter, 10%);
+      border-color: shade($VCtwitter, 20%);
+    }
+  }
 }
 
 .u-text-facebook,
@@ -101,6 +110,15 @@
 .u-background-facebook {
   background-color: $VCfacebook;
   border-color: shade($VCfacebook, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCfacebook, 10%);
+      border-color: shade($VCfacebook, 20%);
+    }
+  }
 }
 
 .u-text-instagram,
@@ -111,6 +129,15 @@
 .u-background-instagram {
   background-color: $VCinstagram;
   border-color: shade($VCinstagram, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCinstagram, 10%);
+      border-color: shade($VCinstagram, 20%);
+    }
+  }
 }
 
 //Text colours

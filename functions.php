@@ -326,7 +326,7 @@ function add_defer_attribute( $tag ) {
   }
   return $tag;
 }
-add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
+add_filter( 'script_loader_tag', 'add_defer_attribute', 10, 2 );
 
 /**
  * Remove `ver` querystring
@@ -366,7 +366,7 @@ add_filter( 'the_content', 'filter_ptags_on_content' );
  * Custom read more link
  */
 function modify_read_more_link() {
-  return '<a class="o-btn c-more-link" href="' . get_permalink() . '" role="button">Read more</a>';
+  return '<a class="o-btn" href="' . get_permalink() . '" role="button">Read more</a>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 

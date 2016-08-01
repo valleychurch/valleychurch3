@@ -24,7 +24,6 @@
             Set as my main location
           </a>
 
-
         </div>
 
       </div>
@@ -45,13 +44,13 @@
 
         </div>
 
-        <div class="o-col-xxs-12 o-col-md-4">
+        <aside class="o-col-xxs-12 o-col-md-4">
 
           <hr class="u-hide--md" />
 
           <?php if ( get_field( 'address' ) ) { ?>
             <h3 class="u-margin--half">Address</h3>
-            <address>
+            <address itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
               <p class="lead">
                 <?= get_field( 'address' ); ?>
               </p>
@@ -81,23 +80,23 @@
           <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
             <h3 class="u-margin--half">Follow us on social media</h3>
             <?php if ( get_field( 'social_twitter' ) ) { ?>
-            <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn u-background-twitter" role="button">
-              <i class="fa fa-twitter fa-fw u-text-white"></i>Twitter
+            <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn o-btn--small u-background-twitter" role="button">
+              <i class="fa fa-twitter fa-fw u-text-white"></i> Twitter
             </a>
             <?php } ?>
             <?php if ( get_field( 'social_facebook' ) ) { ?>
-            <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn u-background-facebook" role="button">
-              <i class="fa fa-facebook-official fa-fw u-text-white"></i>Facebook
+            <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn o-btn--small u-background-facebook" role="button">
+              <i class="fa fa-facebook-official fa-fw u-text-white"></i> Facebook
             </a>
             <?php } ?>
             <?php if ( get_field( 'social_instagram' ) ) { ?>
-            <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn u-background-instagram" role="button">
-              <i class="fa fa-instagram fa-fw u-text-white"></i>Instagram
+            <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn o-btn--small u-background-instagram" role="button">
+              <i class="fa fa-instagram fa-fw u-text-white"></i> Instagram
             </a>
             <?php } ?>
           <?php } ?>
 
-        </div>
+        </aside>
 
       </div>
 
@@ -138,6 +137,7 @@
       <div class="c-post-content u-center-block u-text-center">
 
         <h4 class="h2">Recent Blogs</h4>
+
       </div>
 
     </article>

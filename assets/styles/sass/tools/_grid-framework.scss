@@ -3,9 +3,21 @@
 // Used only by Bootstrap to generate the correct number of grid classes given
 // any value of `$grid-columns`.
 @mixin make-grid-columns($columns: $VCgrid-columns, $gutter: $VCgrid-gutter, $breakpoints: $VCbreakpoints) {
+
+  // Common properties for all breakpoints
+  %grid-column {
+    @include make-col-ready;
+  }
+
   $breakpoint-counter: 0;
   @each $breakpoint in map-keys($breakpoints) {
     $breakpoint-counter: ($breakpoint-counter + 1);
+
+    @for $i from 1 through $columns {
+      .o-col-#{$breakpoint}-#{$i} {
+        @extend %grid-column;
+      }
+    }
 
     @include breakpoint($breakpoint) {
       @if $VCenable-flex {
@@ -28,7 +40,8 @@
 
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
-          .o-col-#{$breakpoint}--#{$modifier}-#{$i} {
+          .o-col-#{$breakpoint}--#{$modifier}-#{$i},
+          .u-#{$modifier}-#{$i}--#{$breakpoint} {
             @include make-col-modifier($modifier, $i, $columns)
           }
         }
@@ -37,7 +50,8 @@
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
         @if $breakpoint-counter != 1 or $i != 0 { // Avoid emitting useless .col-xs-offset-0
-          .o-col-#{$breakpoint}--offset-#{$i} {
+          .o-col-#{$breakpoint}--offset-#{$i},
+          .u-offset-#{$i}--#{$breakpoint} {
             @include make-col-modifier(offset, $i, $columns)
           }
         }
