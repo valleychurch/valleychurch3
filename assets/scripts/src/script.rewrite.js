@@ -12,6 +12,7 @@ var googleActive = ( typeof google !== "undefined" ),
     mapMarkerIcon = "/wp-content/themes/valleychurch3/assets/images/dist/marker.png",
     mapMarkerIconSmall = "/wp-content/themes/valleychurch3/assets/images/dist/marker-small.png";
 
+/* https://snazzymaps.com/editor */
 mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
 
 var Valley = (function() {
@@ -142,10 +143,10 @@ var Valley = (function() {
 
     CheckNotifications: function() {
       try {
-        var notificationData = JSON.parse( localStorage.getItem( 'valley.notification' ) );
+        var notificationData = JSON.parse( localStorage.getItem( 'Valley.Notification' ) );
         if ( notificationData !== null ) {
           if ($('.c-notification').first().attr('id') !== notificationData.id) {
-            localStorage.removeItem( 'valley.notification' );
+            localStorage.removeItem( 'Valley.Notification' );
             Valley.AttachNotifications();
           }
         }
@@ -173,7 +174,7 @@ var Valley = (function() {
           id: $('.c-notification').first().attr('id'),
           hide: true,
         };
-        localStorage.setItem( 'valley.notification', JSON.stringify( notificationDataToSet ) );
+        localStorage.setItem( 'Valley.Notification', JSON.stringify( notificationDataToSet ) );
       });
     },
 
@@ -256,8 +257,12 @@ var Valley = (function() {
         var id = $(this).data('location-id');
         var name = $(this).data('location-name');
 
-        Cookies.set('vc_location_id', id, { expires: 365 });
-        Cookies.set('vc_location_name', name, { expires: 365 });
+        var locationData = {
+          id: id,
+          name: name,
+        };
+
+        localStorage.setItem( 'Valley.Location', JSON.stringify( locationData ) );
 
         $(this)
           .removeClass('js-set-location')
@@ -272,8 +277,7 @@ var Valley = (function() {
       $('.js-remove-location').on('click', function(e) {
         e.preventDefault();
 
-        Cookies.remove('vc_location_id');
-        Cookies.remove('vc_location_name');
+        localStorage.removeItem( 'Valley.Location' );
 
         $(this)
           .removeClass('js-remove-location')
@@ -287,11 +291,13 @@ var Valley = (function() {
     CheckMainLocation: function() {
       if ( $('.js-set-location').length !== 0 ) {
         var $this = $('.js-set-location');
-        var id = parseInt($this.data('location-id'));
+        var id = $this.data('location-id');
         var name = $this.data('location-name');
 
-        if (typeof Cookies.get('vc_location_id') !== "undefined" && typeof Cookies.get('vc_location_name') !== "undefined") {
-          if ( Cookies.get('vc_location_id') === String(id) && Cookies.get('vc_location_name') === String(name) ) {
+        var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
+
+        if ( locationData !== null ) {
+          if ( locationData.id === String(id) && locationData.name === String(name) ) {
             $this
               .removeClass('js-set-location')
               .addClass('js-remove-location')
