@@ -17,7 +17,8 @@
   It follows Harry Roberts' ITCSS (speakerdeck.com/dafed/managing-css-projects-with-itcss)
   for the cascade, so please adhere to the dev guidelines! Also, follow @mdo's
   code guide (codeguide.co) to write maintainable, sensible code.
-*//*!
+*/
+/*!
   Changelog
   =========
 
@@ -39,4 +40,5 @@
   * v3.0.1 - Minor fixes after golive
   * v3.0.0 - First version of the new theme
 */
+
 /*# sourceMappingURL=style.css.map */
