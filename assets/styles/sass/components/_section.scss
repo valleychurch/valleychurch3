@@ -7,8 +7,6 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  @include transition(height);
-
   @include breakpoint(md) {
     padding: tuple($VCbase, 1.5) 0;
   }
@@ -54,8 +52,18 @@
   min-height: 65vh;
   padding: double($VCbase) 0;
 
+  @include transition;
+
+  @include breakpoint(md) {
+    padding: quadruple($VCbase) 0;
+  }
+
   @include breakpoint(lg) {
-    // height: calc(100vh - 300px);
+    padding: tuple($VCbase, 5) 0;
+  }
+
+  @include breakpoint(xl) {
+    padding: tuple($VCbase, 6) 0;
   }
 
   > .o-container {
@@ -82,23 +90,9 @@
     overflow: hidden;
     object-fit: cover;
   }
-
-  @include breakpoint(md) {
-    padding: quadruple($VCbase) 0;
-  }
-
-  @include breakpoint(lg) {
-    padding: tuple($VCbase, 5) 0;
-  }
-
-  @include breakpoint(xl) {
-    padding: tuple($VCbase, 6) 0;
-  }
 }
 
 .c-section--top {
-  // max-height: 60vh;
-
   > .o-container {
     padding-top: 1rem;
   }
@@ -106,14 +100,6 @@
   @include breakpoint(sm) {
     max-height: 60vh;
   }
-
-  // @include breakpoint(md) {
-  //   max-height: 50vh;
-  // }
-
-  // @include breakpoint(lg) {
-  //   max-height: 40vh;
-  // }
 }
 
 .c-section--overlay {

@@ -89,7 +89,7 @@
             ?>
               <li class="o-slide">
                 <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
-                <img srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>">
+                <img src="<?= img_medium[0]; ?>" srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>">
                 <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
               </li>
             <?php endif;
