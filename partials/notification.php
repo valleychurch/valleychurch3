@@ -13,7 +13,7 @@
       $notification->the_post();
 ?>
 
-<div class="c-notification" id="notification-<?= the_ID(); ?>" aria-expanded="false">
+<div class="c-notification" data-notification-id="<?= the_ID(); ?>" aria-expanded="false">
   <div class="o-container o-container--full">
     <div class="o-flag o-flag--rev">
       <div class="o-flag__flex">

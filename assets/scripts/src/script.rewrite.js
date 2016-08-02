@@ -87,7 +87,6 @@ var Valley = (function() {
         }
 
         mapLocations = location_array;
-        console.log(mapLocations);
 
         //Add marker and info window for each group
         for (var i = 0; i < mapLocations.length; i++) {
@@ -145,7 +144,7 @@ var Valley = (function() {
       try {
         var notificationData = JSON.parse( localStorage.getItem( 'Valley.Notification' ) );
         if ( notificationData !== null ) {
-          if ($('.c-notification').first().attr('id') !== notificationData.id) {
+          if ($('.c-notification').data('notification-id') !== notificationData.id) {
             localStorage.removeItem( 'Valley.Notification' );
             Valley.AttachNotifications();
           }
@@ -159,22 +158,20 @@ var Valley = (function() {
 
     AttachNotifications: function() {
       $('.c-notification')
-        .first()
         .addClass('is-notification-active')
         .attr('aria-expanded', 'true');
 
       $('.js-notification-dismiss').on('click', function(e) {
         e.preventDefault();
         $('.c-notification')
-          .first()
           .attr('aria-expanded', 'false')
           .removeClass('is-notification-active');
 
-        var notificationDataToSet = {
-          id: $('.c-notification').first().attr('id'),
+        var notificationData = {
+          id: $('.c-notification').data('notification-id'),
           hide: true,
         };
-        localStorage.setItem( 'Valley.Notification', JSON.stringify( notificationDataToSet ) );
+        localStorage.setItem( 'Valley.Notification', JSON.stringify( notificationData ) );
       });
     },
 
@@ -289,24 +286,27 @@ var Valley = (function() {
     },
 
     CheckMainLocation: function() {
-      if ( $('.js-set-location').length !== 0 ) {
-        var $this = $('.js-set-location');
-        var id = $this.data('location-id');
-        var name = $this.data('location-name');
+      try {
+        if ( $('.js-set-location').length !== 0 ) {
+          var $this = $('.js-set-location');
+          var id = $this.data('location-id');
+          var name = $this.data('location-name');
 
-        var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
+          var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
 
-        if ( locationData !== null ) {
-          if ( locationData.id === String(id) && locationData.name === String(name) ) {
-            $this
-              .removeClass('js-set-location')
-              .addClass('js-remove-location')
-              .text('Remove as my main location');
+          if ( locationData !== null ) {
+            if ( locationData.id === id && locationData.name === name ) {
+              $this
+                .removeClass('js-set-location')
+                .addClass('js-remove-location')
+                .text('Remove as my main location');
 
-            Valley.RemoveMainLocation();
+              Valley.RemoveMainLocation();
+            }
           }
         }
       }
+      catch( e ) { console.log("Error: " + e.message); }
     },
 
   };
