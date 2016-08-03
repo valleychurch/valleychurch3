@@ -94,8 +94,8 @@ if ( is_home() || is_page('messages') ) {
           </div>
         </nav>
         <div class="u-pull-right u-hide@lg">
-          <button class="o-btn c-nav-toggle js-nav-toggle">
-            <i class="fa fa-lg fa-bars"></i>
+          <button class="o-btn c-nav-toggle js-nav-toggle" aria-label="Open menu">
+            <i class="fa fa-lg fa-bars" aria-hidden="true"></i>
           </button>
         </div>
       </div>

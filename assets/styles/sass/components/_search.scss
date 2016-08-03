@@ -1,6 +1,8 @@
 .c-search {
   position: relative;
   width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 
   .c-navigation & {
     @include breakpoint(lg) {
