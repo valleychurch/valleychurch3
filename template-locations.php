@@ -15,7 +15,7 @@ get_header();
 
       <div class="o-row u-text-center">
 
-        <div class="o-col-xxs-12">
+        <div class="o-col-12@xxs">
           <?php if ( get_field( 'custom_h1' ) ) { ?>
           <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
           <?php } else { ?>

@@ -29,14 +29,14 @@
       <div class="o-row">
       <?php while ( have_posts() ) : the_post(); ?>
 
-        <div class="o-col-xxs-12">
+        <div class="o-col-12@xxs">
           <div class="o-row u-margin-double">
             <div class="o-col-12@xxs o-col-5@sm o-col-4@md o-col-3@lg u-margin">
             <?php if ( has_post_thumbnail() ) {
               the_post_thumbnail();
             } ?>
             </div>
-            <div class="o-col-xxs-12 o-col-7@sm o-col-8@md o-col-9@lg">
+            <div class="o-col-12@xxs o-col-7@sm o-col-8@md o-col-9@lg">
               <h2 class="u-margin--half"><a href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>"><?php the_title(); ?></a></h2>
               <p class="u-text-muted"><em><?= str_replace( 'https://', '', get_permalink() ); ?></em></p>
               <?php the_excerpt(); ?>

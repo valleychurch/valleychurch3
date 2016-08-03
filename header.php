@@ -81,10 +81,10 @@ if ( is_home() || is_page('messages') ) {
         <?php get_template_part( 'partials/logo' ); ?>
 
         <nav class="c-navigation u-cf">
-          <div class="u-pull-right--lg u-margin u-margin-none@lg">
+          <div class="u-pull-right@lg u-margin u-margin-none@lg">
             <?php get_search_form(); ?>
           </div>
-          <div class="u-pull-left--lg">
+          <div class="u-pull-left@lg">
             <?php wp_nav_menu( array(
               'theme_location' => 'Main Menu',
               'menu' => 'Main Menu',

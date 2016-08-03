@@ -57,7 +57,7 @@
         </a>
 
         <nav class="c-navigation u-cf">
-          <div class="u-pull-left--lg">
+          <div class="u-pull-left@lg">
             <ul class="c-menu u-cf">
               <li class="menu-item">
                 <a href="./">Overview</a>
@@ -71,7 +71,7 @@
           </div>
         </nav>
 
-        <div class="u-pull-right u-hide--lg">
+        <div class="u-pull-right u-hide@lg">
           <button class="o-btn c-nav-toggle js-nav-toggle">
             <i class="fa fa-lg fa-bars"></i>
           </button>
@@ -87,13 +87,13 @@
 
           <div class="o-row">
 
-            <div class="o-col-xxs-12 u-center-block">
+            <div class="o-col-12@xxs u-center-block">
 
               <div class="o-row">
 
                 {{#if homepage}}
                 {{else}}
-                <aside class="o-col-xxs-12 o-col-lg-3 u-margin o-col-lg-last">
+                <aside class="o-col-12@xxs o-col-3@lg u-margin o-col-last@lg">
 
                   {{#eachSection rootName}}
                   {{#ifDepth 1}}
@@ -131,7 +131,7 @@
                   <div class="o-row">
                     <div class="c-post-content u-center-block">
                 {{else}}
-                <article class="o-col-xxs-12 o-col-lg-9 u-margin o-col-lg-first">
+                <article class="o-col-12@xxs o-col-9@lg u-margin o-col-first@lg">
                 {{/if}} {{!-- homepage --}}
 
                   {{#if homepage}}
@@ -140,7 +140,7 @@
                   </section>
                   {{else}}
                   {{#eachSection rootName}}
-                  <section id="section-{{reference}}" class="u-margin--double" data-depth="{{depth}}">
+                  <section id="section-{{reference}}" class="u-margin-double" data-depth="{{depth}}">
                     {{#ifDepth 1}}
                     <h1>{{header}}</h1>
                     {{/ifDepth}}
@@ -148,7 +148,7 @@
                     <h2>{{header}}</h2>
                     {{/ifDepth}}
                     {{#ifDepth 3}}
-                    <h3 class="u-margin--half">{{header}}</h3>
+                    <h3 class="u-margin-half">{{header}}</h3>
                     {{/ifDepth}}
                     {{!-- {{#if markup}} --}}
                     {{#if description}}
@@ -158,7 +158,7 @@
                     {{/if}}
                     {{#if markup}}
                     <div class="kss-modifier-block">
-                      <div class="o-card o-card--outline u-margin--none">
+                      <div class="o-card o-card--outline u-margin-none">
                         <div class="o-card__body">
                           <div class="iframify">
                             {{{markup}}}
@@ -166,7 +166,7 @@
                         </div>
                       </div>
                       {{#eachModifier}}
-                      <div class="o-card o-card--outline u-margin--none">
+                      <div class="o-card o-card--outline u-margin-none">
                         <div class="o-card__body">
                           <div class="o-card__title u-margin">
                             <div class="kss-modifier-name"><strong>{{name}}</strong></div>
