@@ -23,7 +23,7 @@
       <div class="o-container u-padding-top u-padding-bottom">
         <div class="o-row">
 
-          <div class="o-col-xxs-12 o-col-lg-3 u-text-center--xxs u-text-left--lg u-grid-1--xxs u-grid-0--lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
+          <div class="o-col-12@xxs o-col-3@lg u-text-center@xxs u-text-left@lg u-grid-1@xxs u-grid-0@lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
             <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" class="u-margin c-logo">
             <p class="u-hidden" itemprop="name"><?= bloginfo( 'name' ); ?></p>
             <p class="small u-text-muted u-line-height--small" itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
@@ -51,10 +51,10 @@
             </p>
           </div>
 
-          <div class="o-col-xxs-12 o-col-lg-9 u-grid-0--xxs u-grid-1--lg u-margin u-hide u-show--sm">
+          <div class="o-col-12@xxs o-col-9@lg u-grid-0@xxs u-grid-1@lg u-margin u-hide u-show@sm">
             <div class="o-row">
-              <div class="o-col-xxs-12 o-col-xs-6 o-col-sm-3">
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">New Here?</h6>
+              <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">New Here?</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-new-here',
                   'container' => false,
@@ -62,7 +62,7 @@
                   'fallback_cb' => false
                 ) ); ?>
 
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Services</h6>
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Services</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-services',
                   'container' => false,
@@ -71,8 +71,8 @@
                 ) ); ?>
               </div>
 
-              <div class="o-col-xxs-12 o-col-xs-6 o-col-sm-3">
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Church Life</h6>
+              <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Church Life</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-church-life',
                   'container' => false,
@@ -81,8 +81,8 @@
                 ) ); ?>
               </div>
 
-              <div class="o-col-xxs-12 o-col-xs-6 o-col-sm-3">
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Watch &amp; Read</h6>
+              <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Watch &amp; Read</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-watch-read',
                   'container' => false,
@@ -90,7 +90,7 @@
                   'fallback_cb' => false
                 ) ); ?>
 
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Get Involved</h6>
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Get Involved</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-get-involved',
                   'container' => false,
@@ -99,8 +99,8 @@
                 ) ); ?>
               </div>
 
-              <div class="o-col-xxs-12 o-col-xs-6 o-col-sm-3">
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">People Matter</h6>
+              <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">People Matter</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-people-matter',
                   'container' => false,
@@ -108,7 +108,7 @@
                   'fallback_cb' => false
                 ) ); ?>
 
-                <h6 class="u-text-muted u-margin--quarter u-text-uppercase">Venue Hire</h6>
+                <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Venue Hire</h6>
                 <?php wp_nav_menu( array(
                   'theme_location' => 'footer-venue-hire',
                   'container' => false,
@@ -122,7 +122,7 @@
         </div>
 
         <div class="row">
-          <p class="small u-text-muted u-text-center--xs u-text-left--lg">
+          <p class="small u-text-muted u-text-center@xs u-text-left@lg">
             &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. We're a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
               target="_blank">Registered Charity No. 1125080</a>. <a href="/privacy">Privacy &amp; Cookie Policy</a>.
           </p>

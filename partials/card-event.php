@@ -3,11 +3,11 @@
     <?php set_query_var( 'class', 'o-card__img' ); ?>
     <?php get_template_part( 'partials/hero', 'slide' ); ?>
     <div class="o-card__body u-text-center">
-      <h2 class="h3 o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin--half' : 'u-margin--none' ?>" itemprop="name">
+      <h2 class="h3 o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin-half' : 'u-margin-none' ?>" itemprop="name">
         <?php the_title(); ?>
       </h2>
       <?php if ( get_field( 'event_date' ) ) { ?>
-      <h3 class="h4 o-card__subtitle u-margin--none u-text-black" <?= ( get_field( 'event_start_datetime' ) ? 'itemprop="startDate" content="' . date( 'c', get_field( 'event_start_datetime' ) ) . '"' : "" ); ?>>
+      <h3 class="h4 o-card__subtitle u-margin-none u-text-black" <?= ( get_field( 'event_start_datetime' ) ? 'itemprop="startDate" content="' . date( 'c', get_field( 'event_start_datetime' ) ) . '"' : "" ); ?>>
         <?php if ( get_field( 'event_time' ) ) {
           echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
         } else {

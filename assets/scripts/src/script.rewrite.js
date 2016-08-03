@@ -287,12 +287,13 @@ var Valley = (function() {
 
     CheckMainLocation: function() {
       try {
+        var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
+        var $hiddenlocation = $('input[name="mylocation"]');
+
         if ( $('.js-set-location').length !== 0 ) {
           var $this = $('.js-set-location');
           var id = $this.data('location-id');
           var name = $this.data('location-name');
-
-          var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
 
           if ( locationData !== null ) {
             if ( locationData.id === id && locationData.name === name ) {
@@ -303,6 +304,13 @@ var Valley = (function() {
 
               Valley.RemoveMainLocation();
             }
+          }
+        }
+
+        if ( $hiddenlocation.length !== 0 ) {
+          if ( locationData !== null ) {
+            $hiddenlocation.val(locationData.id);
+            // $('form[name="events-search"]').submit();
           }
         }
       }

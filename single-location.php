@@ -38,18 +38,18 @@
 
       <div class="o-row">
 
-        <div class="o-col-xxs-12 o-col-md-8">
+        <div class="o-col-12@xxs o-col-8@md">
 
           <?php the_content(); ?>
 
         </div>
 
-        <aside class="o-col-xxs-12 o-col-md-4">
+        <aside class="o-col-12@xxs o-col-4@md">
 
-          <hr class="u-hide--md" />
+          <hr class="u-hide@md" />
 
           <?php if ( get_field( 'address' ) ) { ?>
-            <h3 class="u-margin--half">Address</h3>
+            <h3 class="u-margin-half">Address</h3>
             <address itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
               <p class="lead">
                 <?= get_field( 'address' ); ?>
@@ -63,12 +63,12 @@
           <?php } ?>
 
           <?php if ( get_field( 'service_times' ) ) { ?>
-            <h3 class="u-margin--half">Service times</h3>
+            <h3 class="u-margin-half">Service times</h3>
             <p><?= get_field( 'service_times' ); ?></p>
           <?php } ?>
 
           <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
-            <h3 class="u-margin--half">Contact</h3>
+            <h3 class="u-margin-half">Contact</h3>
             <?php if ( get_field( 'phone_number' ) ) { ?>
               <p><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
             <?php } ?>
@@ -78,7 +78,7 @@
           <?php } ?>
 
           <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
-            <h3 class="u-margin--half">Follow us on social media</h3>
+            <h3 class="u-margin-half">Follow us on social media</h3>
             <?php if ( get_field( 'social_twitter' ) ) { ?>
             <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn o-btn--small u-background-twitter" role="button">
               <i class="fa fa-twitter fa-fw u-text-white"></i> Twitter
@@ -147,7 +147,7 @@
     while ( $posts->have_posts() ) :
       $posts->the_post();
   ?>
-      <div class="o-col-xxs-12 o-col-sm-4">
+      <div class="o-col-12@xxs o-col-4@sm">
         <?php get_template_part( 'partials/card', 'blog' ); ?>
       </div>
   <?php endwhile; ?>

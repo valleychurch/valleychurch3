@@ -26,10 +26,10 @@
               <?php get_template_part( 'partials/avatar' ); ?>
             </div>
             <div class="o-flag__flex">
-              <p class="u-margin--none">
+              <p class="u-margin-none">
                 <?php the_author(); ?>
               </p>
-              <p class="small u-text-muted u-margin--none">
+              <p class="small u-text-muted u-margin-none">
                 <strong>
                   <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
                 </strong>

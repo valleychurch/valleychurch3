@@ -5,7 +5,7 @@
 @mixin make-grid-columns($columns: $VCgrid-columns, $gutter: $VCgrid-gutter, $breakpoints: $VCbreakpoints) {
 
   // Common properties for all breakpoints
-  %grid-column {
+  [class^="o-col"] {
     @include make-col-ready;
   }
 
@@ -13,15 +13,9 @@
   @each $breakpoint in map-keys($breakpoints) {
     $breakpoint-counter: ($breakpoint-counter + 1);
 
-    @for $i from 1 through $columns {
-      .o-col-#{$breakpoint}-#{$i} {
-        @extend %grid-column;
-      }
-    }
-
     @include breakpoint($breakpoint) {
       @if $VCenable-flex {
-        .o-col-#{$breakpoint} {
+        .o-col\@#{$breakpoint} {
           position: relative;
           flex-basis: 0;
           flex-grow: 1;
@@ -33,15 +27,14 @@
       }
 
       @for $i from 1 through $columns {
-        .o-col-#{$breakpoint}-#{$i} {
+        .o-col-#{$i}\@#{$breakpoint} {
           @include make-col($i, $columns, $gutter);
         }
       }
 
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
-          .o-col-#{$breakpoint}--#{$modifier}-#{$i},
-          .u-#{$modifier}-#{$i}--#{$breakpoint} {
+          .u-#{$modifier}-#{$i}\@#{$breakpoint} {
             @include make-col-modifier($modifier, $i, $columns)
           }
         }
@@ -49,9 +42,8 @@
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
-        @if $breakpoint-counter != 1 or $i != 0 { // Avoid emitting useless .col-xs-offset-0
-          .o-col-#{$breakpoint}--offset-#{$i},
-          .u-offset-#{$i}--#{$breakpoint} {
+        @if $breakpoint-counter != 1 or $i != 0 {
+          .u-offset-#{$i}\@#{$breakpoint} {
             @include make-col-modifier(offset, $i, $columns)
           }
         }

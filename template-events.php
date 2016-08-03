@@ -16,14 +16,14 @@ get_header(); ?>
     <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
       <div class="o-row u-text-center">
-        <div class="o-col-xxs-12">
+        <div class="o-col-12@xxs">
           <?php if ( get_field( 'custom_h1' ) ) { ?>
-          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
           <?php } else { ?>
-          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
           <?php } ?>
         </div>
-        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
           <?= get_the_content(); ?>
         </div>
       </div>
@@ -33,7 +33,7 @@ get_header(); ?>
   </section>
 
 <?php
-  $my_location = isset( $_COOKIE['vc_location_id'] ) ? $_COOKIE['vc_location_id'] : 0;
+  $local_location = isset( $_GET['mylocation'] ) ? $_GET['mylocation'] : 0;
   $query_location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : null );
   $location_args =
     array(
@@ -48,9 +48,10 @@ get_header(); ?>
 
     <form name="events-search" method="GET" action="<?= get_permalink(); ?>">
 
+      <input type="hidden" id="mylocation" name="mylocation">
       <div class="o-container">
         <div class="o-row u-margin">
-          <div class="o-col-xxs-12 u-text-center">
+          <div class="o-col-12@xxs u-text-center">
             <p>Show me events at:</p>
             <div class="u-text-center">
               <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0" role="button">
@@ -101,7 +102,7 @@ get_header(); ?>
             while ( $wp_query->have_posts() ) :
               $wp_query->the_post(); ?>
 
-            <div class="o-col-xxs-12 o-col-md-4">
+            <div class="o-col-12@xxs o-col-4@md">
               <?php get_template_part( 'partials/card', 'event' ); ?>
             </div>
 

@@ -16,7 +16,7 @@
 
       <div class="o-row">
 
-        <div class="o-col-xxs-8 o-col-md-4 o-col-lg-3 u-center-block--xxs">
+        <div class="o-col-8@xxs o-col-4@md o-col-3@lg u-center-block@xxs">
 
           <?php
           set_query_var( 'page_id', $message_id );
@@ -26,7 +26,7 @@
 
         </div>
 
-        <div class="o-col-xxs-12 o-col-md-8 o-col-lg-9">
+        <div class="o-col-12@xxs o-col-8@md o-col-9@lg">
 
           <?php if ( get_field( 'custom_h1' ) ) { ?>
           <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
@@ -37,7 +37,7 @@
           <h2><?= get_the_terms( $post->ID, 'series' )[0]->name; ?></h2>
           <?php } ?>
 
-          <div class="o-flag u-margin--double">
+          <div class="o-flag u-margin-double">
             <div class="o-flag__fix">
               <?php get_template_part( 'partials/avatar' ); ?>
             </div>

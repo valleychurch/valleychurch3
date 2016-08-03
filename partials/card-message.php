@@ -5,11 +5,11 @@
     set_query_var( 'figure', true );
     get_template_part( 'partials/hero' ); ?>
     <div class="o-card__body">
-      <p class="small u-text-muted u-margin--quarter">
+      <p class="small u-text-muted u-margin-quarter">
         <?= get_the_content(); ?>
       </p>
       <div class="o-card__title">
-        <h3 class="h4 <?= ( get_the_terms( $post->ID, 'series' ) ) ? "u-margin--half" : ""; ?>">
+        <h3 class="h4 <?= ( get_the_terms( $post->ID, 'series' ) ) ? "u-margin-half" : ""; ?>">
           <?= get_the_title(); ?>
         </h3>
         <?php if ( get_the_terms( $post->ID, 'series' ) ) { ?>
@@ -28,7 +28,7 @@
             ?>
           </div>
           <div class="o-flag__flex">
-            <p class="u-margin--none small u-line-height--small">
+            <p class="u-margin-none small u-line-height--small">
               <?php if ( get_field( 'podcast_author' ) ) {
                 the_field( 'podcast_author' );
               } else {

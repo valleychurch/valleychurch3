@@ -81,7 +81,7 @@ if ( is_home() || is_page('messages') ) {
         <?php get_template_part( 'partials/logo' ); ?>
 
         <nav class="c-navigation u-cf">
-          <div class="u-pull-right--lg u-margin u-margin--lg--none">
+          <div class="u-pull-right--lg u-margin u-margin-none@lg">
             <?php get_search_form(); ?>
           </div>
           <div class="u-pull-left--lg">
@@ -93,7 +93,7 @@ if ( is_home() || is_page('messages') ) {
             ) ); ?>
           </div>
         </nav>
-        <div class="u-pull-right u-hide--lg">
+        <div class="u-pull-right u-hide@lg">
           <button class="o-btn c-nav-toggle js-nav-toggle">
             <i class="fa fa-lg fa-bars"></i>
           </button>

@@ -1,6 +1,6 @@
 <div class="c-sharer">
   <hr/>
-  <p class="u-margin--half">
+  <p class="u-margin-half">
     Share this!
   </p>
   <p>

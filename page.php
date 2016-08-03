@@ -42,7 +42,7 @@
       while ( have_rows( 'cards' ) ) {
         the_row(); ?>
 
-        <div class="<?= ( get_field( 'card_class' ) ) ? $card_class : "o-col-xxs-12 o-col-md-6"; ?>">
+        <div class="<?= ( get_field( 'card_class' ) ) ? $card_class : "o-col-12@xxs o-col-6@md"; ?>">
           <div class="o-card u-text-center">
             <?php if ( get_sub_field( 'image' ) ) {
               set_query_var( 'image_id', get_sub_field( 'image' )["id"] );

@@ -17,14 +17,14 @@ get_header();
 
         <div class="o-col-xxs-12">
           <?php if ( get_field( 'custom_h1' ) ) { ?>
-          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
           <?php } else { ?>
-          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
           <?php } ?>
         </div>
 
-        <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7 u-center-block">
-          <p class="lead u-margin u-margin--md--double">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
+          <p class="lead u-margin u-margin-double@md">
             <?= get_the_content(); ?>
           </p>
         </div>
@@ -61,7 +61,7 @@ get_header();
 
       <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
-      <div class="o-col-xxs-12 o-col-md-4">
+      <div class="o-col-12@xxs o-col-4@md">
         <?php get_template_part( 'partials/card', 'location' ); ?>
       </div>
 

@@ -12,7 +12,7 @@
         <?php the_title(); ?>
       </a>
     </h3>
-    <div class="o-flag <?= ( !is_home() ) ? "u-margin--double" : ""; ?>">
+    <div class="o-flag <?= ( !is_home() ) ? "u-margin-double" : ""; ?>">
       <div class="o-flag__fix">
         <?php
           set_query_var( 'size', 'sm' );
@@ -20,7 +20,7 @@
         ?>
       </div>
       <div class="o-flag__flex">
-        <p class="u-margin--none small u-line-height--small">
+        <p class="u-margin-none small u-line-height--small">
           <?php the_author(); ?>
         </p>
       </div>
@@ -32,7 +32,7 @@
       } else {
         the_content('Read more');
       } ?>
-      <p class="u-margin--none">
+      <p class="u-margin-none">
         <?php comments_popup_link(); ?>
       </p>
     </div>
