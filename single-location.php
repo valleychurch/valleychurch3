@@ -130,27 +130,77 @@
   );
   $posts = new WP_Query( $args );
   if ( $posts->have_posts() ) : ?>
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <div class="o-container">
 
-      <div class="c-post-content u-center-block u-text-center">
+      <div class="o-row u-margin">
 
-        <h4 class="h2">Recent Blogs</h4>
+        <div class="c-post-content u-center-block u-text-center">
+
+          <h4 class="h2">Recent Blogs</h4>
+
+        </div>
 
       </div>
 
-    </article>
+      <div class="o-row">
+    <?php
+      while ( $posts->have_posts() ) :
+        $posts->the_post();
+    ?>
+        <div class="o-col-12@xxs o-col-4@sm">
+          <?php get_template_part( 'partials/card', 'blog' ); ?>
+        </div>
+    <?php endwhile; ?>
+      </div>
 
-    <div class="o-row">
+    </div>
+
+  </section>
+  <?php else: endif;
+  wp_reset_query(); ?>
+
   <?php
-    while ( $posts->have_posts() ) :
-      $posts->the_post();
-  ?>
-      <div class="o-col-12@xxs o-col-4@sm">
-        <?php get_template_part( 'partials/card', 'blog' ); ?>
+  $args = array(
+    'post_type' => 'events',
+    'post_status' => array( 'publish', 'private' ),
+    'posts_per_page' => 3,
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'location',
+        'field' => 'slug',
+        'terms' => $post->slug
+      )
+    )
+  );
+  $posts = new WP_Query( $args );
+  if ( $posts->have_posts() ) : ?>
+  <section class="c-section">
+
+    <div class="o-container">
+
+      <div class="o-row u-margin">
+
+        <div class="c-post-content u-center-block u-text-center">
+
+          <h4 class="h2">Upcoming Events</h4>
+
+        </div>
+
       </div>
-  <?php endwhile; ?>
+
+      <div class="o-row">
+    <?php
+      while ( $posts->have_posts() ) :
+        $posts->the_post();
+    ?>
+        <div class="o-col-12@xxs o-col-4@sm">
+          <?php get_template_part( 'partials/card', 'blog' ); ?>
+        </div>
+    <?php endwhile; ?>
+      </div>
+
     </div>
 
   </section>
