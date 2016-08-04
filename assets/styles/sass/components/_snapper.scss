@@ -10,7 +10,8 @@
 
 /* to hide the scrollbar handles while still allowing touch and gesture scrolling, wrap the snapper pane in a div with a snapper_pane_crop class
 note: only use this if you have thumbnails or some other means of advancing slides for non-touchscreen devices */
-.enhanced .snapper_pane_crop {
+.enhanced .snapper_pane_crop,
+.snapper-enhanced .snapper_pane_crop {
   overflow: hidden;
 
   .snapper_pane {
@@ -96,6 +97,7 @@ note: only use this if you have thumbnails or some other means of advancing slid
   @extend %u-cf;
   position: relative;
   margin: 1em 0;
+  list-style: none;
 
   a {
     float: left;
