@@ -52,6 +52,10 @@ var Valley = (function() {
       Valley.SetMainLocation();
       Valley.RemoveMainLocation();
       Valley.CheckMainLocation();
+
+      if ( $('input[name="locationid"]').length !== 0 ) {
+        $('select[name="location"]').val( $('input[name="locationid"]').val() );
+      }
     },
 
     /**
