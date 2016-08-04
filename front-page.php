@@ -78,8 +78,8 @@
         if ( have_posts() ) : ?>
         <div class="o-col-12@xxs o-col-6@xl">
           <div class="snapper u-margin u-margin-none@lg u-cf" data-snapper-nextprev>
-            <div class="snapper-pane">
-              <div class="snapper-items">
+            <div class="snapper_pane">
+              <div class="snapper_items">
             <?php while ( have_posts() ) :
               the_post();
               if ( has_post_thumbnail() ) :
