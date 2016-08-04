@@ -45,6 +45,10 @@ note: only use this if you have thumbnails or some other means of advancing slid
   width: 100%;
   white-space: normal;
 
+  a {
+    display: block;
+  }
+
   img {
     width: 100%;
   }
