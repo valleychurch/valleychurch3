@@ -77,8 +77,9 @@
         $wp_query = new WP_Query( $args );
         if ( have_posts() ) : ?>
         <div class="o-col-12@xxs o-col-6@xl">
-          <div class="c-slide-container">
-            <ul class="c-slides u-margin u-margin-none@lg u-cf">
+          <div class="snapper u-margin u-margin-none@lg u-cf" data-snapper-nextprev>
+            <div class="snapper-pane">
+              <div class="snapper-items">
             <?php while ( have_posts() ) :
               the_post();
               if ( has_post_thumbnail() ) :
@@ -87,15 +88,23 @@
                 $img_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
                 $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
             ?>
-              <li class="o-slide">
+              <div class="snapper_item" id="snapper-<?= the_ID() ?>">
                 <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
                 <img src="<?= img_medium[0]; ?>" srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>">
                 <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
-              </li>
+              </div>
             <?php endif;
             endwhile; ?>
+              </div>
+            </div>
+            <ul class="snapper_nav">
+            <?php while ( have_posts() ) :
+              the_post(); ?>
+              <li>
+                <a href="#snapper-<?= the_ID() ?>"><span class="u-hidden"><?= the_title() ?></span></a>
+              </li>
+            <?php endwhile; ?>
             </ul>
-            <div class="slide-control"></div>
           </div>
         </div>
       <?php else : endif; ?>

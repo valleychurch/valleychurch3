@@ -1,5 +1,5 @@
 // Clearfix
-.u-cf                   { @include clearfix; }
+%u-cf, .u-cf            { @include clearfix; }
 
 // Grid ordering
 @each $breakpoint in map-keys($VCbreakpoints) {
