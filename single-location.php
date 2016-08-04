@@ -56,9 +56,11 @@
               </p>
             </address>
             <?php if ( get_field( 'google_maps_link' ) ) { ?>
-              <a class="o-btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
-                Get directions
-              </a>
+              <p>
+                <a class="o-btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
+                  Get directions
+                </a>
+              </p>
             <?php } ?>
           <?php } ?>
 
