@@ -3,12 +3,13 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-kss');
+  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-version');
 
   grunt.initConfig({
@@ -62,7 +63,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          outputStyle: 'compressed'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',
@@ -152,7 +153,7 @@ module.exports = function(grunt) {
         options: {
           enabled: true,
           success: true,
-          duration: 3
+          duration: 2
         }
       },
       local: {
@@ -189,11 +190,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('local', [
-    'sass',
-    'postcss',
-    'uglify',
-    'imagemin',
-    'kss',
+    'newer:sass:dist',
+    'newer:postcss:dist',
+    'newer:uglify:dist',
+    'newer:imagemin:dynamic',
     'notify:local',
     'watch',
   ]);
