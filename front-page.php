@@ -76,7 +76,7 @@
 
         $wp_query = new WP_Query( $args );
         if ( have_posts() ) : ?>
-        <div class="o-col-12@xxs o-col-6@xl">
+        <div class="o-col-12@xxs o-col-6@md">
           <div class="c-slide-container">
             <ul class="c-slides u-margin u-margin-none@lg u-cf">
             <?php while ( have_posts() ) :
@@ -101,7 +101,7 @@
       <?php else : endif; ?>
       <?php wp_reset_query(); ?>
       <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
-        <div class="o-col-12@xxs o-col-6@xl">
+        <div class="o-col-12@xxs o-col-6@md">
           <div class="o-card o-card--overlay u-margin-none">
             <?php if ( get_field( 'image' ) ) {
               set_query_var( 'image_id', get_field('image')["id"] );
