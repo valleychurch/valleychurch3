@@ -2,7 +2,7 @@
 
   <?php
   if ( has_post_thumbnail() ) {
-    set_query_var( 'class', 'c-featured' );
+    set_query_var( 'figure', true );
     get_template_part( 'partials/hero', 'banner' );
   }
   ?>
