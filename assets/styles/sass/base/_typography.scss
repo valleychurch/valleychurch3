@@ -350,8 +350,8 @@ blockquote {
     margin-bottom: 0;
     @include font-stack-alt;
     @include font-size(22);
-    font-weight: $VCfont-medium;
-    color: greyscale(3);
+    font-weight: $VCfont-light;
+    // color: greyscale(3);
 
     @include breakpoint(sm) {
       @include font-size(24);

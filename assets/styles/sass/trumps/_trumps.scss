@@ -1,16 +1,18 @@
 // #wpadminbar {
-//   top: -46px !important;
+//   top: 0 !important;
 
 //   @media screen and (min-width: 783px) {
 //     top: -32px !important;
 //   }
 // }
 
-body.admin-bar {
-  .c-header {
-    top: 32px;
-  }
-}
+// body.admin-bar {
+//   margin-top: -46px;
+
+//   .c-header {
+//     top: 32px;
+//   }
+// }
 
 .c-navigation {
   .is-menu-active & {

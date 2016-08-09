@@ -177,11 +177,12 @@ add_theme_support( 'post-thumbnails' );
 add_image_size( 'slide', 2000, 1125, true );        // 16:9 slide full-size
 add_image_size( 'slide-medium', 1280, 720, true );  // 16:9 slide medium
 add_image_size( 'slide-small', 640, 360, true );    // 16:9 slide small
-add_image_size( 'banner', 2000, 800, true );        // Featured image banner full-size
-add_image_size( 'banner-medium', 1280, 608, true ); // Featured image banner medium
-add_image_size( 'banner-small', 640, 360, true );   // Featured image banner small
-
-add_image_size( 'banner-blur', 1280, 720, true );   // Featured image banner medium blurred
+add_image_size( 'banner-xxl', 2000, 1125, true );   // Featured image banner xxl
+add_image_size( 'banner-xl', 1680, 945, true );     // Featured image banner xl
+add_image_size( 'banner-lg', 1280, 720, true );     // Featured image banner lg
+add_image_size( 'banner-md', 960, 540, true );      // Featured image banner md
+add_image_size( 'banner-sm', 640, 360, true );      // Featured image banner sm
+add_image_size( 'banner-xs', 320, 180, true );      // Featured image banner xs
 
 /**
  * Generate a blurred image

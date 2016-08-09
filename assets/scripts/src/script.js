@@ -47,6 +47,7 @@ var Valley = (function() {
       Valley.Slider();
       Valley.CheckNotifications();
       Valley.ResponsiveIframes();
+      Valley.ResponsiveTables();
       Valley.DownArrows();
       Valley.CheckHeaderPosition();
       Valley.SetMainLocation();
@@ -225,7 +226,13 @@ var Valley = (function() {
 
     ResponsiveIframes: function() {
       $('iframe').each(function(i, el) {
-        $(el).wrap('<div class="o-ratio u-margin--md--double"/>');
+        $(el).wrap('<div class="o-ratio u-margin-double@md"/>');
+      });
+    },
+
+    ResponsiveTables: function() {
+      $('table').each(function(i, el) {
+        $(el).wrap('<div class="o-table u-margin-double@md"/>');
       });
     },
 

@@ -35,7 +35,7 @@
   $cards = get_field( 'cards' );
   $card_class = get_field( 'card_class' );
   if ( have_rows( 'cards' ) ) { ?>
-  <section class="c-section u-background-grey-11">
+  <section class="c-section u-background-grey--11">
     <div class="o-container">
       <div class="o-row">
       <?php
