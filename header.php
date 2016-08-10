@@ -50,6 +50,7 @@ if ( is_home() || is_page('messages') ) {
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+
     <!-- Load Typekit ASAP -->
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -62,6 +63,19 @@ if ( is_home() || is_page('messages') ) {
     <![endif]-->
 
     <?php wp_head(); ?>
+
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="//test.valleychurch.eu/wp-content/themes/valleychurch3/styles/css/style.<?= VC_THEME_VERSION ?>.min.css">
+    </noscript>
+    <script>
+      if (Valley.IsModernBrowser && !Valley.Css.Loaded) {
+        Valley.LoadCssWithAjax();
+      }
+
+      if (!Valley.IsModernBrowser) {
+        Valley.LoadCssWithLink();
+      }
+    </script>
   </head>
 
   <body <?php body_class(); ?>>

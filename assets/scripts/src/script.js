@@ -35,6 +35,7 @@ var Valley = (function() {
      */
     Version: '3.2.0dev',
     Css: {
+      Url: '//test.valleychurch.eu/wp-content/themes/valleychurch3/assets/styles/css/style.' + Valley.Version + '.min.css',
       Loaded: false,
       Source: ''
     },
@@ -51,7 +52,7 @@ var Valley = (function() {
     },
 
     LoadCssFromLocalStorage: function() {
-      var css = localStorage.getItem('Valley.Css.' + Version),
+      var css = localStorage.getItem('Valley.Css.' + Valley.Version),
           style,
           script;
 
@@ -76,10 +77,49 @@ var Valley = (function() {
       style.innerHTML = css;
       style.setAttribute('data-loaded-from', 'ajax');
       Valley.InjectElement(css);
+      Valley.Css.Loaded = true;
+      Valley.Css.Source = "Ajax";
     },
 
     StoreCss: function(css) {
+      if (localStorage.getItem('Valley.Css.' + Valley.Version) !== null) {
+        localStorage.removeItem('Valley.Css.' + Valley.Version);
+        return true;
+      }
 
+      try {
+        localStorage.setItem('Valley.Css.' + Valley.Version, css);
+      }
+      catch( e ) { console.log("Error: " + e.message); }
+    },
+
+    LoadCssWithLink: function() {
+      var link = document.createElement('link');
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = Valley.Css.Url;
+    },
+
+    LoadCssWithAjax: function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', Valley.Css.Url);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if(xhr.status === 200) {
+              Valley.InlineCss(xhr.responseText);
+              Valley.StoreCss(xhr.responseText);
+          } else {
+              Valley.LoadCssWithLink();
+          }
+        }
+      };
+      setTimeout( function () {
+        if(xhr.readyState < 4) {
+          xhr.abort();
+          Valley.LoadCssWithLink();
+        }
+      }, 5000);
+      xhr.send();
     },
 
     /**
