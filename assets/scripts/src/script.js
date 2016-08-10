@@ -1,9 +1,23 @@
 "use strict";
 
+/**
+* Global variables
+*/
+var doc = document,
+    win = window,
+    nav = navigator,
+    $doc = $(doc),
+    $win = $(win),
+    $body = $('body'),
+    $header = $('.c-header');
+
+/**
+ *   Google Maps related variables
+ */
 var googleActive = ( typeof google !== "undefined" ),
     map,
     mapOpts,
-    mapStyle,
+    mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}],
     mapCentre = ( googleActive === true ) ? new google.maps.LatLng(53.733241, -2.662240) : "",
     mapBounds,
     mapLocations,
@@ -12,21 +26,7 @@ var googleActive = ( typeof google !== "undefined" ),
     mapMarkerIcon = "/wp-content/themes/valleychurch3/assets/images/dist/marker.png",
     mapMarkerIconSmall = "/wp-content/themes/valleychurch3/assets/images/dist/marker-small.png";
 
-/* https://snazzymaps.com/editor */
-mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}];
-
 var Valley = (function() {
-
-  /**
-   * Reusable variables
-   */
-  var doc = document;
-  var win = window;
-  var nav = navigator;
-  var $doc = $(doc);
-  var $win = $(win);
-  var $body = $('body');
-  var $header = $('.c-header');
 
   return {
 
@@ -34,13 +34,59 @@ var Valley = (function() {
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
     Version: '3.2.0dev',
+    Css: {
+      Loaded: false,
+      Source: ''
+    },
+
+    IsModernBrowser: function() {
+      return (
+        'querySelector' in document
+        && 'addEventListener' in window
+        && 'localStorage' in window
+        && (
+          ('XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest())
+          || 'XDomainRequest' in window
+        ));
+    },
+
+    LoadCssFromLocalStorage: function() {
+      var css = localStorage.getItem('Valley.Css.' + Version),
+          style,
+          script;
+
+      if (css) {
+        style = document.createElement('style');
+        script = document.getElementsByTagName('script')[0];
+        style.innerHTML = css;
+        style.setAttribute('data-loaded-from', 'local');
+        script.parentNode.insertBefore(style, script);
+        Valley.Css.Loaded = true;
+        Valley.Css.Source = "localStorage";
+      }
+    },
+
+    InjectElement: function(el) {
+      var script = document.getElementsByTagName('script')[0];
+      script.parentNode.insertBefore(el, script);
+    },
+
+    InlineCss: function(css) {
+      var style = document.createElement('style');
+      style.innerHTML = css;
+      style.setAttribute('data-loaded-from', 'ajax');
+      Valley.InjectElement(css);
+    },
+
+    StoreCss: function(css) {
+
+    },
 
     /**
      * Kick everything off
      */
     Init: function() {
       doc.documentElement.setAttribute('data-useragent', nav.userAgent);
-      $doc.trigger('enhance');
 
       Valley.InitSideNav();
       Valley.ModernizrTest();
@@ -192,10 +238,10 @@ var Valley = (function() {
 
     Slider: function() {
       var prevImg =
-        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn" />';
+        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn">';
 
       var nextImg =
-        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn" />';
+        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn">';
 
       $('.c-slides').responsiveSlides({
         speed: 500,
@@ -231,8 +277,8 @@ var Valley = (function() {
     },
 
     ResponsiveTables: function() {
-      $('table').each(function(i, el) {
-        $(el).wrap('<div class="o-table u-margin-double@md"/>');
+      $('table.o-table').each(function(i, el) {
+        $(el).wrap('<div class="o-table-responsive u-margin-double@md"/>');
       });
     },
 

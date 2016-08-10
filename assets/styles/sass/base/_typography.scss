@@ -365,7 +365,7 @@ blockquote {
   footer {
     display: block;
     margin-top: half($VCbase);
-    @include font-stack-alt;
+    // @include font-stack-alt;
     @include font-size(18);
     font-weight: $VCfont-normal;
 
