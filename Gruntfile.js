@@ -136,15 +136,15 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
-        tasks: ['sass', 'postcss', 'kss', 'notify:sass'],
+        tasks: ['sass:dist', 'postcss:dist', 'notify:sass'],
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
-        tasks: ['uglify', 'notify:scripts']
+        tasks: ['uglify:dist', 'notify:scripts']
       },
       images: {
         files: 'assets/images/src/*.{png,jpg,gif,svg}',
-        tasks: ['imagemin', 'notify:images']
+        tasks: ['imagemin:dynamic', 'notify:images']
       },
     },
 
@@ -190,10 +190,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('local', [
-    'newer:sass:dist',
-    'newer:postcss:dist',
-    'newer:uglify:dist',
-    'newer:imagemin:dynamic',
+    'sass:dist',
+    'postcss:dist',
+    'uglify:dist',
+    'imagemin:dynamic',
     'notify:local',
     'watch',
   ]);

@@ -2,10 +2,37 @@
   max-height: 40rem;
   overflow: hidden;
 
+  @include breakpoint(lg) {
+    height: 50vh; /* Allows object-fit to work */
+  }
+
+  @include breakpoint(xl) {
+    height: 60vh;
+  }
+
+  @include breakpoint(max) {
+    height: 70vh;
+  }
+
+  .no-object-fit & {
+    height: auto;
+  }
+
+  .o-card & {
+    height: auto;
+  }
+
   picture,
   source,
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    .no-object-fit & {
+      height: auto;
+    }
   }
 }
 
@@ -33,11 +60,12 @@
   }
 
   // WordPress built in images go full-width
-  img,
-  .alignleft,
-  .alignright,
-  .aligncenter,
-  [class^="wp-image-"] {
+  > img,
+  > table,
+  > .alignleft,
+  > .alignright,
+  > .aligncenter,
+  > [class^="wp-image-"] {
     width: 100%;
     max-width: 60rem;
     padding-right: 0;
@@ -48,8 +76,9 @@
     width: auto;
   }
 
-  .o-ratio,
-  iframe {
+  table
+  iframe,
+  .o-ratio {
     max-width: 100%;
   }
 

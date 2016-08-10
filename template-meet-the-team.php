@@ -6,7 +6,7 @@ get_header(); ?>
 
   <?php
   if ( has_post_thumbnail() ) {
-    set_query_var( 'class', 'c-featured' );
+    set_query_var( 'figure', true );
     get_template_part( 'partials/hero', 'banner' );
   }
   ?>
@@ -48,7 +48,7 @@ get_header(); ?>
         <div class="o-row">
     <?php while( have_posts() ) : the_post(); ?>
       <div class="o-col-12@xxs o-col-10@lg u-center-block">
-        <div class="o-row u-margin--double">
+        <div class="o-row u-margin-double">
         <?php if ( has_post_thumbnail() ) { ?>
           <div class="o-col-12@xxs o-col-4@sm o-col-5@md">
             <?php
@@ -70,15 +70,15 @@ get_header(); ?>
           if ( have_rows( 'social_media' ) ) {
             while ( have_rows( 'social_media' ) ) {
               the_row(); ?>
-          <p class="u-margin-half">
+          <p class="u-margin-half small">
             <?php if ( get_sub_field( 'social_network' ) == "Twitter" ) { ?>
             <a href="http://twitter.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
-              <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'name' ); ?> on Twitter
+              <i class="fa fa-lg fa-fw fa-twitter"></i>Follow <?php the_sub_field( 'name' ); ?> on Twitter
             </a>
             <?php } ?>
             <?php if ( get_sub_field( 'social_network' ) == "Instagram" ) { ?>
             <a href="http://instagram.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
-              <i class="fa fa-lg fa-fw fa-instagram"></i> Follow <?php the_sub_field( 'name' ); ?> on Instagram
+              <i class="fa fa-lg fa-fw fa-instagram"></i>Follow <?php the_sub_field( 'name' ); ?> on Instagram
             </a>
             <?php } ?>
           </p>
