@@ -50,7 +50,7 @@ get_header(); ?>
       <div class="o-col-12@xxs o-col-10@lg u-center-block">
         <div class="o-row u-margin-double">
         <?php if ( has_post_thumbnail() ) { ?>
-          <div class="o-col-12@xxs o-col-4@sm o-col-5@md">
+          <div class="o-col-12@xxs o-col-4@sm o-col-5@md u-img-full">
             <?php
             set_query_var( 'margin', true );
             get_template_part( 'partials/hero' );

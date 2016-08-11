@@ -288,9 +288,9 @@ function theme_files() {
   remove_action( 'wp_head', 'wp_generator' );                           // WP version
 
   // Register our CSS
-  // wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
+  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
 
-  // wp_enqueue_style( 'site' );
+  wp_enqueue_style( 'site' );
 
   // Remove built in jQuery
   wp_deregister_script( 'jquery' );
@@ -309,6 +309,7 @@ function theme_files() {
   wp_enqueue_script( 'site' );
 };
 add_action( 'wp_enqueue_scripts', 'theme_files' );
+
 
 /**
  * Add `async` and `defer` attributes to some built in WP scripts

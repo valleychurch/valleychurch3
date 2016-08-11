@@ -38,7 +38,7 @@
 
       <div class="o-row">
 
-        <div class="o-col-12@xxs o-col-8@md c-post-content">
+        <div class="o-col-12@xxs o-col-8@md">
 
           <?php the_content(); ?>
 

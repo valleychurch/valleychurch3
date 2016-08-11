@@ -285,6 +285,15 @@
   }
 }
 
+.u-img-full,
+.u-image-full {
+  img#{&},
+  & img {
+    width: 100%;
+    max-width: auto;
+  }
+}
+
 
 //Visually hidden
 .u-hidden {

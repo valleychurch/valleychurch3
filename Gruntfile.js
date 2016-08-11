@@ -91,6 +91,7 @@ module.exports = function(grunt) {
               'assets/scripts/src/script.js'
             ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
+          'assets/scripts/dist/loadcss.min.js' : 'assets/scripts/lib/loadCSS.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
         }

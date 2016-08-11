@@ -117,15 +117,5 @@
     <?php } ?>
 
     <?php wp_footer(); ?>
-
-    <script>
-      if (Valley.IsModernBrowser && !Valley.Css.Loaded) {
-        Valley.LoadCssWithAjax();
-      }
-
-      if (!Valley.IsModernBrowser) {
-        Valley.LoadCssWithLink();
-      }
-    </script>
   </body>
 </html>
