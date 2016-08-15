@@ -5,8 +5,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-kss');
-  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-sass');
@@ -19,6 +19,16 @@ module.exports = function(grunt) {
     clean: {
       js: [ 'assets/scripts/dist' ],
       sass: [ 'assets/styles/css' ]
+    },
+
+    criticalcss: {
+      dist: {
+        options: {
+          url: "http://test.valley.local/",
+          outputfile: "assets/styles/css/critical.<%= pkg.version %>.min.css",
+          filename: "assets/styles/css/style.<%= pkg.version %>.min.css"
+        }
+      }
     },
 
     imagemin: {
@@ -49,7 +59,10 @@ module.exports = function(grunt) {
 
     postcss: {
       options: {
-        map: true,
+        map: {
+          inline: false,
+          annotation: 'assets/styles/css/'
+        },
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
           require('cssnano')(),
@@ -85,13 +98,12 @@ module.exports = function(grunt) {
               'assets/scripts/lib/modernizr.js',
               'assets/scripts/lib/fastclick.js',
               'assets/scripts/lib/picturefill.js',
-              // 'assets/scripts/lib/overthrow-toss.js',
-              // 'assets/scripts/lib/snapper.js',
               'assets/scripts/lib/responsiveslides.js',
               'assets/scripts/src/script.js'
             ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/loadcss.min.js' : 'assets/scripts/lib/loadCSS.js',
+          'assets/scripts/dist/preload.polyfill.min.js' : 'assets/scripts/lib/preload.polyfill.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
         }

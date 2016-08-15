@@ -4,10 +4,10 @@
   <?php get_template_part( 'partials/hero' ); ?>
   </a>
   <div class="o-card__body">
-    <p class="small u-text-muted u-margin--quarter">
+    <p class="small u-text-muted u-margin-quarter">
       <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
     </p>
-    <h3 class="o-card__title">
+    <h3 class="o-card__title u-margin-top-none">
       <a href="<?= get_permalink(); ?>">
         <?php the_title(); ?>
       </a>

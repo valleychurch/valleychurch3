@@ -12,4 +12,12 @@ $img = wp_get_attachment_image_src( $img_id, 'slide' );
 $img_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
 $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
 ?>
-<img src="<?= $img_medium[0]; ?>" srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>" class="<?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class' ) : "c-section__img"; ?>">
+<img
+  src="<?= $img_medium[0]; ?>"
+  srcset="<?= $img_small[0]; ?> 640w,
+          <?= $img_medium[0]; ?> 1280w,
+          <?= $img[0]; ?> 2000w"
+  width="<?= $img[1] ?>"
+  height="<?= $img[2] ?>"
+  alt="<?php the_title(); ?>"
+  class="<?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class' ) : "c-section__img"; ?>">

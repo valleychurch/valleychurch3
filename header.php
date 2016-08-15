@@ -50,9 +50,40 @@ if ( is_home() || is_page('messages') ) {
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Load Typekit ASAP -->
-    <script src="//use.typekit.net/jtz8aoh.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+<?php
+if ( $_COOKIE[ 'ValleyCss' ] == VC_THEME_VERSION ) { ?>
+    <!-- Load CSS normally (cached in the browser) -->
+    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css">
+<?php } else { ?>
+    <!-- Critical CSS for quicker first load -->
+    <style id="vc-critical-css">
+    <?= file_get_contents( get_template_directory_uri() . "/assets/styles/css/critical." . VC_THEME_VERSION . ".min.css"); ?>
+    </style>
+    <!-- Preload CSS -->
+    <link rel="preload" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Fallback for nojs -->
+    <noscript><link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css"></noscript>
+    <!--  Fallback for browsers that don't support rel="preload" -->
+    <script>
+    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/loadcss.min.js" ); ?>
+    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/preload.polyfill.min.js" ); ?>
+    document.cookie = 'ValleyCss=<?= VC_THEME_VERSION ?>; expires="Tue, 19 Jan 2038 03:14:07 GMT";path=/';
+    </script>
+<?php } ?>
+
+    <!-- Load Typekit ASAP (kit id jtz8aoh) -->
+    <!-- https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html -->
+    <script>
+      (function(d) {
+        var tkTimeout=3000;
+        if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
+        var config = {
+          kitId: 'jtz8aoh',
+          scriptTimeout: tkTimeout
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>

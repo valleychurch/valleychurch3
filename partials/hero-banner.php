@@ -26,6 +26,8 @@ $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
           <?= $banner_lg[0]; ?> 1280w,
           <?= $banner_xl[0]; ?> 1680w,
           <?= $banner_xxl[0]; ?> 2000w"
+  width="<?= $banner_xxl[1] ?>"
+  height="<?= $banner_xxl[2] ?>"
   alt="<?php the_title(); ?>"
   class="<?= get_query_var( 'class', 'c-section__img' ); ?>">
 <?php if ( get_query_var( 'figure' ) === true ) { ?>

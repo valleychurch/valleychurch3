@@ -21,7 +21,7 @@
           <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
           <?php } ?>
 
-          <div class="o-flag u-margin--double">
+          <div class="o-flag u-margin-double">
             <div class="o-flag__fix">
               <?php get_template_part( 'partials/avatar' ); ?>
             </div>

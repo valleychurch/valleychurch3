@@ -20,7 +20,9 @@ $img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
   srcset="<?= $img_medium[0]; ?> 640w,
           <?= $img_large[0]; ?> 1280w,
           <?= $img[0]; ?> 2000w"
-  alt="<?php the_title(); ?>"
+  alt="<?= the_title(); ?>"
+  width="<?= $img[1] ?>"
+  height="<?= $img[2] ?>"
   class="<?= get_query_var( 'class', 'c-section__img' ); ?>
   <?= ( get_query_var( 'margin' ) === true ) ? "u-margin" : ""; ?>">
 <?php if ( get_query_var( 'figure' ) === true ) { ?>

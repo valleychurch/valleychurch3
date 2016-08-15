@@ -14,6 +14,14 @@ pre,
 .aligncenter {
   margin-top: 0;
   margin-bottom: $VCbase;
+
+  @include breakpoint(md) {
+    margin-bottom: tuple($VCbase, 1.25);
+  }
+
+  @include breakpoint(xl) {
+    margin-bottom: tuple($VCbase, 1.5);
+  }
 }
 
 dd {

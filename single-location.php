@@ -79,7 +79,7 @@
           <?php if ( get_field( 'phone_number' ) || get_field( 'email_address' ) ) { ?>
             <h3 class="u-margin-half">Contact</h3>
             <?php if ( get_field( 'phone_number' ) ) { ?>
-              <p><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
+              <p<?= get_field( 'email_address' ) ? " class='u-margin-half'" : "" ?>><strong>Phone:</strong> <a href="tel:<?= get_field( 'phone_number' ); ?>"><?= get_field( 'phone_number' ); ?></a></p>
             <?php } ?>
             <?php if ( get_field( 'email_address' ) ) { ?>
               <p><strong>Email:</strong> <a href="mailto:<?= get_field( 'email_address' ); ?>"><?= get_field( 'email_address' ); ?></a></p>

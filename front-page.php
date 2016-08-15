@@ -3,12 +3,13 @@
 
   $featured = get_template_directory_uri() . '/assets/images/dist/hero-home.jpg';
   if ( has_post_thumbnail() ) {
-    $featured = get_the_post_thumbnail( $post, 'slide' );
+    $img_id = get_post_thumbnail_id( $post->ID );
+    $featured = wp_get_attachment_image_src( $img_id, 'slide' );
   }
 ?>
 
   <!-- Section: Welcome -->
-  <section class="c-section c-section--hero c-section--top c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured; ?>');">
+  <section class="c-section c-section--hero c-section--top c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured[0]; ?>');">
     <div class="o-container u-text-center u-text-white">
     <?php if ( !empty( get_the_content() ) ) {
       the_content();
@@ -83,13 +84,26 @@
               the_post();
               if ( has_post_thumbnail() ) :
                 $img_id = get_post_thumbnail_id( $post->ID );
-                $img = wp_get_attachment_image_src( $img_id, 'slide' );
-                $img_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
-                $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
+                $banner_xxl = wp_get_attachment_image_src( $img_id, 'banner-xxl' );
+                $banner_xl = wp_get_attachment_image_src( $img_id, 'banner-xl' );
+                $banner_lg = wp_get_attachment_image_src( $img_id, 'banner-lg' );
+                $banner_md = wp_get_attachment_image_src( $img_id, 'banner-md' );
+                $banner_sm = wp_get_attachment_image_src( $img_id, 'banner-sm' );
+                $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
             ?>
               <li class="o-slide">
                 <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
-                <img src="<?= img_medium[0]; ?>" srcset="<?= $img_small[0]; ?> 640w, <?= $img_medium[0]; ?> 1280w, <?= $img[0]; ?> 2000w" alt="<?php the_title(); ?>">
+                <img
+                  src="<?= $banner_lg[0]; ?>"
+                  srcset="<?= $banner_xs[0]; ?> 320w,
+                          <?= $banner_sm[0]; ?> 640w,
+                          <?= $banner_md[0]; ?> 960w,
+                          <?= $banner_md[0]; ?> 1280w,
+                          <?= $banner_md[0]; ?> 1680w,
+                          <?= $banner_md[0]; ?> 2000w"
+                  alt="<?php the_title(); ?>"
+                  width="1280"
+                  height="720">
                 <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
               </li>
             <?php endif;
@@ -152,7 +166,7 @@
   </section>
 
   <!-- Section: Next Steps -->
-  <section class="c-section c-section--hero" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
+  <section class="c-section c-section--hero u-background-top" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-12@xxs">
