@@ -99,6 +99,11 @@ select {
       cursor: not-allowed;
     }
   }
+
+  &.is-error {
+    border-color: $VCred;
+    color: $VCred;
+  }
 }
 
 %b-input-radio,
