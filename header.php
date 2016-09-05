@@ -50,28 +50,6 @@ if ( is_home() || is_page('messages') ) {
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<?php
-if ( isset( $_COOKIE[ 'ValleyCss'] ) ) {
-if ( $_COOKIE[ 'ValleyCss' ] == VC_THEME_VERSION ) { ?>
-    <!-- Load CSS normally (cached in the browser) -->
-    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css">
-<?php } } else { ?>
-    <!-- Critical CSS for quicker first load -->
-    <style id="vc-critical-css">
-    <?= file_get_contents( get_template_directory_uri() . "/assets/styles/css/critical." . VC_THEME_VERSION . ".min.css"); ?>
-    </style>
-    <!-- Preload CSS -->
-    <link rel="preload" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css" as="style" onload="this.rel='stylesheet'">
-    <!-- Fallback for nojs -->
-    <noscript><link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css"></noscript>
-    <!--  Fallback for browsers that don't support rel="preload" -->
-    <script>
-    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/loadcss.min.js" ); ?>
-    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/preload.polyfill.min.js" ); ?>
-    document.cookie = 'ValleyCss=<?= VC_THEME_VERSION ?>; expires="Tue, 19 Jan 2038 03:14:07 GMT";path=/';
-    </script>
-<?php } ?>
-
     <!-- Load Typekit ASAP (kit id jtz8aoh) -->
     <!-- https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html -->
     <script>
