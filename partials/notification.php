@@ -21,8 +21,8 @@
       </div>
       <div class="o-flag__fix">
         <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss" onclick="__gaTracker('send', 'event', 'dismiss-notification', '<?= the_ID(); ?>');">
-          <!-- &times; -->
-          <i class="fa fa-times"></i>
+          &times;
+          <!-- <i class="fa fa-times"></i> -->
         </button>
       </div>
     </div>

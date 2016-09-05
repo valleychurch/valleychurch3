@@ -1,7 +1,7 @@
     </main>
 
     <footer class="c-footer u-cf">
-      <div class="o-container u-padding-top u-padding-bottom">
+      <div class="o-container u-padding-top">
         <div class="o-row">
 
           <div class="o-col-12@xxs o-col-3@lg u-text-center@xxs u-text-left@lg u-grid-1@xxs u-grid-0@lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
@@ -103,7 +103,7 @@
         </div>
 
         <div class="row">
-          <p class="small u-text-muted u-text-center@xs u-text-left@lg">
+          <p class="small u-text-muted u-text-center@xs u-text-left@lg u-margin-none">
             &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. We're a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
               target="_blank">Registered Charity No. 1125080</a>. <a href="/privacy">Privacy &amp; Cookie Policy</a>.
           </p>

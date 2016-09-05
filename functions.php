@@ -605,4 +605,18 @@ add_action( 'load_location', 'load_location' );
 //   acf_add_options_sub_page( $args );
 // }
 
+function rewrite_url_to_cdn_url($url){
+  // check if W3 Total Cache is installed
+  if(class_exists('W3_Plugin_Cdn')){
+      $w3tc_instance = new W3_Plugin_Cdn();
+      $path        = str_replace(site_url() . '/','', $url);
+      $cdn         = $w3tc_instance->_get_common()->get_cdn();
+      $remote_path = $w3tc_instance->_get_common()->uri_to_cdn_uri($path);
+      $new_url     = $cdn->format_url($remote_path);
+  } else {
+      $new_url = $url;
+  }
+  return $new_url;
+}
+
 ?>

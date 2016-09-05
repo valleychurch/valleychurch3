@@ -51,10 +51,11 @@ if ( is_home() || is_page('messages') ) {
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <?php
+if ( isset( $_COOKIE[ 'ValleyCss'] ) ) {
 if ( $_COOKIE[ 'ValleyCss' ] == VC_THEME_VERSION ) { ?>
     <!-- Load CSS normally (cached in the browser) -->
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css">
-<?php } else { ?>
+<?php } } else { ?>
     <!-- Critical CSS for quicker first load -->
     <style id="vc-critical-css">
     <?= file_get_contents( get_template_directory_uri() . "/assets/styles/css/critical." . VC_THEME_VERSION . ".min.css"); ?>
@@ -104,8 +105,6 @@ if ( $_COOKIE[ 'ValleyCss' ] == VC_THEME_VERSION ) { ?>
     <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
     <header class="c-header u-cf">
-
-      <?php get_template_part( 'partials/notification' ); ?>
 
       <div class="o-container o-container--full">
 

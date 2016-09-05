@@ -17,23 +17,21 @@ $paged = get_query_var( 'paged', 1 );
 
     <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="o-row u-text-center">
+      <div class="o-row">
 
-        <div class="o-col-12@xxs">
+        <div class="c-post-content u-center-block">
           <?php if ( get_field( 'custom_h1' ) ) { ?>
           <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
           <?php } else { ?>
           <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
           <?php } ?>
-        </div>
 
-        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
-          <p class="lead u-margin u-margin-double@md">
+          <!-- <p class="lead u-margin u-margin-double@md"> -->
             <?php
           if ( !$paged || $paged == 1 )
             the_content();
           ?>
-          </p>
+          <!-- </p> -->
         </div>
 
       </div>

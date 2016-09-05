@@ -18,6 +18,7 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
+    <?php get_template_part( 'partials/notification' ); ?>
   </section>
 
   <?php

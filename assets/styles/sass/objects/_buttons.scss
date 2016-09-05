@@ -63,6 +63,7 @@
   }
 
   .o-btn-group & {
+    flex: 0 0 100%;
     max-width: 19rem;
     min-width: 100%;
     margin-right: auto;
@@ -70,19 +71,18 @@
     margin-left: auto;
 
     @include breakpoint(md) {
-      display: inline-flex;
       flex: 0 0 (100% / 3);
       max-width: 100%;
       min-width: (100% / 3);
       margin-right: quarter($VCbase);
       margin-bottom: tuple($VCbase, .75);
       margin-left: quarter($VCbase);
+      align-items: center;
+      justify-content: center;
     }
 
     @include breakpoint(lg) {
-      align-items: center;
       flex: 0 0 32%;
-      justify-content: center;
       min-width: 32%;
     }
   }

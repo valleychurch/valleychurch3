@@ -40,14 +40,18 @@
 
         <div class="o-col-12@xxs o-col-8@md">
 
-          <?php the_content(); ?>
+          <div class="c-post-content u-center-block">
 
-          <h2>Plan your visit</h2>
+            <?php the_content(); ?>
 
-          <p>If you're visiting Valley for the first time, we're excited to have you with us! If you would like, you can send us your details below and one of our team will greet you on the day and show you around.</p>
+            <h2>Plan your visit</h2>
 
-          <input type="hidden" id="locationid" name="locationid" value="<?= the_ID() ?>">
-          <?= do_shortcode( '[contact-form-7 id="11252" title="Plan a Visit"]' ) ?>
+            <p>If you're visiting Valley for the first time, we're excited to have you with us! If you would like, you can send us your details below and one of our team will greet you on the day and show you around.</p>
+
+            <input type="hidden" id="locationid" name="locationid" value="<?= the_ID() ?>">
+            <?= do_shortcode( '[contact-form-7 id="11252" title="Plan a Visit"]' ) ?>
+
+          </div>
 
         </div>
 

@@ -7,11 +7,11 @@
   }
 
   @include breakpoint(xl) {
-    height: 60vh;
+    height: 65vh;
   }
 
   @include breakpoint(max) {
-    height: 70vh;
+    height: 75vh;
   }
 
   .no-object-fit & {
@@ -41,6 +41,7 @@
   width: 100%;
   max-width: 60rem;
 
+
   &--fixed {
     width: 100%;
     max-width: 46rem;
@@ -53,6 +54,11 @@
     padding-left: $VCbase;
     margin-right: auto;
     margin-left: auto;
+
+    [class^="o-col"] & {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   > ul,
@@ -66,7 +72,8 @@
   > .alignleft,
   > .alignright,
   > .aligncenter,
-  > [class^="wp-image-"] {
+  > [class^="wp-image-"],
+  > .wp-video {
     width: 100%;
     max-width: 60rem;
     padding-right: 0;
@@ -79,7 +86,8 @@
 
   table
   iframe,
-  .o-ratio {
+  .o-ratio,
+  .wp-video {
     max-width: 100%;
   }
 

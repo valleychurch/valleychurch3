@@ -32,6 +32,10 @@
  * Styleguide: components.notifications.default
  */
 .c-notification {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   max-height: 0;
   overflow: hidden;
   color: white;
@@ -42,14 +46,25 @@
     position: relative;
     padding: three-quarters($VCbase);
 
+    @include breakpoint(md) {
+      text-align: center;
+    }
+
     @include breakpoint(lg) {
-      padding: $VCbase;
+      padding: three-quarters($VCbase) $VCbase;
     }
   }
 
   p {
+    font-size: $VCbase;
+    padding: 0;
     margin: 0;
     @include font-stack-alt();
+
+    @include breakpoint(md) {
+      margin: 0 -2rem 0 0;
+      padding: 0 2rem;
+    }
 
     a {
       color: white;
@@ -74,13 +89,14 @@
 
 .c-notification__dismiss {
   padding: 0;
-  margin: 0;
+  margin: -4px 0 0;
   font-size: 2rem;
   font-weight: 100;
-  line-height: 0;
+  line-height: 1;
   color: white;
   text-decoration: none !important;
   border: 0;
+  background-color: transparent;
 
   &:hover,
   &:focus {
