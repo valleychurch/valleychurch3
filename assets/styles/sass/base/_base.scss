@@ -2,17 +2,9 @@ html {
   @include full-height;
   font-size: $VCfont-size;
 
-  // @include breakpoint(xs) {
-  //   font-size: 17px;
-  // }
-
-  // @include breakpoint(md) {
-  //   font-size: 18px;
-  // }
-
-  // @include breakpoint(lg) {
-  //   font-size: 19px;
-  // }
+  &.no-height {
+    height: auto;
+  }
 }
 
 body {
@@ -23,6 +15,11 @@ body {
   font-size: $VCbase;
   line-height: $VCline-height;
   color: $VCblack;
+  font-display: swap;
+
+  &.no-height {
+    height: auto;
+  }
 
   &.is-menu-active {
     position: fixed;

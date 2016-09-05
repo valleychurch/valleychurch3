@@ -1,6 +1,8 @@
 .c-search {
   position: relative;
   width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 
   .c-navigation & {
     @include breakpoint(lg) {
@@ -36,7 +38,7 @@ input.c-search__input {
     padding: rem(9px) rem(9px) rem(7px);
     .c-navigation & {
       color: white;
-      background-color: $VCblack;
+      background-color: greyscale(1);
 
       &:hover,
       &:focus {

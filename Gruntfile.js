@@ -3,12 +3,13 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-kss');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-version');
 
   grunt.initConfig({
@@ -18,6 +19,16 @@ module.exports = function(grunt) {
     clean: {
       js: [ 'assets/scripts/dist' ],
       sass: [ 'assets/styles/css' ]
+    },
+
+    criticalcss: {
+      dist: {
+        options: {
+          url: "http://test.valley.local/",
+          outputfile: "assets/styles/css/critical.<%= pkg.version %>.min.css",
+          filename: "assets/styles/css/style.<%= pkg.version %>.min.css"
+        }
+      }
     },
 
     imagemin: {
@@ -34,7 +45,7 @@ module.exports = function(grunt) {
     kss: {
       options: {
         template: 'assets/template',
-        homepage: 'styleguide.md',
+        homepage: 'index.md',
         verbose: true,
         custom: ['Hide'],
         css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
@@ -48,9 +59,13 @@ module.exports = function(grunt) {
 
     postcss: {
       options: {
-        map: true,
+        map: {
+          inline: false,
+          annotation: 'assets/styles/css/'
+        },
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('cssnano')(),
         ]
       },
       dist: {
@@ -61,7 +76,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'compressed'
+          outputStyle: 'compressed'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',
@@ -74,7 +89,7 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        mangle: false
+        mangle: false,
       },
       dist: {
         files: {
@@ -87,6 +102,8 @@ module.exports = function(grunt) {
               'assets/scripts/src/script.js'
             ],
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
+          'assets/scripts/dist/loadcss.min.js' : 'assets/scripts/lib/loadCSS.js',
+          'assets/scripts/dist/preload.polyfill.min.js' : 'assets/scripts/lib/preload.polyfill.js',
           'assets/scripts/dist/rem.min.js' : 'assets/scripts/lib/rem.js',
           'assets/scripts/dist/respond.min.js' : 'assets/scripts/lib/respond.js',
         }
@@ -106,6 +123,12 @@ module.exports = function(grunt) {
         },
         src: [ 'assets/scripts/src/script.js' ]
       },
+      jsnew: {
+        options: {
+          prefix: 'Version: \''
+        },
+        src: [ 'assets/scripts/src/script.rewrite.js' ]
+      },
       sass: {
         options: {
           prefix: 'Version: '
@@ -121,17 +144,20 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: true,
+      },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
-        tasks: ['sass', 'postcss', 'kss', 'notify:sass']
+        tasks: ['sass:dist', 'postcss:dist', 'notify:sass'],
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
-        tasks: ['uglify', 'notify:scripts']
+        tasks: ['uglify:dist', 'notify:scripts']
       },
       images: {
         files: 'assets/images/src/*.{png,jpg,gif,svg}',
-        tasks: ['imagemin', 'notify:images']
+        tasks: ['imagemin:dynamic', 'notify:images']
       },
     },
 
@@ -140,7 +166,7 @@ module.exports = function(grunt) {
         options: {
           enabled: true,
           success: true,
-          duration: 3
+          duration: 2
         }
       },
       local: {
@@ -164,7 +190,7 @@ module.exports = function(grunt) {
       scripts: {
         options: {
           title: 'Scripts compiled',
-          message: 'Javascript files compiled, watching for changes'
+          message: 'JavaScript files compiled, watching for changes'
         }
       },
       images: {
@@ -177,11 +203,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('local', [
-    'sass',
-    'postcss',
-    'uglify',
-    'imagemin',
-    'kss',
+    'sass:dist',
+    'postcss:dist',
+    'uglify:dist',
+    'imagemin:dynamic',
     'notify:local',
     'watch',
   ]);

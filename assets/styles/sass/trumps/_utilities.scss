@@ -1,44 +1,40 @@
 // Clearfix
-.u-clearfix,
-.u-cf {
-  @include clearfix;
-}
+%u-cf, .u-cf            { @include clearfix; }
 
 // Grid ordering
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
     @for $i from 0 through 12 {
-      .u-grid-#{$i}--#{$breakpoint} {
+      .u-grid-#{$i}\@#{$breakpoint} {
         order: #{$i};
       }
     }
   }
 }
 
-// Floats
-.u-pull-left {
-  @include pull-left;
-}
+.u-flex-top             { align-items: flex-start; }
+.u-flex-bottom          { align-items: flex-end; }
+.u-flex-center          { align-items: center; }
+.u-flex-stretch         { align-items: stretch; }
+.u-flex-baseline        { align-items: baseline; }
 
-.u-pull-right {
-  @include pull-right;
-}
+// Floats
+.u-pull-left            { @include pull-left; }
+.u-pull-right           { @include pull-right; }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-pull-left--#{$breakpoint}   { @include pull-left; }
-    .u-pull-right--#{$breakpoint}  { @include pull-right; }
+    .u-pull-left\@#{$breakpoint}    { @include pull-left; }
+    .u-pull-right\@#{$breakpoint}   { @include pull-right; }
   }
 }
 
 // Displays
-.u-center-block {
-  @include center-block;
-}
+.u-center-block         { @include center-block; }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-center-block--#{$breakpoint}   { @include center-block; }
+    .u-center-block\@#{$breakpoint} { @include center-block; }
   }
 }
 
@@ -49,10 +45,10 @@
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-hide--#{$breakpoint}                   { display: none; }
-    .u-show--#{$breakpoint}                   { display: block; }
-    .u-show-inline--#{$breakpoint}            { display: inline; }
-    .u-show-inline-block--#{$breakpoint}      { display: inline-block; }
+    .u-hide\@#{$breakpoint}                 { display: none; }
+    .u-show\@#{$breakpoint}                 { display: block; }
+    .u-show-inline\@#{$breakpoint}          { display: inline; }
+    .u-show-inline-block\@#{$breakpoint}    { display: inline-block; }
   }
 }
 
@@ -66,11 +62,11 @@
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-text-left--#{$breakpoint}    { text-align: left; }
-    .u-text-right--#{$breakpoint}   { text-align: right; }
-    .u-text-center--#{$breakpoint}  { text-align: center; }
-    .u-text-justify--#{$breakpoint} { text-align: justify !important; }
-    .u-text-nowrap--#{$breakpoint}  { white-space: nowrap !important; }
+    .u-text-left\@#{$breakpoint}      { text-align: left; }
+    .u-text-right\@#{$breakpoint}     { text-align: right; }
+    .u-text-center\@#{$breakpoint}    { text-align: center; }
+    .u-text-justify\@#{$breakpoint}   { text-align: justify !important; }
+    .u-text-nowrap\@#{$breakpoint}    { white-space: nowrap !important; }
   }
 }
 
@@ -80,14 +76,75 @@
 
 
 //Line height
-.u-line-height--none  { line-height: 1; }
-.u-line-height--small { line-height: 1.2; }
+.u-line-height--none    { line-height: 1; }
+.u-line-height--small   { line-height: 1.35; }
 
+//Brand colours
+.u-text-twitter,
+.fa-twitter,
+.fa-twitter-square {
+  color: $VCtwitter;
+}
+
+.u-background-twitter {
+  background-color: $VCtwitter;
+  border-color: shade($VCtwitter, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCtwitter, 10%);
+      border-color: shade($VCtwitter, 20%);
+    }
+  }
+}
+
+.u-text-facebook,
+.fa-facebook,
+.fa-facebook-official,
+.fa-facebook-square {
+  color: $VCfacebook;
+}
+
+.u-background-facebook {
+  background-color: $VCfacebook;
+  border-color: shade($VCfacebook, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCfacebook, 10%);
+      border-color: shade($VCfacebook, 20%);
+    }
+  }
+}
+
+.u-text-instagram,
+.fa-instagram {
+  color: $VCinstagram;
+}
+
+.u-background-instagram {
+  background-color: $VCinstagram;
+  border-color: shade($VCinstagram, 10%);
+
+  &.o-btn {
+    &:hover,
+    &:focus,
+    &:visited {
+      background-color: shade($VCinstagram, 10%);
+      border-color: shade($VCinstagram, 20%);
+    }
+  }
+}
 
 //Text colours
-.u-text-white         { color: $VCwhite; }
-.u-text-black         { color: $VCblack; }
-.u-text-grey          { color: $VCgrey; }
+//Below `Brand colours` so these take priority
+.u-text-white           { color: $VCwhite; }
+.u-text-black           { color: $VCblack; }
+.u-text-grey            { color: $VCgrey; }
 .u-text-muted           { color: greyscale(5); }
 
 @each $name, $colour in $VCcolours {
@@ -100,10 +157,8 @@
   }
 }
 
-.u-text-twitter,
-.fa-twitter {
-  color: #55acee;
-}
+
+.u-text-shadow          { @include text-shadow; }
 
 .u-text-light           { font-weight: $VCfont-light; }
 .u-text-normal          { font-weight: $VCfont-normal; }
@@ -112,9 +167,9 @@
 
 
 // Background colours
-.u-background-white         { background-color: $VCwhite; }
-.u-background-black         { background-color: $VCblack; }
-.u-background-grey          { background-color: $VCgrey; }
+.u-background-white     { background-color: $VCwhite; }
+.u-background-black     { background-color: $VCblack; }
+.u-background-grey      { background-color: $VCgrey; }
 
 @each $name, $colour in $VCcolours {
   .u-background-#{$name}  { background-color: map-get($colour, base); }
@@ -126,55 +181,122 @@
   }
 }
 
+@each $name, $colour in $VCgrayscale-colours {
+  .u-background-grey--#{$name}  { background-color: $colour; }
+}
+
+
+// Background positions
+.u-background-top       { background-position: top center; }
+.u-background-center    { background-position: center; }
+.u-background-bottom    { background-position: bottom center; }
+
 
 //Margins
 .u-margin,
 .u-margin-bottom {
   margin-bottom: $VCbase;
+  &-quadruple   { margin-bottom: quadruple($VCbase) !important; }
+  &-double      { margin-bottom: double($VCbase) !important; }
+  &-half        { margin-bottom: half($VCbase) !important; }
+  &-third       { margin-bottom: third($VCbase) !important; }
+  &-quarter     { margin-bottom: quarter($VCbase) !important; }
+  &-none        { margin-bottom: 0 !important; }
 
-  &--quadruple { margin-bottom: quadruple($VCbase) !important; }
-  &--double    { margin-bottom: double($VCbase) !important; }
-  &--half      { margin-bottom: half($VCbase) !important; }
-  &--third     { margin-bottom: third($VCbase) !important; }
-  &--quarter   { margin-bottom: quarter($VCbase) !important; }
-  &--none      { margin-bottom: 0 !important; }
 }
 
 .u-margin-top {
   margin-top: $VCbase;
+  &-quadruple   { margin-top: quadruple($VCbase) !important; }
+  &-double      { margin-top: double($VCbase) !important; }
+  &-half        { margin-top: half($VCbase) !important; }
+  &-third       { margin-top: third($VCbase) !important; }
+  &-quarter     { margin-top: quarter($VCbase) !important; }
+  &-none        { margin-top: 0 !important; }
 
-  &--quadruple { margin-top: quadruple($VCbase) !important; }
-  &--double    { margin-top: double($VCbase) !important; }
-  &--half      { margin-top: half($VCbase) !important; }
-  &--third     { margin-top: third($VCbase) !important; }
-  &--quarter   { margin-top: quarter($VCbase) !important; }
-  &--none      { margin-top: 0 !important; }
 }
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-margin--#{$breakpoint},
-    .u-margin-bottom--#{$breakpoint} {
-      margin-bottom: $VCbase;
-
-      &--quadruple { margin-bottom: quadruple($VCbase) !important; }
-      &--double    { margin-bottom: double($VCbase) !important; }
-      &--half      { margin-bottom: half($VCbase) !important; }
-      &--third     { margin-bottom: third($VCbase) !important; }
-      &--quarter   { margin-bottom: quarter($VCbase) !important; }
-      &--none      { margin-bottom: 0 !important; }
+    .u-margin,
+    .u-margin-bottom {
+      &-quadruple\@#{$breakpoint} { margin-bottom: quadruple($VCbase) !important; }
+      &-double\@#{$breakpoint}    { margin-bottom: double($VCbase) !important; }
+      &\@#{$breakpoint}           { margin-bottom: $VCbase !important; }
+      &-half\@#{$breakpoint}      { margin-bottom: half($VCbase) !important; }
+      &-third\@#{$breakpoint}     { margin-bottom: third($VCbase) !important; }
+      &-quarter\@#{$breakpoint}   { margin-bottom: quarter($VCbase) !important; }
+      &-none\@#{$breakpoint}      { margin-bottom: 0 !important; }
     }
 
-    .u-margin-top--#{$breakpoint} {
-      margin-top: $VCbase;
-
-      &--quadruple { margin-top: quadruple($VCbase) !important; }
-      &--double    { margin-top: double($VCbase) !important; }
-      &--half      { margin-top: half($VCbase) !important; }
-      &--third     { margin-top: third($VCbase) !important; }
-      &--quarter   { margin-top: quarter($VCbase) !important; }
-      &--none      { margin-top: 0 !important; }
+    .u-margin-top {
+      &-quadruple\@#{$breakpoint} { margin-top: quadruple($VCbase) !important; }
+      &-double\@#{$breakpoint}    { margin-top: double($VCbase) !important; }
+      &\@#{$breakpoint}           { margin-top: $VCbase !important; }
+      &-half\@#{$breakpoint}      { margin-top: half($VCbase) !important; }
+      &-third\@#{$breakpoint}     { margin-top: third($VCbase) !important; }
+      &-quarter\@#{$breakpoint}   { margin-top: quarter($VCbase) !important; }
+      &-none\@#{$breakpoint}      { margin-top: 0 !important; }
     }
+  }
+}
+
+
+//Padding
+.u-padding,
+.u-padding-bottom {
+  padding-bottom: $VCbase;
+
+  &-quadruple   { padding-bottom: quadruple($VCbase) !important; }
+  &-double      { padding-bottom: double($VCbase) !important; }
+  &-half        { padding-bottom: half($VCbase) !important; }
+  &-third       { padding-bottom: third($VCbase) !important; }
+  &-quarter     { padding-bottom: quarter($VCbase) !important; }
+  &-none        { padding-bottom: 0 !important; }
+}
+
+.u-padding-top {
+  padding-top: $VCbase;
+
+  &-quadruple   { padding-top: quadruple($VCbase) !important; }
+  &-double      { padding-top: double($VCbase) !important; }
+  &-half        { padding-top: half($VCbase) !important; }
+  &-third       { padding-top: third($VCbase) !important; }
+  &-quarter     { padding-top: quarter($VCbase) !important; }
+  &-none        { padding-top: 0 !important; }
+}
+
+@each $breakpoint in map-keys($VCbreakpoints) {
+  @include breakpoint($breakpoint) {
+    .u-padding,
+    .u-padding-bottom {
+      &\@#{$breakpoint}           { padding-bottom: $VCbase !important; }
+      &-quadruple\@#{$breakpoint} { padding-bottom: quadruple($VCbase) !important; }
+      &-double\@#{$breakpoint}    { padding-bottom: double($VCbase) !important; }
+      &-half\@#{$breakpoint}      { padding-bottom: half($VCbase) !important; }
+      &-third\@#{$breakpoint}     { padding-bottom: third($VCbase) !important; }
+      &-quarter\@#{$breakpoint}   { padding-bottom: quarter($VCbase) !important; }
+      &-none\@#{$breakpoint}      { padding-bottom: 0 !important; }
+    }
+
+    .u-padding-top {
+      &\@#{$breakpoint}           { padding-top: $VCbase !important; }
+      &-quadruple\@#{$breakpoint} { padding-top: quadruple($VCbase) !important; }
+      &-double\@#{$breakpoint}    { padding-top: double($VCbase) !important; }
+      &-half\@#{$breakpoint}      { padding-top: half($VCbase) !important; }
+      &-third\@#{$breakpoint}     { padding-top: third($VCbase) !important; }
+      &-quarter\@#{$breakpoint}   { padding-top: quarter($VCbase) !important; }
+      &-none\@#{$breakpoint}      { padding-top: 0 !important; }
+    }
+  }
+}
+
+.u-img-full,
+.u-image-full {
+  img#{&},
+  & img {
+    width: 100%;
+    max-width: auto;
   }
 }
 

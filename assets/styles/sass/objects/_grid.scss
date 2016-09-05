@@ -18,17 +18,21 @@
   max-width: map-get($VCbreakpoints, "lg");
 }
 
-.o-container--page {
-  @include box-shadow;
-  padding-right: 0;
-  padding-left: 0;
-}
+// .o-container--page {
+//   @include box-shadow;
+//   padding-right: 0;
+//   padding-left: 0;
+// }
 
 // Row
 // Rows contain and clear the floats of your columns.
 @if $VCenable-grid-classes {
   .o-row {
     @include make-row;
+
+    &--center {
+      justify-content: center;
+    }
   }
 
   .o-row--flush {
@@ -57,26 +61,31 @@
   // Flex column reordering
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
-      .o-col-#{$breakpoint}-first { order: -1; }
-      .o-col-#{$breakpoint}-last  { order: 1; }
+      .o-col--first\@#{$breakpoint}   { order: -1; }
+      .o-col--last\@#{$breakpoint}    { order: 1; }
     }
   }
 
   // Alignment for every column in row
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
-      .o-row-#{$breakpoint}-top    { align-items: flex-start; }
-      .o-row-#{$breakpoint}-center { align-items: center; }
-      .o-row-#{$breakpoint}-bottom { align-items: flex-end; }
+      .o-row--top\@#{$breakpoint}     { align-items: flex-start; }
+      .o-row--center\@#{$breakpoint}  { align-items: center; }
+      .o-row--bottom\@#{$breakpoint}  { align-items: flex-end; }
     }
   }
 
   // Alignment per column
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
-      .o-col-#{$breakpoint}-top    { align-self: flex-start; }
-      .o-col-#{$breakpoint}-center { align-self: center; }
-      .o-col-#{$breakpoint}-bottom { align-self: flex-end; }
+      .o-col--top\@#{$breakpoint}     { align-self: flex-start; }
+      .o-col--center\@#{$breakpoint}  { align-self: center; }
+      .o-col--bottom\@#{$breakpoint}  { align-self: flex-end; }
     }
+  }
+
+  .o-col-center {
+    justify-content: center;
+    text-align: center;
   }
 }

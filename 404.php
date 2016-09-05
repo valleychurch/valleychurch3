@@ -1,18 +1,27 @@
 <?php get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1>Sorry, we can't find the page you're looking for!</h1>
+        <div class="c-post-content u-center-block">
 
-        <p class="lead">Either use the search below, or <a href="/">head back to the home page</a>.</p>
+          <h1>Sorry, we can't find the page you're looking for!</h1>
 
-        <?php get_search_form(); ?>
+          <p class="lead">Either use the search below, or <a href="/">head back to the home page</a>.</p>
+
+          <?php get_search_form(); ?>
+
+        </div>
 
       </div>
 

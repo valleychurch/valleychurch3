@@ -1,0 +1,29 @@
+.o-table-responsive {
+  min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  overflow-x: auto;
+
+  @media screen and (max-width: map-get($VCbreakpoints, md) - 0.1em) {
+    width: 100%;
+    margin-bottom: $VCbase;
+    overflow-y: hidden;
+    // border: 1px solid greyscale(8);
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    // Tighten up spacing
+    > table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

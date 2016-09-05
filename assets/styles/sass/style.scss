@@ -1,3 +1,5 @@
+@import "toneandvoice";
+
 /**
  * Tools
  *
@@ -35,6 +37,7 @@
  * Styleguide: generic
  */
 @import "generic/normalize";
+@import "generic/print";
 @import "generic/boxsizing";
 @import "generic/shared";
 
@@ -50,7 +53,6 @@
 @import "base/base";
 @import "base/typography";
 @import "base/links";
-@import "base/definition-lists";
 @import "base/tables";
 @import "base/forms";
 
@@ -70,6 +72,7 @@
 @import "objects/lists";
 @import "objects/media";
 @import "objects/ratio";
+@import "objects/tables";
 
 /**
  * Components
@@ -81,7 +84,6 @@
  * Styleguide: components
  */
 @import "components/avatar";
-@import "components/banner";
 @import "components/footer";
 @import "components/header";
 @import "components/main";
@@ -91,8 +93,9 @@
 @import "components/pagination";
 @import "components/post";
 @import "components/search";
-@import "components/sharer";
+@import "components/section";
 @import "components/slider";
+// @import "components/snapper";
 
 /**
  * Trumps
@@ -105,3 +108,4 @@
  */
 @import "trumps/utilities";
 @import "trumps/trumps";
+@import "trumps/debug";

@@ -4,17 +4,30 @@
 */
 get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin--double' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin--double' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+        <div class="c-post-content u-center-block">
 
-        <?php the_content(); ?>
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <?php } ?>
+
+          <?php the_content(); ?>
+
+        </div>
 
       </div>
 
@@ -25,41 +38,49 @@ get_header(); ?>
     $args =
       array(
         'post_type' => 'staff',
-        'post_status' => 'publish',
+        'post_status' => array( 'publish', 'private' ),
         'posts_per_page' => -1
       );
 
     $wp_query = new WP_Query( $args );
     if ( have_posts() ) : ?>
-    <div class="o-row">
+      <div class="o-container">
+        <div class="o-row">
     <?php while( have_posts() ) : the_post(); ?>
-      <div class="o-col-xxs-12 o-col-lg-10 u-center-block">
-        <div class="o-row u-margin--double">
+      <div class="o-col-12@xxs o-col-10@lg u-center-block">
+        <div class="o-row u-margin-double">
         <?php if ( has_post_thumbnail() ) { ?>
-          <div class="o-col-xxs-12 o-col-sm-4 o-col-md-5">
+          <div class="o-col-12@xxs o-col-4@sm o-col-5@md u-img-full">
             <?php
             set_query_var( 'margin', true );
-            get_template_part( 'partials/featured-image', 'simple' );
+            get_template_part( 'partials/hero' );
             ?>
           </div>
-          <div class="o-col-xxs-12 o-col-sm-8 o-col-md-7">
+          <div class="o-col-12@xxs o-col-8@sm o-col-7@md">
         <?php } else { ?>
-          <div class="o-col-xxs-12">
+          <div class="o-col-12@xxs">
         <?php }
           if ( get_field( 'job_title' ) ) { ?>
-            <h2 class="u-margin--none"><?php the_title(); ?></h2>
+            <h2 class="u-margin-half"><?php the_title(); ?></h2>
             <h3><?php the_field( 'job_title' ); ?></h3>
           <?php } else { ?>
             <h2><?php the_title(); ?></h2>
           <?php }
           the_content();
-          if ( have_rows( 'twitter' ) ) {
-            while ( have_rows( 'twitter' ) ) {
+          if ( have_rows( 'social_media' ) ) {
+            while ( have_rows( 'social_media' ) ) {
               the_row(); ?>
-          <p class="u-margin--half">
-            <a href="http://twitter.com/<?= get_sub_field( 'twitter_handle' ); ?>" target="_blank">
-              <i class="fa fa-lg fa-fw fa-twitter"></i> Follow <?php the_sub_field( 'twitter_name' ); ?> on Twitter
+          <p class="u-margin-half small">
+            <?php if ( get_sub_field( 'social_network' ) == "Twitter" ) { ?>
+            <a href="http://twitter.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
+              <i class="fa fa-lg fa-fw fa-twitter"></i>Follow <?php the_sub_field( 'name' ); ?> on Twitter
             </a>
+            <?php } ?>
+            <?php if ( get_sub_field( 'social_network' ) == "Instagram" ) { ?>
+            <a href="http://instagram.com/<?= get_sub_field( 'handle' ); ?>" target="_blank">
+              <i class="fa fa-lg fa-fw fa-instagram"></i>Follow <?php the_sub_field( 'name' ); ?> on Instagram
+            </a>
+            <?php } ?>
           </p>
           <?php }
           }
@@ -68,7 +89,8 @@ get_header(); ?>
         </div>
       </div>
     <?php endwhile; ?>
-    </div>
+        </div>
+      </div>
     <?php else: endif; ?>
   </section>
 

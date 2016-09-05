@@ -1,7 +1,7 @@
 /**
  * Buttons
  *
- * Button style for use across the site
+ * Branded button styling for use everywhere!
  *
  * Styleguide: objects.buttons
  */
@@ -12,19 +12,22 @@
  * Default button style
  *
  * Markup:
- * <a class="o-btn {{modifier_class}}">Click me!</a>
+ * <a class="o-btn {{modifier_class}}" role="button">a[role="button"]</a>
+ * <button class="o-btn {{modifier_class}}">button</button>
+ * <input type="submit" class="o-btn {{modifier_class}}" value='input[type="submit"]'>
  *
  * .o-btn--large - Large button
  * .o-btn--small - Small button
+ * .o-btn--xsmall - Extra small button
  *
  * Styleguide: objects.buttons.default
  */
-.o-btn,
-.o-btn:visited {
+.o-btn {
   display: inline-block;
   width: auto;
   height: auto;
-  padding: .25rem .75rem;
+  padding: quarter($VCbase) three-quarters($VCbase);
+  margin: 0 0 quarter($VCbase);
 
   @include font-stack-alt;
   @include font-size(17);
@@ -48,7 +51,8 @@
   @include transition;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:visited {
     color: white;
     background-color: colour("red", dark);
     border-color: colour("red", x-dark);
@@ -57,9 +61,41 @@
   @include breakpoint(sm) {
     @include font-size(18);
   }
+
+  .o-btn-group & {
+    flex: 0 0 100%;
+    max-width: 19rem;
+    min-width: 100%;
+    margin-right: auto;
+    margin-bottom: half($VCbase);
+    margin-left: auto;
+
+    @include breakpoint(md) {
+      flex: 0 0 (100% / 3);
+      max-width: 100%;
+      min-width: (100% / 3);
+      margin-right: quarter($VCbase);
+      margin-bottom: tuple($VCbase, .75);
+      margin-left: quarter($VCbase);
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include breakpoint(lg) {
+      flex: 0 0 32%;
+      min-width: 32%;
+    }
+  }
 }
 
-.o-btn--small {
+
+.o-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.o-btn--xsmall {
+  padding: quarter($VCbase) half(three-quarters($VCbase));
   @include font-size(13);
 
   @include breakpoint(sm) {
@@ -67,12 +103,20 @@
   }
 }
 
-.o-btn--large {
-  padding: .5rem 1.5rem;
-  @include font-size(19);
+.o-btn--small {
+  @include font-size(14);
 
   @include breakpoint(sm) {
-    @include font-size(20);
+    @include font-size(15);
+  }
+}
+
+.o-btn--large {
+  padding: half($VCbase) tuple($VCbase, 1.25);
+  @include font-size(20);
+
+  @include breakpoint(sm) {
+    @include font-size(21);
   }
 }
 
@@ -82,7 +126,9 @@
  * Clear out all default styles
  *
  * Markup:
- *  <a class="o-btn o-btn--reset {{modifier_class}}">Click me!</a>
+ *  <a class="o-btn o-btn--reset {{modifier_class}}" role="button">a[role="button"]</a>
+ *  <button class="o-btn o-btn--reset {{modifier_class}}">button</button>
+ *  <input type="submit" class="o-btn o-btn--reset {{modifier_class}}" value='input[type="submit"]'>
  *
  * .o-btn--reset--alt - Alternative button with a light grey background
  *
@@ -91,18 +137,23 @@
 .o-btn--reset {
   width: auto;
   margin: 0;
-  color: $VCblack;
-  background-color: transparent;
-  border-color: $VCblack;
 
-  &:hover,
-  &:focus {
-    color: $VCwhite;
-    background-color: greyscale(3);
-    // border-color: greyscale(10);
+  &,
+  &:visited {
+    color: $VCblack;
+    background-color: transparent;
+    border-color: $VCblack;
+
+    &:hover,
+    &:focus {
+      color: $VCwhite;
+      background-color: greyscale(3);
+      // border-color: greyscale(10);
+    }
   }
 
-  &--alt {
+  &--alt,
+  &--alt:visited {
     background-color: greyscale(11);
     border-color: greyscale(8);
 
@@ -119,20 +170,51 @@
  * Transparent button for use on dark backgrounds
  *
  * Markup:
- * <a class="o-btn o-btn--ghost">Click me!</a>
+ *  <a class="o-btn o-btn--ghost {{modifier_class}}" role="button">a[role="button"]</a>
+ *  <button class="o-btn o-btn--ghost {{modifier_class}}">button</button>
+ *  <input type="submit" class="o-btn o-btn--ghost {{modifier_class}}" value='input[type="submit"]'>
+ *
+ * .o-btn--ghost--white - White variant for dark backgrounds
  *
  * Styleguide: objects.buttons.ghost
  */
 .o-btn--ghost {
   @include font-stack-alt;
-  color: white;
-  background-color: transparent;
-  border: 3px solid rgba($VCwhite, .6);
+  color: $VCblack;
+  background-color: rgba($VCwhite, .2);
+  border: 2px solid rgba($VCblack, .6);
 
   &:hover,
-  &:focus {
-    color: white;
-    background-color: transparent;
-    border-color: rgba($VCwhite, 1);
+  &:focus,
+  &:visited {
+    color: $VCblack;
+    background-color: rgba($VCwhite, .5);
+    border-color: rgba($VCblack, 1);
+  }
+
+  &.is-active {
+    color: $VCwhite;
+    background-color: rgba($VCblack, .75);
+    border-color: rgba($VCblack, 1);
+  }
+
+  &--white {
+    color: $VCwhite;
+    background-color: rgba($VCblack, .2);
+    border-color: rgba($VCwhite, .6);
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $VCwhite;
+      background-color: rgba($VCblack, .5);
+      border-color: rgba($VCwhite, 1);
+    }
+
+    &.is-active {
+      color: $VCblack;
+      background-color: rgba($VCwhite, .75);
+      border-color: rgba($VCwhite, 1);
+    }
   }
 }

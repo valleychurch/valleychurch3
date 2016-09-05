@@ -4,51 +4,125 @@
 */
 get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
-
-        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
-
-        <?php the_content(); ?>
-
+      <div class="o-row u-text-center">
+        <div class="o-col-12@xxs">
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
+          <?php } ?>
+        </div>
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
+          <?= get_the_content(); ?>
+        </div>
       </div>
 
     </article>
 
   </section>
 
-  <section class="o-container c-section c-section--grey">
+<?php
+  $local_location = isset( $_GET['mylocation'] ) ? $_GET['mylocation'] : 0;
+  $query_location = ( isset( $_GET['locationid'] ) ? $_GET['locationid'] : null );
+  $location_args =
+    array(
+      'post_type' => 'location',
+      'post_status' => array( 'publish', 'private' ),
+      'posts_per_page' => -1,
+    );
+  $locations = get_posts( $location_args );
+?>
 
-    <div class="o-row">
-      <div class="c-post-content--wide u-center-block">
-      <?php
-        $args =
-          array(
-            'post_type' => 'events',
-            'post_status' => 'publish',
-            'posts_per_page' => -1
-          );
+  <section class="c-section u-background-grey--11">
 
-        $wp_query = new WP_Query( $args );
-        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <form name="events-search" method="GET" action="<?= get_permalink(); ?>">
 
-        <div class="o-col-xxs-12">
-          <?php get_template_part( 'partials/card', 'event' ); ?>
+      <input type="hidden" id="mylocation" name="mylocation">
+      <div class="o-container">
+        <div class="o-row u-margin">
+          <div class="o-col-12@xxs u-text-center">
+            <p>Show me events at:</p>
+            <div class="u-text-center">
+              <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0" role="button">
+                All locations
+              </a>
+              <?php foreach ( $locations as $location ) { ?>
+              <a class="o-btn o-btn--ghost <?= ( $query_location == $location->ID ) ? "is-active" : ""; ?>" href="?locationid=<?= $location->ID ?>" role="button">
+                <?= $location->post_title ?>
+              </a>
+              <?php } ?>
+            </div>
+          </div>
         </div>
-      <?php
-      endwhile;
-      get_template_part( 'partials/pagination' );
-      else :
-        get_template_part( 'no-content-found' );
-      endif;
-      ?>
       </div>
-    </div>
+
+      <div class="o-container">
+
+        <div class="o-row o-row--center">
+
+        <?php
+          $tax_query = [];
+          $meta_query = [];
+          $current_page = get_query_var( 'paged',  1 );
+
+          if ( isset( $query_location ) && $query_location != 0 ) {
+            $tax_query[] =
+              array(
+                'taxonomy'  => 'location',
+                'field'     => 'term_id',
+                'terms'     => $query_location,
+                'operator'  => 'IN',
+              );
+          }
+
+          $args =
+            array(
+              'post_type'       => 'events',
+              'post_status'     => 'publish',
+              'posts_per_page'  => 12,
+              'paged'           => $current_page,
+              'tax_query'       => $tax_query,
+              'meta_query'      => $meta_query,
+            );
+
+          $wp_query = new WP_Query( $args );
+
+          if ( $wp_query->have_posts() ) :
+            while ( $wp_query->have_posts() ) :
+              $wp_query->the_post(); ?>
+
+            <div class="o-col-12@xxs o-col-4@md">
+              <?php get_template_part( 'partials/card', 'event' ); ?>
+            </div>
+
+          <?php
+            endwhile;
+          get_template_part( 'partials/pagination' );
+          else:
+            get_template_part( 'partials/no-content-found' );
+          endif;
+
+          wp_reset_query();
+          wp_reset_postdata();
+        ?>
+
+        </div>
+
+      </div>
+
+    </form>
+
   </section>
 
 <?php get_footer(); ?>

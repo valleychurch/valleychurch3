@@ -1,43 +1,47 @@
-.c-section {
-  padding: $VCbase $VCbase 0;
-  //margin-top: -$VCbase;
-
-  @include breakpoint(md) {
-    padding: ($VCbase * 1.5) ($VCbase * 1.5) half($VCbase);
-  }
-
-  @include breakpoint(lg) {
-    padding: double($VCbase) double($VCbase) $VCbase;
-  }
-}
-
-.c-section--small {
-  padding: half($VCbase) half($VCbase) 0;
-  //margin-top: -$VCbase;
-
-  @include breakpoint(md) {
-    padding: three-quarters($VCbase) three-quarters($VCbase) third($VCbase);
-  }
-
-  @include breakpoint(lg) {
-    padding: $VCbase $VCbase half($VCbase);
-  }
-}
-
-.c-section--gray,
-.c-section--grey {
-  background-color: greyscale(11);
-}
-
 .c-featured {
+  max-height: 40rem;
+  overflow: hidden;
+
+  @include breakpoint(lg) {
+    height: 50vh; /* Allows object-fit to work */
+  }
+
+  @include breakpoint(xl) {
+    height: 65vh;
+  }
+
+  @include breakpoint(max) {
+    height: 75vh;
+  }
+
+  .no-object-fit & {
+    height: auto;
+  }
+
+  .o-card &,
+  .c-article & {
+    height: auto;
+  }
+
   picture,
   source,
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    .no-object-fit & {
+      height: auto;
+    }
   }
 }
 
 .c-post-content {
+  width: 100%;
+  max-width: 60rem;
+
+
   &--fixed {
     width: 100%;
     max-width: 46rem;
@@ -48,28 +52,47 @@
     max-width: 46rem;
     padding-right: $VCbase;
     padding-left: $VCbase;
-  }
+    margin-right: auto;
+    margin-left: auto;
 
-  > img {
-    width: 100%;
-
-    // WordPress built in images go full-width
-    &.alignleft,
-    &.alignright,
-    &.aligncenter,
-    &[class^="wp-image-"] {
-      width: 100%;
+    [class^="o-col"] & {
       padding-right: 0;
       padding-left: 0;
     }
   }
 
-  .no-flexbox & {
-    float: none;
+  > ul,
+  > ol {
+    padding-left: tuple($VCbase, 2.5);
   }
 
-  &--wide {
+  // WordPress built in images go full-width
+  > img,
+  > table,
+  > .alignleft,
+  > .alignright,
+  > .aligncenter,
+  > [class^="wp-image-"],
+  > .wp-video {
+    width: 100%;
     max-width: 60rem;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  img.ajax-loader {
+    width: auto;
+  }
+
+  table
+  iframe,
+  .o-ratio,
+  .wp-video {
+    max-width: 100%;
+  }
+
+  .no-flexbox & {
+    float: none;
   }
 }
 
@@ -78,6 +101,31 @@
     padding-top: $VCbase;
   }
 }
+
+// article.podcast {
+//   .c-featured {
+//     position: relative;
+
+//     &::before {
+//       content: "\f144";
+//       position: absolute;
+//       left: 50%;
+//       top: 50%;
+//       transform: translateX(-50%) translateY(-50%);
+//       display: inline-block;
+//       font-family: "FontAwesome";
+//       font-size: 10rem;
+//       z-index: 10;
+//       line-height: 1;
+//       color: rgba(0,0,0,.35);
+//       transition: color 250ms ease-in-out;
+//     }
+
+//     &:hover::before {
+//       color: rgba(0,0,0,.5);
+//     }
+//   }
+// }
 
 .powerpress_player {
   margin-bottom: $VCbase;

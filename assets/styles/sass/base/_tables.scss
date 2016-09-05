@@ -1,0 +1,16 @@
+.o-table {
+  border-collapse: collapse;
+
+  td, th {
+    padding: quarter($VCbase);
+    border: 1px solid greyscale(8);
+
+    @include breakpoint(md) {
+      padding: half($VCbase);
+    }
+  }
+
+  th {
+    background: greyscale(8);
+  }
+}

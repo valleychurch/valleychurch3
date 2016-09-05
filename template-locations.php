@@ -5,145 +5,76 @@
 get_header();
 ?>
 
-<?php
-  $args =
-    array(
-      'post_type' => 'location',
-      'post_status' => 'publish',
-      'posts_per_page' => -1,
-    );
-
-  $locations = new WP_Query( $args );
-?>
-
-<script>
-  function initMap() {
-    mapOpts = {
-      zoom: 9,
-      center: mapCentre,
-      //mapTypeId: google.maps.MapTypeId.ROADMAP,
-      rotateControl: false,
-      panControl: false,
-      mapTypeControl: false,
-      mapTypeControlOptions: {
-        myTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-      },
-      streetViewControl: false,
-      scrollwheel: false
-    };
-
-    map = new google.maps.Map(document.getElementsByClassName('js-google-map')[0], mapOpts);
-
-    map.set('styles', mapStyle);
-
-    mapBounds = new google.maps.LatLngBounds();
-
-    mapLocations = [
-    <?php
-    $i = 0; if ( $locations->have_posts() ) : while ( $locations->have_posts() ) : $locations->the_post();
-    $info = get_the_content();
-    $location = get_field('location');
-    if ( $location ) {
-    ?>
-      ['<?php the_title(); ?>', <?= $location['lat']; ?>, <?= $location['lng']; ?>],
-    <?php
-    $i++;
-    }
-    endwhile;
-    endif;
-    wp_reset_query();
-    ?>
-    ];
-
-    for (var i = 0; i < mapLocations.length; i++) {
-      var mapLocation = mapLocations[i];
-      mapMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(mapLocation[1], mapLocation[2]),
-        map: map,
-        title: mapLocation[0]
-      });
-      mapBounds.extend(new google.maps.LatLng(mapLocation[1], mapLocation[2]));
-    }
-
-    map.fitBounds(mapBounds);
-    centreMap();
-  }
-
-  google.maps.event.addDomListener(window, 'load', initMap);
-  google.maps.event.addDomListener(window, 'load', centreMap);
-
-  google.maps.event.addDomListener(window, 'resize', centreMap);
-</script>
-
-  <div class="c-banner c-banner--clear u-margin u-margin--sm--double">
-
-    <div class="o-row c-map c-map--40">
-      <div class="c-map__inner js-google-map"></div>
-    </div>
-
+  <div class="c-map c-map--40">
+    <div class="c-map__inner js-google-map"></div>
   </div>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-        <div class="c-post-content u-center-block">
+      <div class="o-row u-text-center">
 
-          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
-
-          <?php the_content(); ?>
-
+        <div class="o-col-12@xxs">
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 class="kilo u-margin-half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
+          <?php } ?>
         </div>
+
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
+          <p class="lead u-margin u-margin-double@md">
+            <?= get_the_content(); ?>
+          </p>
+        </div>
+
+      </div>
 
     </article>
 
   </section>
 
-  <?php wp_reset_query(); ?>
-  <?php if ( $locations->have_posts() ) : ?>
+  <?php
+  wp_reset_query();
+  $args =
+    array(
+      'post_type' => 'location',
+      'post_status' => array( 'publish', 'private' ),
+      'posts_per_page' => -1,
+      'meta_query' => array(
+        array(
+          'key'       => 'hide_on_homepage',
+          'value'     => '1',
+          'compare'   => '!='
+        )
+      )
+    );
 
-  <section class="o-container c-section c-section--grey">
+  $locations = new WP_Query( $args );
+  if ( $locations->have_posts() ) : ?>
+  <section class="c-section u-background-grey--11">
 
-    <div class="o-row">
-    <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
+    <div class="o-container">
 
-      <div class="o-col-xxs-12 o-col-md-4">
+      <div class="o-row o-row--center">
 
-        <div class="o-card u-text-center">
-          <?php
-          set_query_var( 'class', 'o-card__img' );
-          get_template_part( 'partials/featured-image', 'slide' );
-          ?>
-          <div class="o-card__body">
-            <?php $times = get_field( 'service_times' ); ?>
-            <h2 class="o-card__title <?= ( $times ) ? "u-margin--half" : ""; ?>"><?php the_title(); ?></h2>
-            <?php if ( $times ) { ?>
-            <h3 class="o-card__subtitle"><?php the_field( 'service_times' ); ?></h3>
-            <?php } ?>
-            <div class="o-card__text">
-            <?php if ( get_field( 'address' ) ) { ?>
-            <p>
-            <?php if ( get_field( 'google_maps_link' ) ) { ?>
-              <a href="http://<?= get_field( 'google_maps_link' ); ?>" target="_blank">
-            <?php }
-            echo get_field( 'address' );
-            if ( get_field( 'google_maps_link' ) ) { ?>
-              </a>
-            <?php } ?>
-            </p>
-            <?php } ?>
-            </div>
-          </div>
-        </div>
+      <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
+      <div class="o-col-12@xxs o-col-4@md">
+        <?php get_template_part( 'partials/card', 'location' ); ?>
       </div>
 
-    <?php endwhile; ?>
+      <?php endwhile; ?>
+      </div>
 
     </div>
 
-  <?php else : endif; ?>
-
   </section>
 
-<?php get_footer(); ?>
+  <?php else : endif; ?>
+
+<?php
+add_action( 'wp_footer', 'load_locations', 50 );
+get_footer();
+?>

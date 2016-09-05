@@ -46,7 +46,8 @@
   }
 
   @each $key, $size in $VCavatar-sizes {
-    &--#{$key} {
+    &--#{$key},
+    &\@#{$key} {
       @include avatar-size($size);
 
       @if $key == "xs" {

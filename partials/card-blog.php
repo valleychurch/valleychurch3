@@ -1,29 +1,41 @@
-<div class="o-card o-card--shadow">
-  <?php get_template_part( 'partials/featured-image' ); ?>
+<article <?= post_class("o-card o-card--shadow") ?>>
+  <a href="<?= get_permalink(); ?>">
+  <?php set_query_var( 'class', 'o-card__img' ); ?>
+  <?php get_template_part( 'partials/hero' ); ?>
+  </a>
   <div class="o-card__body">
-    <h3 class="h1 o-card__title">
-      <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>">
+    <p class="small u-text-muted u-margin-quarter">
+      <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
+    </p>
+    <h3 class="o-card__title u-margin-top-none">
+      <a href="<?= get_permalink(); ?>">
         <?php the_title(); ?>
       </a>
     </h3>
-    <div class="o-card__text">
-      <div class="o-flag u-margin--double">
-        <div class="o-flag__fix">
-          <?php get_template_part( 'partials/avatar' ); ?>
-        </div>
-        <div class="o-flag__flex">
-          <p class="u-margin--none">
-            <?php the_author(); ?>
-          </p>
-          <p class="small u-text-muted u-margin--none">
-            <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
-          </p>
-        </div>
+    <div class="o-flag <?= ( !is_home() ) ? "u-margin-double" : ""; ?>">
+      <div class="o-flag__fix">
+        <?php
+          set_query_var( 'size', 'sm' );
+          get_template_part( 'partials/avatar' );
+        ?>
       </div>
-      <?php the_content('Read more'); ?>
-      <p class="u-margin--none">
+      <div class="o-flag__flex">
+        <p class="u-margin-none small u-line-height--small">
+          <?php the_author(); ?>
+        </p>
+      </div>
+    </div>
+    <?php if ( !is_home() ) { ?>
+    <div class="o-card__text">
+      <?php if ( get_the_excerpt() !== "" ) {
+        the_excerpt();
+      } else {
+        the_content('Read more');
+      } ?>
+      <p class="u-margin-none">
         <?php comments_popup_link(); ?>
       </p>
     </div>
+    <?php } ?>
   </div>
-</div>
+</article>

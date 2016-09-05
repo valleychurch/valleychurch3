@@ -1,32 +1,45 @@
 <?php get_header(); ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1><?php the_title(); ?></h1>
+        <div class="c-post-content u-center-block">
 
-        <div class="o-flag u-margin--double">
-          <div class="o-flag__fix">
-            <?php get_template_part( 'partials/avatar' ); ?>
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+          <?php } ?>
+
+          <div class="o-flag u-margin-double">
+            <div class="o-flag__fix">
+              <?php get_template_part( 'partials/avatar' ); ?>
+            </div>
+            <div class="o-flag__flex">
+              <p class="u-margin-none">
+                <?php the_author(); ?>
+              </p>
+              <p class="small u-text-muted u-margin-none">
+                <strong>
+                  <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
+                </strong>
+              </p>
+            </div>
           </div>
-          <div class="o-flag__flex">
-            <p class="u-margin--none">
-              <?php the_author(); ?>
-            </p>
-            <p class="small u-text-muted u-margin--none">
-              <strong>
-                <time datetime="<?php the_time('c'); ?>"><?php the_time('F jS, Y'); ?></time>
-              </strong>
-            </p>
-          </div>
+
+          <?php the_content(); ?>
+
         </div>
-
-        <?php the_content(); ?>
 
       </div>
 
@@ -34,15 +47,19 @@
 
   </section>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <div class="o-row">
+    <div class="o-container">
 
-      <div class="c-post-content c-post-content--fixed u-center-block">
+      <div class="o-row">
 
-        <hr/>
+        <div class="c-post-content c-post-content--fixed u-center-block">
 
-        <?php comments_template(); ?>
+          <hr/>
+
+          <?php comments_template(); ?>
+
+        </div>
 
       </div>
 

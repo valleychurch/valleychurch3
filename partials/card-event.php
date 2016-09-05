@@ -1,38 +1,20 @@
-<div class="o-card o-card--shadow">
-  <?php get_template_part( 'partials/featured-image-slide' ); ?>
-  <div class="o-card__body">
-    <h2 class="o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin--none' : '' ?>">
-      <!-- <a href="<?= get_permalink(); ?>" title="<?php the_title(); ?>"> -->
+<article <?= post_class() ?> itemscope itemtype="http://schema.org/Event">
+  <a class="o-card o-card--shadow" href="<?= get_permalink(); ?>" title="<?= get_the_title(); ?>" itemprop="url">
+    <?php set_query_var( 'class', 'o-card__img' ); ?>
+    <?php get_template_part( 'partials/hero', 'slide' ); ?>
+    <div class="o-card__body u-text-center">
+      <h2 class="h3 o-card__title <?= ( get_field( 'event_date' ) ) ? 'u-margin-half' : 'u-margin-none' ?>" itemprop="name">
         <?php the_title(); ?>
-      <!-- </a> -->
-    </h2>
-    <div class="o-card__text">
+      </h2>
       <?php if ( get_field( 'event_date' ) ) { ?>
-      <p class="o-card__text lead">
+      <h3 class="h4 o-card__subtitle u-margin-none u-text-black" <?= ( get_field( 'event_start_datetime' ) ? 'itemprop="startDate" content="' . date( 'c', get_field( 'event_start_datetime' ) ) . '"' : "" ); ?>>
         <?php if ( get_field( 'event_time' ) ) {
           echo get_field( 'event_date' ) . ', ' . get_field( 'event_time' );
         } else {
           the_field( 'event_date' );
         } ?>
-      </p>
-      <?php
-      }
-      if ( get_field( 'event_venue' ) ) { ?>
-      <p class="o-card__text">
-        Held at:
-        <?php
-        $map_link = get_field( 'event_map_link' );
-        if ( $map_link ) { ?>
-          <a href="<?php the_field( 'event_map_link' ); ?>" target="_blank">
-        <?php }
-        the_field( 'event_venue' );
-        if ( $map_link ) { ?>
-          </a>
-        <?php } ?>
-      </p>
-      <?php
-      }
-      the_content(); ?>
+      </h3>
+      <?php } ?>
     </div>
-  </div>
-</div>
+  </a>
+</article>

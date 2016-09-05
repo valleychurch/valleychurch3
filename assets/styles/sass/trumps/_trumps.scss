@@ -1,10 +1,18 @@
-#wpadminbar {
-  top: -46px !important;
+// #wpadminbar {
+//   top: 0 !important;
 
-  @media screen and (min-width: 783px) {
-    top: -32px !important;
-  }
-}
+//   @media screen and (min-width: 783px) {
+//     top: -32px !important;
+//   }
+// }
+
+// body.admin-bar {
+//   margin-top: -46px;
+
+//   .c-header {
+//     top: 32px;
+//   }
+// }
 
 .c-navigation {
   .is-menu-active & {
@@ -19,4 +27,8 @@ code[class*=language-],
 pre[class*=language-] {
   margin-top: 0;
   margin-bottom: $VCbase;
+}
+
+span.wpcf7-list-item {
+  display: inline-block;
 }

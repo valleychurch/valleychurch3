@@ -12,28 +12,31 @@
  * Defaults
  *
  * By default, the base of the site is set to `1rem` (equivalent to `16px`) so
- * we bump this up slightly to `17px` on mobile and `19px` on desktop to give
- * everything a bit more legibility. We also give some defaults to `ul`/`ol`
- * elements to make them match.
+ * we bump this up slightly to `17px` on mobile, `19px` on tablet and `20px` on
+ * desktop to give everything a bit more legibility. We also give some defaults
+ * to `ul`/`ol` elements to make them match.
  *
  * Markup:
- *   <h1>About</h1>
- *   <p class="lead">With a call from <a href="#0">Psalm 78</a>, <a href="#0">
- *   Senior Pastors Ed &amp; Michele Carter</a> launched Valley Church in April
- *   2007.</p>
- *   <p>Our desire is to empower you to fulfil all that God has for you and
- *   called you to be. We believe that Church should be a home for everyone, no
- *   matter who they are or where they’ve come from. We long to empower the new
- *   generation to continually direct the future of the Church.</p>
+ *   <h1>Volunteering</h1>
+ *   <p class="lead">We believe that the church is the body of Christ and we all
+ *   have an important part to play.</p>
+ *   <p>Whether you&#8217;re great at looking after children, love making people
+ *   feel at home, or simply just want to do whatever you can, we want to help
+ *   you get the most out of your God-given skills and talents!</p>
  *   <p>We have a number of teams that you can get involved with:</p>
  *   <ul>
- *     <li>VIP (hosting and hospitality)</li>
- *     <li><a href="#0">Community Action Team</a></li>
- *     <li><a href="#0">Valley Kids (2-11s)</a></li>
- *     <li><a href="#0">Creative (worship)</a></li>
- *     <li>Tech and production (sound, lighting and visuals)</li>
+ *     <li>Hosting (new volunteers start here!)</li>
+ *     <li>Hospitality (new volunteers start here!)</li>
+ *     <li><a href="/community">Community Action Team</a></li>
+ *     <li><a href="/kids">Valley Kids (1 and walking&ndash;11s)</a></li>
+ *     <li><a href="/creative">Creative (worship)</a></li>
+ *     <li>Production (sound, lighting and visuals)</li>
  *     <li>Communications (design, print, video and web)</li>
  *   </ul>
+ *   <p>If you want to volunteer, use our
+ *   <a href="http://volunteer.valleychurch.eu" target="_blank">online volunteer application form</a>,
+ *   fill out a details card on Sunday or talk to one of our team for more
+ *   information.</p>
  *
  * Weight: 0
  *
@@ -45,6 +48,10 @@ ul, ol {
 
   @include breakpoint(md) {
     @include font-size(19);
+  }
+
+  @include breakpoint(lg) {
+    @include font-size(20);
   }
 
   + .o-ratio,
@@ -66,8 +73,8 @@ ol {
 /**
  * Lead paragraphs
  *
- * Using the class `.lead` you can bump up a paragraph's size to `19px` on
- * mobile and `22px` on desktop.
+ * Using the class `.lead` you can bump up a paragraph's size to `20px` on
+ * mobile, `23px` on tablet and `24px` on desktop.
  *
  * Markup:
  *   <p class="lead">This is a lead paragraph that starts a page off with an
@@ -80,10 +87,14 @@ ol {
  */
 .lead,
 .lede {
-  @include font-size(19);
+  @include font-size(20);
 
   @include breakpoint(md) {
-    @include font-size(22);
+    @include font-size(23);
+  }
+
+  @include breakpoint(lg) {
+    @include font-size(24);
   }
 }
 
@@ -95,12 +106,14 @@ ol {
  * heading but still want your text to be displayed inline.
  *
  * Markup:
- *   <h1>Heading 1</h1>
- *   <h2>Heading 2</h2>
- *   <h3>Heading 3</h3>
- *   <h4>Heading 4</h4>
- *   <h5>Heading 5</h5>
- *   <h6>Heading 6</h6>
+ *   <h1 class="{{modifier_class}}">Heading 1</h1>
+ *   <h2 class="{{modifier_class}}">Heading 2</h2>
+ *   <h3 class="{{modifier_class}}">Heading 3</h3>
+ *   <h4 class="{{modifier_class}}">Heading 4</h4>
+ *   <h5 class="{{modifier_class}}">Heading 5</h5>
+ *   <h6 class="{{modifier_class}}">Heading 6</h6>
+ *
+ * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
  *
  * Weight: 2
  *
@@ -113,23 +126,33 @@ h1, h2, h3, h4, h5, h6,
   @include font-stack-alt;
   font-weight: $VCfont-medium;
   line-height: 1.25;
-  // letter-spacing: .5px;
 
   a {
     text-decoration: none;
   }
 
-  @include breakpoint(md) {
-    p + & {
-      margin-top: $VCbase * 1.5;
+  p + &,
+  ul + &,
+  ol + &,
+  table + &,
+  blockquote + & {
+    margin-top: tuple($VCbase, 1.5);
+
+    @include breakpoint(md) {
+      margin-top: tuple($VCbase, 2.5);
     }
+  }
+
+  &.u-alt {
+    @include font-stack;
+    font-weight: $VCfont-normal;
   }
 }
 
 h5, .h5,
 h6, .h6 {
   font-weight: $VCfont-normal;
-  letter-spacing: .5px;
+  letter-spacing: .25px;
 }
 
 /**
@@ -138,12 +161,14 @@ h6, .h6 {
  * Extra large heading for special use cases
  *
  * Markup:
- *   <h1 class="exa">Exa size heading</h1>
- *   <h2 class="peta">Peta size heading</h2>
- *   <h3 class="tera">Tera size heading</h3>
- *   <h4 class="giga">Giga size heading</h4>
- *   <h5 class="mega">Mega size heading</h5>
- *   <h6 class="kilo">Kilo size heading</h6>
+ *   <h1 class="exa {{modifier_class}}">Exa size heading</h1>
+ *   <h2 class="peta {{modifier_class}}">Peta size heading</h2>
+ *   <h3 class="tera {{modifier_class}}">Tera size heading</h3>
+ *   <h4 class="giga {{modifier_class}}">Giga size heading</h4>
+ *   <h5 class="mega {{modifier_class}}">Mega size heading</h5>
+ *   <h6 class="kilo {{modifier_class}}">Kilo size heading</h6>
+ *
+ * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
  *
  * Weight: 3
  *
@@ -256,6 +281,14 @@ hr {
   margin-bottom: $VCbase;
   border: 0;
   border-top: 1px solid greyscale(8);
+
+  &.alt {
+    width: triple($VCbase);
+
+    &--red {
+      border-color: colour("red");
+    }
+  }
 }
 
 small,
@@ -295,7 +328,7 @@ small,
  *       not reluctantly or under compulsion, for God loves a cheerful giver.
  *     </p>
  *     <footer>
- *       &mdash;<a href="#0"><strong>2 Corinthians 9:7</strong></a>
+ *       <a href="#0">2 Corinthians 9:7</a>
  *     </footer>
  *   </blockquote>
  *
@@ -315,9 +348,10 @@ blockquote {
 
   p {
     margin-bottom: 0;
+    @include font-stack-alt;
     @include font-size(22);
-    font-style: italic;
-    color: greyscale(4);
+    font-weight: $VCfont-light;
+    // color: greyscale(3);
 
     @include breakpoint(sm) {
       @include font-size(24);
@@ -330,8 +364,10 @@ blockquote {
 
   footer {
     display: block;
+    margin-top: half($VCbase);
+    // @include font-stack-alt;
     @include font-size(18);
-    font-style: italic;
+    font-weight: $VCfont-normal;
 
     @include breakpoint(md) {
       @include font-size(20);
@@ -341,10 +377,9 @@ blockquote {
   &:before,
   &:after {
     position: absolute;
-    left: 0;
     display: block;
-    width: $VCbase * 2;
-    height: 1px;
+    width: triple($VCbase);
+    height: 2px;
     background-color: colour("red");
     content: "";
   }
@@ -356,6 +391,13 @@ blockquote {
   &:after {
     bottom: 0;
   }
+}
+
+/**
+ * Addresses
+ */
+address {
+  font-style: normal;
 }
 
 
@@ -376,16 +418,11 @@ code,
 kbd,
 pre,
 samp {
-  @include font-size(15);
-  padding: 2px 4px;
+  @include font-size(16);
+  padding: rem(2px) rem(4px);
   word-wrap: break-word;
   background: grayscale(11);
   border-radius: 2px;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-  // line-height: 1.25 !important;
 }
 
 :not(pre)>code[class*=language-],

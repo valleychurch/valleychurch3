@@ -6,20 +6,33 @@ get_header();
 $paged = get_query_var( 'paged', 1 );
 ?>
 
-  <?php get_template_part( 'partials/featured-image' ); ?>
+  <?php
+  if ( has_post_thumbnail() ) {
+    set_query_var( 'figure', true );
+    get_template_part( 'partials/hero', 'banner' );
+  }
+  ?>
 
-  <section class="o-container c-section">
+  <section class="c-section">
 
-    <article <?php post_class( 'o-row c-article u-margin' ); ?>>
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
-      <div class="c-post-content u-center-block">
+      <div class="o-row">
 
-        <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+        <div class="c-post-content u-center-block">
+          <?php if ( get_field( 'custom_h1' ) ) { ?>
+          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?= get_field( 'custom_h1' ); ?></h1>
+          <?php } else { ?>
+          <h1 class="kilo u-margin--half <?= ( get_field( 'hide_h1' ) == 1 ) ? "u-hidden" : ""; ?>"><?php the_title(); ?></h1>
+          <?php } ?>
 
-        <?php
-        if ( !$paged || $paged == 1 )
-          the_content();
-        ?>
+          <!-- <p class="lead u-margin u-margin-double@md"> -->
+            <?php
+          if ( !$paged || $paged == 1 )
+            the_content();
+          ?>
+          <!-- </p> -->
+        </div>
 
       </div>
 
@@ -27,32 +40,37 @@ $paged = get_query_var( 'paged', 1 );
 
   </section>
 
-  <section class="o-container c-section c-section--grey">
+  <section class="c-section u-background-grey--11">
 
-    <div class="o-row">
-    <?php
-      $args =
-        array(
-          'post_type' => 'podcast',
-          'post_status' => 'publish',
-          'paged' => $paged,
-          'posts_per_page' => 12
-        );
+    <div class="o-container">
 
-      $wp_query = new WP_Query( $args );
-      if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <div class="o-row">
+      <?php
+        $args =
+          array(
+            'post_type' => 'podcast',
+            'post_status' => array( 'publish', 'private' ),
+            'paged' => $paged,
+            'posts_per_page' => 12
+          );
 
-      <div class="o-col-xs-6 o-col-md-4 o-col-lg-3">
-        <?php get_template_part( 'partials/card', 'message' ); ?>
+        $wp_query = new WP_Query( $args );
+        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <div class="o-col-6@xs o-col-4@md o-col-3@lg">
+          <?php get_template_part( 'partials/card', 'message' ); ?>
+        </div>
+      <?php
+      endwhile;
+      get_template_part( 'partials/pagination' );
+      else :
+        get_template_part( 'partials/no-content-found' );
+      endif;
+      ?>
       </div>
-    <?php
-    endwhile;
-    get_template_part( 'partials/pagination' );
-    else :
-      get_template_part( 'partials/no-content-found' );
-    endif;
-    ?>
+
     </div>
+
   </section>
 
 <?php get_footer(); ?>

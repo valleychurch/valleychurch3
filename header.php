@@ -13,36 +13,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=<?= VC_THEME_VERSION ?>">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-194x194.png?v=<?= VC_THEME_VERSION ?>" sizes="194x194">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=<?= VC_THEME_VERSION ?>" sizes="96x96">
-    <link rel="icon" type="image/png" href="/android-chrome-192x192.png?v=<?= VC_THEME_VERSION ?>" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
-    <link rel="manifest" href="/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="#b21e28">
-    <meta name="msapplication-TileColor" content="#b21e28">
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=<?= VC_THEME_VERSION ?>">
-    <meta name="theme-color" content="#b21e28">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= get_template_directory_uri(); ?>/assets/favicons/apple-touch-icon.png?v=<?= VC_THEME_VERSION ?>">
+    <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
+    <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
+    <link rel="manifest" href="<?= get_template_directory_uri(); ?>/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
+    <link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
+    <link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon.ico?v=<?= VC_THEME_VERSION ?>">
+    <meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/assets/favicons/browserconfig.xml?v=<?= VC_THEME_VERSION ?>">
+    <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
 
     <!-- Prefetch some DNS -->
     <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
     <link rel="dns-prefetch" href="//use.typekit.net">
 
+<?php
+if ( is_singular() ) {
+  if ( have_rows( 'meta_tags' ) ) { ?>
+    <!-- Add some prefetches/prerenders from the CMS -->
+<?php
+    while ( have_rows( 'meta_tags' ) ) {
+      the_row();
+?>
+    <link rel="<?= get_sub_field( 'prefetch_type' ) ?>" href="<?= get_sub_field( 'resource_url' ) ?>">
+<?php
+    }
+  }
+}
+if ( is_home() || is_page('messages') ) {
+  $next = get_next_posts_link();
+?>
+    <!-- Add some prefetches/prerenders from the CMS -->
+    <link rel="prefetch" href="<?= get_next_posts_page_link() ?>">
+    <link rel="prerender" href="<?= get_next_posts_page_link() ?>">
+<?php } ?>
+
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Load Typekit ASAP -->
-    <script src="//use.typekit.net/jtz8aoh.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+<?php
+if ( isset( $_COOKIE[ 'ValleyCss'] ) ) {
+if ( $_COOKIE[ 'ValleyCss' ] == VC_THEME_VERSION ) { ?>
+    <!-- Load CSS normally (cached in the browser) -->
+    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css">
+<?php } } else { ?>
+    <!-- Critical CSS for quicker first load -->
+    <style id="vc-critical-css">
+    <?= file_get_contents( get_template_directory_uri() . "/assets/styles/css/critical." . VC_THEME_VERSION . ".min.css"); ?>
+    </style>
+    <!-- Preload CSS -->
+    <link rel="preload" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Fallback for nojs -->
+    <noscript><link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/assets/styles/css/style.<?= VC_THEME_VERSION ?>.min.css"></noscript>
+    <!--  Fallback for browsers that don't support rel="preload" -->
+    <script>
+    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/loadcss.min.js" ); ?>
+    <?= file_get_contents( get_template_directory_uri(). "/assets/scripts/dist/preload.polyfill.min.js" ); ?>
+    document.cookie = 'ValleyCss=<?= VC_THEME_VERSION ?>; expires="Tue, 19 Jan 2038 03:14:07 GMT";path=/';
+    </script>
+<?php } ?>
+
+    <!-- Load Typekit ASAP (kit id jtz8aoh) -->
+    <!-- https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html -->
+    <script>
+      (function(d) {
+        var tkTimeout=3000;
+        if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
+        var config = {
+          kitId: 'jtz8aoh',
+          scriptTimeout: tkTimeout
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
@@ -60,43 +102,33 @@
     <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </div><![endif]-->
 
+    <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
 
-    <div class="o-container o-container--page">
+    <header class="c-header u-cf">
 
-      <?php if( $_SERVER['HTTP_HOST'] === "test.valleychurch.eu" || $_SERVER['HTTP_HOST'] === "valley.dev" ) { ?>
-      <div class="o-container o-container--full c-browse-happy u-text-center">
-        <p>Test environment</p>
-      </div>
-      <?php }
-      get_template_part( 'partials/notification' ); ?>
+      <div class="o-container o-container--full">
 
-      <a class="c-navigation--toggle js-nav-toggle" href="#0"></a>
+        <?php get_template_part( 'partials/logo' ); ?>
 
-      <header class="c-header u-clearfix">
-        <div class="o-container o-container--full">
-
-          <?php get_template_part( 'partials/logo' ); ?>
-
-          <nav class="c-navigation u-cf">
-            <div class="u-pull-right--lg u-margin u-margin--lg--none">
-              <?php get_search_form(); ?>
-            </div>
-            <div class="u-pull-left--lg">
-              <?php wp_nav_menu( array(
-                'theme_location' => 'Nav v2',
-                'menu' => 'Nav v2',
-                'container' => false,
-                'menu_class' => 'c-menu u-cf'
-              ) ); ?>
-            </div>
-          </nav>
-          <div class="u-pull-right u-hide--lg">
-            <button class="o-btn c-nav-toggle js-nav-toggle">
-              <!-- <span class="u-hide u-show-inline--xs">Menu</span>&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i> -->
-              Menu&nbsp;&nbsp;<i class="fa fa-lg fa-bars"></i>
-            </button>
+        <nav class="c-navigation u-cf">
+          <div class="u-pull-right@lg u-margin u-margin-none@lg">
+            <?php get_search_form(); ?>
           </div>
+          <div class="u-pull-left@lg">
+            <?php wp_nav_menu( array(
+              'theme_location' => 'Main Menu',
+              'menu' => 'Main Menu',
+              'container' => false,
+              'menu_class' => 'c-menu u-cf'
+            ) ); ?>
+          </div>
+        </nav>
+        <div class="u-pull-right u-hide@lg">
+          <button class="o-btn c-nav-toggle js-nav-toggle" aria-label="Open menu">
+            <i class="fa fa-lg fa-bars" aria-hidden="true"></i>
+          </button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="c-main">
+    <main class="c-main">
