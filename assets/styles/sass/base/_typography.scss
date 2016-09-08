@@ -44,10 +44,10 @@
  */
 p,
 ul, ol {
-  @include font-size(17);
+  @include font-size(16);
 
-  @include breakpoint(md) {
-    @include font-size(19);
+  @include breakpoint(xs) {
+    @include css-lock-font(16, 20, breakpoint(xs), breakpoint(lg));
   }
 
   @include breakpoint(lg) {
@@ -87,10 +87,10 @@ ol {
  */
 .lead,
 .lede {
-  @include font-size(20);
+  @include font-size(19);
 
-  @include breakpoint(md) {
-    @include font-size(23);
+  @include breakpoint(xs) {
+    @include css-lock-font(19, 24, breakpoint(xs), breakpoint(lg));
   }
 
   @include breakpoint(lg) {
@@ -119,10 +119,7 @@ ol {
  *
  * Styleguide: base.typography.headings
  */
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.exa, .peta, .tera, .giga, .mega, .kilo {
+%b-header {
   @include font-stack-alt;
   font-weight: $VCfont-medium;
   line-height: 1.25;
@@ -149,11 +146,11 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-h5, .h5,
-h6, .h6 {
-  font-weight: $VCfont-normal;
-  letter-spacing: .25px;
-}
+// h5, .h5,
+// h6, .h6 {
+//   font-weight: $VCfont-normal;
+//   letter-spacing: .25px;
+// }
 
 /**
  * Display headings
@@ -174,105 +171,27 @@ h6, .h6 {
  *
  * Styleguide: base.typography.display
  */
-.exa {
-  @include font-size(72);
+@each $size, $map in $VCfont-sizes {
+  $size-min: map-get($map, min);
+  $size-max: map-get($map, max);
 
-  @include breakpoint(md) {
-    @include font-size(80);
+  .#{$size} {
+    @extend %b-header;
+    @include font-size($size-min);
+
+    @include breakpoint(xs) {
+      @include css-lock-font($size-min, $size-max, breakpoint(xs), breakpoint(md));
+    }
+
+    @include breakpoint(md) {
+      @include font-size($size-max);
+    }
   }
-}
 
-.peta {
-  @include font-size(64);
-
-  @include breakpoint(md) {
-    @include font-size(72);
-  }
-}
-
-.tera {
-  @include font-size(56);
-
-  @include breakpoint(md) {
-    @include font-size(64);
-  }
-}
-
-.giga {
-  @include font-size(48);
-
-  @include breakpoint(md) {
-    @include font-size(56);
-  }
-}
-
-.mega {
-  @include font-size(42);
-
-  @include breakpoint(md) {
-    @include font-size(48);
-  }
-}
-
-.kilo {
-  @include font-size(36);
-
-  @include breakpoint(md) {
-    @include font-size(42);
-  }
-}
-
-h1,
-.h1 {
-  @include font-size(32);
-
-  @include breakpoint(md) {
-    @include font-size(36);
-  }
-}
-
-h2,
-.h2 {
-  @include font-size(26);
-
-  @include breakpoint(md) {
-    @include font-size(32);
-  }
-}
-
-h3,
-.h3 {
-  @include font-size(22);
-
-  @include breakpoint(md) {
-    @include font-size(26);
-  }
-}
-
-h4,
-.h4 {
-  @include font-size(18);
-
-  @include breakpoint(md) {
-    @include font-size(22);
-  }
-}
-
-h5,
-.h5 {
-  @include font-size(16);
-
-  @include breakpoint(md) {
-    @include font-size(18);
-  }
-}
-
-h6,
-.h6 {
-  @include font-size(14);
-
-  @include breakpoint(md) {
-    @include font-size(16);
+  @if str-index(#{$size}, "h") == 1 {
+    #{$size} {
+      @extend .#{$size};
+    }
   }
 }
 
@@ -354,7 +273,7 @@ blockquote {
     // color: greyscale(3);
 
     @include breakpoint(sm) {
-      @include font-size(24);
+      @include css-lock-font(22, 28, breakpoint(sm), breakpoint(md));
     }
 
     @include breakpoint(md) {

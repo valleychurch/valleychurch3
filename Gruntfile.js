@@ -65,7 +65,7 @@ module.exports = function(grunt) {
         },
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-          require('cssnano')(),
+          // require('cssnano')(),
         ]
       },
       dist: {
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          outputStyle: 'compressed'
+          // outputStyle: 'compressed'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',
@@ -119,15 +119,9 @@ module.exports = function(grunt) {
       },
       js: {
         options: {
-          prefix: 'version: \''
-        },
-        src: [ 'assets/scripts/src/script.js' ]
-      },
-      jsnew: {
-        options: {
           prefix: 'Version: \''
         },
-        src: [ 'assets/scripts/src/script.rewrite.js' ]
+        src: [ 'assets/scripts/src/script.js' ]
       },
       sass: {
         options: {
@@ -145,7 +139,7 @@ module.exports = function(grunt) {
 
     watch: {
       options: {
-        livereload: true,
+        // livereload: true,
       },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],

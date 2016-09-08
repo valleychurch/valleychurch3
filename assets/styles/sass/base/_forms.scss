@@ -101,8 +101,8 @@ select {
   }
 
   &.is-error {
-    border-color: $VCred;
     color: $VCred;
+    border-color: $VCred;
   }
 }
 

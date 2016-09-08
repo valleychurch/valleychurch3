@@ -38,6 +38,7 @@ $VCbreakpoints: (
   max:                  $VCmax-width-alt    //1440px
 );
 
+
 $VCtransition-timing:   150ms;
 $VCtransition-easing:   ease-in-out;
 
@@ -55,6 +56,58 @@ $VCfont-stack-sys:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                         "Segoe UI Emoji", "Segoe UI Symbol";
 $VCfont-stack:          "LatoWeb", $VCfont-stack-sys;
 $VCfont-stack-alt:      "usual", $VCfont-stack;
+
+$VCfont-sizes: (
+  exa: (
+    min:                72,
+    max:                80
+  ),
+  peta: (
+    min:                64,
+    max:                72,
+  ),
+  tera: (
+    min:                56,
+    max:                64
+  ),
+  giga: (
+    min:                48,
+    max:                56
+  ),
+  mega: (
+    min:                42,
+    max:                48
+  ),
+  kilo: (
+    min:                36,
+    max:                42
+  ),
+  h1: (
+    min:                32,
+    max:                36
+  ),
+  h2: (
+    min:                26,
+    max:                32
+  ),
+  h3: (
+    min:                22,
+    max:                26
+  ),
+  h4: (
+    min:                18,
+    max:                22
+  ),
+  h5: (
+    min:                16,
+    max:                18
+  ),
+  h6: (
+    min:                14,
+    max:                16
+  )
+);
+
 
 $VCwhite:               shade(#fff, 5%);
 $VCblack:               tint(#000, 5%);

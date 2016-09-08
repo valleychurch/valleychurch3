@@ -29,6 +29,10 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
   @return map-get(map-get($VCcolours, $colour), $tone);
 }
 
+@function breakpoint($bp) {
+  @return map-get($VCbreakpoints, $bp);
+}
+
 // Slightly lighten a color
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
@@ -84,4 +88,29 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 
 @function tuple($n, $multiplier) {
   @return ($n * $multiplier);
+}
+
+@function font-size-rem($px-value) {
+  @return ($px-value / $VCfont-size-unitless) + rem;
+}
+
+@function font-size-unitless($px-value) {
+  @return ($px-value / $VCfont-size-unitless);
+}
+
+@function css-lock-font($base-size, $size-difference, $lower-mq, $upper-mq) {
+  $font-size-rem:         font-size-rem($base-size);
+  $font-size-difference:  font-size-unitless($size-difference - $base-size);
+  $lower-mq-unitless:     strip-unit($lower-mq);
+  $upper-mq-unitless:     strip-unit($upper-mq);
+
+  @return calc(#{$font-size-rem} + #{$font-size-difference} * (100vw - #{$lower-mq}) / (#{$upper-mq-unitless} - #{$lower-mq-unitless}));
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
 }

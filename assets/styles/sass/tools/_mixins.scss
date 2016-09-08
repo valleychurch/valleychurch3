@@ -73,10 +73,20 @@
 
 // Push in a pixel font size and get a rem one back
 @mixin font-size($px-value) {
-  font-size: ($px-value / $VCfont-size-unitless) + rem;
+  font-size: font-size-rem($px-value);
 
-  .lt-ie9 {
-    font-size: $px-value + px;
+  .lt-ie9 & {
+    font-size: ceil($px-value) + px;
+  }
+}
+
+// CSS lock for font-size
+// http://fvsch.com/code/css-locks/
+@mixin css-lock-font($base-size, $size-difference, $lower-mq, $upper-mq) {
+  font-size: css-lock-font($base-size, $size-difference, $lower-mq, $upper-mq);
+
+  .no-csscalc & {
+    @include font-size(($base-size + $size-difference) / 2);
   }
 }
 
