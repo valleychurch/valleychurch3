@@ -107,7 +107,9 @@
       margin-bottom: 0;
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       cursor: default;
 
       @include breakpoint(lg) {

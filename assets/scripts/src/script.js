@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.2.0dev',
+    Version: '3.2.1a',
 
     /**
      * Kick everything off
@@ -56,7 +56,10 @@ var Valley = (function() {
       if ( $('input[name="locationid"]').length !== 0 ) {
         $('select[name="location"]').val( $('input[name="locationid"]').val() );
       }
-    },
+
+      // iOS fix
+      $('.c-menu > .menu-item > a').attr('onclick', 'void(0)');
+     },
 
     /**
      * Initialise the Google Map

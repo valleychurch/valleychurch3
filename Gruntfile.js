@@ -119,7 +119,7 @@ module.exports = function(grunt) {
       },
       js: {
         options: {
-          prefix: 'version: \''
+          prefix: 'Version: \''
         },
         src: [ 'assets/scripts/src/script.js' ]
       },
