@@ -171,19 +171,21 @@ ol {
  *
  * Styleguide: base.typography.display
  */
-@each $size, $map in $VCfont-sizes {
-  $size-min: map-get($map, min);
-  $size-max: map-get($map, max);
+@each $size, $i in $VCfont-sizes {
+  // y = mx + c
+  // 12 is such an arbitrary number?
+  $size-min: ($i * 2) + 12;
+  $size-max: ($i * 4) + 12;
 
   .#{$size} {
     @extend %b-header;
     @include font-size($size-min);
 
     @include breakpoint(xs) {
-      @include css-lock-font($size-min, $size-max, breakpoint(xs), breakpoint(md));
+      @include css-lock-font($size-min, $size-max, breakpoint(xs), breakpoint(lg));
     }
 
-    @include breakpoint(md) {
+    @include breakpoint(lg) {
       @include font-size($size-max);
     }
   }
