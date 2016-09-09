@@ -82,11 +82,19 @@
 
 // CSS lock for font-size
 // http://fvsch.com/code/css-locks/
-@mixin css-lock-font($base-size, $size-difference, $lower-mq, $upper-mq) {
-  font-size: css-lock-font($base-size, $size-difference, $lower-mq, $upper-mq);
+@mixin responsive-typography($base-size, $maximum-size, $lower-mq, $upper-mq) {
+  @include font-size($base-size);
 
-  .no-csscalc & {
-    @include font-size(($base-size + $size-difference) / 2);
+  @include breakpoint($lower-mq) {
+    font-size: css-lock($base-size, $maximum-size, $lower-mq, $upper-mq);
+
+    .no-csscalc & {
+      @include font-size(($base-size + $maximum-size) / 2);
+    }
+  }
+
+  @include breakpoint($upper-mq) {
+    @include font-size($maximum-size);
   }
 }
 

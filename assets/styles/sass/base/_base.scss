@@ -40,8 +40,8 @@ body {
   position: relative;
   font-size: $VCbase;
   line-height: $VCline-height;
-  color: $VCblack;
   font-display: swap;
+  color: $VCblack;
 
   &.no-height {
     height: auto;

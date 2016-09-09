@@ -42,17 +42,10 @@
  *
  * Styleguide: base.typography.defaults
  */
+%b-paragraph,
 p,
 ul, ol {
-  @include font-size(16);
-
-  @include breakpoint(xs) {
-    @include css-lock-font(16, 20, breakpoint(xs), breakpoint(lg));
-  }
-
-  @include breakpoint(lg) {
-    @include font-size(20);
-  }
+  @include responsive-typography(16, 19, xs, lg);
 
   + .o-ratio,
   + img {
@@ -87,15 +80,8 @@ ol {
  */
 .lead,
 .lede {
-  @include font-size(19);
-
-  @include breakpoint(xs) {
-    @include css-lock-font(19, 24, breakpoint(xs), breakpoint(lg));
-  }
-
-  @include breakpoint(lg) {
-    @include font-size(24);
-  }
+  @include responsive-typography(20, 26, xs, lg);
+  line-height: 1.45;
 }
 
 /**
@@ -122,7 +108,7 @@ ol {
 %b-header {
   @include font-stack-alt;
   font-weight: $VCfont-medium;
-  line-height: 1.25;
+  line-height: 1.45;
 
   a {
     text-decoration: none;
@@ -171,32 +157,33 @@ ol {
  *
  * Styleguide: base.typography.display
  */
-@each $size, $i in $VCfont-sizes {
-  // y = mx + c
-  // 12 is such an arbitrary number?
-  $size-min: ($i * 2) + 12;
-  $size-max: ($i * 4) + 12;
+// Loop through all the given classnames in `$VCfont-sizes`
+@for $i from 1 to (length($VCfont-sizes) + 1) {
+  // Get the reverse position in the list for calculations
+  $count: length($VCfont-sizes) - $i;
 
-  .#{$size} {
+  // Get the classname from the map
+  $class: nth($VCfont-sizes, $i);
+
+  // Calculate the minimum and maximum sizes necessary using a `y = mx + c`
+  // equation where m is a given ratio, x is `$i` and c is the default font
+  // size in px
+  $size-min: ($count * 2) + ($VCfont-size-unitless - 2);
+  $size-max: ($count * 4) + ($VCfont-size-unitless - 2);
+
+  // Create the class by extending `%b-header`
+  .#{$class} {
     @extend %b-header;
-    @include font-size($size-min);
-
-    @include breakpoint(xs) {
-      @include css-lock-font($size-min, $size-max, breakpoint(xs), breakpoint(lg));
-    }
-
-    @include breakpoint(lg) {
-      @include font-size($size-max);
-    }
+    @include responsive-typography($size-min, $size-max, xs, lg);
   }
 
-  @if str-index(#{$size}, "h") == 1 {
-    #{$size} {
-      @extend .#{$size};
+  // If the class begins with a `h`, add an additional h[1-6] to go with it
+  @if str-index(#{$class}, "h") == 1 {
+    #{$class} {
+      @extend .#{$class};
     }
   }
 }
-
 
 hr {
   margin-bottom: $VCbase;
@@ -270,17 +257,8 @@ blockquote {
   p {
     margin-bottom: 0;
     @include font-stack-alt;
-    @include font-size(22);
+    @include responsive-typography(22, 28, sm, md);
     font-weight: $VCfont-light;
-    // color: greyscale(3);
-
-    @include breakpoint(sm) {
-      @include css-lock-font(22, 28, breakpoint(sm), breakpoint(md));
-    }
-
-    @include breakpoint(md) {
-      @include font-size(28);
-    }
   }
 
   footer {
