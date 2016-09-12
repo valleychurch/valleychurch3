@@ -14,5 +14,3 @@ Before you can get started, you will need to install:
 First of all, get a copy of the [`valleychurch3`](https://github.com/valleychurch/valleychurch3/) repo, either by:
 - Downloading the [latest release zip](https://github.com/valleychurch/valleychurch3/releases/latest) from GitHub; or
 - Cloning the repo via command line: `git clone git://github.com/valleychurch/valleychurch3.git`
-
-Once the folder is within a local WordPress instance running in XAMPP/IIS, open a `cmd`/PowerShell window in the correct folder and run `install.bat`.

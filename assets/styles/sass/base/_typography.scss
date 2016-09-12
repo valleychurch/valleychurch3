@@ -45,7 +45,7 @@
 %b-paragraph,
 p,
 ul, ol {
-  @include responsive-typography(16, 19, xs, lg);
+  @include responsive-typography(16, 20, xs, lg);
 
   + .o-ratio,
   + img {
@@ -81,7 +81,29 @@ ol {
 .lead,
 .lede {
   @include responsive-typography(20, 26, xs, lg);
+  @include font-stack-alt;
+  font-weight: 400;
   line-height: 1.45;
+
+  h1 + &,
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  h5 + &,
+  h6 + & {
+    margin-top: -(half($VCbase));
+    margin-bottom: tuple($VCbase, 1.5);
+
+    @include breakpoint(md) {
+      margin-top: -(three-quarters($VCbase));
+      font-weight: 300;
+    }
+
+    @include breakpoint(lg) {
+      margin-top: -$VCbase;
+      margin-bottom: double($VCbase);
+    }
+  }
 }
 
 /**
@@ -120,9 +142,11 @@ ol {
   table + &,
   blockquote + & {
     margin-top: tuple($VCbase, 1.5);
+    margin-bottom: half($VCbase);
 
     @include breakpoint(md) {
       margin-top: tuple($VCbase, 2.5);
+      margin-bottom: three-quarters($VCbase);
     }
   }
 
@@ -264,7 +288,6 @@ blockquote {
   footer {
     display: block;
     margin-top: half($VCbase);
-    // @include font-stack-alt;
     @include font-size(18);
     font-weight: $VCfont-normal;
 

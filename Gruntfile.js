@@ -65,7 +65,7 @@ module.exports = function(grunt) {
         },
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-          // require('cssnano')(),
+          require('cssnano')(),
         ]
       },
       dist: {
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          outputStyle: 'expanded'
+          outputStyle: 'compressed'
         },
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',

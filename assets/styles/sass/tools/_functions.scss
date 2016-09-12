@@ -116,12 +116,12 @@ $__shade-vals: ("x-dark", "dark", "base", "light", "x-light");
 }
 
 @function css-lock($base-size, $maximum-size, $lower-mq, $upper-mq) {
-  $font-size-rem:         font-size-rem($base-size);
-  $font-size-difference:  font-size-unitless($maximum-size - $base-size);
+  // $font-size-rem:         font-size-rem($base-size);
+  // $font-size-difference:  font-size-unitless($maximum-size - $base-size);
   $lower-mq-unitless:     strip-unit(breakpoint($lower-mq));
   $upper-mq-unitless:     strip-unit(breakpoint($upper-mq));
 
-  @return calc(#{$font-size-rem} + #{$font-size-difference} * (100vw - #{breakpoint($lower-mq)}) / (#{$upper-mq-unitless} - #{$lower-mq-unitless}));
+  @return calc(#{$base-size} + #{$maximum-size} * (100vw - #{breakpoint($lower-mq)}) / (#{$upper-mq-unitless} - #{$lower-mq-unitless}));
 }
 
 @function strip-unit($number) {
