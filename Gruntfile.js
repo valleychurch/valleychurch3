@@ -139,7 +139,7 @@ module.exports = function(grunt) {
 
     watch: {
       options: {
-        // livereload: true,
+        livereload: true,
       },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],

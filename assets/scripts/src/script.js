@@ -23,7 +23,7 @@ var googleActive = ( typeof google !== "undefined" ),
     mapLocations,
     mapInfoWindow,
     mapMarker,
-    mapMarkerIcon = "/wp-content/themes/valleychurch3/assets/images/dist/marker.png",
+    //mapMarkerIcon = "/wp-content/themes/valleychurch3/assets/images/dist/marker.png",
     mapMarkerIconSmall = "/wp-content/themes/valleychurch3/assets/images/dist/marker-small.png";
 
 var Valley = (function() {
@@ -39,19 +39,19 @@ var Valley = (function() {
      * Kick everything off
      */
     Init: function() {
-      doc.documentElement.setAttribute('data-useragent', nav.userAgent);
-
       Valley.InitSideNav();
       Valley.ModernizrTest();
       Valley.Slider();
       Valley.CheckNotifications();
       Valley.ResponsiveIframes();
       Valley.ResponsiveTables();
-      Valley.DownArrows();
+      // Valley.DownArrows();
       Valley.CheckHeaderPosition();
       Valley.SetMainLocation();
       Valley.RemoveMainLocation();
       Valley.CheckMainLocation();
+
+      doc.documentElement.setAttribute('data-useragent', nav.userAgent);
 
       if ( $('input[name="locationid"]').length !== 0 ) {
         $('select[name="location"]').val( $('input[name="locationid"]').val() );
@@ -235,16 +235,16 @@ var Valley = (function() {
       });
     },
 
-    DownArrows: function() {
-      $('.js-jump-down').on('click', function(e) {
-        e.preventDefault();
-        var parent = $(this).parent();
+    // DownArrows: function() {
+    //   $('.js-jump-down').on('click', function(e) {
+    //     e.preventDefault();
+    //     var parent = $(this).parent();
 
-        $('html, body').animate({
-          scrollTop: ( parent.next().offset().top - $header.height() )
-        }, 1000);
-      });
-    },
+    //     $('html, body').animate({
+    //       scrollTop: ( parent.next().offset().top - $header.height() )
+    //     }, 1000);
+    //   });
+    // },
 
     CheckHeaderPosition: function() {
       var scroll = $win.scrollTop();
