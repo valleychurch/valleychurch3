@@ -119,15 +119,12 @@ module.exports = function(grunt) {
       },
       js: {
         options: {
-<<<<<<< HEAD
-=======
           prefix: 'Version: \''
         },
         src: [ 'assets/scripts/src/script.js' ]
       },
       jsnew: {
         options: {
->>>>>>> refs/remotes/origin/master
           prefix: 'Version: \''
         },
         src: [ 'assets/scripts/src/script.js' ]
