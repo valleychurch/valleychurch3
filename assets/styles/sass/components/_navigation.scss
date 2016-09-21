@@ -327,6 +327,5 @@ button.c-nav-toggle {
   .is-menu-active & {
     display: block;
     opacity: .85;
-    animation: fadeInFromNone $VCtransition-timing $VCtransition-easing;
   }
 }

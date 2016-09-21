@@ -57,27 +57,18 @@
 // Flex variation
 // Custom styles for additional flex alignment options.
 @if $VCenable-flex and $VCenable-grid-classes {
-
-  // Flex column reordering
   @each $breakpoint in map-keys($VCbreakpoints) {
     @include breakpoint($breakpoint) {
+      // Flex column reordering
       .o-col--first\@#{$breakpoint}   { order: -1; }
       .o-col--last\@#{$breakpoint}    { order: 1; }
-    }
-  }
 
-  // Alignment for every column in row
-  @each $breakpoint in map-keys($VCbreakpoints) {
-    @include breakpoint($breakpoint) {
+      // Alignment for every column in row
       .o-row--top\@#{$breakpoint}     { align-items: flex-start; }
       .o-row--center\@#{$breakpoint}  { align-items: center; }
       .o-row--bottom\@#{$breakpoint}  { align-items: flex-end; }
-    }
-  }
 
-  // Alignment per column
-  @each $breakpoint in map-keys($VCbreakpoints) {
-    @include breakpoint($breakpoint) {
+      // Alignment per column
       .o-col--top\@#{$breakpoint}     { align-self: flex-start; }
       .o-col--center\@#{$breakpoint}  { align-self: center; }
       .o-col--bottom\@#{$breakpoint}  { align-self: flex-end; }

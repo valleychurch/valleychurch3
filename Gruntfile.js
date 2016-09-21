@@ -127,7 +127,7 @@ module.exports = function(grunt) {
         options: {
           prefix: 'Version: \''
         },
-        src: [ 'assets/scripts/src/script.rewrite.js' ]
+        src: [ 'assets/scripts/src/script.js' ]
       },
       sass: {
         options: {

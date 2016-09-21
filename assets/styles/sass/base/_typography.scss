@@ -42,17 +42,10 @@
  *
  * Styleguide: base.typography.defaults
  */
+%b-paragraph,
 p,
 ul, ol {
-  @include font-size(17);
-
-  @include breakpoint(md) {
-    @include font-size(19);
-  }
-
-  @include breakpoint(lg) {
-    @include font-size(20);
-  }
+  @include responsive-typography(16, 20, xs, lg);
 
   + .o-ratio,
   + img {
@@ -87,14 +80,29 @@ ol {
  */
 .lead,
 .lede {
-  @include font-size(20);
+  @include responsive-typography(20, 26, xs, lg);
+  @include font-stack-alt;
+  font-weight: 400;
+  line-height: 1.45;
 
-  @include breakpoint(md) {
-    @include font-size(23);
-  }
+  h1 + &,
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  h5 + &,
+  h6 + & {
+    margin-top: -(half($VCbase));
+    margin-bottom: tuple($VCbase, 1.5);
 
-  @include breakpoint(lg) {
-    @include font-size(24);
+    @include breakpoint(md) {
+      margin-top: -(three-quarters($VCbase));
+      font-weight: 300;
+    }
+
+    @include breakpoint(lg) {
+      margin-top: -$VCbase;
+      margin-bottom: double($VCbase);
+    }
   }
 }
 
@@ -119,13 +127,10 @@ ol {
  *
  * Styleguide: base.typography.headings
  */
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-.exa, .peta, .tera, .giga, .mega, .kilo {
+%b-header {
   @include font-stack-alt;
   font-weight: $VCfont-medium;
-  line-height: 1.25;
+  line-height: 1.45;
 
   a {
     text-decoration: none;
@@ -137,9 +142,11 @@ h1, h2, h3, h4, h5, h6,
   table + &,
   blockquote + & {
     margin-top: tuple($VCbase, 1.5);
+    margin-bottom: half($VCbase);
 
     @include breakpoint(md) {
       margin-top: tuple($VCbase, 2.5);
+      margin-bottom: three-quarters($VCbase);
     }
   }
 
@@ -149,11 +156,11 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-h5, .h5,
-h6, .h6 {
-  font-weight: $VCfont-normal;
-  letter-spacing: .25px;
-}
+// h5, .h5,
+// h6, .h6 {
+//   font-weight: $VCfont-normal;
+//   letter-spacing: .25px;
+// }
 
 /**
  * Display headings
@@ -174,108 +181,33 @@ h6, .h6 {
  *
  * Styleguide: base.typography.display
  */
-.exa {
-  @include font-size(72);
+// Loop through all the given classnames in `$VCfont-sizes`
+@for $i from 1 to (length($VCfont-sizes) + 1) {
+  // Get the reverse position in the list for calculations
+  $count: length($VCfont-sizes) - $i;
 
-  @include breakpoint(md) {
-    @include font-size(80);
+  // Get the classname from the map
+  $class: nth($VCfont-sizes, $i);
+
+  // Calculate the minimum and maximum sizes necessary using a `y = mx + c`
+  // equation where m is a given ratio, x is `$i` and c is the default font
+  // size in px
+  $size-min: ($count * 2) + ($VCfont-size-unitless - 2);
+  $size-max: ($count * 4) + ($VCfont-size-unitless - 2);
+
+  // Create the class by extending `%b-header`
+  .#{$class} {
+    @extend %b-header;
+    @include responsive-typography($size-min, $size-max, xs, lg);
+  }
+
+  // If the class begins with a `h`, add an additional h[1-6] to go with it
+  @if str-index(#{$class}, "h") == 1 {
+    #{$class} {
+      @extend .#{$class};
+    }
   }
 }
-
-.peta {
-  @include font-size(64);
-
-  @include breakpoint(md) {
-    @include font-size(72);
-  }
-}
-
-.tera {
-  @include font-size(56);
-
-  @include breakpoint(md) {
-    @include font-size(64);
-  }
-}
-
-.giga {
-  @include font-size(48);
-
-  @include breakpoint(md) {
-    @include font-size(56);
-  }
-}
-
-.mega {
-  @include font-size(42);
-
-  @include breakpoint(md) {
-    @include font-size(48);
-  }
-}
-
-.kilo {
-  @include font-size(36);
-
-  @include breakpoint(md) {
-    @include font-size(42);
-  }
-}
-
-h1,
-.h1 {
-  @include font-size(32);
-
-  @include breakpoint(md) {
-    @include font-size(36);
-  }
-}
-
-h2,
-.h2 {
-  @include font-size(26);
-
-  @include breakpoint(md) {
-    @include font-size(32);
-  }
-}
-
-h3,
-.h3 {
-  @include font-size(22);
-
-  @include breakpoint(md) {
-    @include font-size(26);
-  }
-}
-
-h4,
-.h4 {
-  @include font-size(18);
-
-  @include breakpoint(md) {
-    @include font-size(22);
-  }
-}
-
-h5,
-.h5 {
-  @include font-size(16);
-
-  @include breakpoint(md) {
-    @include font-size(18);
-  }
-}
-
-h6,
-.h6 {
-  @include font-size(14);
-
-  @include breakpoint(md) {
-    @include font-size(16);
-  }
-}
-
 
 hr {
   margin-bottom: $VCbase;
@@ -349,23 +281,13 @@ blockquote {
   p {
     margin-bottom: 0;
     @include font-stack-alt;
-    @include font-size(22);
+    @include responsive-typography(22, 28, sm, md);
     font-weight: $VCfont-light;
-    // color: greyscale(3);
-
-    @include breakpoint(sm) {
-      @include font-size(24);
-    }
-
-    @include breakpoint(md) {
-      @include font-size(28);
-    }
   }
 
   footer {
     display: block;
     margin-top: half($VCbase);
-    // @include font-stack-alt;
     @include font-size(18);
     font-weight: $VCfont-normal;
 

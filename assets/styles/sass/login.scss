@@ -19,7 +19,7 @@
 body {
   position: relative;
   font-family: $VCfont-stack;
-  background-image: url("/wp-content/uploads/2012/08/hero-home.jpg");
+  background-image: url($VCcdn-url + "/wp-content/uploads/2012/08/hero-home.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

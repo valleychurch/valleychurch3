@@ -14,18 +14,23 @@
     $breakpoint-counter: ($breakpoint-counter + 1);
 
     @include breakpoint($breakpoint) {
+
+      // Create generic `.o-col-{$breakpoint} classes for equal-width columns
       @if $VCenable-flex {
         .o-col\@#{$breakpoint} {
-          position: relative;
+          // position: relative;
+          @include make-col-ready;
           flex-basis: 0;
           flex-grow: 1;
           max-width: 100%;
-          min-height: 1px;
-          padding-right: ($gutter / 2);
-          padding-left: ($gutter / 2);
+          // min-height: 1px;
+          // padding-right: ($gutter / 2);
+          // padding-left: ($gutter / 2);
         }
       }
 
+      // Loop through column count and make `.o-col-{$i}@{$breakpoint} classes
+      // i.e. `.o-col-3@sm`
       @for $i from 1 through $columns {
         .o-col-#{$i}\@#{$breakpoint} {
           @include make-col($i, $columns, $gutter);
@@ -40,7 +45,8 @@
         }
       }
 
-      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      // `$columns - 1` because offsetting by the width of an entire row
+      // isn't possible
       @for $i from 0 through ($columns - 1) {
         @if $breakpoint-counter != 1 or $i != 0 {
           .u-offset-#{$i}\@#{$breakpoint} {

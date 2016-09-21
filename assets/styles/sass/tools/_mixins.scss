@@ -50,33 +50,33 @@
   }
 }
 
-// Fancy link underlines
-@mixin fancyLinks($underlineColor, $bg) {
-  background-image: linear-gradient(to bottom, transparent 90%, $underlineColor 91%, $underlineColor 95.5%, transparent 95.5%);
-  text-decoration: none;
-  text-shadow: 0 .03em $bg,
-    0 -.03em $bg,
-    .06em 0 $bg,
-    0 -.06em $bg,
-    .03em 0 $bg,
-    -.03em 0 $bg,
-    .06em 0 $bg,
-    -.06em 0 $bg,
-    .09em 0 $bg,
-    -.09em 0 $bg,
-    .12em 0 $bg,
-    -.12em 0 $bg,
-    .15em 0 $bg,
-    -.15em 0 $bg;
-}
-
-
 // Push in a pixel font size and get a rem one back
 @mixin font-size($px-value) {
-  font-size: ($px-value / $VCfont-size-unitless) + rem;
+  font-size: font-size-rem($px-value);
 
-  .lt-ie9 {
-    font-size: $px-value + px;
+  .lt-ie9 & {
+    font-size: ceil($px-value) + px;
+  }
+}
+
+// CSS lock for font-size
+// http://fvsch.com/code/css-locks/
+@mixin responsive-typography($base-size, $maximum-size, $lower-mq, $upper-mq) {
+  $font-size-rem:         font-size-rem($base-size);
+  $font-size-difference:  font-size-unitless($maximum-size - $base-size);
+
+  @include font-size($base-size);
+
+  @include breakpoint($lower-mq) {
+    font-size: css-lock($font-size-rem, $font-size-difference, $lower-mq, $upper-mq);
+
+    .no-csscalc & {
+      @include font-size(($base-size + $maximum-size) / 2);
+    }
+  }
+
+  @include breakpoint($upper-mq) {
+    @include font-size($maximum-size);
   }
 }
 
