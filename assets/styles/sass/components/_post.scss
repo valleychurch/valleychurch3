@@ -80,6 +80,26 @@
     padding-left: 0;
   }
 
+  > .alignleft {
+    @include breakpoint(sm) {
+      float: left;
+      margin-right: $VCbase;
+      margin-left: -5%;
+      text-align: left;
+      max-width: 40%;
+    }
+  }
+
+  > .alignright {
+    @include breakpoint(sm) {
+      float: right;
+      margin-right: -5%;
+      margin-left: $VCbase;
+      text-align: right;
+      max-width: 40%;
+    }
+  }
+
   img.ajax-loader {
     width: auto;
   }

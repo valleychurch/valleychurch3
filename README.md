@@ -1,5 +1,5 @@
 # Valley Church WordPress theme
-## Version 3.2.2
+## Version 3.2.2a
 
 ### Changelog
 * v3.2.2 - Responsive typography using CSS locks (http://fvsch.com/code/css-locks)
