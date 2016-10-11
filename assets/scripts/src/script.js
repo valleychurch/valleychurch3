@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.2.2a',
+    Version: '3.2.2b',
 
     /**
      * Kick everything off
@@ -228,13 +228,13 @@ var Valley = (function() {
 
     ResponsiveIframes: function() {
       $('iframe').each(function(i, el) {
-        $(el).wrap('<div class="o-ratio u-margin-double@md"/>');
+        $(el).wrap('<div class="o-ratio u-margin u-margin-double@md"/>');
       });
     },
 
     ResponsiveTables: function() {
       $('table.o-table').each(function(i, el) {
-        $(el).wrap('<div class="o-table-responsive u-margin-double@md"/>');
+        $(el).wrap('<div class="o-table-responsive u-margin u-margin-double@md"/>');
       });
     },
 
