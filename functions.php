@@ -257,6 +257,7 @@ add_action( 'login_head', 'add_custom_login' );
 function create_custom_post_types() {
   $supports_simple = array( 'title', 'thumbnail', 'author' );
   register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null, null, false ) );
+  register_post_type( 'event', create_custom_post_type_args( 'churchappevent', 'ChurchApp Events', 'dashicons-calendar-alt', true, null, null, false ) ); //Replacing old events
   register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple, false ) );
   register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null, null, true ) );
   register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null, null, false ) );
