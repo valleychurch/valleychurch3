@@ -8,7 +8,7 @@ define('APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je');
 define('APP_URL', 'https://api.churchapp.co.uk/v1/calendar/events');
 
 require_once('../../../wp-load.php');
-require_once('../../../wp-admin/includes/image.php');
+// require_once('../../../wp-admin/includes/image.php');
 
 $ch = curl_init(APP_URL);
 curl_setopt_array($ch,
@@ -106,6 +106,7 @@ foreach( $events as $event ) {
       else {
         $post_to_update = $wp_event->posts[0];
         $post_id = $post_to_update->ID;
+        $update_count = 1;
 
         //Basic object to add data to
         $updated_info = array(
@@ -113,18 +114,76 @@ foreach( $events as $event ) {
         );
 
         //If title has changed
-        if ( $post_to_update->post_title != $event->name ) {
+        if ( esc_html($post_to_update->post_title) != esc_html($event->name) ) {
           $updated_info["post_title"] = $event->name;
+          $update_count++;
         }
 
         if ( $post_to_update->post_content != $event->description ) {
           $updated_info["post_content"] = $event->description;
+          $update_count++;
+        }
+
+        if ( get_field( 'identifier', $post_to_update) != $event->identifier ) {
+          update_field( 'field_582456c4b953e', $event->identifier, $post_id );
+          $update_count++;
+        }
+
+        if ( get_field( 'datetimes_start', $post_to_update) != $event->datetimestamp_start ) {
+          update_field( 'field_582456d0b953f', $event->datetimestamp_start, $post_id );
+          $update_count++;
+        }
+
+        if ( get_field( 'datetimestamp_start', $post_to_update) != strtotime( $event->datetime_start ) ) {
+          update_field( 'field_58249be78d880', strtotime($event->datetime_start), $post_id );
+          $update_count++;
+        }
+
+        if ( get_field( 'datetime_end', $post_to_update) != $event->datetime_end ) {
+          update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
+          $update_count++;
+        }
+
+        if ( count( $event->location ) != 0 ) {
+          if ( get_field( 'location', $post_to_update) != $event->location->name ) {
+            update_field( 'field_582456f3b9541', $event->location->name, $post_id );
+            $update_count++;
+          }
+
+          if ( get_field( 'location_address', $post_to_update) != $event->location->address ) {
+            update_field( 'field_582456ffb9542', $event->location->address, $post_id );
+            $update_count++;
+          }
+
+          if ( get_field( 'location_latitude', $post_to_update) != $event->location->latitude ) {
+            update_field( 'field_58245707b9543', $event->location->latitude, $post_id );
+            $update_count++;
+          }
+
+          if ( get_field( 'location_longitude', $post_to_update) != $event->location->longitude ) {
+            update_field( 'field_5824570fb9544', $event->location->longitude, $post_id );
+            $update_count++;
+          }
+        }
+
+        if ( get_field( 'signup_available', $post_to_update) != $event->signup_options->tickets->enabled ) {
+          update_field( 'field_5824571ab9545', $event->signup_options->tickets->enabled, $post_id );
+          $update_count++;
+        }
+
+        if ( get_field( 'signup_url', $post_to_update) != $event->signup_options->tickets->url ) {
+          update_field( 'field_58245724b9546', $event->signup_options->tickets->url, $post_id );
+          $update_count++;
         }
 
         //Update post if there's more data than just ID
-        if ( count( $updated_info ) > 1 ) {
+        if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
           echo "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
+        }
+
+        else {
+          echo "No need to update " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
 
         // See if there's a featured image to add
@@ -133,9 +192,6 @@ foreach( $events as $event ) {
           addMediaToWp($event, $file, $post_id);
         }
 
-        else {
-          echo "No need to update " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
-        }
       }
     }
   }

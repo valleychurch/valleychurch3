@@ -74,7 +74,7 @@ get_header(); ?>
         <?php
           // $tax_query = [];
           // $meta_query = [];
-          // $current_page = get_query_var( 'paged',  1 );
+          $current_page = get_query_var( 'paged',  1 );
 
           // if ( isset( $query_location ) && $query_location != 0 ) {
           //   $tax_query[] =

@@ -81,6 +81,7 @@ module.exports = function(grunt) {
         files: {
           'style.css': 'assets/styles/sass/wp-style.scss',
           'assets/styles/css/style.<%= pkg.version %>.min.css': 'assets/styles/sass/style.scss',
+          'assets/styles/css/style.latest.min.css': 'assets/styles/sass/style.scss',
           'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
           'assets/styles/css/login.<%= pkg.version %>.min.css': 'assets/styles/sass/login.scss',
         }
@@ -101,6 +102,7 @@ module.exports = function(grunt) {
               'assets/scripts/lib/responsiveslides.js',
               'assets/scripts/src/script.js'
             ],
+          'assets/scripts/dist/script.latest.min.js': 'assets/scripts/dist/script.<%= pkg.version %>.min.js',
           'assets/scripts/dist/jquery.min.js': 'assets/scripts/lib/jquery.js',
           'assets/scripts/dist/loadcss.min.js' : 'assets/scripts/lib/loadCSS.js',
           'assets/scripts/dist/preload.polyfill.min.js' : 'assets/scripts/lib/preload.polyfill.js',

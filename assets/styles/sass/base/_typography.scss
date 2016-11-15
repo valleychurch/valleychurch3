@@ -209,6 +209,18 @@ ol {
   }
 }
 
+/**
+ * Browser defaults
+ */
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
 hr {
   margin-bottom: $VCbase;
   border: 0;
@@ -322,12 +334,13 @@ address {
   font-style: normal;
 }
 
-
+/**
+ * CSS selector
+ */
 ::selection {
   color: white;
   background-color: colour("red");
 }
-
 
 .aligncenter {
   display: block;
