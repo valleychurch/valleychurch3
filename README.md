@@ -1,7 +1,8 @@
 # Valley Church WordPress theme
-## Version 3.2.3b
+## Version 3.2.4
 
 ### Changelog
+* v3.2.4 - Update to form styling and ChurchApp import
 * v3.2.3 - Add sharer for events, ChurchApp event import, homepage styling, *.latest CSS and JS
 * v3.2.2 - Responsive typography using CSS locks (http://fvsch.com/code/css-locks)
 * v3.2.1 - iOS fix for using desktop navigation in landscape

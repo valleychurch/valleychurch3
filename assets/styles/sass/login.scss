@@ -11,8 +11,8 @@
 @import "base/base";
 @import "base/typography";
 @import "base/links";
-@import "base/forms";
 
+@import "objects/forms";
 @import "objects/buttons";
 
 
@@ -41,12 +41,17 @@ body {
 
 .login {
   label {
-    @extend %b-label;
+    @extend %o-label;
+    display: block;
   }
 
   form .input,
   input[type=text] {
-    @extend %b-input;
+    @extend %o-input;
+  }
+
+  input[type="checkbox"] {
+    margin-bottom: 0;
   }
 
   h1 {

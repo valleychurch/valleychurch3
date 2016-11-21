@@ -25,16 +25,16 @@ body {
 @import "base/base";
 @import "base/typography";
 @import "base/links";
-@import "base/tables";
-@import "base/forms";
 
 // Objects
 // Cosmetic-free design patterns
 @import "objects/buttons";
 @import "objects/flag";
+@import "objects/forms";
 @import "objects/lists";
 @import "objects/media";
 @import "objects/ratio";
+@import "objects/tables";
 
 // Trumps
 // Helpers and overrides

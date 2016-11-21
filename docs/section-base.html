@@ -29,7 +29,7 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism.min.css">
-    <link rel="stylesheet" href="../assets/styles/css/style.3.2.3b.min.css">
+    <link rel="stylesheet" href="../assets/styles/css/style.latest.min.css">
 
     <style>
       iframe {
@@ -43,7 +43,7 @@
     <script src="//use.typekit.net/jtz8aoh.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script src="../assets/scripts/dist/jquery.min.js"></script>
-    <script src="../assets/scripts/dist/script.3.2.3b.min.js"></script>
+    <script src="../assets/scripts/dist/script.latest.min.js"></script>
 <script src="../assets/scripts/lib/iframify.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script>
@@ -167,19 +167,6 @@
  -->
                     <li data-depth="4"><a href="#section-base.typography.blockquote.source">With source</a>
                     <!--  -->
-                    <li data-depth="2"><a href="#section-base.forms">Forms</a>
-                    <!-- 
-                    <li>
-                      <a href="#section-base.forms" data-depth="2">Forms</a>
-                    </li>
-                     -->
-                    <li data-depth="3"><a href="#section-base.forms.default">Form defaults</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.forms.default" data-depth="3">Form defaults</a>
-                        </li>
-                      </ul>
- -->
                   </ul>
 
                 </aside>
@@ -271,7 +258,7 @@ to <code>ul</code>/<code>ol</code> elements to make them match.</p>
                     <h3 class="u-margin-half">Lead paragraphs</h3>
                     <div class="kss-description">
                       <p>Using the class <code>.lead</code> you can bump up a paragraph&#39;s size to <code>20px</code> on
-mobile, <code>23px</code> on tablet and <code>24px</code> on desktop.</p>
+mobile and <code>24px</code> on desktop.</p>
 
                     </div>
                     <div class="kss-modifier-block">
@@ -461,98 +448,6 @@ heading but still want your text to be displayed inline.</p>
       &lt;a href=&quot;#0&quot;&gt;2 Corinthians 9:7&lt;/a&gt;
     &lt;/footer&gt;
   &lt;/blockquote&gt;
-</code></pre>
-                      </div>
-                    </div>
-                     
-                  </section>
-                  <section id="section-base.forms" class="u-margin-double" data-depth="2">
-                    <h2>Forms</h2>
- 
-                  </section>
-                  <section id="section-base.forms.default" class="u-margin-double" data-depth="3">
-                    <h3 class="u-margin-half">Form defaults</h3>
-                    <div class="kss-description">
-                      <p>Default styling for form inputs</p>
-
-                    </div>
-                    <div class="kss-modifier-block">
-                      <div class="o-card o-card--outline u-margin-none">
-                        <div class="o-card__body">
-                          <div class="iframify">
-                            <form>
-  <label for="exampleInputEmail1">Email address</label>
-  <input type="email" id="exampleInputEmail1" placeholder="Enter email">
-  <label for="exampleInputPassword1">Password</label>
-  <input type="password" id="exampleInputPassword1" placeholder="Password">
-  <label for="exampleSelect1">Example select</label>
-  <select id="exampleSelect1">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-  <label for="exampleTextarea">Example textarea</label>
-  <textarea id="exampleTextarea" rows="3"></textarea>
-  <label for="exampleInputFile">File input</label>
-  <input type="file" id="exampleInputFile">
-  <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-    Option one is this and that—be sure to include why it's great
-  </label>
-  <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-    Option two can be something else and selecting it will deselect option one
-  </label>
-  <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-    Option three is disabled
-  </label>
-  <label>
-    <input type="checkbox"> Check me out
-  </label>
-  <button type="submit" class="o-btn o-btn--small">Submit</button>
-</form>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="kss-markup">
-<pre>
-<code class="language-html">&lt;form&gt;
-  &lt;label for=&quot;exampleInputEmail1&quot;&gt;Email address&lt;/label&gt;
-  &lt;input type=&quot;email&quot; id=&quot;exampleInputEmail1&quot; placeholder=&quot;Enter email&quot;&gt;
-  &lt;label for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
-  &lt;input type=&quot;password&quot; id=&quot;exampleInputPassword1&quot; placeholder=&quot;Password&quot;&gt;
-  &lt;label for=&quot;exampleSelect1&quot;&gt;Example select&lt;/label&gt;
-  &lt;select id=&quot;exampleSelect1&quot;&gt;
-    &lt;option&gt;1&lt;/option&gt;
-    &lt;option&gt;2&lt;/option&gt;
-    &lt;option&gt;3&lt;/option&gt;
-    &lt;option&gt;4&lt;/option&gt;
-    &lt;option&gt;5&lt;/option&gt;
-  &lt;/select&gt;
-  &lt;label for=&quot;exampleTextarea&quot;&gt;Example textarea&lt;/label&gt;
-  &lt;textarea id=&quot;exampleTextarea&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
-  &lt;label for=&quot;exampleInputFile&quot;&gt;File input&lt;/label&gt;
-  &lt;input type=&quot;file&quot; id=&quot;exampleInputFile&quot;&gt;
-  &lt;label&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; value=&quot;option1&quot; checked&gt;
-    Option one is this and that—be sure to include why it&#x27;s great
-  &lt;/label&gt;
-  &lt;label&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios2&quot; value=&quot;option2&quot;&gt;
-    Option two can be something else and selecting it will deselect option one
-  &lt;/label&gt;
-  &lt;label&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios3&quot; value=&quot;option3&quot; disabled&gt;
-    Option three is disabled
-  &lt;/label&gt;
-  &lt;label&gt;
-    &lt;input type=&quot;checkbox&quot;&gt; Check me out
-  &lt;/label&gt;
-  &lt;button type=&quot;submit&quot; class=&quot;o-btn o-btn--small&quot;&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
 </code></pre>
                       </div>
                     </div>

@@ -67,7 +67,7 @@ ol {
  * Lead paragraphs
  *
  * Using the class `.lead` you can bump up a paragraph's size to `20px` on
- * mobile, `23px` on tablet and `24px` on desktop.
+ * mobile and `24px` on desktop.
  *
  * Markup:
  *   <p class="lead">This is a lead paragraph that starts a page off with an
@@ -80,7 +80,7 @@ ol {
  */
 .lead,
 .lede {
-  @include responsive-typography(20, 26, xs, lg);
+  @include responsive-typography(20, 24, xs, lg);
   @include font-stack-alt;
   font-weight: 400;
   line-height: 1.45;

@@ -1,0 +1,239 @@
+/**
+ * Forms
+ *
+ * Weight: 1
+ *
+ * Styleguide: objects.forms
+ */
+
+/**
+ * Form defaults
+ *
+ * Default styling for form inputs
+ *
+ * Markup:
+ * <form autocomplete="off">
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleInputEmail1">Email address</label>
+ *     <input class="o-input" type="email" id="exampleInputEmail1" placeholder="Enter email">
+ *   </div>
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleInputPassword1">Password</label>
+ *     <input class="o-input" type="password" id="exampleInputPassword1" placeholder="Password">
+ *   </div>
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleSelect1">Example select</label>
+ *     <select class="o-input" id="exampleSelect1">
+ *       <option>1</option>
+ *       <option>2</option>
+ *       <option>3</option>
+ *       <option>4</option>
+ *       <option>5</option>
+ *     </select>
+ *   </div>
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleDisabled">Disabled field</label>
+ *     <input class="o-input" type="text" id="exampleDisabled" placeholder="This is disabled" disabled>
+ *   </div>
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleTextarea">Example textarea</label>
+ *     <textarea class="o-input" id="exampleTextarea" rows="3"></textarea>
+ *   </div>
+ *   <div class="o-form-group">
+ *     <label class="o-label" for="exampleInputFile">File input</label>
+ *     <input type="file" id="exampleInputFile">
+ *   </div>
+ *   <div class="o-form-group">
+ *     <div class="o-form-group__radio">
+ *       <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+ *       <label class="o-label" for="optionsRadios1">Option one is this and that—be sure to include why it's great</label>
+ *     </div>
+ *     <div class="o-form-group__radio">
+ *       <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+ *       <label class="o-label" for="optionsRadios2">Option two can be something else and selecting it will deselect option one</label>
+ *     </div>
+ *     <div class="o-form-group__radio">
+ *       <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+ *       <label class="o-label" for="optionsRadios3">Option three is disabled</label>
+ *     </div>
+ *   </div>
+ *   <div class="o-form-group">
+ *     <div class="o-form-group__checkbox">
+ *       <input type="checkbox" id="exampleCheckbox">
+ *       <label class="o-label" for="exampleCheckbox">Check me out</label>
+ *     </div>
+ *   </div>
+ *   <button type="submit" class="o-btn o-btn--small">Submit</button>
+ * </form>
+ *
+ * Styleguide: objects.forms.default
+ */
+
+ /**
+  * Form validation
+  *
+  * Custom states for error/success
+  *
+  * Markup:
+  * <form>
+  *   <div class="o-form-group has-error">
+  *     <label class="o-label" for="exampleInputEmail1">Email address</label>
+  *     <input class="o-input" type="email" id="exampleInputEmail1" placeholder="Enter email">
+  *   </div>
+  *   <div class="o-form-group has-success">
+  *     <label class="o-label" for="exampleInputPassword1">Password</label>
+  *     <input class="o-input" type="password" id="exampleInputPassword1" placeholder="Password">
+  *   </div>
+  *
+  * Styleguide: objects.forms.validation
+  */
+
+%o-form-group,
+.o-form-group {
+  @extend %g-margin-bottom;
+
+  &.has-error {
+    .o-label,
+    .o-label small,
+    .o-input {
+      color: $VCred;
+    }
+
+    .o-input {
+      border-color: $VCred;
+    }
+  }
+}
+
+%o-form-group__radio,
+.o-form-group__radio,
+%o-form-group__checkbox,
+.o-form-group__checkbox {
+  position: relative;
+
+  input {
+    display: none;
+
+    &:checked {
+      + label {
+        &:before {
+          background: $VCred;
+          border: 3px solid greyscale(10);
+        }
+      }
+    }
+
+    &:disabled,
+    &[disabled],
+    &[readonly],
+    &.is-disabled {
+      + label {
+        color: greyscale(7);
+
+        &:before {
+          background: greyscale(9);
+        }
+      }
+    }
+  }
+
+  label {
+    @extend %o-label;
+    position: relative;
+    margin-left: tuple($VCbase, 1.5);
+    padding-right: $VCbase;
+    user-select: none;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: tuple($VCbase, -1.5);
+      width: $VCbase;
+      height: $VCbase;
+      background: greyscale(10);
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.o-form-group__radio {
+  label {
+    &:before {
+      border-radius: 100%;
+    }
+  }
+}
+
+%o-label,
+.o-label {
+  display: inline-block;
+  margin-bottom: .125rem;
+  @include responsive-typography(16, 20, xs, lg);
+
+  @include breakpoint(md) {
+    margin-bottom: .25rem;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: half($VCbase);
+  }
+
+  .o-form-group > & {
+    display: block;
+    font-weight: 600;
+  }
+}
+
+%o-input,
+.o-input {
+  display: block;
+  width: 100%;
+  padding: half($VCbase) three-quarters($VCbase);
+  @include responsive-typography(15, 17, xs, lg);
+  line-height: normal;
+  background-color: white;
+  border: 1px solid greyscale(9);
+  border-radius: 3px;
+  box-sizing: border-box;
+  transition: border-color $VCtransition-timing $VCtransition-easing;
+
+  @include breakpoint(md) {
+    padding: rem(11px) rem(14px);
+  }
+
+  &:focus,
+  &:active {
+    border-color: greyscale(7);
+    // outline-color: colour("red");
+    outline-color: transparent;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &[disabled],
+  &[readonly],
+  &.is-disabled {
+    color: greyscale(8);
+    background-color: greyscale(10);
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+%o-input-radio,
+%o-input-checkbox,
+input[type="radio"],
+input[type="checkbox"] {
+  margin-bottom: half($VCbase);
+}
+
+input[type="search"] {
+  appearance: none;
+}
+
+

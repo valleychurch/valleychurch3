@@ -44,12 +44,12 @@ module.exports = function(grunt) {
 
     kss: {
       options: {
-        template: 'assets/template',
-        homepage: 'index.md',
-        verbose: true,
+        css: '../assets/styles/css/style.latest.min.css',
+        js: ['../assets/scripts/dist/script.latest.min.js', '../assets/scripts/lib/iframify.js'],
         custom: ['Hide'],
-        css: '../assets/styles/css/style.<%= pkg.version %>.min.css',
-        js: ['../assets/scripts/dist/script.<%= pkg.version %>.min.js', '../assets/scripts/lib/iframify.js'],
+        homepage: 'index.md',
+        template: 'assets/template',
+        verbose: true,
       },
       dist: {
         src: ['assets/styles/sass'],
