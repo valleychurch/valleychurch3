@@ -16,11 +16,11 @@
  *    <div class="o-container">
  *      <div class="o-flag o-flag--rev">
  *        <div class="o-flag__flex">
- *          This weekend is the last chance to get yourself booked in for <strong>Leadership Vision Night</strong> on Tuesday 1st March!
+ *          <p>Catch up with our brand new series <a href="/messages">Never Lose the Wonder</a>!</p>
  *        </div>
  *        <div class="o-flag__fix">
  *          <button aria-label="Dismiss notification" class="o-btn o-btn--reset c-notification__dismiss js-notification-dismiss">
- *            <i class="fa fa-times"></i>
+ *            &times;
  *          </button>
  *        </div>
  *      </div>
@@ -32,10 +32,6 @@
  * Styleguide: components.notifications.default
  */
 .c-notification {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
   max-height: 0;
   overflow: hidden;
   color: white;
@@ -66,6 +62,10 @@
       padding: 0 2rem;
     }
 
+    strong {
+      font-weight: 700;
+    }
+
     a {
       color: white;
       // border-bottom: 1px solid;
@@ -87,6 +87,13 @@
   }
 }
 
+.c-notification--fixed {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .c-notification__dismiss {
   padding: 0;
   margin: -4px 0 0;
@@ -105,11 +112,28 @@
 }
 
 .c-notification--alt {
-  color: $VCblack;
+  color: black;
   background-color: colour("yellow");
 
+  p {
+    a {
+      color: black;
+
+      &:hover,
+      &:focus {
+        color: $VCblack;
+      }
+    }
+  }
+
   .o-btn {
-    color: $VCblack;
+    color: black;
+
+    &:hover,
+    &:focus {
+      color: $VCblack;
+      background-color: transparent;
+    }
   }
 }
 

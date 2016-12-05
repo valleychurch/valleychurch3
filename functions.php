@@ -4,12 +4,13 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.2.4' );
+define( 'VC_THEME_VERSION', '3.2.5' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
 define( 'APP_URL', 'https://api.churchapp.co.uk/v1/calendar/events' );
 
+include( ABSPATH . 'wp-admin/includes/image.php' );
 
 /**
  * Reusable functions
@@ -293,7 +294,12 @@ function theme_files() {
   remove_action( 'wp_head', 'wp_generator' );                           // WP version
 
   // Register our CSS
-  wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
+  if ( !is_user_logged_in() ) {
+    wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
+  }
+  else {
+    wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.latest.min.css', null, null );
+  }
 
   wp_enqueue_style( 'site' );
 
@@ -304,7 +310,13 @@ function theme_files() {
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCsaESemSF6YjvYG4Vrz9bDerYZaD3f2i4', null, null, false );
   wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true ); /* Edit at cdn.fontawesome.com */
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
-  wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
+
+  if ( !is_user_logged_in() ) {
+    wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
+  }
+  else {
+    wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.latest.min.js', [ 'jquery' ], null, true );
+  }
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
     wp_enqueue_script( 'google-maps' );
@@ -447,12 +459,10 @@ function dynamic_select_list( $tag, $unused ) {
     $title = $cpt->post_title;
     $email = get_field( 'email_address', $id );
 
-    $tag['raw_values'][] = $id;
+    $tag['raw_values'][] = $title;
     $tag['values'][] = $id;
     $tag['labels'][] = $title;
-    if ( $email != null ) {
-      $pipes_new[] = $title . '|' . $email;
-    }
+    $pipes_new[] = $title . '|' . $email;
   }
 
   $tag['pipes'] = new WPCF7_Pipes( $pipes_new );
@@ -697,6 +707,10 @@ function import_churchapp_events() {
           update_field( 'field_5824571ab9545', $event->signup_options->tickets->enabled, $post_id );
           update_field( 'field_58245724b9546', $event->signup_options->tickets->url, $post_id );
 
+          // Add created and updated date(s)
+          update_field( 'field_583313e481783', strtotime( 'now' ), $post_id );
+          update_field( 'field_583313f681784', strtotime( 'now' ), $post_id );
+
           // Try and get the image
           if ( count( $event->images ) > 0 ) {
             $file = $event->images->original_1000;
@@ -787,6 +801,7 @@ function import_churchapp_events() {
         //Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
+          update_field( 'field_583313f681784', strtotime( 'now' ), $post_id );
           $email .= "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
         }
 
@@ -804,8 +819,8 @@ function import_churchapp_events() {
     }
   }
 
-  if (!empty($email)) {
-    wp_mail( 'web@valleychurch.eu', 'ChurchApp event import', $email );
+  if ( !empty( $email ) ) {
+    wp_mail( 'web@valleychurch.eu', 'ChurchApp event import ' . date( 'd/m/Y' ), $email, array( 'Content-Type: text/html; charset=UTF-8' ) );
   }
 }
 add_action( "import_churchapp_events", "import_churchapp_events" );
@@ -833,7 +848,6 @@ function add_media_to_wp($event, $file, $post_id) {
       $attachment_data = wp_generate_attachment_metadata( $attachment_id, $upload_file['file'] );
       wp_update_attachment_metadata( $attachment_id,  $attachment_data );
       set_post_thumbnail( $post_id, $attachment_id );
-      echo '&nbsp;&nbsp;' . 'Successfully added post thumbnail (ID: ' . $attachment_id . ') to ' . $event->name . '<br/>';
     }
   }
 }

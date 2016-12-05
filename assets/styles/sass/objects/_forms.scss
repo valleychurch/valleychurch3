@@ -62,6 +62,10 @@
  *       <input type="checkbox" id="exampleCheckbox">
  *       <label class="o-label" for="exampleCheckbox">Check me out</label>
  *     </div>
+ *     <div class="o-form-group__checkbox">
+ *       <input type="checkbox" id="exampleCheckbox2" disabled>
+ *       <label class="o-label" for="exampleCheckbox2">You can't check me&mdash;I've been disabled!</label>
+ *     </div>
  *   </div>
  *   <button type="submit" class="o-btn o-btn--small">Submit</button>
  * </form>
@@ -118,7 +122,8 @@
       + label {
         &:before {
           background: $VCred;
-          border: 3px solid greyscale(10);
+          border: 1px solid greyscale(5);
+          box-shadow: inset 0 0 0 4px white;
         }
       }
     }
@@ -127,11 +132,14 @@
     &[disabled],
     &[readonly],
     &.is-disabled {
+      cursor: not-allowed;
+
       + label {
         color: greyscale(7);
+        cursor: not-allowed;
 
         &:before {
-          background: greyscale(9);
+          background-color: greyscale(10);
         }
       }
     }
@@ -140,19 +148,23 @@
   label {
     @extend %o-label;
     position: relative;
-    margin-left: tuple($VCbase, 1.5);
+    margin-left: double($VCbase);
     padding-right: $VCbase;
     user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &:before {
       content: "";
       display: block;
       position: absolute;
       top: 50%;
-      left: tuple($VCbase, -1.5);
-      width: $VCbase;
-      height: $VCbase;
-      background: greyscale(10);
+      left: double(-$VCbase);
+      width: tuple($VCbase, 1.25);
+      height: tuple($VCbase, 1.25);
+      border: 1px solid greyscale(5);
       transform: translate(0, -50%);
     }
   }
@@ -166,14 +178,31 @@
   }
 }
 
+.o-form-group__checkbox {
+  input {
+    &:checked {
+      + label {
+        &:before {
+          content: "\f00c";
+          font-family: "FontAwesome";
+          background: none;
+          line-height: 1.2;
+          font-size: 15px;
+          text-align: center;
+          color: $VCred;
+        }
+      }
+    }
+  }
+}
+
 %o-label,
 .o-label {
   display: inline-block;
-  margin-bottom: .125rem;
+  margin-bottom: quarter($VCbase);
   @include responsive-typography(16, 20, xs, lg);
 
   @include breakpoint(md) {
-    margin-bottom: .25rem;
   }
 
   input[type="radio"],
@@ -196,7 +225,7 @@
   line-height: normal;
   background-color: white;
   border: 1px solid greyscale(9);
-  border-radius: 3px;
+  border-radius: $VCborder-radius;
   box-sizing: border-box;
   transition: border-color $VCtransition-timing $VCtransition-easing;
 
@@ -207,7 +236,6 @@
   &:focus,
   &:active {
     border-color: greyscale(7);
-    // outline-color: colour("red");
     outline-color: transparent;
     box-shadow: none;
   }
@@ -230,6 +258,58 @@
 input[type="radio"],
 input[type="checkbox"] {
   margin-bottom: half($VCbase);
+}
+
+.o-input-group {
+  position: relative;
+  width: 100%;
+  display: table;
+  border-collapse: separate;
+
+  .o-input,
+  .o-input-group__addon {
+    display: table-cell;
+
+    &:not(:first-child) {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .o-input {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+  }
+
+  .o-input-group__addon {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: rem(5px) rem(10px) rem(4px) rem(11px);
+    @include responsive-typography(15, 17, xs, lg);
+    border: 1px solid greyscale(9);
+    background-color: greyscale(10);
+    border-radius: $VCborder-radius;
+
+    @include breakpoint(lg) {
+      padding: rem(5px) rem(14px) rem(4px) rem(15px);
+    }
+
+    &:not(:first-child) {
+      border-left: 0;
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+  }
 }
 
 input[type="search"] {

@@ -91,7 +91,7 @@
                 $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
             ?>
               <li class="o-slide">
-                <?php if ( get_field('slider_link') ) { ?><a href="<?php the_field( "slider_link" ); ?>"><?php } ?>
+                <?php if ( get_field( 'slide_link' ) ) { ?><a href="<?php the_field( 'slide_link' ); ?>"><?php } ?>
                 <img
                   src="<?= $banner_lg[0]; ?>"
                   srcset="<?= $banner_xs[0]; ?> 320w,

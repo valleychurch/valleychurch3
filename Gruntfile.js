@@ -1,16 +1,7 @@
 "use strict";
 module.exports = function(grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-criticalcss');
-  grunt.loadNpmTasks('grunt-kss');
-  grunt.loadNpmTasks('grunt-notify');
-  grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-version');
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
 
@@ -151,7 +142,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
-        tasks: ['sass:dist', 'postcss:dist', 'notify:sass'],
+        tasks: ['sass:dist', 'postcss:dist', 'kss', 'notify:sass'],
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],
@@ -208,6 +199,7 @@ module.exports = function(grunt) {
     'sass:dist',
     'postcss:dist',
     'uglify:dist',
+    'kss',
     'imagemin:dynamic',
     'notify:local',
     'watch',

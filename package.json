@@ -1,6 +1,6 @@
 {
   "name": "valleychurch.eu",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "WordPress theme for Valley Church",
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "grunt-notify": "^0.4.3",
     "grunt-postcss": "^0.7.0",
     "grunt-sass": "^1.2.0",
-    "grunt-version": "^1.0.0"
+    "grunt-version": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2"
   }
 }

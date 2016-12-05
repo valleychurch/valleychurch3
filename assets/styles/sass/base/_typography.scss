@@ -96,11 +96,10 @@ ol {
 
     @include breakpoint(md) {
       margin-top: -(three-quarters($VCbase));
-      font-weight: 300;
     }
 
     @include breakpoint(lg) {
-      margin-top: -$VCbase;
+      // margin-top: -$VCbase;
       margin-bottom: double($VCbase);
     }
   }
@@ -114,16 +113,36 @@ ol {
  * heading but still want your text to be displayed inline.
  *
  * Markup:
- *   <h1 class="{{modifier_class}}">Heading 1</h1>
- *   <h2 class="{{modifier_class}}">Heading 2</h2>
- *   <h3 class="{{modifier_class}}">Heading 3</h3>
- *   <h4 class="{{modifier_class}}">Heading 4</h4>
- *   <h5 class="{{modifier_class}}">Heading 5</h5>
- *   <h6 class="{{modifier_class}}">Heading 6</h6>
+ *   <h1 class="{{modifier_class}} u-margin-half">Heading 1</h1>
+ *   <h2 class="{{modifier_class}} u-margin-half">Heading 2</h2>
+ *   <h3 class="{{modifier_class}} u-margin-half">Heading 3</h3>
+ *   <h4 class="{{modifier_class}} u-margin-half">Heading 4</h4>
+ *   <h5 class="{{modifier_class}} u-margin-half">Heading 5</h5>
+ *   <h6 class="{{modifier_class}} u-margin-half">Heading 6</h6>
  *
  * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
  *
  * Weight: 2
+ *
+ * Styleguide: base.typography.headings
+ */
+
+ /**
+ * Small seconary headings
+ *
+ * Adding a `<small>`
+ *
+ * Markup:
+ *   <h1 class="{{modifier_class}} u-margin-half">Heading 1 <small class="u-text-muted">with additional small text</small></h1>
+ *   <h2 class="{{modifier_class}} u-margin-half">Heading 2 <small class="u-text-muted">with additional small text</small></h2>
+ *   <h3 class="{{modifier_class}} u-margin-half">Heading 3 <small class="u-text-muted">with additional small text</small></h3>
+ *   <h4 class="{{modifier_class}} u-margin-half">Heading 4 <small class="u-text-muted">with additional small text</small></h4>
+ *   <h5 class="{{modifier_class}} u-margin-half">Heading 5 <small class="u-text-muted">with additional small text</small></h5>
+ *   <h6 class="{{modifier_class}} u-margin-half">Heading 6 <small class="u-text-muted">with additional small text</small></h6>
+ *
+ * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
+ *
+ * Weight: 3
  *
  * Styleguide: base.typography.headings
  */
@@ -150,34 +169,34 @@ ol {
     }
   }
 
+  small {
+    font-size: 78%;
+    font-weight: 400;
+  }
+
   &.u-alt {
     @include font-stack;
     font-weight: $VCfont-normal;
   }
 }
 
-// h5, .h5,
-// h6, .h6 {
-//   font-weight: $VCfont-normal;
-//   letter-spacing: .25px;
-// }
-
 /**
  * Display headings
  *
- * Extra large heading for special use cases
+ * Extra large heading for special use cases. These look great with an additional
+ * class of `.u-text-light`.
  *
  * Markup:
- *   <h1 class="exa {{modifier_class}}">Exa size heading</h1>
- *   <h2 class="peta {{modifier_class}}">Peta size heading</h2>
- *   <h3 class="tera {{modifier_class}}">Tera size heading</h3>
- *   <h4 class="giga {{modifier_class}}">Giga size heading</h4>
- *   <h5 class="mega {{modifier_class}}">Mega size heading</h5>
- *   <h6 class="kilo {{modifier_class}}">Kilo size heading</h6>
+ *   <h1 class="exa {{modifier_class}} u-text-light u-margin-half">Exa size heading</h1>
+ *   <h2 class="peta {{modifier_class}} u-text-light u-margin-half">Peta size heading</h2>
+ *   <h3 class="tera {{modifier_class}} u-text-light u-margin-half">Tera size heading</h3>
+ *   <h4 class="giga {{modifier_class}} u-text-light u-margin-half">Giga size heading</h4>
+ *   <h5 class="mega {{modifier_class}} u-text-light u-margin-half">Mega size heading</h5>
+ *   <h6 class="kilo {{modifier_class}} u-text-light u-margin-half">Kilo size heading</h6>
  *
  * .u-alt - Use `u-alt` to revert the headings to using Lato instead of Usual
  *
- * Weight: 3
+ * Weight: 4
  *
  * Styleguide: base.typography.display
  */
@@ -254,7 +273,7 @@ small,
  *     </p>
  *   </blockquote>
  *
- * Weight: 4
+ * Weight: 5
  *
  * Styleguide: base.typography.blockquote
  */
@@ -358,6 +377,7 @@ samp {
   word-wrap: break-word;
   background: grayscale(11);
   border-radius: 2px;
+  font-weight: 400;
 }
 
 :not(pre)>code[class*=language-],

@@ -34,7 +34,6 @@
     <style>
       iframe {
         border: 0;
-        /* margin: -8px; Cancel body margin of content */
         width: 100%;
       }
     </style>
@@ -123,50 +122,14 @@
 
                   <h5>Base</h5>
                   <ul class="o-list">
-                    <!--  -->
                     <li data-depth="2"><a href="#section-base.typography">Typography</a>
-                    <!-- 
-                    <li>
-                      <a href="#section-base.typography" data-depth="2">Typography</a>
-                    </li>
-                     -->
                     <li data-depth="3"><a href="#section-base.typography.defaults">Defaults</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.defaults" data-depth="3">Defaults</a>
-                        </li>
-                      </ul>
- -->
                     <li data-depth="3"><a href="#section-base.typography.lead">Lead paragraphs</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.lead" data-depth="3">Lead paragraphs</a>
-                        </li>
-                      </ul>
- -->
+                    <li data-depth="3"><a href="#section-base.typography.headings">Small seconary headings</a>
                     <li data-depth="3"><a href="#section-base.typography.headings">Headings</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.headings" data-depth="3">Headings</a>
-                        </li>
-                      </ul>
- -->
                     <li data-depth="3"><a href="#section-base.typography.display">Display headings</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.display" data-depth="3">Display headings</a>
-                        </li>
-                      </ul>
- -->
                     <li data-depth="3"><a href="#section-base.typography.blockquote">Blockquotes</a>
-                    <!--                       <ul class="o-list">
-                        <li>
-                          <a href="#section-base.typography.blockquote" data-depth="3">Blockquotes</a>
-                        </li>
-                      </ul>
- -->
                     <li data-depth="4"><a href="#section-base.typography.blockquote.source">With source</a>
-                    <!--  -->
                   </ul>
 
                 </aside>
@@ -282,6 +245,56 @@ mobile and <code>24px</code> on desktop.</p>
                      
                   </section>
                   <section id="section-base.typography.headings" class="u-margin-double" data-depth="3">
+                    <h3 class="u-margin-half">Small seconary headings</h3>
+                    <div class="kss-description">
+                      <p>Adding a <code>&lt;small&gt;</code></p>
+
+                    </div>
+                    <div class="kss-modifier-block">
+                      <div class="o-card o-card--outline u-margin-none">
+                        <div class="o-card__body">
+                          <div class="iframify">
+                              <h1 class="[modifier class] u-margin-half">Heading 1</h1>
+  <h2 class="[modifier class] u-margin-half">Heading 2</h2>
+  <h3 class="[modifier class] u-margin-half">Heading 3</h3>
+  <h4 class="[modifier class] u-margin-half">Heading 4</h4>
+  <h5 class="[modifier class] u-margin-half">Heading 5</h5>
+  <h6 class="[modifier class] u-margin-half">Heading 6</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="o-card o-card--outline u-margin-none">
+                        <div class="o-card__body">
+                          <div class="o-card__title u-margin">
+                            <div class="kss-modifier-name"><strong>.u-alt</strong></div>
+                            <div class="kss-modifier-description">
+                              Use <code>u-alt</code> to revert the headings to using Lato instead of Usual
+                            </div>
+                          </div>
+                          <div class="iframify">
+                              <h1 class="u-alt u-margin-half">Heading 1</h1>
+  <h2 class="u-alt u-margin-half">Heading 2</h2>
+  <h3 class="u-alt u-margin-half">Heading 3</h3>
+  <h4 class="u-alt u-margin-half">Heading 4</h4>
+  <h5 class="u-alt u-margin-half">Heading 5</h5>
+  <h6 class="u-alt u-margin-half">Heading 6</h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="kss-markup">
+<pre>
+<code class="language-html">  &lt;h1 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 1&lt;/h1&gt;
+  &lt;h2 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 2&lt;/h2&gt;
+  &lt;h3 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 3&lt;/h3&gt;
+  &lt;h4 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 4&lt;/h4&gt;
+  &lt;h5 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 5&lt;/h5&gt;
+  &lt;h6 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 6&lt;/h6&gt;
+</code></pre>
+                      </div>
+                    </div>
+                     
+                  </section>
+                  <section id="section-base.typography.headings" class="u-margin-double" data-depth="3">
                     <h3 class="u-margin-half">Headings</h3>
                     <div class="kss-description">
                       <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available. <code>.h1</code> through <code>.h6</code>
@@ -293,12 +306,12 @@ heading but still want your text to be displayed inline.</p>
                       <div class="o-card o-card--outline u-margin-none">
                         <div class="o-card__body">
                           <div class="iframify">
-                              <h1 class="[modifier class]">Heading 1</h1>
-  <h2 class="[modifier class]">Heading 2</h2>
-  <h3 class="[modifier class]">Heading 3</h3>
-  <h4 class="[modifier class]">Heading 4</h4>
-  <h5 class="[modifier class]">Heading 5</h5>
-  <h6 class="[modifier class]">Heading 6</h6>
+                              <h1 class="[modifier class] u-margin-half">Heading 1</h1>
+  <h2 class="[modifier class] u-margin-half">Heading 2</h2>
+  <h3 class="[modifier class] u-margin-half">Heading 3</h3>
+  <h4 class="[modifier class] u-margin-half">Heading 4</h4>
+  <h5 class="[modifier class] u-margin-half">Heading 5</h5>
+  <h6 class="[modifier class] u-margin-half">Heading 6</h6>
                           </div>
                         </div>
                       </div>
@@ -311,23 +324,23 @@ heading but still want your text to be displayed inline.</p>
                             </div>
                           </div>
                           <div class="iframify">
-                              <h1 class="u-alt">Heading 1</h1>
-  <h2 class="u-alt">Heading 2</h2>
-  <h3 class="u-alt">Heading 3</h3>
-  <h4 class="u-alt">Heading 4</h4>
-  <h5 class="u-alt">Heading 5</h5>
-  <h6 class="u-alt">Heading 6</h6>
+                              <h1 class="u-alt u-margin-half">Heading 1</h1>
+  <h2 class="u-alt u-margin-half">Heading 2</h2>
+  <h3 class="u-alt u-margin-half">Heading 3</h3>
+  <h4 class="u-alt u-margin-half">Heading 4</h4>
+  <h5 class="u-alt u-margin-half">Heading 5</h5>
+  <h6 class="u-alt u-margin-half">Heading 6</h6>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html">  &lt;h1 class=&quot;[modifier class]&quot;&gt;Heading 1&lt;/h1&gt;
-  &lt;h2 class=&quot;[modifier class]&quot;&gt;Heading 2&lt;/h2&gt;
-  &lt;h3 class=&quot;[modifier class]&quot;&gt;Heading 3&lt;/h3&gt;
-  &lt;h4 class=&quot;[modifier class]&quot;&gt;Heading 4&lt;/h4&gt;
-  &lt;h5 class=&quot;[modifier class]&quot;&gt;Heading 5&lt;/h5&gt;
-  &lt;h6 class=&quot;[modifier class]&quot;&gt;Heading 6&lt;/h6&gt;
+<code class="language-html">  &lt;h1 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 1&lt;/h1&gt;
+  &lt;h2 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 2&lt;/h2&gt;
+  &lt;h3 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 3&lt;/h3&gt;
+  &lt;h4 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 4&lt;/h4&gt;
+  &lt;h5 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 5&lt;/h5&gt;
+  &lt;h6 class=&quot;[modifier class] u-margin-half&quot;&gt;Heading 6&lt;/h6&gt;
 </code></pre>
                       </div>
                     </div>
@@ -336,19 +349,20 @@ heading but still want your text to be displayed inline.</p>
                   <section id="section-base.typography.display" class="u-margin-double" data-depth="3">
                     <h3 class="u-margin-half">Display headings</h3>
                     <div class="kss-description">
-                      <p>Extra large heading for special use cases</p>
+                      <p>Extra large heading for special use cases. These look great with an additional
+class of <code>.u-text-light</code>.</p>
 
                     </div>
                     <div class="kss-modifier-block">
                       <div class="o-card o-card--outline u-margin-none">
                         <div class="o-card__body">
                           <div class="iframify">
-                              <h1 class="exa [modifier class]">Exa size heading</h1>
-  <h2 class="peta [modifier class]">Peta size heading</h2>
-  <h3 class="tera [modifier class]">Tera size heading</h3>
-  <h4 class="giga [modifier class]">Giga size heading</h4>
-  <h5 class="mega [modifier class]">Mega size heading</h5>
-  <h6 class="kilo [modifier class]">Kilo size heading</h6>
+                              <h1 class="exa [modifier class] u-text-light u-margin-half">Exa size heading</h1>
+  <h2 class="peta [modifier class] u-text-light u-margin-half">Peta size heading</h2>
+  <h3 class="tera [modifier class] u-text-light u-margin-half">Tera size heading</h3>
+  <h4 class="giga [modifier class] u-text-light u-margin-half">Giga size heading</h4>
+  <h5 class="mega [modifier class] u-text-light u-margin-half">Mega size heading</h5>
+  <h6 class="kilo [modifier class] u-text-light u-margin-half">Kilo size heading</h6>
                           </div>
                         </div>
                       </div>
@@ -361,23 +375,23 @@ heading but still want your text to be displayed inline.</p>
                             </div>
                           </div>
                           <div class="iframify">
-                              <h1 class="exa u-alt">Exa size heading</h1>
-  <h2 class="peta u-alt">Peta size heading</h2>
-  <h3 class="tera u-alt">Tera size heading</h3>
-  <h4 class="giga u-alt">Giga size heading</h4>
-  <h5 class="mega u-alt">Mega size heading</h5>
-  <h6 class="kilo u-alt">Kilo size heading</h6>
+                              <h1 class="exa u-alt u-text-light u-margin-half">Exa size heading</h1>
+  <h2 class="peta u-alt u-text-light u-margin-half">Peta size heading</h2>
+  <h3 class="tera u-alt u-text-light u-margin-half">Tera size heading</h3>
+  <h4 class="giga u-alt u-text-light u-margin-half">Giga size heading</h4>
+  <h5 class="mega u-alt u-text-light u-margin-half">Mega size heading</h5>
+  <h6 class="kilo u-alt u-text-light u-margin-half">Kilo size heading</h6>
                           </div>
                         </div>
                       </div>
                       <div class="kss-markup">
 <pre>
-<code class="language-html">  &lt;h1 class=&quot;exa [modifier class]&quot;&gt;Exa size heading&lt;/h1&gt;
-  &lt;h2 class=&quot;peta [modifier class]&quot;&gt;Peta size heading&lt;/h2&gt;
-  &lt;h3 class=&quot;tera [modifier class]&quot;&gt;Tera size heading&lt;/h3&gt;
-  &lt;h4 class=&quot;giga [modifier class]&quot;&gt;Giga size heading&lt;/h4&gt;
-  &lt;h5 class=&quot;mega [modifier class]&quot;&gt;Mega size heading&lt;/h5&gt;
-  &lt;h6 class=&quot;kilo [modifier class]&quot;&gt;Kilo size heading&lt;/h6&gt;
+<code class="language-html">  &lt;h1 class=&quot;exa [modifier class] u-text-light u-margin-half&quot;&gt;Exa size heading&lt;/h1&gt;
+  &lt;h2 class=&quot;peta [modifier class] u-text-light u-margin-half&quot;&gt;Peta size heading&lt;/h2&gt;
+  &lt;h3 class=&quot;tera [modifier class] u-text-light u-margin-half&quot;&gt;Tera size heading&lt;/h3&gt;
+  &lt;h4 class=&quot;giga [modifier class] u-text-light u-margin-half&quot;&gt;Giga size heading&lt;/h4&gt;
+  &lt;h5 class=&quot;mega [modifier class] u-text-light u-margin-half&quot;&gt;Mega size heading&lt;/h5&gt;
+  &lt;h6 class=&quot;kilo [modifier class] u-text-light u-margin-half&quot;&gt;Kilo size heading&lt;/h6&gt;
 </code></pre>
                       </div>
                     </div>

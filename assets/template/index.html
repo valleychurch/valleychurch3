@@ -33,7 +33,6 @@
     <style>
       iframe {
         border: 0;
-        /* margin: -8px; Cancel body margin of content */
         width: 100%;
       }
     </style>
@@ -112,20 +111,6 @@
                     {{else}}
                     <li data-depth="{{depth}}"><a href="#section-{{reference}}">{{header}}</a>
                     {{/ifDepth}}
-                    <!-- {{#ifDepth 2}}
-                    <li>
-                      <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                    {{/ifDepth}}
-                    {{#ifDepth 3}}
-                      <ul class="o-list">
-                        <li>
-                          <a href="#section-{{reference}}" data-depth="{{depth}}">{{header}}</a>
-                        </li>
-                      </ul>
-                    {{/ifDepth}}
-                    {{#ifDepth 2}}
-                    </li>
-                    {{/ifDepth}} -->
                   {{/eachSection}}
                   </ul>
 

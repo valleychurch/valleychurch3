@@ -43,7 +43,7 @@
   cursor: pointer;
   background-color: colour("red");
   border: 1px solid colour("red", dark);
-  border-radius: 4px;
+  border-radius: $VCborder-radius;
   box-shadow: none;
   user-select: none;
   touch-action: manipulation;
@@ -154,6 +154,7 @@
 
   &--alt,
   &--alt:visited {
+    color: $VCblack;
     background-color: greyscale(11);
     border-color: greyscale(8);
 

@@ -195,7 +195,7 @@
 //Margins
 .u-margin,
 .u-margin-bottom {
-  margin-bottom: $VCbase;
+  margin-bottom: $VCbase !important;
   &-quadruple   { margin-bottom: quadruple($VCbase) !important; }
   &-double      { margin-bottom: double($VCbase) !important; }
   &-half        { margin-bottom: half($VCbase) !important; }
@@ -206,7 +206,7 @@
 }
 
 .u-margin-top {
-  margin-top: $VCbase;
+  margin-top: $VCbase !important;
   &-quadruple   { margin-top: quadruple($VCbase) !important; }
   &-double      { margin-top: double($VCbase) !important; }
   &-half        { margin-top: half($VCbase) !important; }

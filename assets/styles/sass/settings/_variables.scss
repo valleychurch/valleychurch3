@@ -24,6 +24,8 @@ $ms-ratio:              $VCratio;
 $VCgrid-gutter:         2rem;
 $VCgrid-columns:        12;
 
+$VCborder-radius:       3px;
+
 // Breakpoints in em rather than rem as per
 // http://zellwk.com/blog/media-query-units/
 $VCmax-width:           90rem;
@@ -105,28 +107,28 @@ $VCcolours: (
  *
  * Markup:
  *   <div class="o-row o-row--flush">
- *     <div class="o-col-xxs-12">
+ *     <div class="o-col-12@xxs">
  *       <div class="c-section u-background-white">
  *         <p class="u-text-black u-margin--none u-text-center">
  *           $VCwhite
  *         </p>
  *       </div>
  *     </div>
- *     <div class="o-col-xxs-12">
+ *     <div class="o-col-12@xxs">
  *       <div class="c-section u-background-black">
  *         <p class="u-text-white u-margin--none u-text-center">
  *           $VCblack
  *         </p>
  *       </div>
  *     </div>
- *     <div class="o-col-xxs-12">
+ *     <div class="o-col-12@xxs">
  *       <div class="c-section u-background-grey">
  *         <p class="u-text-white u-margin--none u-text-center">
  *           $VCgrey
  *         </p>
  *       </div>
  *     </div>
- *     <div class="o-col-xxs-4">
+ *     <div class="o-col-4@xxs">
  *       <div class="c-section c-section--small u-background-red--darkest">
  *         <p class="u-text-white u-margin--none u-text-center">
  *           Darkest
@@ -153,7 +155,7 @@ $VCcolours: (
  *         </p>
  *       </div>
  *     </div>
- *     <div class="o-col-xxs-4">
+ *     <div class="o-col-4@xxs">
  *       <div class="c-section c-section--small u-background-yellow--darkest">
  *         <p class="u-text-white u-margin--none u-text-center">
  *           Darkest
@@ -180,7 +182,7 @@ $VCcolours: (
  *         </p>
  *       </div>
  *     </div>
- *     <div class="o-col-xxs-4">
+ *     <div class="o-col-4@xxs">
  *       <div class="c-section c-section--small u-background-blue--darkest">
  *         <p class="u-text-white u-margin--none u-text-center">
  *           Darkest
