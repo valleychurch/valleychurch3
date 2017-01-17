@@ -75,6 +75,7 @@ module.exports = function(grunt) {
           'assets/styles/css/style.latest.min.css': 'assets/styles/sass/style.scss',
           'assets/styles/css/editor-style.<%= pkg.version %>.css': 'assets/styles/sass/editor-style.scss',
           'assets/styles/css/login.<%= pkg.version %>.min.css': 'assets/styles/sass/login.scss',
+          'assets/styles/css/amp.css' : 'assets/styles/sass/amp.scss',
         }
       }
     },
@@ -142,7 +143,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['assets/styles/sass/**/*.scss', 'assets/styles/sass/styleguide.md', 'assets/template/*.html'],
-        tasks: ['sass:dist', 'postcss:dist', 'kss', 'notify:sass'],
+        tasks: ['sass:dist', 'postcss:dist', 'notify:sass'],
       },
       scripts: {
         files: ['assets/scripts/src/*.js', 'assets/scripts/lib/*.js'],

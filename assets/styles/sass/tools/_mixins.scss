@@ -1,22 +1,4 @@
-// Get a breakpoint
-@mixin breakpoint($bp, $rule: min-width) {
-  @if (map-get($VCbreakpoints, $bp) != 0) {
-    @if ($rule == min-width) {
-      @media screen and (#{$rule}: map-get($VCbreakpoints, $bp)) {
-        @content;
-      }
-    }
-    @else {
-      @media screen and (#{$rule}: (map-get($VCbreakpoints, $bp) - 1)) {
-        @content;
-      }
-    }
-  }
-  @else {
-    @content;
-  }
-}
-
+@import "mixins/breakpoints";
 
 // 'Lato' typeface with correct stylistic sets enabled
 @mixin font-stack($alternates: true) {

@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.2.5',
+    Version: '3.2.6',
 
     /**
      * Kick everything off
@@ -54,7 +54,9 @@ var Valley = (function() {
       doc.documentElement.setAttribute('data-useragent', nav.userAgent);
 
       if ( $('input[name="locationid"]').length !== 0 ) {
-        $('select[name="location"]').val( $('input[name="locationid"]').val() );
+        var location = $('input[name="locationid"]').val();
+        location = location.charAt(0).toUpperCase() + location.substring(1);
+        $('select[name="location"]').val( location );
       }
 
       // iOS fix

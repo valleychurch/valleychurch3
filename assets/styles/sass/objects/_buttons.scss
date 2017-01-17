@@ -58,6 +58,10 @@
     border-color: colour("red", x-dark);
   }
 
+  &:active {
+    transform: scale(.98);
+  }
+
   @include breakpoint(sm) {
     @include font-size(18);
   }

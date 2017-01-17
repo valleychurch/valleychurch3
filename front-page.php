@@ -176,7 +176,7 @@
         </div>
       </div>
       <div class="o-row o-row--center">
-        <div class="o-col-12@xxs o-col-xl-10 o-col-center o-btn-group">
+        <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect" role="button">Connect Groups</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering" role="button">Volunteering</a>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving" role="button">Giving</a>

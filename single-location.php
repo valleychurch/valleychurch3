@@ -48,7 +48,7 @@
 
             <p>If you're visiting Valley for the first time, we're excited to have you with us! If you would like, you can send us your details below and one of our team will greet you on the day and show you around.</p>
 
-            <input type="hidden" id="locationid" name="locationid" value="<?= the_ID() ?>">
+            <input type="hidden" id="locationid" name="locationid" value="<?= $post->post_name ?>">
             <?= do_shortcode( '[contact-form-7 id="11252" title="Plan a Visit"]' ) ?>
 
           </div>

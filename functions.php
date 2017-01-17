@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.2.5' );
+define( 'VC_THEME_VERSION', '3.2.6' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
@@ -87,6 +87,7 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
     'capability_type' =>        'post',
     'has_archive' =>            ( $name === "message" ? true : false ),
     'publically_queryable' =>   $publically_queryable,
+    'taxonomies'  =>            array( 'category' ),
   );
   return $args;
 }
@@ -298,7 +299,7 @@ function theme_files() {
     wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null );
   }
   else {
-    wp_register_style( 'site', get_template_directory_uri() . '/assets/styles/css/style.latest.min.css', null, null );
+    wp_register_style( 'site', '//valleychurch.eu/wp-content/themes/valleychurch3/assets/styles/css/style.latest.min.css', null, null );
   }
 
   wp_enqueue_style( 'site' );
@@ -315,7 +316,7 @@ function theme_files() {
     wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', [ 'jquery' ], null, true );
   }
   else {
-    wp_register_script( 'site', get_template_directory_uri() . '/assets/scripts/dist/script.latest.min.js', [ 'jquery' ], null, true );
+    wp_register_script( 'site', '//valleychurch.eu/wp-content/themes/valleychurch3/assets/scripts/dist/script.latest.min.js', [ 'jquery' ], null, true );
   }
 
   if ( is_page( 'connect' ) || is_page( 'locations' ) || is_singular( 'location' ) ) {
@@ -850,6 +851,39 @@ function add_media_to_wp($event, $file, $post_id) {
       set_post_thumbnail( $post_id, $attachment_id );
     }
   }
+}
+
+
+/**
+ * Add AMP styles
+ */
+add_filter( 'amp_content_max_width', 'vc_amp_change_content_width' );
+function vc_amp_change_content_width( $content_max_width ) {
+    return 800;
+}
+
+add_action( 'amp_post_template_css', 'vc_amp_additional_css' );
+function vc_amp_additional_css( $amp_template ) {
+    echo file_get_contents('wp-content/themes/valleychurch3/assets/styles/css/amp.css');
+}
+
+add_action( 'amp_post_template_footer', 'vc_amp_additional_js' );
+function vc_amp_additional_js( $amp_template ) {
+  ?>
+  <!-- Load Typekit ASAP (kit id jtz8aoh) -->
+  <!-- https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html -->
+  <script>
+    (function(d) {
+      var tkTimeout=3000;
+      if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
+      var config = {
+        kitId: 'jtz8aoh',
+        scriptTimeout: tkTimeout
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+  <?php
 }
 
 ?>

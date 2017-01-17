@@ -302,6 +302,8 @@ blockquote {
   padding: $VCbase 0;
   margin-right: 0;
   margin-left: 0;
+  background-color: transparent;
+  border-left: 0;
 
   @include breakpoint(md) {
     padding: $VCbase * 2 0;

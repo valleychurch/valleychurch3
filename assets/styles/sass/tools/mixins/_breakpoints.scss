@@ -1,0 +1,54 @@
+// Get a breakpoint
+// @mixin breakpoint($bp, $rule: min-width) {
+//   @if (map-get($VCbreakpoints, $bp) != 0) {
+//     @if ($rule == min-width) {
+//       @media screen and (#{$rule}: map-get($VCbreakpoints, $bp)) {
+//         @content;
+//       }
+//     }
+//     @else {
+//       @media screen and (#{$rule}: (map-get($VCbreakpoints, $bp) - 1)) {
+//         @content;
+//       }
+//     }
+//   }
+//   @else {
+//     @content;
+//   }
+// }
+
+@mixin breakpoint($name) {
+  @include breakpoint-up($name) {
+    @content;
+  }
+}
+
+@function breakpoint-next($name, $breakpoints: $VCbreakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function breakpoint-min($name, $breakpoints: $VCbreakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-max($name, $breakpoints: $VCbreakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if ($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $VCbreakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+@mixin breakpoint-up($name, $breakpoints: $VCbreakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
