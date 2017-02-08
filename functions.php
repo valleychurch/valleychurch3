@@ -8,7 +8,7 @@ define( 'VC_THEME_VERSION', '3.2.6' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
-define( 'APP_URL', 'https://api.churchapp.co.uk/v1/calendar/events' );
+define( 'APP_URL', 'https://api.churchapp.co.uk/v1/calendar/events?group_by_sequence=true&per_page=200' );
 
 include( ABSPATH . 'wp-admin/includes/image.php' );
 
@@ -252,7 +252,7 @@ add_filter("mce_external_plugins", "add_typekit_tinymce");
  */
 function add_custom_login() {
   echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/assets/styles/css/login.' . VC_THEME_VERSION . '.min.css">';
-  echo '<script src="//use.typekit.net/jtz8aoh.js"></script>';
+  echo '<script src="//use.typekit.net/mql5wis.js"></script>';
   echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
 }
 add_action( 'login_head', 'add_custom_login' );
@@ -262,8 +262,8 @@ add_action( 'login_head', 'add_custom_login' );
  */
 function create_custom_post_types() {
   $supports_simple = array( 'title', 'thumbnail', 'author' );
-  register_post_type( 'events', create_custom_post_type_args( 'event', null, 'dashicons-calendar-alt', true, null, null, false ) );
-  register_post_type( 'event', create_custom_post_type_args( 'churchappevent', 'ChurchApp Events', 'dashicons-calendar-alt', true, null, null, false ) ); //Replacing old events
+  // register_post_type( 'events', create_custom_post_type_args( 'event', 'Events (DEPRECATED)', 'dashicons-calendar-alt', true, null, null, false ) );
+  register_post_type( 'event', create_custom_post_type_args( 'event', 'Events', 'dashicons-calendar-alt', true, null, null, false ) ); //Replacing old events
   register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple, false ) );
   register_post_type( 'podcast', create_custom_post_type_args( 'message', null, 'dashicons-microphone', false, null, null, true ) );
   register_post_type( 'connect', create_custom_post_type_args( 'connect', 'Connect Group', 'dashicons-admin-multisite', true, null, null, false ) );
@@ -533,7 +533,7 @@ function load_connect_groups() {
   $args =
     array(
       'post_type' => 'connect',
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'posts_per_page' => -1,
     );
 
@@ -558,7 +558,7 @@ function load_locations() {
   $args =
     array(
       'post_type' => 'location',
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'posts_per_page' => -1,
       'meta_query' => array(
         array(
@@ -592,7 +592,7 @@ function load_location() {
     array(
       'post_type' => 'location',
       'p' => $post->ID,
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'posts_per_page' => -1,
     );
 
@@ -639,7 +639,10 @@ function rewrite_url_to_cdn_url($url){
  * Add ChurchApp events to WP
  */
 function import_churchapp_events() {
-  $ch = curl_init(APP_URL);
+  $date_today = date("Y-m-d");
+  $date_future = date("Y-m-d", strtotime("+3 months"));
+
+  $ch = curl_init(APP_URL . "&date_start=" . $date_today . "&date_end=" . $date_future);
   curl_setopt_array($ch,
     array(
       CURLOPT_TIMEOUT => 0,
@@ -659,10 +662,10 @@ function import_churchapp_events() {
 
   $json = json_decode($result);
   $events = $json->events;
-  $email = "";
+  $email = "Request URL: " . APP_URL + "&date_start=" + $date_today + "&date_end=" + $date_future . "<br/><br/>";
 
   foreach( $events as $event ) {
-    if ( $event->public_visible == 1 && $event->signup_options->public->featured == 1 ) {
+    if ( $event->public_visible == 1 && $event->signup_options->public->featured == 1 && $event->category->id != "5" && $event->category->id != "11" ) {
       //Check against currently added events
       $wp_event = new WP_Query(
         array(
@@ -692,7 +695,7 @@ function import_churchapp_events() {
           $email .= "Successfully added " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a> to WP<br/>";
 
           // Add expiry date
-          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ) );
+          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
 
           // Update ACF fields
           update_field( 'field_582456c4b953e', $event->identifier, $post_id );
@@ -707,10 +710,6 @@ function import_churchapp_events() {
           }
           update_field( 'field_5824571ab9545', $event->signup_options->tickets->enabled, $post_id );
           update_field( 'field_58245724b9546', $event->signup_options->tickets->url, $post_id );
-
-          // Add created and updated date(s)
-          update_field( 'field_583313e481783', strtotime( 'now' ), $post_id );
-          update_field( 'field_583313f681784', strtotime( 'now' ), $post_id );
 
           // Try and get the image
           if ( count( $event->images ) > 0 ) {
@@ -736,7 +735,6 @@ function import_churchapp_events() {
           'ID' => $post_id
         );
 
-        //If title has changed
         if ( esc_html($post_to_update->post_title) != esc_html($event->name) ) {
           $updated_info["post_title"] = $event->name;
           $update_count++;
@@ -752,8 +750,8 @@ function import_churchapp_events() {
           $update_count++;
         }
 
-        if ( get_field( 'datetimes_start', $post_to_update) != $event->datetimestamp_start ) {
-          update_field( 'field_582456d0b953f', $event->datetimestamp_start, $post_id );
+        if ( get_field( 'datetime_start', $post_to_update) != $event->datetime_start ) {
+          update_field( 'field_582456d0b953f', $event->datetime_start, $post_id );
           $update_count++;
         }
 
@@ -764,6 +762,8 @@ function import_churchapp_events() {
 
         if ( get_field( 'datetime_end', $post_to_update) != $event->datetime_end ) {
           update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
+          _unscheduleExpiratorEvent( $post_id );
+          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
           $update_count++;
         }
 
@@ -802,7 +802,6 @@ function import_churchapp_events() {
         //Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
-          update_field( 'field_583313f681784', strtotime( 'now' ), $post_id );
           $email .= "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
         }
 
@@ -811,7 +810,7 @@ function import_churchapp_events() {
         }
 
         // See if there's a featured image to add
-        if ( count( $event->images ) > 0 && !has_post_thumbnail( $post_id ) ) {
+        if ( count( $event->images ) > 0 ) {
           $file = $event->images->original_1000;
           add_media_to_wp($event, $file, $post_id);
         }
@@ -821,6 +820,7 @@ function import_churchapp_events() {
   }
 
   if ( !empty( $email ) ) {
+    echo $email;
     wp_mail( 'web@valleychurch.eu', 'ChurchApp event import ' . date( 'd/m/Y' ), $email, array( 'Content-Type: text/html; charset=UTF-8' ) );
   }
 }

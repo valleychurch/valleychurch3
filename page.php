@@ -32,6 +32,13 @@
   </section>
 
   <?php
+  $section = get_field( 'section', false, false );
+  if ( $section ) {
+   echo $section;
+  }
+  ?>
+
+  <?php
   $cards = get_field( 'cards' );
   $card_class = get_field( 'card_class' );
   if ( have_rows( 'cards' ) ) { ?>

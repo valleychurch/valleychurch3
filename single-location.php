@@ -131,7 +131,7 @@
   <?php
   $args = array(
     'post_type' => 'post',
-    'post_status' => array( 'publish', 'private' ),
+    'post_status' => array( 'publish' ),
     'posts_per_page' => 3,
     'tax_query' => array(
       array(
@@ -177,7 +177,7 @@
   <?php
   $args = array(
     'post_type' => 'events',
-    'post_status' => array( 'publish', 'private' ),
+    'post_status' => array( 'publish' ),
     'posts_per_page' => 3,
     'tax_query' => array(
       array(

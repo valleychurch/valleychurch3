@@ -24,10 +24,12 @@
 }
 
 input.c-search__input {
-  padding: rem(12px);
+  width: 100%;
+  padding: rem(11px) rem(12px);
   line-height: 1.35;
   color: $VCblack;
   border: 1px solid greyscale(9);
+  border-radius: $VCborder-radius;
   @include transition();
 
   .c-navigation & {

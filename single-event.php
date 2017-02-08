@@ -56,7 +56,7 @@
           <?php if ( get_field( 'signup_available' ) ) { ?>
           <p>
             <a class="o-btn" href="<?= get_field( 'signup_url' ) ?>" target="_blank">
-              Book in now!
+              Sign up
             </a>
           </p>
           <?php } ?>

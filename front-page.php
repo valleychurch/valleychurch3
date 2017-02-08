@@ -25,7 +25,7 @@
     $args =
       array(
         'post_type' => 'location',
-        'post_status' => array( 'publish', 'private' ),
+        'post_status' => array( 'publish' ),
         'posts_per_page' => -1,
         'meta_query' => array(
           array(
@@ -70,7 +70,7 @@
         $args =
           array(
             'post_type' => 'slider',
-            'post_status' => array( 'publish', 'private' ),
+            'post_status' => array( 'publish' ),
             'posts_per_page' => -1
           );
 
@@ -206,7 +206,7 @@
         $args =
           array(
             'post_type' => 'podcast',
-            'post_status' => array( 'publish', 'private' ),
+            'post_status' => array( 'publish' ),
             'posts_per_page' => 4
           );
 
@@ -245,7 +245,7 @@
         $args =
           array(
             'post_type' => 'post',
-            'post_status' => array( 'publish', 'private' ),
+            'post_status' => array( 'publish' ),
             'posts_per_page' => 3
           );
 

@@ -51,6 +51,11 @@ ul, ol {
   + img {
     margin-bottom: $VCbase;
   }
+
+  &:empty,
+  &:blank {
+    display: none;
+  }
 }
 
 ul,

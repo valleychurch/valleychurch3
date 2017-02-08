@@ -8,7 +8,7 @@ tinymce.PluginManager.add( 'typekit', function( editor ) {
     // Create the script we will add to the header asynchronously
     var jscript = "(function() {\n\
       var config = {\n\
-        kitId: 'jtz8aoh'\n\
+        kitId: 'mql5wis'\n\
       };\n\
       var d = false;\n\
       var tk = document.createElement('script');\n\

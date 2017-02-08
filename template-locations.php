@@ -40,7 +40,7 @@ get_header();
   $args =
     array(
       'post_type' => 'location',
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'posts_per_page' => -1,
       'meta_query' => array(
         array(

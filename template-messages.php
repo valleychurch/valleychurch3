@@ -49,7 +49,7 @@ $paged = get_query_var( 'paged', 1 );
         $args =
           array(
             'post_type' => 'podcast',
-            'post_status' => array( 'publish', 'private' ),
+            'post_status' => array( 'publish' ),
             'paged' => $paged,
             'posts_per_page' => 12
           );

@@ -2,7 +2,7 @@
   $args =
     array(
       'post_type' => 'notification',
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'showposts' => 1,
     );
 

@@ -38,7 +38,7 @@ get_header(); ?>
   // $location_args =
   //   array(
   //     'post_type' => 'location',
-  //     'post_status' => array( 'publish', 'private' ),
+  //     'post_status' => array( 'publish' ),
   //     'posts_per_page' => -1,
   //   );
   // $locations = get_posts( $location_args );
@@ -92,9 +92,9 @@ get_header(); ?>
               'post_status'     => array('publish', 'private'),
               'posts_per_page'  => 12,
               'paged'           => $current_page,
-              'meta_key'        => 'datetimestamp_start',
-              'orderby'         => 'meta_value_datetime',
+              'orderby'         => 'meta_value',
               'order'           => 'ASC',
+              'meta_key'        => 'datetimestamp_start',
               // 'tax_query'       => $tax_query,
               // 'meta_query'      => $meta_query,
             );

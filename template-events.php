@@ -38,7 +38,7 @@ get_header(); ?>
   $location_args =
     array(
       'post_type' => 'location',
-      'post_status' => array( 'publish', 'private' ),
+      'post_status' => array( 'publish' ),
       'posts_per_page' => -1,
     );
   $locations = get_posts( $location_args );
