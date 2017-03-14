@@ -9,7 +9,7 @@
   $h1_class;
 
   if ( get_field( 'datetime_start' ) ) {
-    $h1_class .= "u-margin-none";
+    $h1_class .= "u-margin-none ";
   }
 
   if ( get_field( 'hide_h1' ) ) {
@@ -35,7 +35,11 @@
 
           <?php if ( get_field( 'datetime_start' ) ) { ?>
           <h2 <?= ( get_field( 'datetimestamp_start' ) ? 'itemprop="startDate" content="' . date( 'c', get_field( 'datetimestamp_start' ) ) . '"' : "" ); ?>>
-            <?php echo date('jS F, g:ia', strtotime( get_field( 'datetime_start' ) ) ) ?>
+            <?php if ( get_field( 'all_day_event' ) == 0 ) {
+              echo date('jS F, g:ia', strtotime( get_field( 'datetime_start' ) ) )
+            } else {
+              echo date('jS F', strtotime( get_field( 'datetime_start' ) ) )
+            } ?>
           </h2>
           <?php } ?>
 

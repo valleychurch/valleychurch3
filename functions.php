@@ -702,6 +702,13 @@ function import_churchapp_events() {
           update_field( 'field_582456d0b953f', $event->datetime_start, $post_id );
           update_field( 'field_58249be78d880', strtotime($event->datetime_start), $post_id );
           update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
+
+          if (date("H:i:s", strtotime($event->datetime_start)) == "00:00:00" && date("H:i:s", strtotime($event->datetime_end)) == "23:59:59") {
+            update_field( 'field_58c7f7bf045c3', 1, $post_id );
+          } else {
+            update_field( 'field_58c7f7bf045c3', 0, $post_id );
+          }
+
           if ( count( $event->location ) != 0 ) {
             update_field( 'field_582456f3b9541', $event->location->name, $post_id );
             update_field( 'field_582456ffb9542', $event->location->address, $post_id );
@@ -765,6 +772,12 @@ function import_churchapp_events() {
           _unscheduleExpiratorEvent( $post_id );
           _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
           $update_count++;
+        }
+
+        if (date("H:i:s", strtotime($event->datetime_start)) == "00:00:00" && date("H:i:s", strtotime($event->datetime_end)) == "23:59:59") {
+          update_field( 'field_58c7f7bf045c3', 1, $post_id );
+        } else {
+          update_field( 'field_58c7f7bf045c3', 0, $post_id );
         }
 
         if ( count( $event->location ) != 0 ) {
