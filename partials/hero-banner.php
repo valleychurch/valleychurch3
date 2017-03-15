@@ -14,6 +14,11 @@ $banner_lg = wp_get_attachment_image_src( $img_id, 'banner-lg' );
 $banner_md = wp_get_attachment_image_src( $img_id, 'banner-md' );
 $banner_sm = wp_get_attachment_image_src( $img_id, 'banner-sm' );
 $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
+
+$background_position;
+if ( get_field( 'featured_image_position' ) ) {
+  $background_position = "u-background-" . strtolower( get_field( 'featured_image_position' ) );
+}
 ?>
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 <figure class="c-featured">
@@ -29,7 +34,7 @@ $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
   width="<?= $banner_xxl[1] ?>"
   height="<?= $banner_xxl[2] ?>"
   alt="<?php the_title(); ?>"
-  class="<?= get_query_var( 'class', 'c-section__img' ); ?>">
+  class="<?= get_query_var( 'class', 'c-section__img' ); ?> <?= $background_position ?>">
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 </figure>
 <?php } ?>

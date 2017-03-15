@@ -11,6 +11,11 @@ if ( $img_id === "" ) {
 $img = wp_get_attachment_image_src( $img_id, 'full' );
 $img_large = wp_get_attachment_image_src( $img_id, 'large' );
 $img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
+
+$background_position;
+if ( get_field( 'featured_image_position' ) ) {
+  $background_position = "u-background-" . strtolower( get_field( 'featured_image_position' ) );
+}
 ?>
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 <figure class="c-featured">
@@ -24,7 +29,7 @@ $img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
   width="<?= $img[1] ?>"
   height="<?= $img[2] ?>"
   class="<?= get_query_var( 'class', 'c-section__img' ); ?>
-  <?= ( get_query_var( 'margin' ) === true ) ? "u-margin" : ""; ?>">
+  <?= ( get_query_var( 'margin' ) === true ) ? "u-margin" : ""; ?> <?= $background_position ?>">
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 </figure>
 <?php } ?>

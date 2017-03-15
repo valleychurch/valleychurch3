@@ -11,6 +11,11 @@ if ( $img_id === "" ) {
 $img = wp_get_attachment_image_src( $img_id, 'slide' );
 $img_medium = wp_get_attachment_image_src( $img_id, 'slide-medium' );
 $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
+
+$background_position;
+if ( get_field( 'featured_image_position' ) ) {
+  $background_position = "u-background-" . strtolower( get_field( 'featured_image_position' ) );
+}
 ?>
 <img
   src="<?= $img_medium[0]; ?>"
@@ -20,4 +25,4 @@ $img_small = wp_get_attachment_image_src( $img_id, 'slide-small' );
   width="<?= $img[1] ?>"
   height="<?= $img[2] ?>"
   alt="<?php the_title(); ?>"
-  class="<?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class' ) : "c-section__img"; ?>">
+  class="<?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class' ) : "c-section__img"; ?> <?= $background_position ?>">
