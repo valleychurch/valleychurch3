@@ -17,7 +17,7 @@ $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
 
 $background_position;
 if ( get_field( 'featured_image_position' ) ) {
-  $background_position = "u-background-" . strtolower( get_field( 'featured_image_position' ) );
+  $background_position = "u-object-" . strtolower( get_field( 'featured_image_position' ) );
 }
 ?>
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
