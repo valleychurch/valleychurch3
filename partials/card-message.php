@@ -3,7 +3,7 @@
     <?php
     set_query_var( 'class', 'o-card__img' );
     set_query_var( 'figure', true );
-    get_template_part( 'partials/hero' ); ?>
+    get_template_part( 'partials/hero-blog' ); ?>
     <div class="o-card__body">
       <p class="small u-text-muted u-margin-quarter">
         <?= get_the_content(); ?>

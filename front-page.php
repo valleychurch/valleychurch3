@@ -119,7 +119,7 @@
             <?php if ( get_field( 'image' ) ) {
               set_query_var( 'image_id', get_field('image')["id"] );
               set_query_var( 'class', 'o-card__img' );
-              get_template_part( 'partials/hero' );
+              get_template_part( 'partials/hero-blog' );
             }
             ?>
             <div class="o-card__overlay">
