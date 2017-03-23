@@ -877,10 +877,10 @@ function vc_amp_change_content_width( $content_max_width ) {
 
 add_action( 'amp_post_template_css', 'vc_amp_additional_css' );
 function vc_amp_additional_css( $amp_template ) {
-    echo file_get_contents('wp-content/themes/valleychurch3/assets/styles/css/amp.css');
+    echo file_get_contents('wp-content/themes/valleychurch3/assets/styles/css/amp.min.css');
 }
 
-add_action( 'amp_post_template_footer', 'vc_amp_additional_js' );
+// add_action( 'amp_post_template_footer', 'vc_amp_additional_js' );
 function vc_amp_additional_js( $amp_template ) {
   ?>
   <!-- Load Typekit ASAP (kit id jtz8aoh) -->
