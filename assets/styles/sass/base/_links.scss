@@ -1,6 +1,8 @@
 a {
   @include transition(color);
   // text-decoration: none;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
 
   &,
   &:active {
