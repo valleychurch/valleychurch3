@@ -90,6 +90,11 @@
       min-width: 32%;
     }
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: .65;
+  }
 }
 
 
