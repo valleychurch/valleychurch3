@@ -200,7 +200,7 @@ module.exports = function(grunt) {
     'sass:dist',
     'postcss:dist',
     'uglify:dist',
-    'kss',
+    // 'kss',
     'imagemin:dynamic',
     'notify:local',
     'watch',
@@ -217,7 +217,7 @@ module.exports = function(grunt) {
     'postcss',
     'uglify',
     'imagemin',
-    'kss',
+    // 'kss',
     'notify:build',
   ]);
 };
