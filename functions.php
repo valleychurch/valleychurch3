@@ -824,6 +824,15 @@ function import_churchapp_events() {
 
         // See if there's a featured image to add
         if ( count( $event->images ) > 0 ) {
+          // Clear previous images
+          $media = get_attached_media( 'image', $post_id );
+          if ( count( $media ) > 0 ) {
+            foreach( $media as $image ) {
+              wp_delete_attachment( $image->ID, true );
+            }
+          }
+
+          // Add new image
           $file = $event->images->original_1000;
           add_media_to_wp($event, $file, $post_id);
         }
