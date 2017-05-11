@@ -20,6 +20,22 @@
         } ?>
       </h3>
       <?php } ?>
+      <?php if ( get_field( 'location' ) ) { ?>
+      <span class="u-hidden" itemprop="location" itemscope itemtype="http://schema.org/Place">
+        <span itemprop="name"><?= the_field( 'location' ) ?></span>
+        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <?php if ( get_field( 'location_address' ) ) { ?>
+          <span itemprop="postalCode"><?= the_field( 'location_address' ) ?></span>
+          <?php } ?>
+        </span>
+        <?php if ( get_field( 'location_latitude' ) && ( get_field( 'location_longitude' ) ) ) { ?>
+        <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+          <meta itemprop="latitude" content="<?= the_field( 'location_latitude' ) ?>" />
+          <meta itemprop="longitude" content="<?= the_field( 'location_longitude' ) ?>" />
+        </span>
+        <?php } ?>
+      </span>
+      <?php } ?>
     </div>
   </a>
 </article>

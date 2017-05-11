@@ -25,6 +25,14 @@
 
         <div class="c-post-content u-center-block">
 
+          <?php if ( has_post_thumbnail() ) {
+            $img_id = get_post_thumbnail_id( $post->ID );
+            $img = wp_get_attachment_image_src( $img_id, 'slide' );
+          ?>
+
+          <img src="<?= $img[0] ?>" itemprop="image" class="u-hidden">
+          <?php } ?>
+
           <h1 class="<?= $h1_class ?>" itemprop="name">
           <?php if ( get_field( 'custom_h1' ) ) {
             get_field( 'custom_h1' );
@@ -54,6 +62,23 @@
             </a>
           <?php } ?>
           </p>
+          <?php } ?>
+
+          <?php if ( get_field( 'location' ) ) { ?>
+          <span class="u-hidden" itemprop="location" itemscope itemtype="http://schema.org/Place">
+            <span itemprop="name"><?= the_field( 'location' ) ?></span>
+            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+              <?php if ( get_field( 'location_address' ) ) { ?>
+              <span itemprop="postalCode"><?= the_field( 'location_address' ) ?></span>
+              <?php } ?>
+            </span>
+            <?php if ( get_field( 'location_latitude' ) && ( get_field( 'location_longitude' ) ) ) { ?>
+            <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+              <meta itemprop="latitude" content="<?= the_field( 'location_latitude' ) ?>" />
+              <meta itemprop="longitude" content="<?= the_field( 'location_longitude' ) ?>" />
+            </span>
+            <?php } ?>
+          </span>
           <?php } ?>
 
           <?php the_content(); ?>
