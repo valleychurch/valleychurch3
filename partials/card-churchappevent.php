@@ -19,23 +19,6 @@
           echo date('jS F, g:ia', strtotime( get_field( 'datetime_start' ) ) );
         } ?>
       </h3>
-        <?php if ( get_field( 'datetime_end' ) ) { ?>
-        <span class="u-hidden" itemprop="endDate" content="<?= date( 'c', get_field( 'datetime_end' ) ?>">
-          <?= date('jS F, g:ia', strtotime( get_field( 'datetime_start' ) ) ) ?>
-        </span>
-        <?php } ?>
-      <?php } ?>
-      <?php if ( get_field( 'location' ) ) { ?>
-      <div class="u-hidden" itemprop="location" itemscope itemtype="http://schema.org/Place">
-        <span itemprop="name"><?= the_field( 'location' ) ?></span>
-        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-          <span itemprop="postalCode"><?= the_field( 'location_address' ) ?></span>
-        </div>
-        <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-          <meta itemprop="latitude" content="<?= the_field( 'location_latitude' ) ?>">
-          <meta itemprop="longitude" content="<?= the_field( 'location_longitude' ) ?>">
-        </div>
-      </div>
       <?php } ?>
     </div>
   </a>
