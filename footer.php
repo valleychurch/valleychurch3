@@ -6,6 +6,7 @@
 
           <div class="o-col-12@xxs o-col-3@lg u-text-center@xxs u-text-left@lg u-grid-1@xxs u-grid-0@lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
             <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" class="u-margin c-logo">
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/touchicon.png" class="u-hidden" itemprop="image">
             <p class="u-hidden" itemprop="name"><?= bloginfo( 'name' ); ?></p>
             <p class="small u-text-muted u-line-height--small" itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress">

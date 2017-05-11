@@ -25,4 +25,5 @@ if ( get_field( 'featured_image_position' ) ) {
   width="<?= $img[1] ?>"
   height="<?= $img[2] ?>"
   alt="<?php the_title(); ?>"
+  itemprop="image"
   class="<?= ( get_query_var( 'class' ) == true ) ? get_query_var( 'class' ) : "c-section__img"; ?> <?= $background_position ?>">
