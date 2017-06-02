@@ -42,7 +42,7 @@
   <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-11@xxs o-col-8@sm o-col-7@md u-center-block">
+        <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo u-text-white u-text-shadow">Services</h2>
           <p class="lead u-text-white u-text-shadow">
             We're one church in many locations and we'd love to see you this weekend!
@@ -168,7 +168,7 @@
   <section class="c-section c-section--hero u-background-top" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-11@xxs o-col-8@sm o-col-7@md u-center-block">
+        <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo u-text-white u-text-shadow">Next Steps</h2>
           <p class="lead u-text-white u-text-shadow">
             We believe in empowering people to be all God has called them to be&mdash;what could your next step be?
@@ -193,7 +193,7 @@
   <section class="c-section c-section--hero">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo"><a href="/messages">Messages</a></h2>
           <p class="lead">
             Catch up with recent podcasts from our <a href="/team">Senior Pastors Ed &amp; Michele</a> as well as other in-house and visiting speakers
@@ -233,7 +233,7 @@
   <section class="c-section c-section--hero">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-12@xxs o-col-8@sm o-col-7@md u-center-block">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo"><a href="/blog">Recent Blogs</a></h2>
           <p class="lead">
             We're all about empowering you to be all God's called you to be, so check back weekly for inspirational thoughts, blogs and messages from our Pastors and team
@@ -268,7 +268,7 @@
   <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-people-matter.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-11@xxs o-col-8@sm o-col-7@md u-center-block">
+        <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo u-text-white u-text-shadow">People Matter</h2>
           <p class="lead u-text-white u-text-shadow">
             We believe that people matter and that the Church can make a real difference for everyone&mdash;regardless of who they are, what they've done, or where they're from
