@@ -89,7 +89,7 @@ if ( is_home() || is_page('messages') ) {
 
     <header class="c-header u-cf">
 
-      <div class="o-container o-container--full">
+      <div class="o-container">
 
         <?php get_template_part( 'partials/logo' ); ?>
 
