@@ -27,8 +27,8 @@
     <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#b21e28' ) ?>">
 
     <!-- Prefetch some DNS -->
-    <link rel="dns-prefetch" href="//cdn.valleychurch.eu">
-    <link rel="dns-prefetch" href="//cdn2.valleychurch.eu">
+    <!--<link rel="dns-prefetch" href="//cdn.valleychurch.eu">
+    <link rel="dns-prefetch" href="//cdn2.valleychurch.eu">-->
     <link rel="dns-prefetch" href="//use.typekit.net">
 
 <?php

@@ -1,4 +1,3 @@
-"use strict";
 
 /**
 * Global variables
@@ -27,6 +26,7 @@ var googleActive = ( typeof google !== "undefined" ),
     mapMarkerIconSmall = "/wp-content/themes/valleychurch3/assets/images/dist/marker-small.png";
 
 var Valley = (function() {
+  "use strict";
 
   return {
 
@@ -196,10 +196,10 @@ var Valley = (function() {
 
     Slider: function() {
       var prevImg =
-        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn">';
+        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn">';
 
       var nextImg =
-        '<img src="//cdn.valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn">';
+        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn">';
 
       $('.c-slides').responsiveSlides({
         speed: 500,
