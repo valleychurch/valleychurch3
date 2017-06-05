@@ -42,7 +42,7 @@ body {
   line-height: $VCline-height;
   font-display: swap;
   color: $VCblack;
-  background-color: grayscale(11);
+  background-color: #fafafa;
 
   &.no-height {
     height: auto;
