@@ -1,5 +1,9 @@
 .c-main {
+  max-width: $VCmax-width;
+  margin-right: auto;
+  margin-left: auto;
   padding-top: rem(56px);
+  background-color: #fff;
 
   @include breakpoint(sm) {
     padding-top: rem(66px);
@@ -7,9 +11,5 @@
 
   @include breakpoint(lg) {
     padding-top: rem(58px);
-  }
-
-  .home & {
-    padding-top: 0;
   }
 }
