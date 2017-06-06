@@ -22,5 +22,8 @@
     "grunt-sass": "^2.0.0",
     "grunt-version": "^1.0.0",
     "load-grunt-tasks": "^3.5.2"
-  }
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }

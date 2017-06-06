@@ -1,5 +1,5 @@
-"use strict";
 module.exports = function(grunt) {
+  "use strict";
 
   require('load-grunt-tasks')(grunt);
 
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
           annotation: 'assets/styles/css/'
         },
         processors: [
-          require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('autoprefixer')(),
           require('cssnano')(),
         ]
       },
