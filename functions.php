@@ -57,7 +57,7 @@ function create_plural( $name, $label = null, $nameplural, $labelplural ) {
 /**
  * Create a custom post type
  */
-function create_custom_post_type_args( $name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null, $publically_queryable = true ) {
+function create_custom_post_type_args( $name, $label = null, $icon = null, $exclude_from_search = true, $rewrite = null, $supports = null, $publicly_queryable = true ) {
   $nameplural = check_plural( $name );
   $labelplural = check_plural( $label );
   $singular = create_singular( $name, $label );
@@ -86,7 +86,7 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
     'hierarchical' =>           false,
     'capability_type' =>        'post',
     'has_archive' =>            ( $name === "message" ? true : false ),
-    'publically_queryable' =>   $publically_queryable,
+    'publicly_queryable' =>     $publicly_queryable,
     'taxonomies'  =>            array( 'category' ),
   );
   return $args;
@@ -229,7 +229,7 @@ add_action( 'after_setup_theme', 'register_custom_menu' );
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 /**
- * Add WordPress 4.4 custom title tag
+ * Add WordPress 4.4 custom title tagfunc
  */
 add_theme_support( 'title-tag' );
 
