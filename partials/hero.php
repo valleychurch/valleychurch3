@@ -3,19 +3,20 @@ if ( get_query_var( 'page_id' ) ) {
   $post->ID = get_query_var( 'page_id' );
 }
 
-$img_id = get_query_var( 'image_id', get_post_thumbnail_id( $post->ID ) );
-if ( $img_id === "" ) {
-  $img_id = 11332;
-}
+if ( has_post_thumbnail(  $post->ID ) ) {
+  $img_id = get_query_var( 'image_id', get_post_thumbnail_id( $post->ID ) );
+  if ( $img_id === "" ) {
+    $img_id = 11332;
+  }
 
-$img = wp_get_attachment_image_src( $img_id, 'full' );
-$img_large = wp_get_attachment_image_src( $img_id, 'large' );
-$img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
+  $img = wp_get_attachment_image_src( $img_id, 'full' );
+  $img_large = wp_get_attachment_image_src( $img_id, 'large' );
+  $img_medium = wp_get_attachment_image_src( $img_id, 'medium' );
 
-$background_position;
-if ( get_field( 'featured_image_position' ) ) {
-  $background_position = "u-object-" . strtolower( get_field( 'featured_image_position' ) );
-}
+  $background_position;
+  if ( get_field( 'featured_image_position' ) ) {
+    $background_position = "u-object-" . strtolower( get_field( 'featured_image_position' ) );
+  }
 ?>
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 <figure class="c-featured">
@@ -32,4 +33,5 @@ if ( get_field( 'featured_image_position' ) ) {
   <?= ( get_query_var( 'margin' ) === true ) ? "u-margin" : ""; ?> <?= $background_position ?>">
 <?php if ( get_query_var( 'figure' ) === true ) { ?>
 </figure>
-<?php } ?>
+<?php }
+} ?>
