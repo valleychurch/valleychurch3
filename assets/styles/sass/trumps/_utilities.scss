@@ -160,10 +160,10 @@
 
 .u-text-shadow          { @include text-shadow; }
 
-.u-text-light           { font-weight: $VCfont-light; }
-.u-text-normal          { font-weight: $VCfont-normal; }
-.u-text-medium          { font-weight: $VCfont-medium; }
-.u-text-bold            { font-weight: $VCfont-bold; }
+.u-text-light           { font-weight: 300; }
+.u-text-normal          { font-weight: 400; }
+.u-text-medium          { font-weight: 600; }
+.u-text-bold            { font-weight: 700; }
 
 
 // Background colours

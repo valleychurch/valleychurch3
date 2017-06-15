@@ -87,7 +87,7 @@ ol {
 .lede {
   @include responsive-typography(20, 24, xs, lg);
   @include font-stack-alt;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.45;
 
   h1 + &,
@@ -153,7 +153,7 @@ ol {
  */
 %b-header {
   @include font-stack-alt;
-  font-weight: $VCfont-medium;
+  font-weight: 300;
   line-height: 1.45;
 
   a {
@@ -181,7 +181,7 @@ ol {
 
   &.u-alt {
     @include font-stack;
-    font-weight: $VCfont-normal;
+    font-weight: 400;
   }
 }
 
@@ -320,14 +320,14 @@ blockquote {
     margin-bottom: 0;
     @include font-stack-alt;
     @include responsive-typography(22, 28, sm, md);
-    font-weight: $VCfont-light;
+    font-weight: 300;
   }
 
   footer {
     display: block;
     margin-top: half($VCbase);
     @include font-size(18);
-    font-weight: $VCfont-normal;
+    font-weight: 300;
 
     @include breakpoint(md) {
       @include font-size(20);

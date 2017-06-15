@@ -31,7 +31,7 @@
 
   @include font-stack-alt;
   @include font-size(17);
-  font-weight: $VCfont-light;
+  font-weight: 300;
   line-height: $VCline-height;
   letter-spacing: .5px;
   color: white;
@@ -190,6 +190,7 @@
  */
 .o-btn--ghost {
   @include font-stack-alt;
+  font-weight: 400;
   color: $VCblack;
   background-color: rgba($VCwhite, .2);
   border: 2px solid rgba($VCblack, .6);

@@ -60,14 +60,14 @@
         text-transform: none;
         @include font-size(14);
 
-        body.home & {
-          @include text-shadow(0, 0, 3px);
-          @include transition(text-shadow);
+        // body.home & {
+        //   @include text-shadow(0, 0, 3px);
+        //   @include transition(text-shadow);
 
-          .is-visible & {
-            @include text-shadow(0, 0, 0);
-          }
-        }
+        //   .is-visible & {
+        //     @include text-shadow(0, 0, 0);
+        //   }
+        // }
 
         &[href] {
           color: greyscale(10);
@@ -106,7 +106,7 @@
         padding: 0;
         @include font-stack;
         @include font-size(17);
-        font-weight: $VCfont-normal;
+        font-weight: 400;
         letter-spacing: 0;
         color: $VCwhite;
         text-transform: none;
