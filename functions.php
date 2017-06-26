@@ -8,7 +8,7 @@ define( 'VC_THEME_VERSION', '3.2.12' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
-define( 'APP_URL', 'https://api.churchapp.co.uk/v1/calendar/events?group_by_sequence=true&per_page=200' );
+define( 'APP_URL', 'https://api.churchsuite.co.uk/v1/calendar/events?group_by_sequence=true&per_page=200' );
 
 include( ABSPATH . 'wp-admin/includes/image.php' );
 
@@ -638,9 +638,13 @@ function rewrite_url_to_cdn_url($url){
 }
 
 /**
- * Add ChurchApp events to WP
+ * Add ChurchSuite events to WP
  */
 function import_churchapp_events() {
+  import_churchsuite_events();
+}
+
+function import_churchsuite_events() {
   $date_today = date("Y-m-d");
   $date_future = date("Y-m-d", strtotime("+3 months"));
 
@@ -722,7 +726,7 @@ function import_churchapp_events() {
 
           // Try and get the image
           if ( count( $event->images ) > 0 ) {
-            $file = $event->images->original_1000;
+            $file = $event->images->lg;
             add_media_to_wp($event, $file, $post_id);
           }
         }
@@ -835,7 +839,7 @@ function import_churchapp_events() {
           }
 
           // Add new image
-          $file = $event->images->original_1000;
+          $file = $event->images->lg;
           add_media_to_wp($event, $file, $post_id);
         }
 
@@ -845,12 +849,12 @@ function import_churchapp_events() {
 
   if ( !empty( $email ) ) {
     echo $email;
-    wp_mail( 'web@valleychurch.eu', 'ChurchApp event import ' . date( 'd/m/Y' ), $email, array( 'Content-Type: text/html; charset=UTF-8' ) );
+    wp_mail( 'web@valleychurch.eu', 'ChurchSuite event import ' . date( 'd/m/Y' ), $email, array( 'Content-Type: text/html; charset=UTF-8' ) );
   }
 }
-add_action( "import_churchapp_events", "import_churchapp_events" );
-add_action( "wp_ajax_import_churchapp_events", "import_churchapp_events" );
-add_action( "wp_ajax_nopriv_import_churchapp_events", "import_churchapp_events" );
+add_action( "import_churchsuite_events", "import_churchsuite_events" );
+add_action( "wp_ajax_import_churchsuite_events", "import_churchsuite_events" );
+add_action( "wp_ajax_nopriv_import_churchsuite_events", "import_churchsuite_events" );
 
 /**
  * Add media to WP by URL
