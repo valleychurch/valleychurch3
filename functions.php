@@ -726,7 +726,7 @@ function import_churchsuite_events() {
 
           // Try and get the image
           if ( count( $event->images ) > 0 ) {
-            $file = $event->images->lg;
+            $file = $event->images->lg->url;
             add_media_to_wp($event, $file, $post_id);
           }
         }
@@ -839,7 +839,7 @@ function import_churchsuite_events() {
           }
 
           // Add new image
-          $file = $event->images->lg;
+          $file = $event->images->lg->url;
           add_media_to_wp($event, $file, $post_id);
         }
 
