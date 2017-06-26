@@ -825,7 +825,7 @@ function import_churchsuite_events() {
         }
 
         else {
-          $email .= "No need to update " . title_case( event->name ) . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
+          $email .= "No need to update " . title_case( $event->name ) . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
 
         // See if there's a featured image to add
