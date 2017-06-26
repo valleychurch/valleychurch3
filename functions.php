@@ -687,7 +687,7 @@ function import_churchsuite_events() {
         $post_id = wp_insert_post(
           array(
             'post_type' => 'event',
-            'post_title' => $event->name,
+            'post_title' => title_case( $event->name ),
             'post_content' => $event->description,
             'post_status' => 'publish',
             'post_author' => 2,
@@ -698,7 +698,7 @@ function import_churchsuite_events() {
 
         // If it's successfully added to the DB
         if ( $post_id ) {
-          $email .= "Successfully added " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a> to WP<br/>";
+          $email .= "Successfully added " . title_case( $event->name ) . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a> to WP<br/>";
 
           // Add expiry date
           _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
@@ -733,7 +733,7 @@ function import_churchsuite_events() {
 
         // Fail, do something with the error?
         else {
-          $email .= "Couldn't add " . $event->name . " to WP<br/>";
+          $email .= "Couldn't add " . title_case( $event->name ) . " to WP<br/>";
         }
       }
 
@@ -748,8 +748,8 @@ function import_churchsuite_events() {
           'ID' => $post_id
         );
 
-        if ( esc_html($post_to_update->post_title) != esc_html($event->name) ) {
-          $updated_info["post_title"] = $event->name;
+        if ( esc_html($post_to_update->post_title) != esc_html( title_case( $event->name ) ) ) {
+          $updated_info["post_title"] = title_case( $event->name );
           $update_count++;
         }
 
@@ -821,11 +821,11 @@ function import_churchsuite_events() {
         //Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
-          $email .= "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
+          $email .= "Updated " . title_case( $event->name ) . " (ID: " . $post_id . ")<br/>";
         }
 
         else {
-          $email .= "No need to update " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
+          $email .= "No need to update " . title_case( event->name ) . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
 
         // See if there's a featured image to add
