@@ -37,6 +37,7 @@
     button {
       position: relative;
       display: block;
+      margin: 0;
       padding: .5rem 0 .125rem;
       @include font-stack-alt;
       @include font-size(15);
@@ -45,13 +46,15 @@
       color: greyscale(5);
       text-decoration: none;
       text-transform: uppercase;
+      border: 0;
+      background-color: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       &[href] {
         color: greyscale(9);
-
-        &:hover {
-          cursor: pointer;
-        }
       }
 
       @include breakpoint(lg) {
@@ -70,12 +73,12 @@
         //   }
         // }
 
+        &:hover {
+          color: white;
+        }
+
         &[href] {
           color: greyscale(10);
-
-          &:hover {
-            color: white;
-          }
         }
       }
     }
