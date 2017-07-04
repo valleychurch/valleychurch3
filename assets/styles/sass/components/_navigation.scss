@@ -33,7 +33,8 @@
       }
     }
 
-    a {
+    a,
+    button {
       position: relative;
       display: block;
       padding: .5rem 0 .125rem;
@@ -102,7 +103,8 @@
       float: none !important;
       margin-bottom: 0;
 
-      a {
+      a,
+      button {
         padding: 0;
         @include font-stack;
         @include font-size(17);
