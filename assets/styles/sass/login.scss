@@ -19,24 +19,24 @@
 body {
   position: relative;
   font-family: $VCfont-stack;
-  background-image: url($VCcdn-url + "/wp-content/uploads/2012/08/hero-home.jpg");
+  background-image: url($VCcdn-url + "/wp-content/uploads/2012/08/WelcomeHome_BLANK.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: rgba(colour("red"),.85);
-    content: "";
-  }
+  // &:before {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   z-index: 0;
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   background: rgba(colour("red"),.85);
+  //   content: "";
+  // }
 }
 
 .login {
