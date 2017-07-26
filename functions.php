@@ -8,7 +8,7 @@ define( 'VC_THEME_VERSION', '3.2.12' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
-define( 'APP_URL', 'https://api.churchsuite.co.uk/v1/calendar/events?group_by_sequence=true&per_page=200' );
+define( 'APP_URL', 'https://api.churchsuite.co.uk/v1/calendar/events?per_page=200' );
 
 include( ABSPATH . 'wp-admin/includes/image.php' );
 
