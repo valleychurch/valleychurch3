@@ -668,7 +668,7 @@ function import_churchsuite_events() {
 
   $json = json_decode($result);
   $events = $json->events;
-  $email = "Request URL: " . APP_URL + "&date_start=" + $date_today + "&date_end=" + $date_future . "<br/><br/>";
+  $email = "Request URL: " . APP_URL . "&date_start=" . $date_today . "&date_end=" . $date_future . "<br/><br/>";
 
   foreach( $events as $event ) {
     if ( $event->public_visible == 1 && $event->signup_options->public->featured == 1 && $event->category->id != "5" && $event->category->id != "11" ) {

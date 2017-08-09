@@ -49,23 +49,6 @@ get_header(); ?>
     <form name="events-search" method="GET" action="<?= get_permalink(); ?>">
 
       <input type="hidden" id="mylocation" name="mylocation">
-      <!-- <div class="o-container">
-        <div class="o-row u-margin">
-          <div class="o-col-12@xxs u-text-center">
-            <p>Show me events at:</p>
-            <div class="u-text-center">
-              <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0" role="button">
-                All locations
-              </a>
-              <?php foreach ( $locations as $location ) { ?>
-              <a class="o-btn o-btn--ghost <?= ( $query_location == $location->ID ) ? "is-active" : ""; ?>" href="?locationid=<?= $location->ID ?>" role="button">
-                <?= $location->post_title ?>
-              </a>
-              <?php } ?>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
       <div class="o-container">
 
