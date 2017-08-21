@@ -671,7 +671,7 @@ function import_churchsuite_events() {
   $email = "Request URL: " . APP_URL . "&date_start=" . $date_today . "&date_end=" . $date_future . "<br/><br/>";
 
   foreach( $events as $event ) {
-    if ( $event->public_visible == 1 && $event->signup_options->public->featured == 1 && $event->category->id != "5" && $event->category->id != "11" ) {
+    if ( $event->public_visible == "1" && $event->signup_options->public->featured == "1" && $event->category->id != "5" && $event->category->id != "11" ) {
       //Check against currently added events
       $wp_event = new WP_Query(
         array(
