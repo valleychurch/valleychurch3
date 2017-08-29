@@ -328,4 +328,22 @@ input[type="search"] {
   appearance: none;
 }
 
+.pika-single {
+  font-family: $VCfont-stack;
+}
 
+.pika-prev,
+.pika-next,
+.pika-table {
+  margin-bottom: 0;
+}
+
+.pika-button {
+  &:hover {
+    background: $VCred !important;
+  }
+
+  .is-today & {
+    color: $VCred;
+  }
+}
