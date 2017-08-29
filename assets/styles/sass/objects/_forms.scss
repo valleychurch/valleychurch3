@@ -92,6 +92,12 @@
   * Styleguide: objects.forms.validation
   */
 
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 %o-form-group,
 .o-form-group {
   @extend %g-margin-bottom;
@@ -251,6 +257,12 @@
       cursor: not-allowed;
     }
   }
+}
+
+.o-input.input-validation-error,
+.field-validation-error {
+  color: $VCred;
+  border-color: $VCred;
 }
 
 %o-input-radio,
