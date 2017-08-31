@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.3' );
+define( 'VC_THEME_VERSION', '3.3.0' );
 define( 'APP_ACCOUNT', 'valley' );
 define( 'APP_APPLICATION', 'valleychurch-website' );
 define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
