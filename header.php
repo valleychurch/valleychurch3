@@ -26,9 +26,6 @@
     <meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/assets/favicons/browserconfig.xml?v=<?= VC_THEME_VERSION ?>">
     <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#ab2328' ) ?>">
 
-    <!-- Prefetch some DNS -->
-    <link rel="dns-prefetch" href="//use.typekit.net">
-
 <?php
 if ( is_singular() ) {
   if ( have_rows( 'meta_tags' ) ) { ?>
@@ -53,19 +50,11 @@ if ( is_home() || is_page('messages') ) {
     <!-- Pingback URL -->
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-    <!-- Load Typekit ASAP (kit id mql5wis) -->
-    <!-- https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html -->
-    <script>
-      (function(d) {
-        var tkTimeout=3000;
-        if(window.sessionStorage){if(sessionStorage.getItem('useTypekit')==='false'){tkTimeout=0;}}
-        var config = {
-          kitId: 'mql5wis',
-          scriptTimeout: tkTimeout
-        },
-        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+"wf-inactive";if(window.sessionStorage){sessionStorage.setItem("useTypekit","false")}},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+="wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-      })(document);
-    </script>
+    <!-- Fonts -->
+    <!-- Lato: 300, 400, 600, 800 -->
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Lato:300,400,600,800,300i,400i,600i,800i">
+    <!-- Usual: 300, 400, 700, 800 -->
+    <link rel="stylesheet" href="//use.typekit.net/qmj3blq.css">
 
     <!-- IE fixes -->
     <!--[if lt IE 9]>
