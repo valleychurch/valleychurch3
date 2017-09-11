@@ -52,7 +52,7 @@ foreach( $groups as $group ) {
           'post_content' => $group->description,
           'post_status' => 'publish',
           'post_author' => 2,
-          'post_date' => strtotime($event->signup_date_start),
+          'post_date' => strtotime($group->signup_date_start),
           'comment_status' => 'closed',
           'ping_status' => 'closed',
         )
@@ -120,64 +120,64 @@ foreach( $groups as $group ) {
         $update_count++;
       }
 
-      if ( get_field( 'identifier', $post_to_update) != $event->identifier ) {
-        $updated_info["identifier"] = $event->identifier;
+      if ( get_field( 'identifier', $post_to_update) != $group->identifier ) {
+        $updated_info["identifier"] = $group->identifier;
         $update_count++;
       }
 
-      if ( get_field( 'date_start', $post_to_update) != $event->date_start ) {
+      if ( get_field( 'date_start', $post_to_update) != $group->date_start ) {
         $updated_info["date_start"] = $group->date_start;
         $update_count++;
       }
 
-      if ( get_field( 'date_end', $post_to_update) != $event->date_end ) {
+      if ( get_field( 'date_end', $post_to_update) != $group->date_end ) {
         $updated_info["date_end"] = $group->date_end;
         $update_count++;
       }
 
-      if ( get_field( 'frequency', $post_to_update) != $event->frequency ) {
+      if ( get_field( 'frequency', $post_to_update) != $group->frequency ) {
         $updated_info["frequency"] = $group->frequency;
         $update_count++;
       }
 
-      if ( get_field( 'day', $post_to_update) != $event->day ) {
+      if ( get_field( 'day', $post_to_update) != $group->day ) {
         $updated_info["day"] = $group->day;
         $update_count++;
       }
 
-      if ( get_field( 'time', $post_to_update) != $event->time ) {
+      if ( get_field( 'time', $post_to_update) != $group->time ) {
         $updated_info["time"] = $group->time;
         $update_count++;
       }
 
       if ( count( $group->location ) != 0 ) {
-        if ( get_field( 'location', $post_to_update) != $event->location->name ) {
+        if ( get_field( 'location', $post_to_update) != $group->location->name ) {
           $updated_info["location"] = $group->location->name;
           $update_count++;
         }
 
-        if ( get_field( 'location_address', $post_to_update) != $event->location->address ) {
+        if ( get_field( 'location_address', $post_to_update) != $group->location->address ) {
           $updated_info["location_address"] = $group->location->address;
           $update_count++;
         }
 
-        if ( get_field( 'location_latitude', $post_to_update) != $event->location->latitude ) {
+        if ( get_field( 'location_latitude', $post_to_update) != $group->location->latitude ) {
           $updated_info["location_latitude"] = $group->location->latitude;
           $update_count++;
         }
 
-        if ( get_field( 'location_longitude', $post_to_update) != $event->location->longitude ) {
+        if ( get_field( 'location_longitude', $post_to_update) != $group->location->longitude ) {
           $updated_info["location_longitude"] = $group->location->longitude;
           $update_count++;
         }
       }
 
-      if ( get_field( 'signup_full', $post_to_update) != $event->signup_full ) {
+      if ( get_field( 'signup_full', $post_to_update) != $group->signup_full ) {
         $updated_info["signup_full"] = $group->signup_full;
         $update_count++;
       }
 
-      if ( get_field( 'signup_url', $post_to_update) != $event->signup_link_visible ) {
+      if ( get_field( 'signup_url', $post_to_update) != $group->signup_link_visible ) {
         $updated_info["signup_url"] = 'https://valley.churchsuite.co.uk/groups/' . $group->identifier;
         $update_count++;
       }
