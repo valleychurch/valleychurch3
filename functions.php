@@ -5,10 +5,13 @@
  */
 
 define( 'VC_THEME_VERSION', '3.3.0' );
-define( 'APP_ACCOUNT', 'valley' );
-define( 'APP_APPLICATION', 'valleychurch-website' );
-define( 'APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
-define( 'APP_URL', 'https://api.churchsuite.co.uk/v1/calendar/events?per_page=200' );
+define( 'CS_APP_ACCOUNT', 'valley' );
+define( 'CS_APP_APPLICATION', 'valleychurch-website' );
+define( 'CS_APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
+define( 'CS_BASE_URL' 'https://api.churchsuite.co.uk/v1' )
+
+define( 'CS_EVENTS_URL', CS_BASE_URL . '/calendar/events?per_page=200' );
+define( 'CS_GROUPS_URL', CS_BASE_URL . '/smallgroups/groups?view=active_future' );
 
 include( ABSPATH . 'wp-admin/includes/image.php' );
 
@@ -648,16 +651,17 @@ function import_churchsuite_events() {
   $date_today = date("Y-m-d");
   $date_future = date("Y-m-d", strtotime("+3 months"));
 
-  $ch = curl_init(APP_URL . "&date_start=" . $date_today . "&date_end=" . $date_future);
+  $ch = curl_init(CS_EVENTS_URL . "&date_start=" . $date_today . "&date_end=" . $date_future);
+
   curl_setopt_array($ch,
     array(
       CURLOPT_TIMEOUT => 0,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_SSL_VERIFYPEER => false,
       CURLOPT_HTTPHEADER => array(
-        'X-Account: ' . APP_ACCOUNT,
-        'X-Application: ' . APP_APPLICATION,
-        'X-Auth: ' . APP_AUTH
+        'X-Account: ' . CS_APP_ACCOUNT,
+        'X-Application: ' . CS_APP_APPLICATION,
+        'X-Auth: ' . CS_APP_AUTH
       )
     )
   );
@@ -668,7 +672,7 @@ function import_churchsuite_events() {
 
   $json = json_decode($result);
   $events = $json->events;
-  $email = "Request URL: " . APP_URL . "&date_start=" . $date_today . "&date_end=" . $date_future . "<br/><br/>";
+  $email = "Request URL: " . CS_EVENTS_URL . "&date_start=" . $date_today . "&date_end=" . $date_future . "<br/><br/>";
 
   foreach( $events as $event ) {
     if ( $event->public_visible == "1" && $event->signup_options->public->featured == "1" && $event->category->id != "5" && $event->category->id != "11" ) {
@@ -721,6 +725,7 @@ function import_churchsuite_events() {
             update_field( 'field_58245707b9543', $event->location->latitude, $post_id );
             update_field( 'field_5824570fb9544', $event->location->longitude, $post_id );
           }
+
           update_field( 'field_5824571ab9545', $event->signup_options->tickets->enabled, $post_id );
           update_field( 'field_58245724b9546', $event->signup_options->tickets->url, $post_id );
 
@@ -818,7 +823,7 @@ function import_churchsuite_events() {
           $update_count++;
         }
 
-        //Update post if there's more data than just ID
+        // Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
           $email .= "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
@@ -855,6 +860,11 @@ function import_churchsuite_events() {
 add_action( "import_churchsuite_events", "import_churchsuite_events" );
 add_action( "wp_ajax_import_churchsuite_events", "import_churchsuite_events" );
 add_action( "wp_ajax_nopriv_import_churchsuite_events", "import_churchsuite_events" );
+
+/**
+ * Add ChurchSuite groups to WP
+ */
+
 
 /**
  * Add media to WP by URL
