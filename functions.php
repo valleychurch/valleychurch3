@@ -8,10 +8,9 @@ define( 'VC_THEME_VERSION', '3.3.0' );
 define( 'CS_APP_ACCOUNT', 'valley' );
 define( 'CS_APP_APPLICATION', 'valleychurch-website' );
 define( 'CS_APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
-define( 'CS_BASE_URL' 'https://api.churchsuite.co.uk/v1' )
 
-define( 'CS_EVENTS_URL', CS_BASE_URL . '/calendar/events?per_page=200' );
-define( 'CS_GROUPS_URL', CS_BASE_URL . '/smallgroups/groups?view=active_future' );
+define( 'CS_EVENTS_URL', 'https://api.churchsuite.co.uk/v1/calendar/events?per_page=200' );
+define( 'CS_GROUPS_URL', 'https://api.churchsuite.co.uk/v1/smallgroups/groups?view=active_future' );
 
 include( ABSPATH . 'wp-admin/includes/image.php' );
 
