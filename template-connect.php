@@ -43,8 +43,17 @@ if (have_posts()) :
 
 <section class="c-section u-background-grey--11 u-hide@xxs">
   <div class="o-container">
+    <h2 class="u-text-center">Upcoming Connect Groups</h2>
     <div class="o-row o-row--center">
       <?php
+        $meta_query = array(
+          array(
+            'key'     => 'signup_full',
+            'value'   => "1",
+            'compare' => '!=',
+          )
+        );
+
         $args =
           array(
             'post_type'       => 'connect',
@@ -52,6 +61,7 @@ if (have_posts()) :
             'orderby'         => 'meta_value',
             'order'           => 'ASC',
             'meta_key'        => 'date_start',
+            'meta_query'      => $meta_query
           );
 
         $wp_query = new WP_Query( $args );

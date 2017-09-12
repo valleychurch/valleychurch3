@@ -6,7 +6,7 @@
         get_template_part( 'partials/hero', 'slide' );
       }
     ?>
-    <div class="o-card__body u-text-center">
+    <div class="o-card__body">
       <h2 class="h3 o-card__title <?= ( get_field( 'datetime_start' ) ) ? 'u-margin-half' : 'u-margin-none' ?>" itemprop="name">
         <?php the_title(); ?>
       </h2>
