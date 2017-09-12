@@ -1,6 +1,6 @@
 <?php
 /*
-  Template Name: ChurchApp Events
+  Template Name: ChurchSuite Events
 */
 get_header(); ?>
 
@@ -89,7 +89,7 @@ get_header(); ?>
               $wp_query->the_post(); ?>
 
             <div class="o-col-12@xxs o-col-4@md">
-              <?php get_template_part( 'partials/card', 'churchappevent' ); ?>
+              <?php get_template_part( 'partials/card', 'churchsuiteevent' ); ?>
             </div>
 
           <?php
