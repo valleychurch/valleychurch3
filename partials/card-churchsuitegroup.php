@@ -26,13 +26,16 @@
         <?= date("jS F", $startDate) ?> &ndash; <?= date("jS F", $endDate) ?>
       </h4>
 
-      <?php if ( $location || $location_address ) { ?>
-      <p class="h5 o-card__subtitle u-margin-half u-text-black">
-        <?= $location . ", " . $location_address ?>
+      <?php if ( $location ) { ?>
+      <p class="h4 o-card__subtitle u-margin-half u-text-black">
+        <?= $location ?>
+        <?php if ($location_address) {
+          echo ", " . $location_address;
+        ?>
       </p>
       <?php } ?>
 
-      <p class="h5 o-card__subtitle u-margin-none u-text-black">
+      <p class="h5 o-card__subtitle u-margin-none u-margin-top-none u-text-black">
         <?= $frequency ?> on <?= $dayMap[$day] ?> at <?= date("g:ia", $time) ?>
       </p>
     </div>
