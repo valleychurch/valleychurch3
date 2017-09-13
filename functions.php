@@ -1015,8 +1015,8 @@ function import_churchsuite_groups() {
         }
 
         if ( count( $group->location ) != 0 ) {
-          if ( get_field( 'location', $post_to_update) != $group->location->name ) {
-            update_field( 'field_59b64389ed994', $group->location->name, $post_id );
+          if ( get_field( 'location', $post_to_update) != $group->location->address_name ) {
+            update_field( 'field_59b64389ed994', $group->location->address_name, $post_id );
             $update_count++;
           }
 
