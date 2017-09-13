@@ -28,10 +28,7 @@
 
       <?php if ( $location ) { ?>
       <p class="h4 o-card__subtitle u-margin-half u-text-black">
-        <?= $location ?>
-        <?php if ($location_address) {
-          echo ", " . $location_address;
-        } ?>
+        <?= $location . ($location_address ? ", " . $location_address : "") ?>
       </p>
       <?php } ?>
 
