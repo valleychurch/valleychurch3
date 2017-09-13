@@ -934,7 +934,7 @@ function import_churchsuite_groups() {
           update_field( 'field_59b6432ced992', $group->time, $post_id );
 
           if ( count( $group->location ) != 0 ) {
-            update_field( 'field_59b64389ed994', $group->location->name, $post_id );
+            update_field( 'field_59b64389ed994', $group->location->address_name, $post_id );
             update_field( 'field_59b64390ed995', $group->location->address, $post_id );
             update_field( 'field_59b6439aed996', $group->location->latitude, $post_id );
             update_field( 'field_59b643a0ed997', $group->location->longitude, $post_id );

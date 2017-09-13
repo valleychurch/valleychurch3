@@ -9,6 +9,9 @@
   $time = strtotime( get_field( 'time' ) );
 
   $url = get_field( 'signup_url' );
+
+  $location = get_field( 'location' );
+  $location_address = get_field( 'location_address' );
 ?>
 
 <article <?= post_class() ?>>
@@ -22,6 +25,12 @@
       <h4 class="o-card__subtitle u-margin-quarter u-text-black">
         <?= date("jS F", $startDate) ?> &ndash; <?= date("jS F", $endDate) ?>
       </h4>
+
+      <?php if ( $location || $location_address ) { ?>
+      <p class="h5 o-card__subtitle u-margin-none u-text-black">
+        <?= $location . ", " . $location_address ?>
+      </p>
+      <?php } ?>
 
       <p class="h5 o-card__subtitle u-margin-none u-text-black">
         <?= $frequency ?> on <?= $dayMap[$day] ?> at <?= date("g:ia", $time) ?>
