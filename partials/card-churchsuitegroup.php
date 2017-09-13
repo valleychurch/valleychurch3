@@ -27,7 +27,7 @@
       </h4>
 
       <?php if ( $location || $location_address ) { ?>
-      <p class="h5 o-card__subtitle u-margin-none u-text-black">
+      <p class="h5 o-card__subtitle u-margin-half u-text-black">
         <?= $location . ", " . $location_address ?>
       </p>
       <?php } ?>
