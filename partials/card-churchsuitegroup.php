@@ -31,7 +31,7 @@
         <?= $location ?>
         <?php if ($location_address) {
           echo ", " . $location_address;
-        ?>
+        } ?>
       </p>
       <?php } ?>
 
