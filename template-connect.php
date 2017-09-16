@@ -58,6 +58,7 @@ if (have_posts()) :
           array(
             'post_type'       => 'connect',
             'post_status'     => array('publish', 'private'),
+            'posts_per_page'  => -1,
             'orderby'         => 'meta_value',
             'order'           => 'ASC',
             'meta_key'        => 'date_start',
@@ -76,7 +77,7 @@ if (have_posts()) :
 
         <?php
           endwhile;
-        get_template_part( 'partials/pagination' );
+        // get_template_part( 'partials/pagination' );
         else:
           get_template_part( 'partials/no-content-found' );
         endif;
