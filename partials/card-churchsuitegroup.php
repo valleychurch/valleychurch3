@@ -15,7 +15,7 @@
 ?>
 
 <article <?= post_class() ?>>
-  <a class="o-card o-card--shadow" href="<?= $url ?>" target="_blank" title="<?= get_the_title(); ?>">
+  <a class="o-card o-card--shadow" href="<?= $url ?>" title="<?= get_the_title(); ?>">
 
     <div class="o-card__body">
       <h3 class="o-card__title u-margin-half">
