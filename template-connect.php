@@ -41,7 +41,7 @@ if (have_posts()) :
 
 <?php endwhile; else : endif; wp_reset_query(); ?>
 
-<section class="c-section u-background-grey--11 u-hide@xxs">
+<section class="c-section u-background-grey--11">
   <div class="o-container">
     <h2 class="u-text-center">Upcoming Connect Groups</h2>
     <div class="o-row o-row--center">
