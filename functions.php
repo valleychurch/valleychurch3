@@ -889,7 +889,7 @@ function import_churchsuite_groups() {
   $email = "Request URL: " . CS_GROUPS_URL . "<br/><br/>";
 
   foreach( $groups as $group ) {
-    if ( $group->public_visible == "1" && $group->signup_enabled == "1" ) {
+    if ( $group->signup_enabled == "1" ) {
       //Check against currently added groups
       $wp_group = new WP_Query(
         array(
