@@ -864,6 +864,7 @@ add_action( "wp_ajax_nopriv_import_churchsuite_events", "import_churchsuite_even
  * Add ChurchSuite groups to WP
  */
 function import_churchsuite_groups() {
+  global $cpt_onomy;
   $ch = curl_init( CS_GROUPS_URL );
 
   curl_setopt_array( $ch,
@@ -899,6 +900,23 @@ function import_churchsuite_groups() {
           )
         );
 
+      // Get json location data
+      $location = null;
+      if ( $group->site->id != null ) {
+        if ( $group->site->name == "Preston AM" || $group->site->name == "Preston PM" ) {
+          $location = 11686;
+        }
+        if ( $group->site->name == "Blackpool" ) {
+          $location = 11688;
+        }
+        if ( $group->site->name == "Lancaster" ) {
+          $location = 11690;
+        }
+        if ( $group->site->name == "North East" ) {
+          $location = 11692;
+        }
+      }
+
       if ( $wp_group->post_count == 0 ) {
         $post_id = wp_insert_post(
           array(
@@ -919,6 +937,11 @@ function import_churchsuite_groups() {
 
           // Add expiry date
           _scheduleExpiratorEvent( $post_id, strtotime( $group->signup_date_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
+
+          // Add location
+          if ( $location != null ) {
+            $cpt_onomy->wp_set_object_terms( $post_id, $location, 'location' );
+          }
 
           // Update ACF fields
           update_field( 'field_59b642a9ed98e', $group->identifier, $post_id );
@@ -965,6 +988,11 @@ function import_churchsuite_groups() {
         $updated_info = array(
           'ID' => $post_id
         );
+
+        // Add location
+        if ( $location != null ) {
+          $cpt_onomy->wp_set_object_terms( $post_id, $location, 'location' );
+        }
 
         if ( esc_html($post_to_update->post_title) != esc_html( $group->name ) ) {
           $updated_info["post_title"] = $group->name;
