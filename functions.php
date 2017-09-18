@@ -825,7 +825,7 @@ function import_churchsuite_events() {
         // Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
-          $email .= "Updated " . $event->name . " (ID: " . $post_id . ")<br/>";
+          $email .= "Updated " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
 
         else {
@@ -1074,7 +1074,7 @@ function import_churchsuite_groups() {
         // Update post if there's more data than just ID
         if ( $update_count > 1 ) {
           wp_update_post( $updated_info );
-          $email .= "Updated " . $group->name . " (ID: " . $post_id . ")<br/>";
+          $email .= "Updated " . $group->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
 
         else {
