@@ -71,7 +71,7 @@
               <?php } ?>
 
               <?php if ( get_sub_field( 'show_button' ) == 1 ) { ?>
-              <a class="o-btn" href="<?php the_sub_field( 'button_link' ); ?>" role="button">
+              <a class="o-btn" href="<?php the_sub_field( 'button_link' ); ?>">
                 <?php if ( get_sub_field( 'button_text' ) ) {
                   echo get_sub_field( 'button_text' );
                 } ?>

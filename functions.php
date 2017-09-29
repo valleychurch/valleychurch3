@@ -390,7 +390,7 @@ add_filter( 'the_content', 'filter_ptags_on_content' );
  * Custom read more link
  */
 function modify_read_more_link() {
-  return '<a class="o-btn" href="' . get_permalink() . '" role="button">Read more</a>';
+  return '<a class="o-btn" href="' . get_permalink() . '">Read more</a>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 

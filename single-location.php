@@ -68,7 +68,7 @@
             </address>
             <?php if ( get_field( 'google_maps_link' ) ) { ?>
               <p>
-                <a class="o-btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
+                <a class="o-btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>">
                   Get directions
                 </a>
               </p>
@@ -93,17 +93,17 @@
           <?php if ( get_field( 'social_twitter' ) || get_field( 'social_facebook' ) || get_field( 'social_instagram' ) ) { ?>
             <h3 class="u-margin-half">Follow us on social media</h3>
             <?php if ( get_field( 'social_twitter' ) ) { ?>
-            <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn o-btn--small u-background-twitter" role="button">
+            <a href="https://twitter.com/<?= get_field( 'social_twitter' ); ?>" class="o-btn o-btn--small u-background-twitter">
               <i class="fa fa-twitter fa-fw u-text-white"></i> Twitter
             </a>
             <?php } ?>
             <?php if ( get_field( 'social_facebook' ) ) { ?>
-            <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn o-btn--small u-background-facebook" role="button">
+            <a href="https://facebook.com/<?= get_field( 'social_facebook' ); ?>" class="o-btn o-btn--small u-background-facebook">
               <i class="fa fa-facebook-official fa-fw u-text-white"></i> Facebook
             </a>
             <?php } ?>
             <?php if ( get_field( 'social_instagram' ) ) { ?>
-            <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn o-btn--small u-background-instagram" role="button">
+            <a href="http://instagram.com/<?= get_field( 'social_instagram' ); ?>" class="o-btn o-btn--small u-background-instagram">
               <i class="fa fa-instagram fa-fw u-text-white"></i> Instagram
             </a>
             <?php } ?>
@@ -120,7 +120,7 @@
   <?php if ( get_field( 'location' ) ) { ?>
   <div class="c-map c-map--40">
   <?php if ( get_field( 'google_maps_link' ) ) { ?>
-    <a class="o-btn c-map__btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>" role="button">
+    <a class="o-btn c-map__btn" title="Get directions" href="http://<?= get_field( 'google_maps_link' ); ?>">
       Get directions
     </a>
   <?php } ?>

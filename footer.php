@@ -5,8 +5,8 @@
         <div class="o-row">
 
           <div class="o-col-12@xxs o-col-3@lg u-text-center@xxs u-text-left@lg u-grid-1@xxs u-grid-0@lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
-            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" class="u-margin c-logo">
-            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/touchicon.png" class="u-hidden" itemprop="image">
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" alt="Valley Church logo" class="u-margin c-logo">
+            <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/touchicon.png" alt="Valley Church icon" class="u-hidden" itemprop="image">
             <p class="u-hidden" itemprop="name"><?= bloginfo( 'name' ); ?></p>
             <p class="small u-text-muted u-line-height--small" itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress">
@@ -27,9 +27,9 @@
               <i class="fa fa-fw fa-phone"></i> <span itemprop="telephone" content="+441772696717"><a href="tel:01772696717">01772 696717</a></span><br/>
               <i class="fa fa-fw fa-envelope"></i> <span itemprop="email"><a href="mailto:general@valleychurch.eu">general@valleychurch.eu</a></span>
             <p>
-              <a href="https://twitter.com/valley_church" target="_blank"><i class="fa fa-lg u-text-white fa-twitter"></i></a>&nbsp;
-              <a href="https://facebook.com/wearevalleychurch" target="_blank"><i class="fa fa-lg u-text-white fa-facebook-official"></i></a>&nbsp;
-              <a href="https://instagram.com/valley_church" target="_blank"><i class="fa fa-lg u-text-white fa-instagram"></i></a>
+              <a href="https://twitter.com/valley_church" target="_blank" aria-label="Twitter"><i class="fa fa-lg u-text-white fa-twitter"></i></a>&nbsp;
+              <a href="https://facebook.com/wearevalleychurch" target="_blank" aria-label="Facebook"><i class="fa fa-lg u-text-white fa-facebook-official"></i></a>&nbsp;
+              <a href="https://instagram.com/valley_church" target="_blank" aria-label="Instagram"><i class="fa fa-lg u-text-white fa-instagram"></i></a>
             </p>
           </div>
 

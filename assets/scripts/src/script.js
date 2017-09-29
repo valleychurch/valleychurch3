@@ -196,10 +196,10 @@ var Valley = (function() {
 
     Slider: function() {
       var prevImg =
-        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" width="100%" height="100%" class="prev-btn">';
+        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" alt="Previous slide" width="100%" height="100%" class="prev-btn">';
 
       var nextImg =
-        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" width="100%" height="100%" class="next-btn">';
+        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" alt="Next slide" width="100%" height="100%" class="next-btn">';
 
       $('.c-slides').responsiveSlides({
         speed: 500,

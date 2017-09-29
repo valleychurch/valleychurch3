@@ -54,11 +54,11 @@ get_header(); ?>
           <div class="o-col-12@xxs u-text-center">
             <p>Show me events at:</p>
             <div class="u-text-center">
-              <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0" role="button">
+              <a class="o-btn o-btn--ghost <?= ( $query_location == 0 ) ? "is-active" : ""; ?>" href="?locationid=0">
                 All locations
               </a>
               <?php foreach ( $locations as $location ) { ?>
-              <a class="o-btn o-btn--ghost <?= ( $query_location == $location->ID ) ? "is-active" : ""; ?>" href="?locationid=<?= $location->ID ?>" role="button">
+              <a class="o-btn o-btn--ghost <?= ( $query_location == $location->ID ) ? "is-active" : ""; ?>" href="?locationid=<?= $location->ID ?>">
                 <?= $location->post_title ?>
               </a>
               <?php } ?>

@@ -53,7 +53,7 @@
         <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
         <?php while ( have_posts() ) :
           the_post(); ?>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="<?= get_permalink(); ?>" role="button"><?= the_title(); ?></a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="<?= get_permalink(); ?>"><?= the_title(); ?></a>
         <?php endwhile; ?>
         </div>
       </div>
@@ -133,7 +133,7 @@
                 </p>
               <?php } ?>
               <?php if ( get_field( 'show_button' ) == 1 ) { ?>
-                <a class="o-btn o-btn--ghost o-btn--ghost--white" href="<?php the_field( 'button_link' ); ?>" role="button">
+                <a class="o-btn o-btn--ghost o-btn--ghost--white" href="<?php the_field( 'button_link' ); ?>">
                   <?= get_field( 'button_text' ); ?>
                 </a>
               <?php } ?>
@@ -158,7 +158,7 @@
       </div>
       <div class="o-row o-row--center">
         <div class="o-col-12@xxs o-col-center">
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/vision" role="button">Read more about our vision</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/vision">Read more about our vision</a>
         </div>
       </div>
     </div>
@@ -177,13 +177,13 @@
       </div>
       <div class="o-row o-row--center">
         <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect" role="button">Connect Groups</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering" role="button">Volunteering</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving" role="button">Giving</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/teamnights" role="button">Team Nights</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy" role="button">Valley Academy</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin" role="button">Year-In Programme</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney" role="button">CAP Money Course</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect">Connect Groups</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering">Volunteering</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving">Giving</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/teamnights">Team Nights</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy">Valley Academy</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin">Year-In Programme</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney">CAP Money Course</a>
         </div>
       </div>
     </div>
@@ -277,10 +277,10 @@
       </div>
       <div class="o-row o-row--center">
         <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/peoplematter" role="button">People Matter</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/community" role="button">Community Action Team</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/visionrescue" role="button">Vision Rescue</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/compassion" role="button">Compassion</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/peoplematter">People Matter</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/community">Community Action Team</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/visionrescue">Vision Rescue</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/compassion">Compassion</a>
         </div>
       </div>
     </div>
