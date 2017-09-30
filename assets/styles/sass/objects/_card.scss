@@ -46,7 +46,7 @@ a.o-card {
 }
 
 .o-card__body {
-  padding: $VCbase;
+  padding: tuple($VCbase, .75);
 
   @include breakpoint(md) {
     padding: $VCbase * 1.5;

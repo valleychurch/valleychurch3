@@ -20,7 +20,7 @@
       </div>
       <div class="o-card__text">
         <?php // if ( get_the_author_id() != 2 ) { ?>
-        <div class="o-flag u-margin">
+        <div class="o-flag">
           <div class="o-flag__fix">
             <?php
               set_query_var( 'size', 'sm' );
