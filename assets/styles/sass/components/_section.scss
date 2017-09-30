@@ -7,6 +7,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  overflow: hidden;
+
   @include breakpoint(md) {
     padding: tuple($VCbase, 1.5) 0;
   }
@@ -47,23 +49,28 @@
   }
 }
 
+.c-section--top {
+  min-height: 70vh;
+}
+
 .c-section--hero {
   display: table;
-  min-height: 70vh;
   padding: double($VCbase) 0;
 
   @include transition;
 
   @include breakpoint(md) {
     padding: quadruple($VCbase) 0;
+    min-height: 60vh;
   }
 
   @include breakpoint(lg) {
-    padding: tuple($VCbase, 5) 0;
+    // padding: tuple($VCbase, 5) 0;
   }
 
   @include breakpoint(xl) {
-    padding: tuple($VCbase, 6) 0;
+    // padding: tuple($VCbase, 6) 0;
+    min-height: 70vh;
   }
 
   > .o-container {
@@ -78,7 +85,8 @@
     }
   }
 
-  .c-section__img {
+  .c-section__img,
+  .c-section__video {
     position: absolute;
     top: 0;
     right: 0;
@@ -117,7 +125,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    background-color: greyscale(2, .85);
+    background-color: greyscale(2, .75);
     content: "";
   }
 }

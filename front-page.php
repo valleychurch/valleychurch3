@@ -18,6 +18,16 @@
       <p class="h2 u-text-light">We're glad you're here</p>
     <?php } ?>
     </div>
+    <?php if ( get_field( 'video_mp4' ) || get_field( 'video_webm' ) ) { ?>
+    <video autoplay loop playsinline muted class="c-section__video">
+      <?php if ( get_field( 'video_mp4' ) ) { ?>
+      <source type="video/mp4" src="<?= get_field( 'video_mp4' ) ?>">
+      <?php } ?>
+      <?php if ( get_field( 'video_webm' ) ) { ?>
+      <source type="video/webm" src="<?= get_field( 'video_webm' ) ?>">
+      <?php } ?>
+    </video>
+    <?php } ?>
     <?php get_template_part( 'partials/notification' ); ?>
   </section>
 
@@ -62,8 +72,53 @@
   <?php endif; ?>
   <?php wp_reset_query(); ?>
 
+  <!-- Section: Events -->
+  <section class="c-section c-section--hero u-background-grey--11">
+    <div class="o-container u-text-center">
+      <div class="o-row">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
+          <h2 class="kilo"><a href="/events">Upcoming Events</a></h2>
+          <p class="lead">
+          We have loads going on every single week, along with our <a href="/weekends">Weekend Services</a>, <a href="/connect">Connect Groups</a>, <a href="/teamnights">Team Nights</a> and <a href="/youth">Youth</a> &amp; <a href="/kids">Kids</a> programmes.
+          </p>
+        </div>
+      </div>
+      <div class="o-row u-text-left">
+        <?php
+        $i = 1;
+        $args =
+          array(
+            'post_type' => 'event',
+            'post_status' => array( 'publish' ),
+            'posts_per_page' => 4
+          );
+
+        $wp_query = new WP_Query( $args );
+
+        if ( have_posts() ) :
+          while ( have_posts() ) :
+            the_post(); ?>
+        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ( $i > 2 ) ? "u-hide@xs u-show@lg" : ""; ?>">
+          <?php get_template_part( 'partials/card', 'event' ); ?>
+        </div>
+        <?php
+        $i++;
+        endwhile;
+        else :
+          get_template_part( 'partials/no-content-found' );
+        endif;
+        wp_reset_query(); ?>
+      </div>
+
+      <a href="/events" class="o-btn o-btn--large">
+        See more events
+      </a>
+
+    </div>
+  </section>
+
   <!-- Section: Church Life -->
-  <section class="c-section">
+  <!-- <section class="c-section c-section--hero u-background-grey--11">
     <div class="o-container">
       <div class="o-row">
       <?php
@@ -144,15 +199,36 @@
       <?php } ?>
       </div>
     </div>
+  </section> -->
+
+  <!-- Section: Senior Pastors -->
+  <section class="c-section c-section--hero c-section--overlay" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/pastors.jpg');">
+    <div class="o-container u-text-center u-text-left@md">
+      <div class="o-row">
+        <div class="o-col-12@xxs o-col-7@md o-col-6@lg o-col-5@xl">
+          <p class="h1 u-text-white u-margin-none">
+            Ed &amp; Michele Carter
+          </p>
+          <p class="h2 u-text-white u-margin-top-none">
+            Senior Pastors of Valley Church
+          </p>
+          <p class="lead u-text-white">
+            Ed &amp; Michele have a heart passion for helping people step into the amazing plans God has for their lives.
+          </p>
+
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/vision">Read more about our Senior Pastors</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Section: Vision -->
   <section class="c-section c-section--hero c-section--overlay" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/hero-vision.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
-        <div class="o-col-12@xxs o-col-11@md o-col-10@lg u-center-block">
+        <div class="o-col-12@xxs o-col-11@md o-col-9@lg u-center-block">
           <p class="h1 u-text-white u-margin-double">
-            <em>"We're not keeping this to ourselves, we're passing it along to the next generation<!-- <span class="u-hide u-show-inline@sm"> -->&mdash;God's fame and fortune, the marvelous things He has done.<!-- </span> -->"</em>
+            <em>"We're not keeping this to ourselves, we're passing it along to the next generation&mdash;God's fame and fortune, the marvelous things He has done."</em>
           </p>
         </div>
       </div>
@@ -164,35 +240,10 @@
     </div>
   </section>
 
-  <!-- Section: Next Steps -->
-  <section class="c-section c-section--hero u-background-top" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
-    <div class="o-container">
-      <div class="o-row u-text-center">
-        <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
-          <h2 class="kilo u-text-white u-text-shadow">Next Steps</h2>
-          <p class="lead u-text-white u-text-shadow">
-            We believe in empowering people to be all God has called them to be&mdash;what could your next step be?
-          </p>
-        </div>
-      </div>
-      <div class="o-row o-row--center">
-        <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect">Connect Groups</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering">Volunteering</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving">Giving</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/teamnights">Team Nights</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy">Valley Academy</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin">Year-In Programme</a>
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney">CAP Money Course</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Section: Messages -->
-  <section class="c-section c-section--hero">
-    <div class="o-container">
-      <div class="o-row u-text-center">
+  <section class="c-section c-section--hero u-background-grey--11">
+    <div class="o-container u-text-center">
+      <div class="o-row">
         <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo"><a href="/messages">Messages</a></h2>
           <p class="lead">
@@ -200,7 +251,7 @@
           </p>
         </div>
       </div>
-      <div class="o-row">
+      <div class="o-row u-text-left">
         <?php
         $i = 1;
         $args =
@@ -226,13 +277,42 @@
         endif;
         wp_reset_query(); ?>
       </div>
+
+      <a href="/messages" class="o-btn o-btn--large">
+        Listen to more messages
+      </a>
+    </div>
+  </section>
+
+  <!-- Section: Next Steps -->
+  <section class="c-section c-section--hero c-section--overlay u-background-top" style="background-image:url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-next-steps.jpg');">
+    <div class="o-container">
+      <div class="o-row u-text-center">
+        <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
+          <h2 class="kilo u-text-white u-text-shadow">Next Steps</h2>
+          <p class="lead u-text-white u-text-shadow">
+            We believe in empowering people to be all God has called them to be&mdash;what could your next step be?
+          </p>
+        </div>
+      </div>
+      <div class="o-row o-row--center">
+        <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/connect">Connect Groups</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/volunteering">Volunteering</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/giving">Giving</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/teamnights">Team Nights</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/academy">Valley Academy</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/yearin">Year-In Programme</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/capmoney">CAP Money Course</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Section: Recent Blogs -->
-  <section class="c-section c-section--hero">
-    <div class="o-container">
-      <div class="o-row u-text-center">
+  <section class="c-section c-section--hero u-background-grey--11">
+    <div class="o-container u-text-center">
+      <div class="o-row">
         <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">
           <h2 class="kilo"><a href="/blog">Recent Blogs</a></h2>
           <p class="lead">
@@ -240,7 +320,7 @@
           </p>
         </div>
       </div>
-      <div class="o-row">
+      <div class="o-row u-text-left">
         <?php
         $args =
           array(
@@ -261,11 +341,15 @@
         else : endif;
         wp_reset_query(); ?>
       </div>
+
+      <a href="/blog" class="o-btn o-btn--large">
+        Read more of our blogs
+      </a>
     </div>
   </section>
 
   <!-- Section: People Matter -->
-  <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-people-matter.jpg');">
+  <section class="c-section c-section--hero c-section--overlay" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-people-matter.jpg');">
     <div class="o-container">
       <div class="o-row u-text-center">
         <div class="o-col-11@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block">

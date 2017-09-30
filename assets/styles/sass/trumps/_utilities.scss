@@ -62,9 +62,9 @@
 
 @each $breakpoint in map-keys($VCbreakpoints) {
   @include breakpoint($breakpoint) {
-    .u-text-left\@#{$breakpoint}      { text-align: left; }
-    .u-text-right\@#{$breakpoint}     { text-align: right; }
-    .u-text-center\@#{$breakpoint}    { text-align: center; }
+    .u-text-left\@#{$breakpoint}      { text-align: left !important; }
+    .u-text-right\@#{$breakpoint}     { text-align: right !important; }
+    .u-text-center\@#{$breakpoint}    { text-align: center !important; }
     .u-text-justify\@#{$breakpoint}   { text-align: justify !important; }
     .u-text-nowrap\@#{$breakpoint}    { white-space: nowrap !important; }
   }

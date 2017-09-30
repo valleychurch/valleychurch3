@@ -31,9 +31,9 @@
 
   @include font-stack-alt;
   @include font-size(17);
-  font-weight: 300;
+  font-weight: 400;
   line-height: $VCline-height;
-  letter-spacing: .5px;
+  // letter-spacing: .5px;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -122,10 +122,10 @@
 
 .o-btn--large {
   padding: half($VCbase) tuple($VCbase, 1.25);
-  @include font-size(20);
+  @include font-size(18);
 
   @include breakpoint(sm) {
-    @include font-size(21);
+    @include font-size(20);
   }
 }
 
