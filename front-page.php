@@ -216,7 +216,7 @@
             Ed &amp; Michele have a heart passion for helping people step into the amazing plans God has for their lives.
           </p>
 
-          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/vision">Read more about our Senior Pastors</a>
+          <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="/team">Read more about our Senior Pastors</a>
         </div>
       </div>
     </div>
