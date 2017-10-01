@@ -7,40 +7,21 @@
   }
   ?>
 
-  <section class="c-section u-background-grey--11">
-
-    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
-
-      <div class="o-row">
-
-        <div class="c-post-content u-center-block u-text-center">
-
-          <?php if ( get_field( 'custom_h1' ) ) { ?>
-          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
-          <?php } else { ?>
-          <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
-          <?php } ?>
-          <!--<a class="o-btn o-btn--ghost o-btn--xsmall js-set-location" href="#" data-location-id="<?= $post->ID ?>" data-location-name="<?= get_the_title(); ?>">
-            Set as my main location
-          </a>-->
-
-        </div>
-
-      </div>
-
-    </article>
-
-  </section>
-
   <section class="c-section">
 
-    <article class="o-container c-article u-margin">
+    <article <?php post_class( 'o-container c-article u-margin' ); ?>>
 
       <div class="o-row">
 
         <div class="o-col-12@xxs o-col-8@md">
 
           <div class="c-post-content u-center-block">
+
+            <?php if ( get_field( 'custom_h1' ) ) { ?>
+            <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?= get_field( 'custom_h1' ); ?></h1>
+            <?php } else { ?>
+            <h1 <?= ( get_field( 'hide_h1' ) == 1 ) ? 'class="u-hidden"' : ""; ?>><?php the_title(); ?></h1>
+            <?php } ?>
 
             <?php the_content(); ?>
 
