@@ -41,19 +41,24 @@ if (have_posts()) :
 
 <?php endwhile; else : endif; wp_reset_query(); ?>
 
+<?php
+  $args = array(
+    'post_type' => 'location',
+    'posts_per_page' => -1,
+  );
+
+  query_posts( $args );
+
+  if ( have_posts() ) {
+    while ( have_posts() ) {
+      the_post();
+?>
+
 <section class="c-section u-background-grey--11">
   <div class="o-container">
-    <h2 class="u-text-center">Upcoming Connect Groups</h2>
+    <h2 class="u-text-center"><?= the_title() ?> Connect Groups</h2>
     <div class="o-row o-row--center">
       <?php
-        $meta_query = array(
-          array(
-            'key'     => 'signup_full',
-            'value'   => "1",
-            'compare' => '!=',
-          )
-        );
-
         $args =
           array(
             'post_type'       => 'connect',
@@ -62,7 +67,21 @@ if (have_posts()) :
             'orderby'         => 'meta_value',
             'order'           => 'ASC',
             'meta_key'        => 'date_start',
-            'meta_query'      => $meta_query
+            'meta_query'      => array(
+              array(
+                'key'     => 'signup_full',
+                'value'   => "1",
+                'compare' => '!=',
+              )
+            ),
+            'tax_query'       => array(
+              array(
+                'taxonomy'  => 'location',
+                'field'     => 'slug',
+                'terms'     => get_post_field( 'post_name' ),
+                'operator'  => 'IN'
+              )
+            )
           );
 
         $wp_query = new WP_Query( $args );
@@ -76,8 +95,7 @@ if (have_posts()) :
           </div>
 
         <?php
-          endwhile;
-        // get_template_part( 'partials/pagination' );
+        endwhile;
         else:
           get_template_part( 'partials/no-content-found' );
         endif;
@@ -89,7 +107,12 @@ if (have_posts()) :
   </div>
 </section>
 
+
 <?php
-// add_action( 'wp_footer', 'load_connect_groups', 50 );
-get_footer();
+    }
+  }
+  wp_reset_query();
+  wp_reset_postdata();
 ?>
+
+<?php get_footer(); ?>
