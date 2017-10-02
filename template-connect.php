@@ -47,14 +47,15 @@ if (have_posts()) :
     'posts_per_page' => -1,
   );
 
-  query_posts( $args );
+  $i = 1;
+  $location_query = new WP_Query( $args );
 
-  if ( have_posts() ) {
-    while ( have_posts() ) {
-      the_post();
+  if ( $location_query->have_posts() ) {
+    while ( $location_query->have_posts() ) {
+      $location_query->the_post();
 ?>
 
-<section class="c-section u-background-grey--11">
+<section class="c-section <?= $i & 1 ? "u-background-grey--11" : "" ?>">
   <div class="o-container">
     <h2 class="u-text-center"><?= the_title() ?> Connect Groups</h2>
     <div class="o-row o-row--center">
@@ -99,9 +100,6 @@ if (have_posts()) :
         else:
           get_template_part( 'partials/no-content-found' );
         endif;
-
-        wp_reset_query();
-        wp_reset_postdata();
       ?>
     </div>
   </div>
@@ -109,6 +107,7 @@ if (have_posts()) :
 
 
 <?php
+    $i++;
     }
   }
   wp_reset_query();
