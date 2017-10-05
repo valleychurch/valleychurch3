@@ -90,7 +90,10 @@
           array(
             'post_type' => 'event',
             'post_status' => array( 'publish' ),
-            'posts_per_page' => 4
+            'posts_per_page' => 4,
+            'meta_key' => 'datetimestamp_start',
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
           );
 
         $wp_query = new WP_Query( $args );
@@ -98,7 +101,7 @@
         if ( have_posts() ) :
           while ( have_posts() ) :
             the_post(); ?>
-        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ( $i > 2 ) ? "u-hide@xs u-show@lg" : ""; ?>">
+        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ( $i > 2 ) ? "u-hide@xs u-show@lg" : ""; ?> <?= ( $i > 4 ) ? "u-hide" : ""; ?>">
           <?php get_template_part( 'partials/card', 'event' ); ?>
         </div>
         <?php
