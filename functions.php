@@ -263,7 +263,7 @@ add_action( 'login_head', 'add_custom_login' );
  * Create custom post types
  */
 function create_custom_post_types() {
-  $supports_simple = array( 'title', 'thumbnail', 'author' );
+  $supports_simple = array( 'title', 'thumbnail', 'author', 'revisions' );
   // register_post_type( 'events', create_custom_post_type_args( 'event', 'Events (DEPRECATED)', 'dashicons-calendar-alt', true, null, null, false ) );
   register_post_type( 'event', create_custom_post_type_args( 'event', 'Events', 'dashicons-calendar-alt', true, null, null, true ) ); //Replacing old events
   register_post_type( 'slider', create_custom_post_type_args( 'slide', null, 'dashicons-images-alt', true, null, $supports_simple, false ) );
