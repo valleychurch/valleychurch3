@@ -83,11 +83,10 @@ ol {
  *
  * Styleguide: base.typography.lead
  */
-.lead,
-.lede {
+.lead {
   @include responsive-typography(20, 24, xs, lg);
   @include font-stack-alt;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.45;
 
   h1 + &,
@@ -242,7 +241,7 @@ em {
 
 b,
 strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 hr {

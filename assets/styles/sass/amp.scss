@@ -1,16 +1,16 @@
-@import "tools/functions";
-@import "tools/mixins";
+@import 'tools/functions';
+@import 'tools/mixins';
 
-@import "settings/variables";
-@import "settings/fonts";
+@import 'settings/variables';
+@import 'settings/fonts';
 
-@import "generic/normalize";
-@import "generic/boxsizing";
-@import "generic/shared";
+@import 'generic/normalize';
+@import 'generic/boxsizing';
+@import 'generic/shared';
 
-@import "base/base";
-@import "base/typography";
-@import "base/links";
+@import 'base/base';
+@import 'base/typography';
+@import 'base/links';
 
 .amp-wp-article-content amp-img {
   margin-bottom: 1rem;
@@ -26,7 +26,7 @@ header.amp-wp-header {
   background-color: greyscale(2);
 
   a {
-    background-image: url( '/wp-content/themes/valleychurch3/assets/images/dist/logo.png' );
+    background-image: url('/wp-content/themes/valleychurch3/assets/images/dist/logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     display: block;
