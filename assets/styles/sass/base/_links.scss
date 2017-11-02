@@ -14,14 +14,14 @@ a {
     color: colour("red", dark);
   }
 
-  &:visited {
-    color: greyscale(5);
+  // &:visited {
+  //   color: greyscale(5);
 
-    &:focus,
-    &:hover {
-      color: colour("red", x-dark);
-    }
-  }
+  //   &:focus,
+  //   &:hover {
+  //     color: colour("red", x-dark);
+  //   }
+  // }
 
   // .c-article &,
   // .c-footer & {
