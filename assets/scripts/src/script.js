@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.3.1',
+    Version: '3.4.0a',
 
     /**
      * Kick everything off

@@ -1,5 +1,5 @@
 # Valley Church WordPress theme
-## Version 3.3.1
+## Version 3.4.0a
 
 ### Changelog
 * v3.2.5 - Minor tidyup of a little bit of everything
