@@ -101,14 +101,7 @@ if (has_post_thumbnail()) {
           'posts_per_page' => 4,
           'meta_key' => 'datetimestamp_start',
           'orderby' => 'meta_value',
-          'order' => 'ASC',
-          'meta_query' => array(
-            array(
-              'key' => 'hide_on_homepage',
-              'value' => '1',
-              'compare' => '!='
-            )
-          )
+          'order' => 'ASC'
         );
 
         $wp_query = new WP_Query($args);
