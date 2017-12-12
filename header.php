@@ -1,12 +1,5 @@
 <!doctype html>
-
-<!--[if lt IE 7]>             <html <?php language_attributes(); ?> class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]>  <html <?php language_attributes(); ?> class="no-js lt-ie10 lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]>  <html <?php language_attributes(); ?> class="no-js lt-ie10 lt-ie9"><![endif]-->
-<!--[if (IE 9)&!(IEMobile)]>  <html <?php language_attributes(); ?> class="no-js lt-ie10"><![endif]-->
-<!--[if gt IE 9]><!-->
 <html <?php language_attributes(); ?> class="no-js">
-<!--<![endif]-->
 
   <head>
     <!-- Meta -->
@@ -21,34 +14,37 @@
     <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-32x32.png?v=<?= VC_THEME_VERSION ?>" sizes="32x32">
     <link rel="icon" type="image/png" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon-16x16.png?v=<?= VC_THEME_VERSION ?>" sizes="16x16">
     <link rel="manifest" href="<?= get_template_directory_uri(); ?>/assets/favicons/manifest.json?v=<?= VC_THEME_VERSION ?>">
-    <link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#ab2328' ) ?>">
+    <link rel="mask-icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/safari-pinned-tab.svg?v=<?= VC_THEME_VERSION ?>" color="<?= (get_field('meta_colour') ? get_field('meta_colour') : '#ab2328') ?>">
     <link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/assets/favicons/favicon.ico?v=<?= VC_THEME_VERSION ?>">
     <meta name="msapplication-config" content="<?= get_template_directory_uri(); ?>/assets/favicons/browserconfig.xml?v=<?= VC_THEME_VERSION ?>">
-    <meta name="theme-color" content="<?= ( get_field( 'meta_colour' ) ? get_field( 'meta_colour' ) : '#ab2328' ) ?>">
+    <meta name="theme-color" content="<?= (get_field('meta_colour') ? get_field('meta_colour') : '#ab2328') ?>">
 
 <?php
-if ( is_singular() ) {
-  if ( have_rows( 'meta_tags' ) ) { ?>
+if (is_singular()) {
+  if (have_rows('meta_tags')) { ?>
     <!-- Add some prefetches/prerenders from the CMS -->
 <?php
-    while ( have_rows( 'meta_tags' ) ) {
-      the_row();
-?>
-    <link rel="<?= get_sub_field( 'prefetch_type' ) ?>" href="<?= get_sub_field( 'resource_url' ) ?>">
+while (have_rows('meta_tags')) {
+  the_row();
+  ?>
+    <link rel="<?= get_sub_field('prefetch_type') ?>" href="<?= get_sub_field('resource_url') ?>">
 <?php
-    }
-  }
+
 }
-if ( is_home() || is_page('messages') ) {
+}
+}
+if (is_home() || is_page('messages')) {
   $next = get_next_posts_link();
-?>
+  ?>
     <!-- Add some prefetches/prerenders from the CMS -->
     <link rel="prefetch" href="<?= get_next_posts_page_link() ?>">
     <link rel="prerender" href="<?= get_next_posts_page_link() ?>">
-<?php } ?>
+<?php
+
+} ?>
 
     <!-- Pingback URL -->
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <!-- Fonts -->
     <!-- Lato: 300, 400, 600, 800 -->
@@ -56,19 +52,12 @@ if ( is_home() || is_page('messages') ) {
     <!-- Usual: 300, 400, 700, 800 -->
     <link rel="stylesheet" href="//use.typekit.net/qmj3blq.css">
 
-    <!-- IE fixes -->
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/respond.min.js"></script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/scripts/dist/rem.min.js"></script>
-    <![endif]-->
-
     <?php wp_head(); ?>
   </head>
 
   <body <?php body_class(); ?>>
 
-    <!--[if lt IE 9]><div class="o-container o-container--full c-browse-happy">
+    <!--[if lte IE 9]><div class="o-container o-container--full c-browse-happy">
     <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </div><![endif]-->
 
@@ -78,19 +67,19 @@ if ( is_home() || is_page('messages') ) {
 
       <div class="o-container">
 
-        <?php get_template_part( 'partials/logo' ); ?>
+        <?php get_template_part('partials/logo'); ?>
 
         <nav class="c-navigation u-cf">
           <div class="u-pull-right@lg u-margin u-margin-none@lg">
             <?php get_search_form(); ?>
           </div>
           <div class="u-pull-left@lg">
-            <?php wp_nav_menu( array(
+            <?php wp_nav_menu(array(
               'theme_location' => 'Main Menu',
               'menu' => 'Main Menu',
               'container' => false,
               'menu_class' => 'c-menu u-cf'
-            ) ); ?>
+            )); ?>
           </div>
         </nav>
         <div class="u-pull-right u-hide@lg">

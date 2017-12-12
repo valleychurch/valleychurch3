@@ -35,10 +35,6 @@
 // Push in a pixel font size and get a rem one back
 @mixin font-size($px-value) {
   font-size: font-size-rem($px-value);
-
-  .lt-ie9 & {
-    font-size: ceil($px-value) + px;
-  }
 }
 
 // CSS lock for font-size

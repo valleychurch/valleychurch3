@@ -24,6 +24,8 @@
     "load-grunt-tasks": "^3.5.2"
   },
   "browserslist": [
-    "last 2 versions"
+    "> 1%",
+    "last 2 versions",
+    "ie 10"
   ]
 }
