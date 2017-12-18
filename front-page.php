@@ -16,8 +16,7 @@ if (has_post_thumbnail()) {
     } else { ?>
       <h1 class="giga u-margin-none">Welcome Home!</h1>
       <p class="h2 u-text-light">We're glad you're here</p>
-    <?php
-
+    <?php 
   } ?>
     </div>
     <?php if (get_field('video_mp4') || get_field('video_webm')) { ?>
