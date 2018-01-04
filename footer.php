@@ -7,7 +7,7 @@
           <div class="o-col-12@xxs o-col-3@lg u-text-center@xxs u-text-left@lg u-grid-1@xxs u-grid-0@lg u-margin" itemscope itemtype="http://schema.org/LocalBusiness">
             <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/logo.svg" alt="Valley Church logo" class="u-margin c-logo">
             <img src="<?= get_template_directory_uri(); ?>/assets/images/dist/touchicon.png" alt="Valley Church icon" class="u-hidden" itemprop="image">
-            <p class="u-hidden" itemprop="name"><?= bloginfo( 'name' ); ?></p>
+            <p class="u-hidden" itemprop="name"><?= bloginfo('name'); ?></p>
             <p class="small u-text-muted u-line-height--small" itemscope itemprop="address" itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress">
                 Fourfields<br/>
@@ -37,66 +37,66 @@
             <div class="o-row">
               <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">New Here?</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-new-here',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
 
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Services</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-services',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
               </div>
 
               <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Church Life</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-church-life',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
               </div>
 
               <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Watch &amp; Read</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-watch-read',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
 
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Get Involved</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-get-involved',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
               </div>
 
               <div class="o-col-12@xxs o-col-6@xs o-col-3@sm">
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">People Matter</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-people-matter',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
 
                 <h6 class="u-text-muted u-margin-quarter u-text-uppercase">Venue Hire</h6>
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu(array(
                   'theme_location' => 'footer-venue-hire',
                   'container' => false,
                   'menu_class' => 'o-list small u-margin',
                   'fallback_cb' => false
-                ) ); ?>
+                )); ?>
               </div>
             </div>
           </div>
@@ -105,18 +105,37 @@
 
         <div class="row">
           <p class="small u-text-muted u-text-center@xs u-text-left@lg u-margin-none">
-            &copy; <?= date( 'Y' ) ?> <?= bloginfo( 'name' ); ?>. We're a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
+            &copy; <?= date('Y') ?> <?= bloginfo('name'); ?>. We're a <a href="http://freemethodist.org.uk" target="_blank">Free Methodist UK Church</a>, <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber=1125080&SubsidiaryNumber=0"
               target="_blank">Registered Charity No. 1125080</a>. <a href="/privacy">Privacy &amp; Cookie Policy</a>.
           </p>
         </div>
       </div>
     </footer>
 
-    <?php if ( $_SERVER['HTTP_HOST'] === "valley.dev" ) {
-      $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://'; ?>
+    <?php if ($_SERVER['HTTP_HOST'] === "valley.dev") {
+      $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://'; ?>
     <script src="<?= $protocol . $_SERVER['HTTP_HOST']; ?>:35729/livereload.js"></script>
-    <?php } ?>
+    <?php 
+  } ?>
 
     <?php wp_footer(); ?>
+
+    <script>
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'fullstory.com';
+    window['_fs_org'] = '9MYY5';
+    window['_fs_namespace'] = 'FS';
+    (function(m,n,e,t,l,o,g,y){
+        if (e in m) {if(m.console && m.console.log) { m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].');} return;}
+        g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+        o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+        y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+        g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){g(l,v)};
+        g.identifyAccount=function(i,v){o='account';v=v||{};v.acctId=i;g(o,v)};
+        g.clearUserCookie=function(c,d,i){if(!c || document.cookie.match('fs_uid=[`;`]*`[`;`]*`[`;`]*`')){
+        d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+        ';path=/;expires='+new Date(0).toUTCString();i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}};
+    })(window,document,window['_fs_namespace'],'script','user');
+    </script>
   </body>
 </html>
