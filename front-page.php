@@ -1,53 +1,60 @@
 <?php
-  get_header();
+get_header();
 
-  $featured = get_template_directory_uri() . '/assets/images/dist/hero-home.jpg';
-  if ( has_post_thumbnail() ) {
-    $img_id = get_post_thumbnail_id( $post->ID );
-    $featured = wp_get_attachment_image_src( $img_id, 'slide' );
-  }
+$featured = get_template_directory_uri() . '/assets/images/dist/hero-home.jpg';
+if (has_post_thumbnail()) {
+  $img_id = get_post_thumbnail_id($post->ID);
+  $featured = wp_get_attachment_image_src($img_id, 'slide');
+}
 ?>
 
   <!-- Section: Welcome -->
   <section class="c-section c-section--hero c-section--top c-section--overlay c-section--overlay--red" style="background-image:url('<?= $featured[0]; ?>');">
     <div class="o-container u-text-center u-text-white">
-    <?php if ( !empty( get_the_content() ) ) {
+    <?php if (!empty(get_the_content())) {
       the_content();
     } else { ?>
       <h1 class="giga u-margin-none">Welcome Home!</h1>
       <p class="h2 u-text-light">We're glad you're here</p>
-    <?php } ?>
+    <?php 
+  } ?>
     </div>
-    <?php if ( get_field( 'video_mp4' ) || get_field( 'video_webm' ) ) { ?>
+    <?php if (get_field('video_mp4') || get_field('video_webm')) { ?>
     <video autoplay loop playsinline muted class="c-section__video">
-      <?php if ( get_field( 'video_mp4' ) ) { ?>
-      <source type="video/mp4" src="<?= get_field( 'video_mp4' ) ?>">
-      <?php } ?>
-      <?php if ( get_field( 'video_webm' ) ) { ?>
-      <source type="video/webm" src="<?= get_field( 'video_webm' ) ?>">
-      <?php } ?>
+      <?php if (get_field('video_mp4')) { ?>
+      <source type="video/mp4" src="<?= get_field('video_mp4') ?>">
+      <?php
+
+    } ?>
+      <?php if (get_field('video_webm')) { ?>
+      <source type="video/webm" src="<?= get_field('video_webm') ?>">
+      <?php
+
+    } ?>
     </video>
-    <?php } ?>
-    <?php get_template_part( 'partials/notification' ); ?>
+    <?php
+
+  } ?>
+    <?php get_template_part('partials/notification'); ?>
   </section>
 
   <?php
-    $args =
+  $args =
+    array(
+    'post_type' => 'location',
+    'post_status' => array('publish'),
+    'posts_per_page' => -1,
+    'meta_query' => array(
       array(
-        'post_type' => 'location',
-        'post_status' => array( 'publish' ),
-        'posts_per_page' => -1,
-        'meta_query' => array(
-          array(
-            'key'       => 'hide_on_homepage',
-            'value'     => '1',
-            'compare'   => '!='
-          )
-        )
-      );
+        'key' => 'hide_on_homepage',
+        'value' => '1',
+        'compare' => '!='
+      )
+    )
+  );
 
-    $wp_query = new WP_Query( $args );
-    if ( have_posts() ) : ?>
+  $wp_query = new WP_Query($args);
+  if (have_posts()) : ?>
   <!-- Section: Services -->
   <section class="c-section c-section--hero" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/images/dist/home-visit.jpg');">
     <div class="o-container">
@@ -61,7 +68,7 @@
       </div>
       <div class="o-row o-row--center">
         <div class="o-col-12@xxs o-col-10@xl o-col-center o-btn-group">
-        <?php while ( have_posts() ) :
+        <?php while (have_posts()) :
           the_post(); ?>
           <a class="o-btn o-btn--large o-btn--ghost o-btn--ghost--white" href="<?= get_permalink(); ?>"><?= the_title(); ?></a>
         <?php endwhile; ?>
@@ -88,27 +95,27 @@
         $i = 1;
         $args =
           array(
-            'post_type' => 'event',
-            'post_status' => array( 'publish' ),
-            'posts_per_page' => 4,
-            'meta_key' => 'datetimestamp_start',
-            'orderby' => 'meta_value',
-            'order' => 'ASC'
-          );
+          'post_type' => 'event',
+          'post_status' => array('publish'),
+          'posts_per_page' => 4,
+          'meta_key' => 'datetimestamp_start',
+          'orderby' => 'meta_value',
+          'order' => 'ASC'
+        );
 
-        $wp_query = new WP_Query( $args );
+        $wp_query = new WP_Query($args);
 
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-            the_post(); ?>
-        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ( $i > 2 ) ? "u-hide@xs u-show@lg" : ""; ?> <?= ( $i > 4 ) ? "u-hide" : ""; ?>">
-          <?php get_template_part( 'partials/card', 'event' ); ?>
+        if (have_posts()) :
+          while (have_posts()) :
+          the_post(); ?>
+        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ($i > 2) ? "u-hide@xs u-show@lg" : ""; ?> <?= ($i > 4) ? "u-hide" : ""; ?>">
+          <?php get_template_part('partials/card', 'event'); ?>
         </div>
         <?php
         $i++;
         endwhile;
         else :
-          get_template_part( 'partials/no-content-found' );
+          get_template_part('partials/no-content-found');
         endif;
         wp_reset_query(); ?>
       </div>
@@ -125,31 +132,33 @@
     <div class="o-container">
       <div class="o-row">
       <?php
-        $args =
-          array(
-            'post_type' => 'slider',
-            'post_status' => array( 'publish' ),
-            'posts_per_page' => -1
-          );
+      $args =
+        array(
+        'post_type' => 'slider',
+        'post_status' => array('publish'),
+        'posts_per_page' => -1
+      );
 
-        $wp_query = new WP_Query( $args );
-        if ( have_posts() ) : ?>
+      $wp_query = new WP_Query($args);
+      if (have_posts()) : ?>
         <div class="o-col-12@xxs o-col-6@md">
           <div class="c-slide-container">
             <ul class="c-slides u-margin u-margin-none@lg u-cf">
-            <?php while ( have_posts() ) :
+            <?php while (have_posts()) :
               the_post();
-              if ( has_post_thumbnail() ) :
-                $img_id = get_post_thumbnail_id( $post->ID );
-                $banner_xxl = wp_get_attachment_image_src( $img_id, 'banner-xxl' );
-                $banner_xl = wp_get_attachment_image_src( $img_id, 'banner-xl' );
-                $banner_lg = wp_get_attachment_image_src( $img_id, 'banner-lg' );
-                $banner_md = wp_get_attachment_image_src( $img_id, 'banner-md' );
-                $banner_sm = wp_get_attachment_image_src( $img_id, 'banner-sm' );
-                $banner_xs = wp_get_attachment_image_src( $img_id, 'banner-xs' );
+            if (has_post_thumbnail()) :
+              $img_id = get_post_thumbnail_id($post->ID);
+            $banner_xxl = wp_get_attachment_image_src($img_id, 'banner-xxl');
+            $banner_xl = wp_get_attachment_image_src($img_id, 'banner-xl');
+            $banner_lg = wp_get_attachment_image_src($img_id, 'banner-lg');
+            $banner_md = wp_get_attachment_image_src($img_id, 'banner-md');
+            $banner_sm = wp_get_attachment_image_src($img_id, 'banner-sm');
+            $banner_xs = wp_get_attachment_image_src($img_id, 'banner-xs');
             ?>
               <li class="o-slide">
-                <?php if ( get_field( 'slide_link' ) ) { ?><a href="<?php the_field( 'slide_link' ); ?>"><?php } ?>
+                <?php if (get_field('slide_link')) { ?><a href="<?php the_field('slide_link'); ?>"><?php
+
+                                                                                                } ?>
                 <img
                   src="<?= $banner_lg[0]; ?>"
                   srcset="<?= $banner_xs[0]; ?> 320w,
@@ -161,7 +170,9 @@
                   alt="<?php the_title(); ?>"
                   width="1280"
                   height="720">
-                <?php if ( get_field('slider_link') ) { ?></a><?php } ?>
+                <?php if (get_field('slider_link')) { ?></a><?php
+
+                                                          } ?>
               </li>
             <?php endif;
             endwhile; ?>
@@ -171,35 +182,43 @@
         </div>
       <?php else : endif; ?>
       <?php wp_reset_query(); ?>
-      <?php if ( get_field( 'show_panel' ) == 1 ) { ?>
+      <?php if (get_field('show_panel') == 1) { ?>
         <div class="o-col-12@xxs o-col-6@md">
           <div class="o-card o-card--overlay u-margin-none">
-            <?php if ( get_field( 'image' ) ) {
-              set_query_var( 'image_id', get_field('image')["id"] );
-              set_query_var( 'class', 'o-card__img' );
-              get_template_part( 'partials/hero-blog' );
+            <?php if (get_field('image')) {
+              set_query_var('image_id', get_field('image')["id"]);
+              set_query_var('class', 'o-card__img');
+              get_template_part('partials/hero-blog');
             }
             ?>
             <div class="o-card__overlay">
               <div class="o-card__overlay__middle">
-              <?php if ( get_field( 'title' ) ) { ?>
-                <h2 class="o-card__title"><?= get_field( 'title' ); ?></h2>
-              <?php } ?>
-              <?php if ( get_field( 'content' ) ) { ?>
+              <?php if (get_field('title')) { ?>
+                <h2 class="o-card__title"><?= get_field('title'); ?></h2>
+              <?php
+
+            } ?>
+              <?php if (get_field('content')) { ?>
                 <p class="o-card__text u-hide u-show@sm u-hide@md u-show@xl">
-                <?= get_field( 'content' ); ?>
+                <?= get_field('content'); ?>
                 </p>
-              <?php } ?>
-              <?php if ( get_field( 'show_button' ) == 1 ) { ?>
-                <a class="o-btn o-btn--ghost o-btn--ghost--white" href="<?php the_field( 'button_link' ); ?>">
-                  <?= get_field( 'button_text' ); ?>
+              <?php
+
+            } ?>
+              <?php if (get_field('show_button') == 1) { ?>
+                <a class="o-btn o-btn--ghost o-btn--ghost--white" href="<?php the_field('button_link'); ?>">
+                  <?= get_field('button_text'); ?>
                 </a>
-              <?php } ?>
+              <?php
+
+            } ?>
               </div>
             </div>
           </div>
         </div>
-      <?php } ?>
+      <?php
+
+    } ?>
       </div>
     </div>
   </section> -->
@@ -259,24 +278,24 @@
         $i = 1;
         $args =
           array(
-            'post_type' => 'podcast',
-            'post_status' => array( 'publish' ),
-            'posts_per_page' => 4
-          );
+          'post_type' => 'podcast',
+          'post_status' => array('publish'),
+          'posts_per_page' => 4
+        );
 
-        $wp_query = new WP_Query( $args );
+        $wp_query = new WP_Query($args);
 
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-            the_post(); ?>
-        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ( $i > 2 ) ? "u-hide@xs u-show@lg" : ""; ?>">
-          <?php get_template_part( 'partials/card', 'message' ); ?>
+        if (have_posts()) :
+          while (have_posts()) :
+          the_post(); ?>
+        <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ($i > 2) ? "u-hide@xs u-show@lg" : ""; ?>">
+          <?php get_template_part('partials/card', 'message'); ?>
         </div>
         <?php
         $i++;
         endwhile;
         else :
-          get_template_part( 'partials/no-content-found' );
+          get_template_part('partials/no-content-found');
         endif;
         wp_reset_query(); ?>
       </div>
@@ -327,22 +346,22 @@
         <?php
         $args =
           array(
-            'post_type' => 'post',
-            'post_status' => array( 'publish' ),
-            'posts_per_page' => 3
-          );
+          'post_type' => 'post',
+          'post_status' => array('publish'),
+          'posts_per_page' => 3
+        );
 
-        $wp_query = new WP_Query( $args );
-        if ( have_posts() ) :
-          while ( have_posts() ) :
-            the_post(); ?>
+        $wp_query = new WP_Query($args);
+        if (have_posts()) :
+          while (have_posts()) :
+          the_post(); ?>
           <div class="o-col-12@xxs o-col-4@sm">
-          <?php get_template_part( 'partials/card', 'blog' ); ?>
+          <?php get_template_part('partials/card', 'blog'); ?>
           </div>
           <?php
           endwhile;
-        else : endif;
-        wp_reset_query(); ?>
+          else : endif;
+          wp_reset_query(); ?>
       </div>
 
       <a href="/blog" class="o-btn o-btn--large">
