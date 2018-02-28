@@ -67,8 +67,8 @@ button.c-search__button {
   margin: 0;
   line-height: 0;
   color: greyscale(5);
-  background-color: transparent;
-  border-width: 0;
+  background-color: transparent !important;
+  border-width: 0 !important;
   border-radius: 0 2px 2px 0;
   @include transition();
 

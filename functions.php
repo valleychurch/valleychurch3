@@ -319,7 +319,7 @@ function theme_files()
   if (!is_user_logged_in()) {
     wp_register_style('site', get_template_directory_uri() . '/assets/styles/css/style.' . VC_THEME_VERSION . '.min.css', null, null);
   } else {
-    wp_register_style('site', '//valleychurch.eu/wp-content/themes/valleychurch3/assets/styles/css/style.latest.min.css', null, null);
+    wp_register_style('site', get_template_directory_uri() . '/assets/styles/css/style.latest.min.css', null, null);
   }
 
   wp_enqueue_style('site');
@@ -336,7 +336,7 @@ function theme_files()
   if (!is_user_logged_in()) {
     wp_register_script('site', get_template_directory_uri() . '/assets/scripts/dist/script.' . VC_THEME_VERSION . '.min.js', ['jquery'], null, true);
   } else {
-    wp_register_script('site', '//valleychurch.eu/wp-content/themes/valleychurch3/assets/scripts/dist/script.latest.min.js', ['jquery'], null, true);
+    wp_register_script('site', get_template_directory_uri() . '/assets/scripts/dist/script.latest.min.js', ['jquery'], null, true);
   }
 
   if (is_page('connect') || is_page('locations') || is_singular('location')) {

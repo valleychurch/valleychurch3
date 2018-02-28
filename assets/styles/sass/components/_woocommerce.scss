@@ -1,0 +1,50 @@
+.woocommerce div.product form.cart .variations td, .woocommerce div.product form.cart .variations th {
+  vertical-align: middle;
+}
+
+.woocommerce div.product form.cart .variations td.label {
+  width: 25%;
+}
+
+.woocommerce table.shop_table td.label {
+  display: none;
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
+  @extend .o-btn;
+  background-color: colour("red") !important;
+  border: 1px solid colour("red", dark) !important;
+  padding: quarter($VCbase) three-quarters($VCbase) !important;
+}
+
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
+  color: #fff;
+}
+
+.woocommerce div.product p.price, .woocommerce div.product span.price {
+  font-size: rem(40px);
+  font-weight: 700;
+  font-family: $VCfont-stack-alt;
+  color: $VCblack;
+}
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+  padding: 1rem 1.5rem;
+  background-color: #dedede;
+  border-top: 0;
+  border-radius: 4px;
+
+  a.button {
+    margin-bottom: 0;
+    font-size: rem(14px);
+    font-weight: 400;
+  }
+
+  &:before {
+    display: none;
+  }
+}
+
+.woocommerce .quantity .qty {
+  display: inline-block;
+}
