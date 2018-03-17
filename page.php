@@ -61,11 +61,11 @@
             <div class="o-card__body">
 
               <?php if ( get_sub_field( 'title' ) ) { ?>
-              <h2 class="h3 o-card__title"><?= get_sub_field( 'title' ); ?></h2>
+              <h2 class="h3 o-card__title <?= ( get_sub_field('subtitle') ) ? 'u-margin-half' : 'u-margin-none' ?>"><?= get_sub_field( 'title' ); ?></h2>
               <?php } ?>
 
               <?php if ( get_sub_field( 'subtitle' ) ) { ?>
-              <h3 class="h4 o-card__subtitle u-margin-none u-text-black"><?= get_sub_field( 'subtitle' ); ?></h3>
+              <h3 class="h4 o-card__subtitle u-text-black"><?= get_sub_field( 'subtitle' ); ?></h3>
               <?php } ?>
 
               <?php if ( get_sub_field( 'content' ) ) { ?>
