@@ -61,7 +61,7 @@
             <div class="o-card__body">
 
               <?php if ( get_sub_field( 'title' ) ) { ?>
-              <h2 class="h3 o-card__title <?= ( get_sub_field('subtitle') ) ? 'u-margin-half' : 'u-margin-none' ?>"><?= get_sub_field( 'title' ); ?></h2>
+              <h2 class="h3 o-card__title <?= ( get_sub_field('subtitle') ) ? 'u-margin-half' : '' ?>"><?= get_sub_field( 'title' ); ?></h2>
               <?php } ?>
 
               <?php if ( get_sub_field( 'subtitle' ) ) { ?>
