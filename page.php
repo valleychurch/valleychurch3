@@ -50,7 +50,7 @@
         the_row(); ?>
 
         <div class="<?= ( get_field( 'card_class' ) ) ? $card_class : "o-col-12@xxs o-col-6@md"; ?>">
-          <div class="o-card u-text-center">
+          <div class="o-card o-card--shadow">
             <?php if ( get_sub_field( 'image' ) ) {
               set_query_var( 'image_id', get_sub_field( 'image' )["id"] );
               set_query_var( 'class', 'o-card__img' );
@@ -64,10 +64,12 @@
               <h2 class="h3 o-card__title"><?= get_sub_field( 'title' ); ?></h2>
               <?php } ?>
 
+              <?php if ( get_sub_field( 'subtitle' ) ) { ?>
+              <h3 class="h4 o-card__subtitle u-margin-none u-text-black"><?= get_sub_field( 'subtitle' ); ?></h3>
+              <?php } ?>
+
               <?php if ( get_sub_field( 'content' ) ) { ?>
-              <p class="o-card__text">
-                <?= get_sub_field( 'content' ); ?>
-              </p>
+              <p class="o-card__text"><?= get_sub_field( 'content' ); ?></p>
               <?php } ?>
 
               <?php if ( get_sub_field( 'show_button' ) == 1 ) { ?>
