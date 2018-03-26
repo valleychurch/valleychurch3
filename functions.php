@@ -291,8 +291,11 @@ function my_rest_prepare_podcast($data, $post, $request) {
   }
 
   $powerpress_data = powerpress_get_enclosure_data( $post->ID );
-  if ( !empty( $powerpress_data['url'] ) ) {
+  if (!empty( $powerpress_data['url'])) {
     $_data['powerpress_url'] = $powerpress_data['url'];
+  }
+  if (!empty($powerpress_data['feed_title'])) {
+    $_data['powerpress_title'] = $powerpress_data['feed_title'];
   }
 
   $data->data = $_data;
