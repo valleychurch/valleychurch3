@@ -68,6 +68,7 @@ function create_custom_post_type_args( $name, $label = null, $icon = null, $excl
   $rewrite = ( ( $rewrite != null ) ? $rewrite : array( 'slug' => $name, 'with_front' => false ) );
   $args = array(
     'public' =>                 true,
+    'show_in_rest' =>           true,
     'labels' => array(
       'name' =>                 $plural,
       'singular_name' =>        $singular,
