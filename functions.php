@@ -276,6 +276,26 @@ function create_custom_post_types() {
 };
 add_action( 'init', 'create_custom_post_types' );
 
+$post_type = "post";
+
+/**
+ * Add ACF data to JSON API
+ */
+function my_rest_prepare_podcast($data, $post, $request) {
+  $_data = $data->data;
+
+  $fields = get_fields($post->ID);
+
+  foreach ($fields as $key => $value) {
+    $_data[$key] = get_field($key, $post->ID);
+  }
+
+  $data->data = $_data;
+  return $data;
+}
+
+add_filter("rest_prepare_podcast", 'my_rest_prepare_podcast', 10, 3);
+
 /**
  * Create custom taxonomies
  */
