@@ -290,9 +290,16 @@ function my_rest_prepare_podcast($data, $post, $request) {
     $_data[$key] = get_field($key, $post->ID);
   }
 
+  $powerpress_data = powerpress_get_enclosure_data( $post->ID );
+  if ( !empty( $powerpress_data['url'] ) ) {
+    $_data['powerpress_url'] = $powerpress_data['url'];
+  }
+
   $data->data = $_data;
   return $data;
 }
+
+
 
 add_filter("rest_prepare_podcast", 'my_rest_prepare_podcast', 10, 3);
 
