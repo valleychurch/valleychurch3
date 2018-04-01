@@ -679,7 +679,7 @@ function import_churchapp_events() {
 
 function import_churchsuite_events() {
   $date_today = date("Y-m-d");
-  $date_future = date("Y-m-d", strtotime("+3 months"));
+  $date_future = date("Y-m-d", strtotime("+6 months"));
 
   $ch = curl_init(CS_EVENTS_URL . "&date_start=" . $date_today . "&date_end=" . $date_future);
 
