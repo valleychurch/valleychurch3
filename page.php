@@ -71,7 +71,7 @@
               get_template_part('partials/hero', 'slide');
             } ?>
 
-            <?php if (get_sub_field('title') || get_sub_field('content')) { ?>
+            <?php if (get_sub_field('title') || get_sub_field('content') || get_sub_field('show_button') == 1) { ?>
             <div class="o-card__body">
 
               <?php if (get_sub_field('title')) { ?>
