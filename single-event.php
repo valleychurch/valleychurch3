@@ -153,10 +153,10 @@
 
             <?php
             $link = null;
-            if (get_sub_field('button_link')) {
-              $link = get_sub_field('button_link');
-            } elseif (get_sub_field('button_external_link')) {
+            if (get_sub_field('button_external_link')) {
               $link = get_sub_field('button_external_link');
+            } elseif (get_sub_field('button_link')) {
+              $link = get_sub_field('button_link');
             } else $link = '';
             ?>
             <?php if (get_sub_field('show_button') == 1) { ?>
