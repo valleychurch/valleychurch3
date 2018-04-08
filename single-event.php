@@ -110,13 +110,16 @@
   if (have_rows('cards')) { ?>
   <section class="c-section u-background-grey--11">
     <div class="o-container">
-      <?php if ($heading) { ?>
-        <h2><?= $heading ?></h2>
-      <?php 
-    } ?>
-      <?php if ($intro) {
-        echo $intro;
-      } ?>
+      <div class="o-row">
+        <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block u-text-center">
+          <?php if ($heading) { ?>
+            <h2><?= $heading ?></h2>
+          <?php } ?>
+          <?php if ($intro) {
+            echo $intro;
+          } ?>
+        </div>
+      </div>
       <div class="o-row">
       <?php
       while (have_rows('cards')) {
