@@ -41,10 +41,19 @@
   <?php
   $cards = get_field( 'cards' );
   $card_class = get_field( 'card_class' );
+  $heading = get_field('heading');
+  $intro = get_field('introduction');
+
   if ( have_rows( 'cards' ) ) { ?>
   <section class="c-section u-background-grey--11">
     <div class="o-container">
       <div class="o-row">
+      <?php if ( $heading ) { ?>
+        <h2><?= $heading ?></h2>
+      <?php } ?>
+      <?php if ( $intro ) {
+        echo $intro;
+      } ?>
       <?php
       while ( have_rows( 'cards' ) ) {
         the_row(); ?>

@@ -101,4 +101,75 @@
 
   </section>
 
+  <?php
+  $cards = get_field('cards');
+  $card_class = get_field('card_class');
+  $heading = get_field('heading');
+  $intro = get_field('introduction');
+
+  if (have_rows('cards')) { ?>
+  <section class="c-section u-background-grey--11">
+    <div class="o-container">
+      <div class="o-row">
+      <?php if ($heading) { ?>
+        <h2><?= $heading ?></h2>
+      <?php 
+    } ?>
+      <?php if ($intro) {
+        echo $intro;
+      } ?>
+      <?php
+      while (have_rows('cards')) {
+        the_row(); ?>
+
+        <div class="<?= (get_field('card_class')) ? $card_class : "o-col-12@xxs o-col-6@md"; ?>">
+          <div class="o-card o-card--shadow">
+            <?php if (get_sub_field('image')) {
+              set_query_var('image_id', get_sub_field('image')["id"]);
+              set_query_var('class', 'o-card__img');
+              get_template_part('partials/hero', 'slide');
+            } ?>
+
+            <?php if (get_sub_field('title') || get_sub_field('content')) { ?>
+            <div class="o-card__body">
+
+              <?php if (get_sub_field('title')) { ?>
+              <h2 class="h3 o-card__title <?= (get_sub_field('subtitle')) ? 'u-margin-half' : '' ?>"><?= get_sub_field('title'); ?></h2>
+              <?php 
+            } ?>
+
+              <?php if (get_sub_field('subtitle')) { ?>
+              <h3 class="h4 o-card__subtitle u-text-black"><?= get_sub_field('subtitle'); ?></h3>
+              <?php 
+            } ?>
+
+              <?php if (get_sub_field('content')) { ?>
+              <p class="o-card__text"><?= get_sub_field('content'); ?></p>
+              <?php 
+            } ?>
+
+              <?php if (get_sub_field('show_button') == 1) { ?>
+              <a class="o-btn" href="<?php the_sub_field('button_link'); ?>">
+                <?php if (get_sub_field('button_text')) {
+                  echo get_sub_field('button_text');
+                } ?>
+              </a>
+              <?php 
+            } ?>
+
+            </div>
+            <?php 
+          } ?>
+
+          </div>
+        </div>
+
+      <?php 
+    } ?>
+      </div>
+    </div>
+  </section>
+  <?php 
+} ?>
+
 <?php get_footer(); ?>
