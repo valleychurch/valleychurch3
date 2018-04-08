@@ -148,8 +148,18 @@
               <?php 
             } ?>
 
-              <?php if (get_sub_field('show_button') == 1) { ?>
-              <a class="o-btn" href="<?php the_sub_field('button_link'); ?>">
+            <?php
+              $link = null;
+              if (get_sub_field('button_link')) {
+                $link = get_sub_field('button_link');
+              }
+              elseif (get_sub_field('button_external_link')) {
+                $link = get_sub_field('button_external_link');
+              }
+              else $link = '';
+            ?>
+            <?php if (get_sub_field('show_button') == 1) { ?>
+              <a class="o-btn" href="<?= $link ?>">
                 <?php if (get_sub_field('button_text')) {
                   echo get_sub_field('button_text');
                 } ?>
