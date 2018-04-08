@@ -47,14 +47,13 @@
   if (have_rows('cards')) { ?>
   <section class="c-section u-background-grey--11">
     <div class="o-container">
-      <div class="o-row">
       <?php if ($heading) { ?>
         <h2><?= $heading ?></h2>
-      <?php 
-    } ?>
+      <?php } ?>
       <?php if ($intro) {
         echo $intro;
       } ?>
+      <div class="o-row">
       <?php
       while (have_rows('cards')) {
         the_row(); ?>

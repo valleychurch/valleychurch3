@@ -110,7 +110,6 @@
   if (have_rows('cards')) { ?>
   <section class="c-section u-background-grey--11">
     <div class="o-container">
-      <div class="o-row">
       <?php if ($heading) { ?>
         <h2><?= $heading ?></h2>
       <?php 
@@ -118,6 +117,7 @@
       <?php if ($intro) {
         echo $intro;
       } ?>
+      <div class="o-row">
       <?php
       while (have_rows('cards')) {
         the_row(); ?>
@@ -149,14 +149,12 @@
             } ?>
 
             <?php
-              $link = null;
-              if (get_sub_field('button_link')) {
-                $link = get_sub_field('button_link');
-              }
-              elseif (get_sub_field('button_external_link')) {
-                $link = get_sub_field('button_external_link');
-              }
-              else $link = '';
+            $link = null;
+            if (get_sub_field('button_link')) {
+              $link = get_sub_field('button_link');
+            } elseif (get_sub_field('button_external_link')) {
+              $link = get_sub_field('button_external_link');
+            } else $link = '';
             ?>
             <?php if (get_sub_field('show_button') == 1) { ?>
               <a class="o-btn" href="<?= $link ?>">
