@@ -66,13 +66,21 @@
   position: relative;
   display: inline-block;
   margin: 0;
-  width: auto;
-  height: auto;
+  height: double($VCbase);
   @include font-stack-alt;
   line-height: 0;
   color: #fff;
   text-decoration: none;
   z-index: 10;
+
+  @include breakpoint(sm) {
+    height: rem(42px);
+  }
+
+  @include breakpoint(lg) {
+    height: double($VCbase);
+    margin: rem(11px) 0;
+  }
 
   &:hover,
   &:focus {
