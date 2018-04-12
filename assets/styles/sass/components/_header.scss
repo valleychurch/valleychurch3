@@ -64,41 +64,40 @@
 
 .c-logo {
   position: relative;
-  z-index: 10;
   display: inline-block;
-  width: double($VCbase);
-  height: double($VCbase);
-  // padding: rem(3px) 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  @include font-stack-alt;
   line-height: 0;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10;
 
-  @include breakpoint(sm) {
-    width: rem(42px);
-    height: rem(42px);
+  &:hover,
+  &:focus {
+    color: $VCwhite;
   }
-
-  @include breakpoint(md) {
-    // padding: rem(7px) 0;
-  }
-
-  @include breakpoint(lg) {
-    // padding: rem(13px) 0;
+  
+  img {
     width: double($VCbase);
     height: double($VCbase);
-    margin: rem(11px) 0;
+
+    @include breakpoint(sm) {
+      width: rem(42px);
+      height: rem(42px);
+    }
+
+    @include breakpoint(lg) {
+      width: double($VCbase);
+      height: double($VCbase);
+    }
   }
+}
 
-  // object,
-  // svg {
-  //   position: relative;
-  //   z-index: -1;
-  //   width: 32px;
-  //   height: 32px;
-  //   overflow: hidden;
-  //   pointer-events: none;
-
-  //   @include breakpoint(sm) {
-  //     width: 201px;
-  //     height: 32px;
-  //   }
-  // }
+.c-logo__tagline {
+  vertical-align: middle;
+  font-size: rem(20px);
+  font-weight: 500;
+  margin-left: rem(6px);
 }
