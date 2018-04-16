@@ -125,7 +125,7 @@ fieldset {
     display: none;
 
     &:checked {
-      + label {
+      ~ label {
         &:before {
           background: $VCred;
           border: 1px solid greyscale(5);
