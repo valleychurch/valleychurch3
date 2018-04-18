@@ -112,7 +112,7 @@ if ($location_query->have_posts()) {
         <?php
         endwhile;
         else :
-          get_template_part('partials/no-content-found');
+          get_template_part('partials/no-groups-found');
         endif;
         ?>
     </div>
