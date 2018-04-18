@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.4.2' );
+define( 'VC_THEME_VERSION', '3.4.3' );
 define( 'CS_APP_ACCOUNT', 'valley' );
 define( 'CS_APP_APPLICATION', 'valleychurch-website' );
 define( 'CS_APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
@@ -945,6 +945,9 @@ function import_churchsuite_groups() {
         }
         if ( $group->site->name == "North East" ) {
           $location = 11692;
+        }
+        if ( $group->site->name == "Birmingham" ) {
+          $location = 20220;
         }
       }
 
