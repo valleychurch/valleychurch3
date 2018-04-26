@@ -1,6 +1,6 @@
 {
   "name": "valleychurch.eu",
-  "version": "3.4.3",
+  "version": "3.5.0",
   "description": "WordPress theme for Valley Church",
   "repository": {
     "type": "git",
@@ -8,22 +8,23 @@
   },
   "license": "GPL-3.0",
   "devDependencies": {
-    "autoprefixer": "^7.1.0",
+    "autoprefixer": "^8.3.0",
     "cssnano": "^3.0.0",
     "grunt": "^1.0.0",
     "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-imagemin": "^2.0.0",
     "grunt-contrib-uglify": "^3.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-criticalcss": "^2.1.0",
     "grunt-kss": "^5.0.0",
     "grunt-notify": "^0.4.3",
-    "grunt-postcss": "^0.8.0",
+    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
     "grunt-version": "^1.0.0",
     "load-grunt-tasks": "^3.5.2"
   },
   "browserslist": [
+    "> 1%",
     "last 2 versions"
   ]
 }
