@@ -735,7 +735,7 @@ function import_churchsuite_events() {
           $email .= "Successfully added " . $event->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a> to WP<br/>";
 
           // Add expiry date
-          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
+          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'delete', 'id' => $post_id ) );
 
           // Update ACF fields
           update_field( 'field_582456c4b953e', $event->identifier, $post_id );
@@ -811,7 +811,7 @@ function import_churchsuite_events() {
         if ( get_field( 'datetime_end', $post_to_update) != $event->datetime_end ) {
           update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
           _unscheduleExpiratorEvent( $post_id );
-          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
+          _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'delete', 'id' => $post_id ) );
           $update_count++;
         }
 
@@ -970,7 +970,7 @@ function import_churchsuite_groups() {
           $email .= "Successfully added " . $group->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a> to WP<br/>";
 
           // Add expiry date
-          _scheduleExpiratorEvent( $post_id, strtotime( $group->signup_date_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
+          _scheduleExpiratorEvent( $post_id, strtotime( $group->signup_date_end ), array( 'expireType' => 'delete', 'id' => $post_id ) );
 
           // Add location
           if ( $location != null ) {
@@ -1050,7 +1050,7 @@ function import_churchsuite_groups() {
 
         if ( get_field( 'date_end', $post_to_update) != $group->date_end ) {
           _unscheduleExpiratorEvent( $post_id );
-          _scheduleExpiratorEvent( $post_id, strtotime( $group->datetime_end ), array( 'expireType' => 'draft', 'id' => $post_id ) );
+          _scheduleExpiratorEvent( $post_id, strtotime( $group->datetime_end ), array( 'expireType' => 'delete', 'id' => $post_id ) );
 
           update_field( 'field_59b642dbed990', $group->date_end, $post_id );
           $update_count++;
