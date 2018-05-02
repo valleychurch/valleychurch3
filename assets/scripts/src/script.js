@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.5.2',
+    Version: '3.5.3',
 
     /**
      * Kick everything off
@@ -229,7 +229,7 @@ var Valley = (function() {
     },
 
     ResponsiveIframes: function() {
-      $('iframe').each(function(i, el) {
+      $('iframe:not([aria-hidden])').each(function(i, el) {
         $(el).wrap('<div class="o-ratio u-margin u-margin-double@md"/>');
       });
     },
