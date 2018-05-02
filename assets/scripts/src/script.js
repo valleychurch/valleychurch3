@@ -229,7 +229,7 @@ var Valley = (function() {
     },
 
     ResponsiveIframes: function() {
-      $('iframe:not([aria-hidden])').each(function(i, el) {
+      $('.c-post-content iframe').each(function(i, el) {
         $(el).wrap('<div class="o-ratio u-margin u-margin-double@md"/>');
       });
     },
