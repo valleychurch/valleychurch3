@@ -109,7 +109,7 @@ if (has_post_thumbnail()) {
           while (have_posts()) :
           the_post(); ?>
         <div class="o-col-12@xxs o-col-6@xs o-col-3@lg <?= ($i > 2) ? "u-hide@xs u-show@lg" : ""; ?> <?= ($i > 4) ? "u-hide" : ""; ?>">
-          <?php get_template_part('partials/card', 'event'); ?>
+          <?php get_template_part('partials/card', 'churchsuiteevent'); ?>
         </div>
         <?php
         $i++;
