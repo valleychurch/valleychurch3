@@ -744,6 +744,7 @@ function import_churchsuite_events() {
           update_field( 'field_582456d0b953f', $event->datetime_start, $post_id );
           update_field( 'field_58249be78d880', strtotime($event->datetime_start), $post_id );
           update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
+          update_field( 'field_5aec6da8893af', strtotime($event->datetime_end), $post_id );
 
           if (date("H:i:s", strtotime($event->datetime_start)) == "00:00:00" && date("H:i:s", strtotime($event->datetime_end)) == "23:59:59") {
             update_field( 'field_58c7f7bf045c3', 1, $post_id );
@@ -814,6 +815,11 @@ function import_churchsuite_events() {
           update_field( 'field_582456e3b9540', $event->datetime_end, $post_id );
           _unscheduleExpiratorEvent( $post_id );
           _scheduleExpiratorEvent( $post_id, strtotime( $event->datetime_end ), array( 'expireType' => 'delete', 'id' => $post_id ) );
+          $update_count++;
+        }
+
+        if ( get_field( 'datetimestamp_end', $post_to_update) != strtotime( $event->datetime_end ) ) {
+          update_field('field_5aec6da8893af', strtotime( $event->datetime_end ), $post_id);
           $update_count++;
         }
 

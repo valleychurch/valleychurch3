@@ -20,6 +20,11 @@
         } ?>
       </h3>
       <?php } ?>
+      <?php if (get_field('datetime_end')) { ?>
+      <span class="u-hidden" itemprop="endDate" content="<?= date('c', get_field('datetimestamp_end')) ?>">
+        <?= get_field('datetime_end') ?>
+      </span>
+      <?php } ?>
       <?php if ( get_field( 'location' ) ) { ?>
       <span class="u-hidden" itemprop="location" itemscope itemtype="http://schema.org/Place">
         <span itemprop="name"><?= the_field( 'location' ) ?></span>
@@ -36,6 +41,10 @@
         <?php } ?>
       </span>
       <?php } ?>
+
+      <span class="u-hidden" itemprop="description">
+        <?= the_content() ?>
+      </span>
     </div>
   </a>
 </article>
