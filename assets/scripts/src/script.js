@@ -33,7 +33,7 @@ var Valley = (function() {
     /**
      * Scoped variables inside `Valley.#` for storing key bits of information
      */
-    Version: '3.5.3',
+    Version: '3.6.0',
 
     /**
      * Kick everything off
@@ -41,15 +41,10 @@ var Valley = (function() {
     Init: function() {
       Valley.InitSideNav();
       Valley.ModernizrTest();
-      Valley.Slider();
       Valley.CheckNotifications();
+      Valley.AttachCookiePopup();
       Valley.ResponsiveIframes();
       Valley.ResponsiveTables();
-      // Valley.DownArrows();
-      Valley.CheckHeaderPosition();
-      Valley.SetMainLocation();
-      Valley.RemoveMainLocation();
-      Valley.CheckMainLocation();
 
       doc.documentElement.setAttribute('data-useragent', nav.userAgent);
 
@@ -61,7 +56,7 @@ var Valley = (function() {
 
       // iOS fix
       $('.c-menu > .menu-item > a').attr('onclick', 'void(0)');
-     },
+    },
 
     /**
      * Initialise the Google Map
@@ -173,15 +168,30 @@ var Valley = (function() {
 
       $('.js-notification-dismiss').on('click', function(e) {
         e.preventDefault();
-        $('.c-notification')
+        var parent = $(this).closest('.c-notification');
+
+        parent
           .attr('aria-expanded', 'false')
           .removeClass('is-notification-active');
 
         var notificationData = {
-          id: $('.c-notification').data('notification-id'),
+          id: parent.data('notification-id'),
           hide: true,
         };
         localStorage.setItem( 'Valley.Notification', JSON.stringify( notificationData ) );
+      });
+    },
+
+    AttachCookiePopup: function () {
+      $('.js-cookies-dismiss').on('click', function(e) {
+        e.preventDefault();
+        var parent = $(this).closest('.c-notification');
+
+        parent
+          .attr('aria-expanded', 'false')
+          .removeClass('is-notification-active');
+
+        Cookies.set('valleyHideCookieBar', '1', { expires: 60, secure: true });
       });
     },
 
@@ -191,25 +201,6 @@ var Valley = (function() {
         var fontFeatureSettings = !!('fontFeatureSettings' in doc.body.style);
 
         return !!(fontVariantLigatures || fontFeatureSettings);
-      });
-    },
-
-    Slider: function() {
-      var prevImg =
-        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-prev.svg" alt="Previous slide" width="100%" height="100%" class="prev-btn">';
-
-      var nextImg =
-        '<img src="//valleychurch.eu/wp-content/themes/valleychurch3/assets/images/dist/icon-next.svg" alt="Next slide" width="100%" height="100%" class="next-btn">';
-
-      $('.c-slides').responsiveSlides({
-        speed: 500,
-        timeout: 8000,
-        auto: true,
-        nav: true,
-        pager: true,
-        navContainer: '.slide-control',
-        prevText: prevImg,
-        nextText: nextImg
       });
     },
 
@@ -240,99 +231,6 @@ var Valley = (function() {
       });
     },
 
-    // DownArrows: function() {
-    //   $('.js-jump-down').on('click', function(e) {
-    //     e.preventDefault();
-    //     var parent = $(this).parent();
-
-    //     $('html, body').animate({
-    //       scrollTop: ( parent.next().offset().top - $header.height() )
-    //     }, 1000);
-    //   });
-    // },
-
-    CheckHeaderPosition: function() {
-      var scroll = $win.scrollTop();
-
-      if ( $body.hasClass( 'home' ) ) {
-        if ( scroll > 150 && !$header.hasClass( 'is-visible' ) ) {
-          $header.addClass( 'is-visible' );
-        }
-        if ( scroll < 150 && $header.hasClass( 'is-visible' ) ) {
-          $header.removeClass( 'is-visible' );
-        }
-      }
-    },
-
-    SetMainLocation: function() {
-      $('.js-set-location').on('click', function(e) {
-        e.preventDefault();
-        var id = $(this).data('location-id');
-        var name = $(this).data('location-name');
-
-        var locationData = {
-          id: id,
-          name: name,
-        };
-
-        localStorage.setItem( 'Valley.Location', JSON.stringify( locationData ) );
-
-        $(this)
-          .removeClass('js-set-location')
-          .addClass('js-remove-location')
-          .text('Remove as my main location');
-
-        Valley.RemoveMainLocation();
-      });
-    },
-
-    RemoveMainLocation: function() {
-      $('.js-remove-location').on('click', function(e) {
-        e.preventDefault();
-
-        localStorage.removeItem( 'Valley.Location' );
-
-        $(this)
-          .removeClass('js-remove-location')
-          .addClass('js-set-location')
-          .text('Set as my main location');
-
-        Valley.SetMainLocation();
-      });
-    },
-
-    CheckMainLocation: function() {
-      try {
-        var locationData = JSON.parse( localStorage.getItem( 'Valley.Location' ) );
-        var $hiddenlocation = $('input[name="mylocation"]');
-
-        if ( $('.js-set-location').length !== 0 ) {
-          var $this = $('.js-set-location');
-          var id = $this.data('location-id');
-          var name = $this.data('location-name');
-
-          if ( locationData !== null ) {
-            if ( locationData.id === id && locationData.name === name ) {
-              $this
-                .removeClass('js-set-location')
-                .addClass('js-remove-location')
-                .text('Remove as my main location');
-
-              Valley.RemoveMainLocation();
-            }
-          }
-        }
-
-        if ( $hiddenlocation.length !== 0 ) {
-          if ( locationData !== null ) {
-            $hiddenlocation.val(locationData.id);
-            // $('form[name="events-search"]').submit();
-          }
-        }
-      }
-      catch( e ) { console.log("Error: " + e.message); }
-    },
-
   };
 }());
 
@@ -360,8 +258,4 @@ $(function() {
 
 $(window).resize(function() {
   debounce(Valley.CheckSideNav(), 250);
-});
-
-$(window).scroll(function() {
-  debounce(Valley.CheckHeaderPosition(), 500);
 });

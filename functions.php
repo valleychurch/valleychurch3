@@ -4,7 +4,7 @@
  * Configs
  */
 
-define( 'VC_THEME_VERSION', '3.5.3' );
+define( 'VC_THEME_VERSION', '3.6.0' );
 define( 'CS_APP_ACCOUNT', 'valley' );
 define( 'CS_APP_APPLICATION', 'valleychurch-website' );
 define( 'CS_APP_AUTH', 'Dg8lHr5mIg30qcVdN7Je' );
@@ -344,6 +344,7 @@ function theme_files() {
   wp_register_script( 'google-maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyCsaESemSF6YjvYG4Vrz9bDerYZaD3f2i4', null, null, false );
   wp_register_script( 'trackomatic', '//d1lmnvs8gamzin.cloudfront.net/1.1.1/trackomatic.min.js', null, null, false );
   wp_register_script( 'font-awesome', '//use.fontawesome.com/33dd05d2f3.js', null, null, true ); /* Edit at cdn.fontawesome.com */
+  wp_register_script( 'js-cookie', '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', null, null, true );
   wp_register_script( 'jquery', get_template_directory_uri() . '/assets/scripts/dist/jquery.min.js', null, null, true );
 
   if ( !is_user_logged_in() ) {
@@ -358,6 +359,7 @@ function theme_files() {
   }
   wp_enqueue_script( 'trackomatic' );
   wp_enqueue_script( 'font-awesome' );
+  wp_enqueue_script( 'js-cookie' );
   wp_enqueue_script( 'jquery' );
   wp_enqueue_script( 'site' );
 };
