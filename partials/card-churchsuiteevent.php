@@ -41,10 +41,6 @@
         <?php } ?>
       </span>
       <?php } ?>
-
-      <span class="u-hidden" itemprop="description">
-        <?= the_content() ?>
-      </span>
     </div>
   </a>
 </article>
