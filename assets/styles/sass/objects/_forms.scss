@@ -151,7 +151,8 @@ fieldset {
     }
   }
 
-  label {
+  label,
+  .wpcf7-list-item-label {
     @extend %o-label;
     position: relative;
     margin-left: double($VCbase);
@@ -187,7 +188,8 @@ fieldset {
 .o-form-group__checkbox {
   input {
     &:checked {
-      + label {
+      + label,
+      + .wpcf7-list-item-label {
         &:before {
           content: "\f00c";
           font-family: "FontAwesome";
@@ -346,4 +348,10 @@ input[type="search"] {
   .is-today & {
     color: $VCred;
   }
+}
+
+// Contact Form 7 overrides
+span.wpcf7-list-item {
+  display: inline-block;
+  margin: 0 0 0 2rem;
 }
