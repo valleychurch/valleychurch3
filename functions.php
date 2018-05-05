@@ -273,6 +273,8 @@ function create_custom_post_types() {
   register_post_type( 'location', create_custom_post_type_args( 'location', 'Location', 'dashicons-location', false, ['slug' => 'locations', 'with_front' => false], null, true ) );
   register_post_type( 'staff', create_custom_post_type_args( 'staff', 'Team Member', 'dashicons-id-alt', true, null, null, false ) );
   register_post_type( 'notification', create_custom_post_type_args( 'notification', null, 'dashicons-warning', true, null, null, false ) );
+
+  register_post_type( 'bestsummerever', create_custom_post_type_args( 'bestsummerever', 'Best Summer Ever', 'dashicons-palmtree', true, null, null, true ) );
 };
 add_action( 'init', 'create_custom_post_types' );
 
