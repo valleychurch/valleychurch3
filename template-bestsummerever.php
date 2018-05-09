@@ -71,12 +71,18 @@ get_header();
   </section>
 
   <?php
+  $section = get_field('section', false, false);
+  if ($section) {
+    echo $section;
+  }
+  ?>
+
+  <?php
   $cards = get_field('cards');
   $card_class = get_field('card_class');
   $heading = get_field('heading');
   $intro = get_field('introduction');
-
-  if (have_rows('cards')) { ?>
+  ?>
   <section class="c-section u-background-grey--11">
     <div class="o-container">
       <div class="o-row">
@@ -90,9 +96,9 @@ get_header();
           } ?>
         </div>
       </div>
+    <?php if (have_rows('cards')) { ?>
       <div class="o-row">
-      <?php
-      while (have_rows('cards')) {
+      <?php while (have_rows('cards')) {
         the_row(); ?>
 
         <div class="<?= (get_field('card_class')) ? $card_class : "o-col-12@xxs o-col-6@md"; ?>">
@@ -145,12 +151,10 @@ get_header();
           </div>
         </div>
 
-      <?php 
-    } ?>
+      <?php } ?>
       </div>
+      <?php } ?>
     </div>
   </section>
-  <?php 
-} ?>
 
 <?php get_footer(); ?>
