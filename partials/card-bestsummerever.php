@@ -3,10 +3,11 @@ $datetimestart = strtotime( get_field('date_start') );
 $datetimeend = strtotime( get_field('date_end') );
 
 $location = get_field( 'event_location' );
+$link = get_field( 'event_link' );
 ?>
 
 <article <?= post_class() ?> itemscope itemtype="http://schema.org/Event">
-  <div class="o-card o-card--bestsummerever u-text-center" title="<?= get_the_title(); ?>">
+  <a class="o-card o-card--bestsummerever u-text-center" title="<?= get_the_title(); ?>" href="<?= $link ?>" itemprop="url">
     <div class="o-card__body">
       <h2 class="h3 o-card__title" itemprop="name">
         <?php the_title(); ?>
@@ -24,5 +25,5 @@ $location = get_field( 'event_location' );
         ?>
       </h3>
     </div>
-  </div>
+  </a>
 </article>
