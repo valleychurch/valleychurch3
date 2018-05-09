@@ -8,6 +8,12 @@ $link = get_field( 'event_link' );
 
 <article <?= post_class() ?> itemscope itemtype="http://schema.org/Event">
   <a class="o-card o-card--bestsummerever u-text-center" title="<?= get_the_title(); ?>" <?php if ( $link ) { echo "href='" . $link  . "' itemprop='url'"; } ?>>
+    <?php
+    if (has_post_thumbnail()) {
+      set_query_var('class', 'o-card__img');
+      get_template_part('partials/hero', 'slide');
+    }
+    ?>
     <div class="o-card__body">
       <h2 class="h3 o-card__title" itemprop="name">
         <?php the_title(); ?>
