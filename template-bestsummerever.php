@@ -65,6 +65,8 @@ get_header();
           else :
             get_template_part('partials/no-groups-found');
           endif;
+          wp_reset_query();
+          wp_reset_postdata();
           ?>
       </div>
     </div>
