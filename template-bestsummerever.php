@@ -85,7 +85,7 @@ get_header();
   $heading = get_field('heading');
   $intro = get_field('introduction');
   ?>
-  <section class="c-section u-background-grey--11">
+  <section class="c-section">
     <div class="o-container">
       <div class="o-row">
         <div class="o-col-12@xxs o-col-8@sm o-col-7@md o-col-6@lg u-center-block u-text-center">
