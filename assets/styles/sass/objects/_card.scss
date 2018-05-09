@@ -209,52 +209,21 @@ a.o-card {
   }
 }
 
+.o-card--bestsummerever {
+  background-color: transparent;
 
-// .o-card-group {
-//   padding-right: ($VCgrid-gutter / 2);
-//   padding-left: ($VCgrid-gutter / 2);
+  h2, h3 {
+    margin: 0;
+    color: #fff;
+    font-family: Oswald, $VCfont-stack-alt;
+    text-transform: uppercase;
+  }
 
-//   @include breakpoint(md) {
-//     flex-flow: row wrap;
-//     padding-right: 0;
-//     padding-left: 0;
+  h2 {
+    font-weight: 600;
+  }
 
-//     .o-card {
-//       flex: 1 0 (100% / 4);
-//       margin-right: ($VCgrid-gutter / 2);
-//       margin-left: ($VCgrid-gutter / 2);
-//     }
-
-//     .o-card--important {
-//       flex: 1 0 (100% / 2);
-//     }
-//   }
-// }
-
-// .o-card--alt {
-//   @include breakpoint(md) {
-//     margin-right: 0;
-//     margin-left: 0;
-
-//     .o-row {
-//       height: 100%;
-
-//       > div[class^="o-col"] {
-//         display: flex;
-//         height: 100%;
-//       }
-//     }
-
-//     .o-card__img {
-//       position: absolute;
-//       top: 0;
-//       right: 0;
-//       bottom: 0;
-//       left: 0;
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//       object-position: center;
-//     }
-//   }
-// }
+  h3 {
+    font-weight: 300;
+  }
+}
