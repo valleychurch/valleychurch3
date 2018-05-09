@@ -56,7 +56,7 @@ get_header();
           while ($wp_query->have_posts()) :
           $wp_query->the_post(); ?>
 
-            <div class="o-col-12@xxs o-col-4@md">
+            <div class="o-col-12@xxs o-col-6@sm o-col-3@md">
               <?php get_template_part('partials/card', 'bestsummerever'); ?>
             </div>
 
