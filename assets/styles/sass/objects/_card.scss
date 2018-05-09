@@ -218,12 +218,14 @@ a.o-card {
     font-family: Oswald, $VCfont-stack-alt;
     text-transform: uppercase;
   }
-
+  
   h2 {
     font-weight: 600;
+    letter-spacing: 0;
   }
 
   h3 {
     font-weight: 300;
+    letter-spacing: 0.12em;
   }
 }
