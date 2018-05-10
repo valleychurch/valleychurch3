@@ -172,13 +172,6 @@ function save_blurred_image( $image_resource, $original_image_path ) {
  * Add things to WordPress
  */
 
-
-/**
- * Compress jpg images to 82% quality (match WordPress 4.5 default)
- * https://make.wordpress.org/core/2016/03/12/performance-improvements-for-images-in-wordpress-4-5/
- */
-add_filter( 'jpeg_quality', create_function( '', 'return 82;' ) );
-
 /**
  * Add post thumbnails and custom image sizes
  */
