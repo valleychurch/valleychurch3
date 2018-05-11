@@ -292,6 +292,12 @@ function my_rest_prepare_podcast($data, $post, $request) {
   if (!empty($powerpress_data['feed_title'])) {
     $_data['powerpress_title'] = $powerpress_data['feed_title'];
   }
+  if (!empty($powerpress_data['size'])) {
+    $_data['powerpress_size'] = $powerpress_data['size'];
+  }
+  if (!empty($powerpress_data['duration_mm'] && !empty($powerpress_data['duration_ss']))) {
+    $_data['powerpress_duration'] = $powerpress_data['duration_mm'] . ':' . $powerpress_data['duration_ss'];
+  }
 
   $data->data = $_data;
   return $data;
