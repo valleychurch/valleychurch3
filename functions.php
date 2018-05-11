@@ -295,7 +295,7 @@ function my_rest_prepare_podcast($data, $post, $request) {
   if (!empty($powerpress_data['size'])) {
     $_data['powerpress_size'] = $powerpress_data['size'];
   }
-  if (!empty($powerpress_data['durationm'])) {
+  if (!empty($powerpress_data['duration'])) {
     $_data['powerpress_duration'] = $powerpress_data['duration'];
   }
 
