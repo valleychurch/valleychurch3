@@ -929,7 +929,7 @@ function import_churchsuite_groups() {
   $email = "Request URL: " . CS_GROUPS_URL . "<br/><br/>";
 
   foreach( $groups as $group ) {
-    // if ( $group->signup_enabled == "1" ) {
+    if ( $group->signup_enabled == "1" ) {
       //Check against currently added groups
       $wp_group = new WP_Query(
         array(
@@ -1127,7 +1127,7 @@ function import_churchsuite_groups() {
           $email .= "No need to update " . $group->name . " <a href='" . get_edit_post_link( $post_id ) . "'>(ID: " . $post_id . ")</a><br/>";
         }
       }
-    // }
+    }
   }
 
   if ( !empty( $email ) ) {
