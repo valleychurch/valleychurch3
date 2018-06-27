@@ -1,2 +1,2 @@
 # Valley Church WordPress theme
-## Version 3.6.2
+## Decomissioned as of 27/06/2018
